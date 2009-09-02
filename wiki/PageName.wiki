@@ -2,4 +2,4 @@
 
 = Introdução=
 
-Esta é a Wiki do projeto de Programação Modular. Aqui poderemos postar qualquer tipo de conteúdo relativos aos trabalhos.
+Esta é a Wiki do projeto de Programação Modular. Aqui poderemos postar qualquer tipo de conteúdo relativo aos trabalhos.
