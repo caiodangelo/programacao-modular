@@ -6,7 +6,7 @@ Esta é a Wiki do projeto de Programação Modular. Aqui poderemos postar qualqu
 
 = Timesheets=
 
-[Eduardo]http://code.google.com/p/programacao-modular/wiki/Timesheet_Eduardo
+[http://code.google.com/p/programacao-modular/wiki/Timesheet_Eduardo Eduardo]
 
 [Caio]http://code.google.com/p/programacao-modular/wiki/Timesheet_Caio
 
