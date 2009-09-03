@@ -13,9 +13,12 @@
 *  Projeto: Disciplinas INF 1628 / 1301
 *  Gestor:  DI/PUC-Rio
 *  Autores: avs - Arndt von Staa
+*			cev - Caio D'Angelo, Eduardo Velloso e Vitor Barbarisi
 *
 *  $HA Histórico de evolução:
 *     Versão  Autor    Data     Observações
+*       4.00   cev   10/09/2009 Extensão para múltiplas árvores n-árias
+*                               e adição de novas funções.
 *       3.00   avs   28/02/2003 Uniformização da interface das funções e
 *                               de todas as condições de retorno.
 *       2.00   avs   03/08/2002 Eliminação de código duplicado, reestruturação
@@ -23,12 +26,11 @@
 *
 *  $ED Descrição do módulo
 *     Este módulo implementa um conjunto simples de funções para criar e
-*     explorar árvores binárias.
-*     A árvore possui uma cabeça que contém uma referência para a raíz da
+*     explorar árvores n-árias.
+*     As árvores possuem uma cabeça que contém uma referência para a raíz da
 *     árvore e outra para um nó corrente da árvore.
-*     A cada momento o módulo admite no máximo uma única árvore.
 *     Ao iniciar a execução do programa não existe árvore.
-*     A árvore poderá estar vazia. Neste caso a raiz e o nó corrente
+*     Uma árvore poderá estar vazia. Neste caso a raiz e o nó corrente
 *     serão nulos, embora a cabeça esteja definida.
 *     O nó corrente será nulo se e somente se a árvore estiver vazia.
 *
@@ -72,13 +74,35 @@
                /* Nó corrente é raiz */
 
          ARV_CondRetNaoPossuiFilho = 7 ,
-               /* Nó corrente não possui filho na direção desejada */
+               /* Nó corrente não possui filho */
 
          ARV_CondRetFaltouMemoria = 8
                /* Faltou memória ao alocar dados */
 
+		 ARV_CondRetNaoPossuiIrmao = 9
+			   /* Nó corrente não possui irmão */
+
    } ARV_tpCondRet ;
 
+/***********************************************************************
+*
+*  $TC Tipo de dados: ARV Modos de Visita
+*
+*
+***********************************************************************/
+
+   typedef enum {
+
+         ARV_ModoDePai = 0 ,
+               /* Modo de Pai */
+
+         ARV_ModoParaEsq = 1 ,
+               /* Modo para Esquerda */
+
+         ARV_ModoParaDir = 2 ,
+               /* Modo para Direita */
+
+   } ARV_tpModoVisita ;
 
 /***********************************************************************
 *
@@ -86,7 +110,9 @@
 *
 *  $ED Descrição da função
 *     Cria uma nova árvore vazia.
-*     Caso já exista uma árvore, esta será destruída.
+*
+*  $EP Parâmetros
+*     $P pArvore - ponteiro para a árvore a ser criada.
 *
 *  $FV Valor retornado
 *     ARV_CondRetOK
@@ -94,61 +120,48 @@
 *
 ***********************************************************************/
 
-   ARV_tpCondRet ARV_CriarArvore( void ) ;
+   ARV_tpCondRet ARV_CriarArvore( ARV_tpArvore * pArvore ) ;
 
 
 /***********************************************************************
 *
 *  $FC Função: ARV Destruir árvore
 *
+*  $EP Parâmetros
+*     $P pArvore - ponteiro para a árvore a ser destruída.
+*
 *  $ED Descrição da função
-*     Destrói o corpo e a cabeça da árvore, anulando a árvore corrente.
-*     Faz nada caso a árvore corrente não exista.
+*     Destrói o corpo e a cabeça da árvore, anulando a árvore passada.
 *
 ***********************************************************************/
 
-   void ARV_DestruirArvore( void ) ;
+   void ARV_DestruirArvore( ARV_tpArvore * pArvore ) ;
 
 
 /***********************************************************************
 *
-*  $FC Função: ARV Adicionar filho à esquerda
+*  $FC Função: ARV Adicionar filho
 *
 *  $EP Parâmetros
 *     $P ValorParm - valor a ser inserido no novo nó.
+*     $P pArvore - ponteiro para a árvore em que o filho será inserido
 *
 *  $FV Valor retornado
 *     ARV_CondRetOK
 *     ARV_CondRetErroEstrutura
 *     ARV_CondRetFaltouMemoria
-*     ARV_CondRetNaoEhFolha     - caso não seja folha para a esquerda
 *
 ***********************************************************************/
 
-   ARV_tpCondRet ARV_InserirEsquerda( char ValorParm ) ;
-
-
-/***********************************************************************
-*
-*  $FC Função: ARV Adicionar filho à direita
-*
-*  $EP Parâmetros
-*     $P ValorParm - valor a ser inserido no novo nó
-*
-*  $FV Valor retornado
-*     ARV_CondRetOK
-*     ARV_CondRetErroEstrutura
-*     ARV_CondRetFaltouMemoria
-*     ARV_CondRetNaoEhFolha     - caso não seja folha para a direita
-*
-***********************************************************************/
-
-   ARV_tpCondRet ARV_InserirDireita( char ValorParm ) ;
+   ARV_tpCondRet ARV_InserirFilho( ARV_tpArvore * pArvore, char ValorParm ) ;
 
 
 /***********************************************************************
 *
 *  $FC Função: ARV Ir para nó pai
+*
+*  $EP Parâmetros
+*     $P pArvore - ponteiro para a árvore.
 *
 *  $FV Valor retornado
 *     ARV_CondRetOK
@@ -158,37 +171,43 @@
 *
 ***********************************************************************/
 
-   ARV_tpCondRet ARV_IrPai( void ) ;
+   ARV_tpCondRet ARV_IrPai( ARV_tpArvore * pArvore ) ;
 
 
 /***********************************************************************
 *
-*  $FC Função: ARV Ir para nó à esquerda
+*  $FC Função: ARV Ir para nó Filho
+*
+*  $EP Parâmetros
+*     $P pArvore - ponteiro para a árvore.
 *
 *  $FV Valor retornado
 *     ARV_CondRetOK
 *     ARV_CondRetArvoreNaoExiste
 *     ARV_CondRetArvoreVazia
-*     ARV_CondRetNaoPossuiFilho   - nó corrente não possui filho à esquerda
+*     ARV_CondRetNaoPossuiFilho   - nó corrente não possui filho
 *
 ***********************************************************************/
 
-   ARV_tpCondRet ARV_IrNoEsquerda( void ) ;
+   ARV_tpCondRet ARV_IrNoFilho( ARV_tpArvore * pArvore ) ;
 
 
 /***********************************************************************
 *
-*  $FC Função: ARV Ir para nó à direita
+*  $FC Função: ARV Ir para nó Irmão
+*
+*  $EP Parâmetros
+*     $P pArvore - ponteiro para a árvore.
 *
 *  $FV Valor retornado
 *     ARV_CondRetOK
 *     ARV_CondRetArvoreNaoExiste
 *     ARV_CondRetArvoreVazia
-*     ARV_CondRetNaoPossuiFilho   - nó corrente não possui filho à direita
+*     ARV_CondRetNaoPossuiIrmao  - nó corrente não possui irmão
 *
 ***********************************************************************/
 
-   ARV_tpCondRet ARV_IrNoDireita( void ) ;
+   ARV_tpCondRet ARV_IrNoIrmao( ARV_tpArvore * pArvore ) ;
 
 
 /***********************************************************************
@@ -196,6 +215,7 @@
 *  $FC Função: ARV Obter valor corrente
 *
 *  $EP Parâmetros
+*     $P pArvore - ponteiro para a árvore.
 *     $P ValorParm - é o parâmetro que receberá o valor contido no nó.
 *                    Este parâmetro é passado por referência.
 *
@@ -206,7 +226,21 @@
 *
 ***********************************************************************/
 
-   ARV_tpCondRet ARV_ObterValorCorr( char * ValorParm ) ;
+   ARV_tpCondRet ARV_ObterValorCorr( ARV_tpArvore * pArvore, char * ValorParm ) ;
+
+/***********************************************************************
+*
+*  $FC Função: ARV Exibir árvore
+*
+*  $EP Parâmetros
+*     $P pArvore - ponteiro para a árvore a ser exibida.
+*
+*  $ED Descrição da função
+*     Imprime os nós da árvore em ordem prefixada pela esquerda.
+*
+***********************************************************************/
+
+   void ARV_ExibirArvore( ARV_tpArvore * pArvore ) ;
 
 #undef ARVORE_EXT
 
