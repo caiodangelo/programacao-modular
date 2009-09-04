@@ -54,6 +54,8 @@
 
 #include    "arvore.h"
 
+tpArvore * pArvore  NULL;
+
 /* Tabela dos nomes dos comandos de teste específicos */
 
 #define     CRIAR_ARV_CMD       "=criar"
@@ -111,7 +113,7 @@
                return TST_CondRetParm ;
             } /* if */
 
-            CondRetObtido = ARV_CriarArvore( ) ;
+            CondRetObtido = ARV_CriarArvore( pArvore ) ;
 
             return TST_CompararInt( CondRetEsperada , CondRetObtido ,
                                     "Retorno errado ao criar árvore." );
@@ -120,7 +122,7 @@
 
       /* Testar ARV Adicionar filho à direita */
 
-         else if ( strcmp( ComandoTeste , INS_DIR_CMD ) == 0 )
+         /*else if ( strcmp( ComandoTeste , INS_DIR_CMD ) == 0 )
          {
 
             NumLidos = LER_LerParametros( "ci" ,
@@ -130,14 +132,14 @@
                return TST_CondRetParm ;
             } /* if */
 
-            CondRetObtido = ARV_InserirDireita( ValorDado ) ;
+            /*CondRetObtido = ARV_InserirDireita( ValorDado ) ;
 
             return TST_CompararInt( CondRetEsperada , CondRetObtido ,
                                     "Retorno errado inserir àa direita." );
 
          } /* fim ativa: Testar ARV Adicionar filho à direita */
 
-      /* Testar ARV Adicionar filho à esquerda */
+      /* Testar ARV Adicionar filho */
 
          else if ( strcmp( ComandoTeste , INS_ESQ_CMD ) == 0 )
          {
@@ -149,7 +151,7 @@
                return TST_CondRetParm ;
             } /* if */
 
-            CondRetObtido = ARV_InserirEsquerda( ValorDado ) ;
+            CondRetObtido = ARV_InserirFilho( pArvore, ValorDado ) ;
 
             return TST_CompararInt( CondRetEsperada , CondRetObtido ,
                                     "Retorno errado ao inserir à esquerda." );
@@ -168,7 +170,7 @@
                return TST_CondRetParm ;
             } /* if */
 
-            CondRetObtido = ARV_IrPai( ) ;
+            CondRetObtido = ARV_IrPai( pArvore ) ;
 
             return TST_CompararInt( CondRetEsperada , CondRetObtido ,
                                     "Retorno errado ao ir para pai." );
@@ -187,14 +189,14 @@
                return TST_CondRetParm ;
             } /* if */
 
-            CondRetObtido = ARV_IrNoEsquerda( ) ;
+            CondRetObtido = ARV_IrNoFilho( pArvore ) ;
 
             return TST_CompararInt( CondRetEsperada , CondRetObtido ,
                                     "Retorno errado ao ir para esquerda." );
 
          } /* fim ativa: Testar ARV Ir para nó à esquerda */
 
-      /* Testar ARV Ir para nó à direita */
+      /* Testar ARV Ir para nó irmão */
 
          else if ( strcmp( ComandoTeste , IR_DIR_CMD ) == 0 )
          {
@@ -206,12 +208,12 @@
                return TST_CondRetParm ;
             } /* if */
 
-            CondRetObtido = ARV_IrNoDireita( ) ;
+            CondRetObtido = ARV_IrNoIrmao( pArvore ) ;
 
             return TST_CompararInt( CondRetEsperada , CondRetObtido ,
                                     "Retorno errado ao ir para direita." );
 
-         } /* fim ativa: Testar ARV Ir para nó à direita */
+         } /* fim ativa: Testar ARV Ir para nó irmão */
 
       /* Testar ARV Obter valor corrente */
 
@@ -225,7 +227,7 @@
                return TST_CondRetParm ;
             } /* if */
 
-            CondRetObtido = ARV_ObterValorCorr( &ValorObtido ) ;
+            CondRetObtido = ARV_ObterValorCorr( pArvore, &ValorObtido ) ;
 
             Ret = TST_CompararInt( CondRetEsperada , CondRetObtido ,
                                    "Retorno errado ao obter valor corrente." );
@@ -245,7 +247,7 @@
          else if ( strcmp( ComandoTeste , DESTROI_CMD ) == 0 )
          {
 
-            ARV_DestruirArvore( ) ;
+            ARV_DestruirArvore( pArvore ) ;
 
             return TST_CondRetOK ;
 

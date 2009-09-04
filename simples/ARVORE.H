@@ -76,10 +76,10 @@
          ARV_CondRetNaoPossuiFilho = 7 ,
                /* Nó corrente não possui filho */
 
-         ARV_CondRetFaltouMemoria = 8
+         ARV_CondRetFaltouMemoria = 8 ,
                /* Faltou memória ao alocar dados */
 
-		 ARV_CondRetNaoPossuiIrmao = 9
+		 ARV_CondRetNaoPossuiIrmao = 9 ,
 			   /* Nó corrente não possui irmão */
 
    } ARV_tpCondRet ;
@@ -106,6 +106,21 @@
 
 /***********************************************************************
 *
+*  $TC Tipo de dados: ARV Descritor da cabeça de uma árvore
+*
+*
+*  $ED Descrição do tipo
+*     A cabe‡a da árvore é o ponto de acesso para uma determinada árvore.
+*     Por intermédio da referência para o nó corrente e do ponteiro
+*     pai pode-se navegar a árvore sem necessitar de uma pilha.
+*     Pode-se, inclusive, operar com a árvore em forma de co-rotina.
+*
+***********************************************************************/
+
+	typedef struct tgArvore tpArvore ;
+
+/***********************************************************************
+*
 *  $FC Função: ARV Criar árvore
 *
 *  $ED Descrição da função
@@ -120,7 +135,7 @@
 *
 ***********************************************************************/
 
-   ARV_tpCondRet ARV_CriarArvore( ARV_tpArvore * pArvore ) ;
+   ARV_tpCondRet ARV_CriarArvore(tpArvore * pArvore) ;
 
 
 /***********************************************************************
@@ -135,7 +150,7 @@
 *
 ***********************************************************************/
 
-   void ARV_DestruirArvore( ARV_tpArvore * pArvore ) ;
+   void ARV_DestruirArvore(tpArvore * pArvore) ;
 
 
 /***********************************************************************
@@ -153,7 +168,7 @@
 *
 ***********************************************************************/
 
-   ARV_tpCondRet ARV_InserirFilho( ARV_tpArvore * pArvore, char ValorParm ) ;
+   ARV_tpCondRet ARV_InserirFilho(tpArvore * pArvore, char ValorParm) ;
 
 
 /***********************************************************************
@@ -171,7 +186,7 @@
 *
 ***********************************************************************/
 
-   ARV_tpCondRet ARV_IrPai( ARV_tpArvore * pArvore ) ;
+   ARV_tpCondRet ARV_IrPai(tpArvore * pArvore) ;
 
 
 /***********************************************************************
@@ -189,7 +204,7 @@
 *
 ***********************************************************************/
 
-   ARV_tpCondRet ARV_IrNoFilho( ARV_tpArvore * pArvore ) ;
+   ARV_tpCondRet ARV_IrNoFilho(tpArvore * pArvore) ;
 
 
 /***********************************************************************
@@ -207,7 +222,7 @@
 *
 ***********************************************************************/
 
-   ARV_tpCondRet ARV_IrNoIrmao( ARV_tpArvore * pArvore ) ;
+   ARV_tpCondRet ARV_IrNoIrmao(tpArvore * pArvore) ;
 
 
 /***********************************************************************
@@ -226,7 +241,7 @@
 *
 ***********************************************************************/
 
-   ARV_tpCondRet ARV_ObterValorCorr( ARV_tpArvore * pArvore, char * ValorParm ) ;
+   ARV_tpCondRet ARV_ObterValorCorr(tpArvore * pArvore, char * ValorParm) ;
 
 /***********************************************************************
 *
@@ -240,7 +255,7 @@
 *
 ***********************************************************************/
 
-   void ARV_ExibirArvore( ARV_tpArvore * pArvore ) ;
+   void ARV_ExibirArvore(tpArvore * pArvore) ;
 
 #undef ARVORE_EXT
 
