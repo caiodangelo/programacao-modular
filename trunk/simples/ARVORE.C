@@ -102,7 +102,9 @@
 
    static void DestroiArvore( tpNoArvore * pNo ) ;
 
-   static ARV_tpCondRet MarcarVisitado ( ARV_tpArvore * pArvore, ARV_tpModoVisita Modo ) ;
+   static ARV_tpCondRet MarcarVisitado ( tpArvore * pArvore, ARV_tpModoVisita Modo ) ;
+
+   static void ExibeArvore( tpNoArvore * pNo ) ;
 
 /*****  Código das funções exportadas pelo módulo  *****/
 
@@ -163,11 +165,11 @@
       ARV_tpCondRet CondRet ;
 
       tpNoArvore * pCorr ;/* Nó corrente */
-      tpNoArvore * pNo ;/* Nó filho */
+      tpNoArvore * pNo = NULL;/* Nó filho */
 
       /* Tratar vazio */
 
-         CondRet = CriarNoRaiz( ValorParm ) ;
+         CondRet = CriarNoRaiz( pArvore, ValorParm ) ;
          if ( CondRet != ARV_CondRetNaoCriouRaiz )
          {
             return CondRet ;
@@ -376,7 +378,7 @@
 
       if ( pArvore == NULL )
       {
-         CondRet = ARV_CriarArvore( ) ;
+         CondRet = ARV_CriarArvore( pArvore ) ;
 
          if ( CondRet != ARV_CondRetOK )
          {
@@ -461,30 +463,47 @@
 *
 ***********************************************************************/
 
-	void ARV_ExibirArvore( tpArvore * pArvore )
+	ARV_tpCondRet ARV_ExibirArvore( tpArvore * pArvore )
 	{
 		tpNoArvore * pCorr ;
-		pCorr = pArvore->pNoRaiz;
+		pCorr = pArvore->pNoRaiz ;
+	
+		if ( pArvore == NULL )
+		{
+			return ARV_CondRetArvoreNaoExiste ;
+		} /* if */
+		if ( pArvore->pNoCorr == NULL )
+		{
+			return ARV_CondRetArvoreVazia ;
+		} /* if */
+		
+		ExibeArvore( pCorr ) ; 
+
+		return ARV_CondRetOK;
+
 	} /* Fim função: ARV Exibir Árvore */
-	/***********************************************************************
+/***********************************************************************
 *
 *  $FC Função: ARV Exibir Árvore Auxiliar
 *
 *
 ***********************************************************************/
 
-	void ExibirArvore( tpArvore * pArvore )
+	void ExibeArvore( tpNoArvore * pNo )
 	{
-		if(pCorr->Modo == ARV_ModoDePai)
+		printf(" %c", pNo->Valor) ;
+		if ( pNo->pNoEsq != NULL )
 		{
-			if(pCorr->pEsq != NULL)
-			{
-				printf("%c",pCorr->Valor);
-				pCorr->Modo = ARV_ModoParaEsq;
-				pCorr = pCorr->pEsq;
-				ARV_ExibirArvore( pArvore );
-			}/* if */
-		}/* if */
+			printf(" (") ; /* entrou no primeiro filho da lista de irmãos */
+			ExibeArvore( pNo->pNoEsq ) ;
+			printf(" )") ; /* saiu da lista de irmãos */
+		} 
+
+		while ( pNo->pNoDir != NULL )
+		{
+			ExibeArvore( pNo->pNoDir ) ;			
+		} /* while */
+
 	} /* Fim função: ARV Exibir Árvore */
 /********** Fim do módulo de implementação: Módulo árvore **********/
 

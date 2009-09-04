@@ -255,7 +255,7 @@
 *
 ***********************************************************************/
 
-   void ARV_ExibirArvore(tpArvore * pArvore) ;
+   ARV_tpCondRet ARV_ExibirArvore(tpArvore * pArvore) ;
 
 #undef ARVORE_EXT
 
