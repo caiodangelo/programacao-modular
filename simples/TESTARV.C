@@ -54,8 +54,6 @@
 
 #include    "arvore.h"
 
-tpArvore * pArvore  NULL;
-
 /* Tabela dos nomes dos comandos de teste específicos */
 
 #define     CRIAR_ARV_CMD       "=criar"
@@ -69,6 +67,7 @@ tpArvore * pArvore  NULL;
 
 /*****  Código das funções exportadas pelo módulo  *****/
 
+tpArvore * pArvore = NULL;
 
 /***********************************************************************
 *
@@ -114,6 +113,9 @@ tpArvore * pArvore  NULL;
             } /* if */
 
             CondRetObtido = ARV_CriarArvore( pArvore ) ;
+
+			printf("Endereco: %d \n",&pArvore);
+			printf("Conteudo: %d \n",pArvore);
 
             return TST_CompararInt( CondRetEsperada , CondRetObtido ,
                                     "Retorno errado ao criar árvore." );
