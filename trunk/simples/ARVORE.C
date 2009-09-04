@@ -92,14 +92,13 @@
                /* Ponteiro para o nó corrente da árvore */
 
    } tpArvore ;
-
 /*****  Dados encapsulados no módulo  *****/
 
 /***** Protótipos das funções encapsuladas no módulo *****/
 
    static tpNoArvore * CriarNo( char ValorParm ) ;
 
-   static ARV_tpCondRet CriarNoRaiz( char ValorParm ) ;
+   static ARV_tpCondRet CriarNoRaiz( tpArvore * pArvore, char ValorParm ) ;
 
    static void DestroiArvore( tpNoArvore * pNo ) ;
 
@@ -112,7 +111,7 @@
 *  Função: ARV Criar árvore
 *  ****/
 
-   ARV_tpCondRet ARV_CriarArvore( ARV_tpArvore * pArvore )
+   ARV_tpCondRet ARV_CriarArvore( tpArvore * pArvore )
    {
 
       if ( pArvore != NULL )
@@ -138,7 +137,7 @@
 *  Função: ARV Destruir árvore
 *  ****/
 
-   void ARV_DestruirArvore( ARV_tpArvore * pArvore )
+   void ARV_DestruirArvore( tpArvore * pArvore )
    {
 
       if ( pArvore != NULL )
@@ -158,7 +157,7 @@
 *  Função: ARV Adicionar filho 
 *  ****/
 
-   ARV_tpCondRet ARV_InserirFilho( ARV_tpArvore * pArvore, char ValorParm )
+   ARV_tpCondRet ARV_InserirFilho( tpArvore * pArvore, char ValorParm )
    {
 
       ARV_tpCondRet CondRet ;
@@ -222,7 +221,7 @@
 *  Função: ARV Ir para nó pai
 *  ****/
 
-   ARV_tpCondRet ARV_IrPai( ARV_tpArvore * pArvore )
+   ARV_tpCondRet ARV_IrPai( tpArvore * pArvore )
    {
 
       if ( pArvore == NULL )
@@ -249,7 +248,7 @@
 *  Função: ARV Ir para nó Filho
 *  ****/
 
-   ARV_tpCondRet ARV_IrNoFilho( ARV_tpArvore * pArvore )
+   ARV_tpCondRet ARV_IrNoFilho( tpArvore * pArvore )
    {
 
       if ( pArvore == NULL )
@@ -277,7 +276,7 @@
 *  Função: ARV Ir para irmão
 *  ****/
 
-   ARV_tpCondRet ARV_IrNoIrmao( ARV_tpArvore * pArvore )
+   ARV_tpCondRet ARV_IrNoIrmao( tpArvore * pArvore )
    {
 
       if ( pArvore == NULL )
@@ -305,7 +304,7 @@
 *  Função: ARV Obter valor corrente
 *  ****/
 
-   ARV_tpCondRet ARV_ObterValorCorr( ARV_tpArvore * pArvore, char * ValorParm )
+   ARV_tpCondRet ARV_ObterValorCorr( tpArvore * pArvore, char * ValorParm )
    {
 
       if ( pArvore == NULL )
@@ -369,7 +368,7 @@
 *
 ***********************************************************************/
 
-   ARV_tpCondRet CriarNoRaiz( ARV_tpArvore * pArvore, char ValorParm )
+   ARV_tpCondRet CriarNoRaiz( tpArvore * pArvore, char ValorParm )
    {
 
       ARV_tpCondRet CondRet ;
@@ -436,7 +435,7 @@
 *
 ***********************************************************************/
 
-   ARV_tpCondRet MarcarVisitado( ARV_tpArvore * pArvore, ARV_tpModoVisita Modo )
+   ARV_tpCondRet MarcarVisitado( tpArvore * pArvore, ARV_tpModoVisita Modo )
    {
 
       if ( pArvore == NULL )
@@ -449,7 +448,7 @@
 	  }
 	  else
 	  {
-		  pArvore->pNoCorr->Modo = Modo;
+		  (pArvore->pNoCorr)->Modo = Modo;
 		  return ARV_CondRetOK;
 	  }
 
@@ -462,7 +461,7 @@
 *
 ***********************************************************************/
 
-	void ARV_ExibirArvore( ARV_tpArvore * pArvore )
+	void ARV_ExibirArvore( tpArvore * pArvore )
 	{
 		tpNoArvore * pCorr ;
 		pCorr = pArvore->pNoRaiz;
@@ -474,7 +473,7 @@
 *
 ***********************************************************************/
 
-	void ExibirArvore( ARV_tpArvore * pArvore )
+	void ExibirArvore( tpArvore * pArvore )
 	{
 		if(pCorr->Modo == ARV_ModoDePai)
 		{
