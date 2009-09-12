@@ -1,9 +1,9 @@
 #summary A seguir se encontram as horas trabalhadas por Eduardo Furtado de Mendonça Monçores Velloso
 
 Possíveis tarefas
-* estudar
-* especificar os módulos
-* especificar as funções
+ * estudar
+ * especificar os módulos
+ * especificar as funções
 * revisar especificações
 * projetar
 * revisar projetos
