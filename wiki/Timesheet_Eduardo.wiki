@@ -1,3 +1,26 @@
 #summary A seguir se encontram as horas trabalhadas por Eduardo Furtado de Mendonça Monçores Velloso
+projeto
 
-03/09/2009 - 2:00 - Criação da página do projeto
+Possíveis tarefas
+estudar
+especificar os módulos
+especificar as funções
+revisar especificações
+projetar
+revisar projetos
+codificar módulo
+revisar código do módulo
+redigir script de teste
+revisar script de teste
+realizar os testes
+diagnosticar e corrigir os problemas encontrados
+
+Data	        Horas  	Tipo de Tarefa	        Descrição da Tarefa
+24/08/2009	01:00	Estudar	                Analisar a especificação do trabalho e gerar um relatório de possíveis soluções
+26/08/2009	02:00	Especificar Módulo	Reunião com o grupo todo para separação das tarefas
+28/08/2009	02:00	Codificar Módulo	Várias árvores e marcar visitado
+31/08/2009	02:00	Revisar Módulo	        Revisão de codificação do fim de semana
+03/09/2009      02:00   Estudar                 Criação da página do projeto
+12/09/2009      02:00   Revisar código          Revisão do módulo de teste específico
+12/09/2009      02:00   Redigir scripts         Alteração e redação de scripts de teste
+12/09/2009      01:00   Realizar testes         Realização dos testes elaborados
