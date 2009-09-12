@@ -14,7 +14,7 @@ revisar script de teste
 realizar os testes
 diagnosticar e corrigir os problemas encontrados
 
-||*Data*||*Horas*||*Tipo de Tarefa*||*Descrição da Tarefa*||
+|| *Data* ||*Horas*||*Tipo de Tarefa*||*Descrição da Tarefa*||
 ||24/08/2009||01:00||Estudar||Analisar a especificação do trabalho e gerar um relatório de possíveis soluções||
 26/08/2009	02:00	Especificar Módulo	Reunião com o grupo todo para separação das tarefas
 28/08/2009	02:00	Codificar Módulo	Várias árvores e marcar visitado
