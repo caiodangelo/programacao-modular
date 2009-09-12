@@ -1,18 +1,18 @@
 #summary A seguir se encontram as horas trabalhadas por Eduardo Furtado de Mendonça Monçores Velloso
 
-Possíveis tarefas
+Possíveis tarefas:
  * estudar
  * especificar os módulos
  * especificar as funções
-* revisar especificações
-* projetar
-* revisar projetos
-* codificar módulo
-* revisar código do módulo
-* redigir script de teste
-* revisar script de teste
-* realizar os testes
-* diagnosticar e corrigir os problemas encontrados
+ * revisar especificações
+ * projetar
+ * revisar projetos
+ * codificar módulo
+ * revisar código do módulo
+ * redigir script de teste
+ * revisar script de teste
+ * realizar os testes
+ * diagnosticar e corrigir os problemas encontrados
 
 || *Data* || *Horas* || *Tipo de Tarefa* || *Descrição da Tarefa* ||
 ||24/08/2009||01:00||Estudar||Analisar a especificação do trabalho e gerar um relatório de possíveis soluções||
