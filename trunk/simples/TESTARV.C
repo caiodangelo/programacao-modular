@@ -247,8 +247,6 @@
 
             ARV_DestruirArvore( &vtpArvore[ixArvore] ) ;
 
-			//exit(0);
-
             return TST_CondRetOK ;
 
          } /* fim ativa: Testar ARV Destruir árvore */
@@ -264,6 +262,7 @@
                return TST_CondRetParm ;
             } /* if */
 
+			printf("\nExibindo a árvore %d\n", ixArvore);
             ARV_ExibirArvore( vtpArvore[ixArvore] ) ;
 
             return TST_CondRetOK ;
