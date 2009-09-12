@@ -110,7 +110,7 @@
 *
 *
 *  $ED Descrição do tipo
-*     A cabe‡a da árvore é o ponto de acesso para uma determinada árvore.
+*     A cabeça da árvore é o ponto de acesso para uma determinada árvore.
 *     Por intermédio da referência para o nó corrente e do ponteiro
 *     pai pode-se navegar a árvore sem necessitar de uma pilha.
 *     Pode-se, inclusive, operar com a árvore em forma de co-rotina.
@@ -127,7 +127,7 @@
 *     Cria uma nova árvore vazia.
 *
 *  $EP Parâmetros
-*     $P pArvore - ponteiro para a árvore a ser criada.
+*     $P ppArvore - endereço do ponteiro que irá referenciar a árvore criada.
 *
 *  $FV Valor retornado
 *     ARV_CondRetOK
@@ -143,10 +143,11 @@
 *  $FC Função: ARV Destruir árvore
 *
 *  $EP Parâmetros
-*     $P pArvore - ponteiro para a árvore a ser destruída.
+*     $P pArvore - endereço do ponteiro para a cabeça da árvore a ser destruída.
 *
 *  $ED Descrição da função
 *     Destrói o corpo e a cabeça da árvore, anulando a árvore passada.
+*	  O ponteiro passado por referência recebe o valor de NULL.
 *
 ***********************************************************************/
 
@@ -159,7 +160,7 @@
 *
 *  $EP Parâmetros
 *     $P ValorParm - valor a ser inserido no novo nó.
-*     $P pArvore - ponteiro para a árvore em que o filho será inserido
+*     $P pArvore - ponteiro para a cabeça da árvore em que o filho será inserido
 *
 *  $FV Valor retornado
 *     ARV_CondRetOK
@@ -176,7 +177,7 @@
 *  $FC Função: ARV Ir para nó pai
 *
 *  $EP Parâmetros
-*     $P pArvore - ponteiro para a árvore.
+*     $P pArvore - ponteiro para a cabeça da árvore.
 *
 *  $FV Valor retornado
 *     ARV_CondRetOK
@@ -194,7 +195,7 @@
 *  $FC Função: ARV Ir para nó Filho
 *
 *  $EP Parâmetros
-*     $P pArvore - ponteiro para a árvore.
+*     $P pArvore - ponteiro para a cabeça da árvore.
 *
 *  $FV Valor retornado
 *     ARV_CondRetOK
@@ -212,7 +213,7 @@
 *  $FC Função: ARV Ir para nó Irmão
 *
 *  $EP Parâmetros
-*     $P pArvore - ponteiro para a árvore.
+*     $P pArvore - ponteiro para a cabeça da árvore.
 *
 *  $FV Valor retornado
 *     ARV_CondRetOK
@@ -230,7 +231,7 @@
 *  $FC Função: ARV Obter valor corrente
 *
 *  $EP Parâmetros
-*     $P pArvore - ponteiro para a árvore.
+*     $P pArvore - ponteiro para a cabeça da árvore.
 *     $P ValorParm - é o parâmetro que receberá o valor contido no nó.
 *                    Este parâmetro é passado por referência.
 *

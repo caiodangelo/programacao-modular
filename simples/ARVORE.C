@@ -323,7 +323,32 @@
 
    } /* Fim função: ARV Obter valor corrente */
 
+/***********************************************************************
+*
+*  $FC Função: ARV Exibir Árvore
+*
+*
+***********************************************************************/
 
+	ARV_tpCondRet ARV_ExibirArvore( tpArvore * pArvore )
+	{
+		tpNoArvore * pCorr ;
+		pCorr = pArvore->pNoRaiz ;
+	
+		if ( pArvore == NULL )
+		{
+			return ARV_CondRetArvoreNaoExiste ;
+		} /* if */
+		if ( pArvore->pNoCorr == NULL )
+		{
+			return ARV_CondRetArvoreVazia ;
+		} /* if */
+		
+		ExibeArvore( pCorr ) ; 
+		printf("\n");
+		return ARV_CondRetOK;
+
+	} /* Fim função: ARV Exibir Árvore */
 /*****  Código das funções encapsuladas no módulo  *****/
 
 
@@ -456,32 +481,6 @@
 
    } /* Fim função: ARV Marcar Nó */
 
-/***********************************************************************
-*
-*  $FC Função: ARV Exibir Árvore
-*
-*
-***********************************************************************/
-
-	ARV_tpCondRet ARV_ExibirArvore( tpArvore * pArvore )
-	{
-		tpNoArvore * pCorr ;
-		pCorr = pArvore->pNoRaiz ;
-	
-		if ( pArvore == NULL )
-		{
-			return ARV_CondRetArvoreNaoExiste ;
-		} /* if */
-		if ( pArvore->pNoCorr == NULL )
-		{
-			return ARV_CondRetArvoreVazia ;
-		} /* if */
-		
-		ExibeArvore( pCorr ) ; 
-
-		return ARV_CondRetOK;
-
-	} /* Fim função: ARV Exibir Árvore */
 /***********************************************************************
 *
 *  $FC Função: ARV Exibir Árvore Auxiliar
