@@ -7,36 +7,97 @@
 //            Este script é muito superficial !!!
 //
 
-== Verificar assertivas de entrada de irdir
-=irdir      4
+== Verificar assertivas de entrada de irfilho
+=irfilho	0      4
 
 == Verificar comando recuperar
-=irdir      0
-=recuperar
+=irirmao	0      0
+=recuperar	0
 
 == Verificar ObterValorCorr relativo a árvore inexistente
 // O interpretador de teste inicializa o valor a ser obtido com '!'. Consequentemente,
 // esse será o valor "obtido" caso a função ObterValor retorne condição de erro,
 // uma vez que, nesse caso, a função não altera o valor a ser "retornado".
-=obter  '!'   4
+=obter	0  '!'   4
 
 == Verificar recuperar de ObterValorCorr relativo a uma árvore inexistente
-=obter  '!'   0
+=obter	0  '!'   0
 =recuperar
-=obter  'z'   4
+=obter	0  'z'   4
 =recuperar
 
 == Criar árvore
-=criar      0   0
+=criar	0      0   0
 
-== Criar árvore
-=criar      0   0
+== Verificar se a arvore criada está vazia
+=irfilho	0      5
+=irirmao	0      5
+=irpai	0      5
+=obter	0      '!'   5
 
-== Criar árvore
-=criar      0   0
+== Inserir Filho
+=insfilho	0     'a'   0
 
-== Criar árvore
-=criar      0   0
+== Verificar se nó inserido é raiz e único
+=irirmao	0      9
+=irfilho	0      7
+=irpai	0      6
 
+== Obter o valor inserido
+=obter	0      'a'   0
 
-// fim
+== Verificar valor obtido diferente do esperado
+=obter	0      '!'   0
+=recuperar
+
+== Inserir Filho
+=insfilho	0     'b'   0
+
+== Verificar se é nó folha
+=irirmao	0      9
+=irfilho	0      7
+
+== Obter o valor inserido
+=obter	0      'b'   0
+
+== Ir para no pai, tem e é a raiz
+=irpai	0      0
+=obter	0      'a'   0
+=irpai	0      6
+
+== Inserir filho no pai
+=insfilho	0     'c'   0
+=obter	0      'c'   0
+
+== Verificar se é nó folha
+=irirmao 	0     9
+=irfilho	0      7
+
+== Ir para no pai, tem e é raiz
+=irpai	0      0
+=obter	0      'a'   0
+=irpai	0      6
+
+== Ir para no pai mais uma vez
+=irpai	0      6
+=obter	0      'a'   0
+
+== Ir para filho tem
+=irfilho	0      0
+=obter	0      'b'   0
+
+== Ir para no irmão tem
+=irirmao	0      0
+=obter	0      'c'   0
+
+== Imprime a arvore atual
+=exibir 0 0
+
+== Destroi a arvore
+=destruir 0	0
+=irirmao	0      4
+
+== Imprime a arvore atual
+=exibir 0 4
+
+//fim

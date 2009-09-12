@@ -135,7 +135,7 @@
 *
 ***********************************************************************/
 
-   ARV_tpCondRet ARV_CriarArvore(tpArvore * pArvore) ;
+   ARV_tpCondRet ARV_CriarArvore(tpArvore ** pArvore) ;
 
 
 /***********************************************************************
@@ -150,7 +150,7 @@
 *
 ***********************************************************************/
 
-   void ARV_DestruirArvore(tpArvore * pArvore) ;
+   void ARV_DestruirArvore(tpArvore ** pArvore) ;
 
 
 /***********************************************************************
@@ -252,6 +252,11 @@
 *
 *  $ED Descrição da função
 *     Imprime os nós da árvore em ordem prefixada pela esquerda.
+*
+*  $FV Valor retornado
+*     ARV_CondRetOK
+*     ARV_CondRetArvoreNaoExiste
+*     ARV_CondRetArvoreVazia
 *
 ***********************************************************************/
 

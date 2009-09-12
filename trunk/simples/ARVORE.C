@@ -113,24 +113,24 @@
 *  Função: ARV Criar árvore
 *  ****/
 
-   ARV_tpCondRet ARV_CriarArvore( tpArvore * pArvore )
+   ARV_tpCondRet ARV_CriarArvore( tpArvore ** ppArvore )
    {
 
-      if ( pArvore != NULL )
+      if ( *ppArvore != NULL )
       {
-         ARV_DestruirArvore( pArvore ) ;
+         ARV_DestruirArvore( ppArvore ) ;
       } /* if */
 
-      pArvore = ( tpArvore * ) malloc( sizeof( tpArvore )) ;
-      if ( pArvore == NULL )
+      *ppArvore = ( tpArvore * ) malloc( sizeof( tpArvore )) ;
+      if ( *ppArvore == NULL )
       {
          return ARV_CondRetFaltouMemoria ;
       } /* if */
 
-      pArvore->pNoRaiz = NULL ;
-      pArvore->pNoCorr = NULL ;
+      (*ppArvore)->pNoRaiz = NULL ;
+      (*ppArvore)->pNoCorr = NULL ;
 
-      return ARV_CondRetOK ;
+	  return ARV_CondRetOK ;
 
    } /* Fim função: ARV Criar árvore */
 
@@ -139,17 +139,17 @@
 *  Função: ARV Destruir árvore
 *  ****/
 
-   void ARV_DestruirArvore( tpArvore * pArvore )
+   void ARV_DestruirArvore( tpArvore ** ppArvore )
    {
 
-      if ( pArvore != NULL )
+      if ( *ppArvore != NULL )
       {
-         if ( pArvore->pNoRaiz != NULL )
+         if ( (*ppArvore)->pNoRaiz != NULL )
          {
-            DestroiArvore( pArvore->pNoRaiz ) ;
+            DestroiArvore( (*ppArvore)->pNoRaiz ) ;
          } /* if */
-         free( pArvore ) ;
-         pArvore = NULL ;
+         free( *ppArvore ) ;
+		 *ppArvore = NULL ;
       } /* if */
 
    } /* Fim função: ARV Destruir árvore */
@@ -378,7 +378,7 @@
 
       if ( pArvore == NULL )
       {
-         CondRet = ARV_CriarArvore( pArvore ) ;
+         CondRet = ARV_CriarArvore( &pArvore ) ;
 
          if ( CondRet != ARV_CondRetOK )
          {
@@ -415,19 +415,19 @@
 
    void DestroiArvore( tpNoArvore * pNo )
    {
-
+	   
       if ( pNo->pNoEsq != NULL )
       {
-         DestroiArvore( pNo->pNoEsq ) ;
+		  DestroiArvore( pNo->pNoEsq ) ;
       } /* if */
-
+	  
       if ( pNo->pNoDir != NULL )
       {
-         DestroiArvore( pNo->pNoDir ) ;
+		  DestroiArvore( pNo->pNoDir ) ;
       } /* if */
-
+	  
       free( pNo ) ;
-
+	  
    } /* Fim função: ARV Destruir a estrutura da árvore */
 
 /***********************************************************************
@@ -497,12 +497,12 @@
 			printf(" (") ; /* entrou no primeiro filho da lista de irmãos */
 			ExibeArvore( pNo->pNoEsq ) ;
 			printf(" )") ; /* saiu da lista de irmãos */
-		} 
+		} /* if */
 
-		while ( pNo->pNoDir != NULL )
+		if ( pNo->pNoDir != NULL )
 		{
 			ExibeArvore( pNo->pNoDir ) ;			
-		} /* while */
+		} /* if */
 
 	} /* Fim função: ARV Exibir Árvore */
 /********** Fim do módulo de implementação: Módulo árvore **********/

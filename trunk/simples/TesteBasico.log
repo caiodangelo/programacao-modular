@@ -11,44 +11,45 @@
 !!!    0  Linha:     6  //            Verifica se as operações modificaram corretamente as referências 
 !!!    0  Linha:     7  //            Este script é muito superficial !!! 
 !!!    0  Linha:     8  // 
-   11  == Verificar assertivas de entrada de irdir
-   14  == Verificar comando recuperar
->>>    1  Linha:    15  Retorno errado ao ir para direita. Deveria ser: 0  É: 4
-<<<    0  Linha:    16  Falha esperada foi recuperada. 
-   18  == Verificar ObterValorCorr relativo a árvore inexistente
-!!!    0  Linha:    19  // O interpretador de teste inicializa o valor a ser obtido com '!'. Consequentemente, 
-!!!    0  Linha:    20  // esse será o valor "obtido" caso a função ObterValor retorne condição de erro, 
-!!!    0  Linha:    21  // uma vez que, nesse caso, a função não altera o valor a ser "retornado". 
-   24  == Verificar recuperar de ObterValorCorr relativo a uma árvore inexistente
->>>    1  Linha:    25  Retorno errado ao obter valor corrente. Deveria ser: 0  É: 4
-<<<    0  Linha:    26  Falha esperada foi recuperada. 
->>>    1  Linha:    27  Conteúdo do nó está errado. Deveria ser: 'z'  É: '!'
-<<<    0  Linha:    28  Falha esperada foi recuperada. 
-   30  == Criar árvore
-   33  == Verificar se a arvore criada está vazia
-   39  == Inserir à direita
-   42  == Verificar se nó inserido é raiz e único
-   47  == Obter o valor inserido
-   50  == Verificar valor obtido diferente do esperado
->>>    1  Linha:    51  Conteúdo do nó está errado. Deveria ser: '!'  É: 'a'
-<<<    0  Linha:    52  Falha esperada foi recuperada. 
-   54  == Inserir à esquerda
-   57  == Verificar se é nó folha
-   61  == Obter o valor inserido
-   64  == Ir para no pai, tem e é a raiz
-   69  == Inserir à direita
-   73  == Verificar se é nó folha
-   77  == Ir para no pai, tem e é raiz
-   82  == Ir para no pai mais uma vez
-   86  == Ir para no esquerda tem
-   90  == Ir para no direita tem
-   95  == Destroi a arvore
-   99  == Cria a arvore
-!!!    0  Linha:   103  // fim 
+   10  == Verificar assertivas de entrada de irfilho
+   13  == Verificar comando recuperar
+>>>    1  Linha:    14  Retorno errado ao ir para direita. Deveria ser: 0  É: 4
+<<<    0  Linha:    15  Falha esperada foi recuperada. 
+   17  == Verificar ObterValorCorr relativo a árvore inexistente
+!!!    0  Linha:    18  // O interpretador de teste inicializa o valor a ser obtido com '!'. Consequentemente, 
+!!!    0  Linha:    19  // esse será o valor "obtido" caso a função ObterValor retorne condição de erro, 
+!!!    0  Linha:    20  // uma vez que, nesse caso, a função não altera o valor a ser "retornado". 
+   23  == Verificar recuperar de ObterValorCorr relativo a uma árvore inexistente
+>>>    1  Linha:    24  Retorno errado ao obter valor corrente. Deveria ser: 0  É: 4
+<<<    0  Linha:    25  Falha esperada foi recuperada. 
+>>>    1  Linha:    26  Conteúdo do nó está errado. Deveria ser: 'z'  É: '!'
+<<<    0  Linha:    27  Falha esperada foi recuperada. 
+   29  == Criar árvore
+   32  == Verificar se a arvore criada está vazia
+   38  == Inserir Filho
+   41  == Verificar se nó inserido é raiz e único
+   46  == Obter o valor inserido
+   49  == Verificar valor obtido diferente do esperado
+>>>    1  Linha:    50  Conteúdo do nó está errado. Deveria ser: '!'  É: 'a'
+<<<    0  Linha:    51  Falha esperada foi recuperada. 
+   53  == Inserir Filho
+   56  == Verificar se é nó folha
+   60  == Obter o valor inserido
+   63  == Ir para no pai, tem e é a raiz
+   68  == Inserir filho no pai
+   72  == Verificar se é nó folha
+   76  == Ir para no pai, tem e é raiz
+   81  == Ir para no pai mais uma vez
+   85  == Ir para filho tem
+   89  == Ir para no irmão tem
+   93  == Imprime a arvore atual
+   96  == Destroi a arvore
+  100  == Imprime a arvore atual
+!!!    0  Linha:   103  //fim 
 
 !!! Número de linhas lidas:         103
-!!! Número de casos de teste:        22
-!!! Número comandos corretos:        37
+!!! Número de casos de teste:        23
+!!! Número comandos corretos:        36
 !!! Número de falhas encontradas:     0
 
 !!! Não foram encontrados problemas
