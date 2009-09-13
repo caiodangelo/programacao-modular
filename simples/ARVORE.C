@@ -398,17 +398,11 @@
    ARV_tpCondRet CriarNoRaiz( tpArvore * pArvore, char ValorParm )
    {
 
-      ARV_tpCondRet CondRet ;
       tpNoArvore * pNo ;
 
       if ( pArvore == NULL )
       {
-         CondRet = ARV_CriarArvore( &pArvore ) ;
-
-         if ( CondRet != ARV_CondRetOK )
-         {
-            return CondRet ;
-         } /* if */
+         return ARV_CondRetArvoreNaoExiste;
       } /* if */
 
       if ( pArvore->pNoRaiz == NULL )

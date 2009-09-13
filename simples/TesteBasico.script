@@ -1,10 +1,10 @@
 // Script:    TesteBasico.script
-// Autor:     Arndt von Staa
+// Autores:     Arndt von Staa, Caio, Eduardo e Vitor
 // Data:      20/fev/2006
 // Propósito: Ilustrar arquivo de script, 
 //            Testa a construção de uma árvore usando parâmetros literais
 //            Verifica se as operações modificaram corretamente as referências
-//            Este script é muito superficial !!!
+//            Testa algumas condições especificadas pelo grupo
 //
 
 == Verificar assertivas de entrada de irfilho
@@ -13,6 +13,9 @@
 == Verificar comando recuperar
 =irirmao	0      0
 =recuperar	0
+
+== tentar ir para o pai de árvore inexistente
+=irpai	0	4
 
 == Verificar ObterValorCorr relativo a árvore inexistente
 // O interpretador de teste inicializa o valor a ser obtido com '!'. Consequentemente,
@@ -99,5 +102,6 @@
 
 == Imprime a arvore atual
 =exibir 0 4
+
 
 //fim
