@@ -16,8 +16,8 @@ Possíveis tarefas:
 
 || *Data* || *Horas* || *Tipo de Tarefa* || *Descrição da Tarefa* ||
 ||26/08/2009||02:00||Especificar Módulo||Reunião com o grupo todo para separação das tarefas||
-||29/08/2009||01:00||Projetar||||
-||30/08/2009||02:00||Revisar Projetos||||
+||29/08/2009||01:00||Projetar||Extensão para várias árvores||
+||30/08/2009||02:00||Revisar Projetos||Extensão para várias árvores||
 ||31/08/2009||02:00||Codificar Módulo||Reunião onde prosseguimos a codificação das alterações necessárias||
 ||03/09/2009||02:00||Revisar Código do Módulo||Detecção e correção de erros no código||
 ||04/09/2009||03:00||Revisar Código do Módulo||Detecção e correção de erros no código e início dos testes||
