@@ -118,12 +118,7 @@
                return TST_CondRetParm ;
             } /* if */
 
-			printf("Conteudo: %d \n",vtpArvore[ixArvore]);
-
             CondRetObtido = ARV_CriarArvore( &vtpArvore[ixArvore] ) ;
-
-
-			printf("Conteudo: %d \n",vtpArvore[ixArvore]);
 
             return TST_CompararInt( CondRetEsperada , CondRetObtido ,
                                     "Retorno errado ao criar árvore." );
@@ -255,17 +250,18 @@
 
          else if ( strcmp( ComandoTeste , EXIBIR_CMD ) == 0 )
          {
-			NumLidos = LER_LerParametros( "i" ,
-                               &ixArvore ) ;
-            if ( NumLidos != 1 )
+			NumLidos = LER_LerParametros( "ii" ,
+                               &ixArvore, &CondRetEsperada ) ;
+            if ( NumLidos != 2 )
             {
                return TST_CondRetParm ;
             } /* if */
 
-			printf("\nExibindo a árvore %d\n", ixArvore);
-            ARV_ExibirArvore( vtpArvore[ixArvore] ) ;
+			printf("\nExibindo a arvore %d\n", ixArvore);
+            CondRetObtido = ARV_ExibirArvore( vtpArvore[ixArvore] ) ;
 
-            return TST_CondRetOK ;
+            return TST_CompararInt( CondRetEsperada , CondRetObtido ,
+                                    "Retorno errado ao exibir arvore" );
 
          } /* fim ativa: Testar ARV Exibir árvore */
 

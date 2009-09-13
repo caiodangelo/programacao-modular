@@ -4,4 +4,6 @@ del estatisticas.estat
 
 exemploSimples      /sTesteBasico        /lTesteBasico        /aestatisticas
 
+exemploSimples      /sTesteAvancado        /lTesteAvancado        /aestatisticas
+
 exbestat /eestatisticas

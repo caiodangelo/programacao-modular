@@ -4,52 +4,53 @@
 !!!      Script de teste:     TesteBasico.script
 
 !!!    0  Linha:     1  // Script:    TesteBasico.script 
-!!!    0  Linha:     2  // Autor:     Arndt von Staa 
+!!!    0  Linha:     2  // Autores:     Arndt von Staa, Caio, Eduardo e Vitor 
 !!!    0  Linha:     3  // Data:      20/fev/2006 
 !!!    0  Linha:     4  // Propósito: Ilustrar arquivo de script, 
 !!!    0  Linha:     5  //            Testa a construção de uma árvore usando parâmetros literais 
 !!!    0  Linha:     6  //            Verifica se as operações modificaram corretamente as referências 
-!!!    0  Linha:     7  //            Este script é muito superficial !!! 
+!!!    0  Linha:     7  //            Testa algumas condições especificadas pelo grupo 
 !!!    0  Linha:     8  // 
    10  == Verificar assertivas de entrada de irfilho
    13  == Verificar comando recuperar
 >>>    1  Linha:    14  Retorno errado ao ir para direita. Deveria ser: 0  É: 4
 <<<    0  Linha:    15  Falha esperada foi recuperada. 
-   17  == Verificar ObterValorCorr relativo a árvore inexistente
-!!!    0  Linha:    18  // O interpretador de teste inicializa o valor a ser obtido com '!'. Consequentemente, 
-!!!    0  Linha:    19  // esse será o valor "obtido" caso a função ObterValor retorne condição de erro, 
-!!!    0  Linha:    20  // uma vez que, nesse caso, a função não altera o valor a ser "retornado". 
-   23  == Verificar recuperar de ObterValorCorr relativo a uma árvore inexistente
->>>    1  Linha:    24  Retorno errado ao obter valor corrente. Deveria ser: 0  É: 4
-<<<    0  Linha:    25  Falha esperada foi recuperada. 
->>>    1  Linha:    26  Conteúdo do nó está errado. Deveria ser: 'z'  É: '!'
-<<<    0  Linha:    27  Falha esperada foi recuperada. 
-   29  == Criar árvore
-   32  == Verificar se a arvore criada está vazia
-   38  == Inserir Filho
-   41  == Verificar se nó inserido é raiz e único
-   46  == Obter o valor inserido
-   49  == Verificar valor obtido diferente do esperado
->>>    1  Linha:    50  Conteúdo do nó está errado. Deveria ser: '!'  É: 'a'
-<<<    0  Linha:    51  Falha esperada foi recuperada. 
-   53  == Inserir Filho
-   56  == Verificar se é nó folha
-   60  == Obter o valor inserido
-   63  == Ir para no pai, tem e é a raiz
-   68  == Inserir filho no pai
-   72  == Verificar se é nó folha
-   76  == Ir para no pai, tem e é raiz
-   81  == Ir para no pai mais uma vez
-   85  == Ir para filho tem
-   89  == Ir para no irmão tem
-   93  == Imprime a arvore atual
-   96  == Destroi a arvore
-  100  == Imprime a arvore atual
-!!!    0  Linha:   103  //fim 
+   17  == tentar ir para o pai de árvore inexistente
+   20  == Verificar ObterValorCorr relativo a árvore inexistente
+!!!    0  Linha:    21  // O interpretador de teste inicializa o valor a ser obtido com '!'. Consequentemente, 
+!!!    0  Linha:    22  // esse será o valor "obtido" caso a função ObterValor retorne condição de erro, 
+!!!    0  Linha:    23  // uma vez que, nesse caso, a função não altera o valor a ser "retornado". 
+   26  == Verificar recuperar de ObterValorCorr relativo a uma árvore inexistente
+>>>    1  Linha:    27  Retorno errado ao obter valor corrente. Deveria ser: 0  É: 4
+<<<    0  Linha:    28  Falha esperada foi recuperada. 
+>>>    1  Linha:    29  Conteúdo do nó está errado. Deveria ser: 'z'  É: '!'
+<<<    0  Linha:    30  Falha esperada foi recuperada. 
+   32  == Criar árvore
+   35  == Verificar se a arvore criada está vazia
+   41  == Inserir Filho
+   44  == Verificar se nó inserido é raiz e único
+   49  == Obter o valor inserido
+   52  == Verificar valor obtido diferente do esperado
+>>>    1  Linha:    53  Conteúdo do nó está errado. Deveria ser: '!'  É: 'a'
+<<<    0  Linha:    54  Falha esperada foi recuperada. 
+   56  == Inserir Filho
+   59  == Verificar se é nó folha
+   63  == Obter o valor inserido
+   66  == Ir para no pai, tem e é a raiz
+   71  == Inserir filho no pai
+   75  == Verificar se é nó folha
+   79  == Ir para no pai, tem e é raiz
+   84  == Ir para no pai mais uma vez
+   88  == Ir para filho tem
+   92  == Ir para no irmão tem
+   96  == Imprime a arvore atual
+   99  == Destroi a arvore
+  103  == Imprime a arvore atual
+!!!    0  Linha:   107  //fim 
 
-!!! Número de linhas lidas:         103
-!!! Número de casos de teste:        23
-!!! Número comandos corretos:        36
+!!! Número de linhas lidas:         107
+!!! Número de casos de teste:        24
+!!! Número comandos corretos:        37
 !!! Número de falhas encontradas:     0
 
 !!! Não foram encontrados problemas
