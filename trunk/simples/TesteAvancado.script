@@ -1,0 +1,260 @@
+// Script:    TesteAvancado.script
+// Autores:     Caio, Eduardo e Vitor
+// Data:      12/09/2009
+// Propósito: Executar testes mais avançados em nosso código, 
+//            Testa criação de várias árvores simultaneamente
+//            Teste alguns erros não testados no teste básico
+
+
+
+== Criar árvore
+=criar	0      0   0
+
+== Inserir Filho
+=insfilho	0     'a'   0
+
+== Obter o valor inserido
+=obter	0      'a'   0
+
+== Inserir Filho
+=insfilho	0     'b'   0
+
+== Obter o valor inserido
+=obter	0      'b'   0
+
+== Ir para no pai, tem e é a raiz
+=irpai	0      0
+=obter	0      'a'   0
+=irpai	0      6
+
+== Inserir filho no pai
+=insfilho	0     'c'   0
+=obter	0      'c'   0
+
+
+== Ir para no pai, tem e é a raiz
+=irpai	0      0
+=obter	0      'a'   0
+=irpai	0      6
+
+== Inserir filho no pai
+=insfilho	0     'd'   0
+=obter	0      'd'   0
+
+
+== Ir para no pai, tem e é a raiz
+=irpai	0      0
+=obter	0      'a'   0
+=irpai	0      6
+
+== Inserir filho no pai
+=insfilho	0     'e'   0
+=obter	0      'e'   0
+
+
+== Ir para no pai, tem e é raiz
+=irpai	0      0
+=obter	0      'a'   0
+=irpai	0      6
+
+
+== Ir para o filho b
+=irfilho 0 0
+=obter	0      'b'   0
+
+
+== Adicionar filho no b
+=insfilho 0 'f' 0
+=obter	0      'f'   0
+
+== Ir para no pai b
+=irpai	0      0
+=obter	0      'b'   0
+
+
+== Adicionar filho no b
+=insfilho 0 'g' 0
+=obter	0      'g'   0
+
+
+== Ir para o pai b
+=irpai	0	0
+=obter	0      'b'   0
+
+== Ir para o irmão c
+=irirmao 0	 0
+=obter	0	'c'	0
+
+
+== Adicionar filho no c
+=insfilho 0 'h' 0
+=obter	0      'h'   0
+
+== Ir para no pai c
+=irpai	0      0
+=obter	0      'c'   0
+
+
+== Adicionar filho no c
+=insfilho 0 'i' 0
+=obter	0      'i'   0
+
+
+== Ir para no pai c
+=irpai	0      0
+=obter	0      'c'   0
+
+
+== Ir para o irmão d
+=irirmao 0	 0
+=obter	0	'd'	0
+
+== Ir para o irmão e
+=irirmao 0	 0
+=obter	0	'e'	0
+
+
+== Inserir filho no pai e
+=insfilho	0     'j'   0
+=obter	0      'j'   0
+
+
+== Ir para no pai e 
+=irpai	0      0
+=obter	0      'e'   0
+
+== Inserir filho no pai
+=insfilho	0     'l'   0
+=obter	0      'l'   0
+
+
+== Ir para no pai e
+=irpai	0      0
+=obter	0      'e'   0
+
+== Inserir filho no pai
+=insfilho	0     'm'   0
+=obter	0      'm'   0
+
+== Ir para no pai e
+=irpai	0      0
+=obter	0      'e'   0
+
+== Ir para o filho J
+=irfilho 0	0
+=obter 0	'j'	0
+
+== Ir para o irmão L
+=irirmao 0	0
+=obter 0	'l'	0
+
+== Inserir filho no pai l
+=insfilho	0     'n'   0
+=obter	0      'n'   0
+
+
+== Ir para no pai el
+=irpai	0      0
+=obter	0      'l'   0
+
+== Inserir filho no pai
+=insfilho	0     'o'   0
+=obter	0      'o'   0
+
+
+== Ir para no pai l
+=irpai	0      0
+=obter	0      'l'   0
+
+== Inserir filho no pai
+=insfilho	0     'p'   0
+=obter	0      'p'   0
+
+== Imprime a arvore atual
+=exibir 0 0
+
+== Destroi a arvore
+=destruir 0	0
+=irirmao	0      4
+
+
+== Criar árvore
+=criar	1      0   0
+
+== Inserir Filho
+=insfilho	1     'a'   0
+
+== Obter o valor inserido
+=obter	1      'a'   0
+
+== Inserir Filho
+=insfilho	1     'b'   0
+
+== Obter o valor inserido
+=obter	1      'b'   0
+
+== Ir para no pai, tem e é a raiz
+=irpai	1      0
+=obter	1      'a'   0
+=irpai	1      6
+
+== Inserir filho no pai
+=insfilho	1     'c'   0
+=obter	1      'c'   0
+
+== Imprime a arvore atual
+=exibir 1 0
+
+== Destroi a arvore
+=destruir 1	0
+=irirmao	1      4
+
+== Inserir filho em árvore vazia
+=insfilho 2 'a' 4
+=obter 2 '!' 4
+
+== Imprime a arvore atual
+=exibir 2 4
+
+== Criar árvore
+=criar	3      0   0
+
+== Inserir Filho
+=insfilho	3     'a'   0
+
+== Obter o valor inserido
+=obter	3      'a'   0
+
+== Inserir Filho
+=insfilho	3     'b'   0
+
+== Obter o valor inserido
+=obter	3      'b'   0
+
+== Ir para no pai, tem e é a raiz
+=irpai	3      0
+=obter	3     'a'   0
+=irpai	3      6
+
+== Inserir filho no pai
+=insfilho	3     'c'   0
+=obter	3      'c'   0
+
+== Inserir filho no pai c
+=insfilho	3     'd'   0
+=obter	3      'd'   0
+
+== Ir para no pai c
+=irpai	3      0
+=obter	3     'c'   0
+
+== Inserir filho no pai c
+=insfilho	3     'e'   0
+=obter	3      'e'   0
+
+
+== Imprime a arvore atual
+=exibir 3 0
+
+
+//fim
