@@ -213,8 +213,17 @@
 =insfilho 2 'a' 4
 =obter 2 '!' 4
 
+== Criar árvore
+=criar	2      0   0
+
+== Inserir Filho
+=insfilho	2     'a'   0
+
 == Imprime a arvore atual
-=exibir 2 4
+=exibir 2 0
+
+== Destroi a arvore
+=destruir 2	0
 
 == Criar árvore
 =criar	3      0   0
@@ -255,6 +264,165 @@
 
 == Imprime a arvore atual
 =exibir 3 0
+
+== Criar árvore
+=criar	4      0   0
+
+== Inserir Filho
+=insfilho	4     'a'   0
+
+== Inserir Filho
+=insfilho	4     'b'   0
+
+== Inserir Filho
+=insfilho	4     'c'   0
+
+== Inserir Filho
+=insfilho	4     'd'   0
+
+== Inserir Filho
+=insfilho	4     'e'   0
+
+== Imprime a arvore atual
+=exibir 4 0
+
+== Destroi a arvore 3
+=destruir 3	0
+
+== Destroi a arvore 4
+=destruir 4	0
+
+== Criar árvore
+=criar	5      0   0
+
+== Inserir Filho
+=insfilho	5     'a'   0
+
+== Inserir Filho
+=insfilho	5     'b'   0
+
+== Inserir Filho
+=insfilho	5     'c'   0
+
+== Ir para o pai b
+=irpai 5 0
+
+== Inserir Filho
+=insfilho	5     'd'   0
+
+== Inserir Filho
+=insfilho	5     'e'   0
+
+== Imprime a arvore atual
+=exibir 5 0
+
+== Destroi a arvore 5
+=destruir 5	0
+
+== Criar árvore
+=criar	6      0   0
+
+== Inserir Filho
+=insfilho	6     'a'   0
+
+== Inserir Filho
+=insfilho	6     'b'   0
+
+== Inserir Filho
+=insfilho	6     'c'   0
+
+== Ir para o pai b
+=irpai 6 0
+
+== Inserir Filho
+=insfilho	6     'd'   0
+
+== Ir para o pai b
+=irpai 6 0
+
+== Inserir Filho
+=insfilho	6     'e'   0
+
+== Criar árvore
+=criar	7      0   0
+
+== Inserir Filho
+=insfilho	7     'a'   0
+
+== Inserir Filho
+=insfilho	7     'b'   0
+
+== Ir para o pai a
+=irpai 7 0
+
+== Inserir Filho
+=insfilho	7     'c'   0
+
+== Ir para o pai a
+=irpai 7 0
+
+== Inserir Filho
+=insfilho	7     'd'   0
+
+== Ir para o pai a
+=irpai 7 0
+
+== Inserir Filho
+=insfilho	7     'e'   0
+
+== Imprime a arvore 6
+=exibir 6 0
+
+== Imprime a arvore 7
+=exibir 7 0
+
+== Destroi a arvore 6
+=destruir 6	0
+
+== Destroi a arvore 7
+=destruir 7	0
+
+== Criar árvore
+=criar	8      0   0
+
+== Inserir Filho
+=insfilho	8     'a'   0
+
+== Inserir Filho
+=insfilho	8     'b'   0
+
+== Inserir Filho
+=insfilho	8     'c'   0
+
+== Inserir Filho
+=insfilho	8     'd'   0
+
+== Ir para o pai c
+=irpai 8 0
+
+== Inserir Filho
+=insfilho	8     'e'   0
+
+== Imprime a arvore atual
+=exibir 8 0
+
+== Destroi a arvore 8
+=destruir 8	0
+
+== Criar árvore
+=criar	9      0   0
+
+== Inserir Filho
+=insfilho	9     'a'   0
+
+== Inserir Filho
+=insfilho	9     'b'   0
+
+== Imprime a arvore atual
+=exibir 9 0
+
+== Destroi a arvore 8
+=destruir 9	0
 
 
 //fim
