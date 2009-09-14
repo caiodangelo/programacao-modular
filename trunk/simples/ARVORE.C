@@ -343,9 +343,9 @@
 		{
 			return ARV_CondRetArvoreVazia ;
 		} /* if */
-		
-		ExibeArvore( pCorr ) ; 
-		printf("\n");
+		printf("( ");
+		ExibeArvore( pCorr ) ;
+		printf(" )\n");
 		return ARV_CondRetOK;
 
 	} /* Fim função: ARV Exibir Árvore */
