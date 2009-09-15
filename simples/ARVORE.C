@@ -332,20 +332,27 @@
 
 	ARV_tpCondRet ARV_ExibirArvore( tpArvore * pArvore )
 	{
-		tpNoArvore * pCorr ;
-		pCorr = pArvore->pNoRaiz ;
+		tpNoArvore * pCorr ;	
 	
 		if ( pArvore == NULL )
 		{
+			printf("Arvore nao existe");
 			return ARV_CondRetArvoreNaoExiste ;
 		} /* if */
-		if ( pArvore->pNoCorr == NULL )
+		pCorr = pArvore->pNoRaiz ;
+		if ( pCorr == NULL )
 		{
+			printf("Arvore vazia");
 			return ARV_CondRetArvoreVazia ;
 		} /* if */
-		printf("( ");
-		ExibeArvore( pCorr ) ;
-		printf(" )\n");
+		else{
+			printf(" (");
+			ExibeArvore( pCorr ) ;
+			printf(" )\n");
+			
+		}
+
+		
 		return ARV_CondRetOK;
 
 	} /* Fim função: ARV Exibir Árvore */
