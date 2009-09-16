@@ -17,7 +17,7 @@
 *
 *  $HA Histórico de evolução:
 *     Versão  Autor    Data     Observações
-*       4.00   cev   10/09/2009 Extensão para múltiplas árvores n-árias
+*       4.00   cev   15/09/2009 Extensão para múltiplas árvores n-árias
 *                               e adição de novas funções.
 *       3.00   avs   28/02/2003 Uniformização da interface das funções e
 *                               de todas as condições de retorno.
