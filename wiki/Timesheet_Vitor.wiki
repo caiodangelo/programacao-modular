@@ -1,1 +1,29 @@
 #summary A seguir se encontram as horas trabalhadas por Vitor Barbarisi
+
+Possíveis tarefas:
+ * estudar
+ * especificar os módulos
+ * especificar as funções
+ * revisar especificações
+ * projetar
+ * revisar projetos
+ * codificar módulo
+ * revisar código do módulo
+ * redigir script de teste
+ * revisar script de teste
+ * realizar os testes
+ * diagnosticar e corrigir os problemas encontrados
+
+|| *Data* || *Horas* || *Tipo de Tarefa* || *Descrição da Tarefa* ||
+||25/08/2009||01:00||Estudar ||Estudar a especificação do trabalho e a instalação do arcabouço||
+||26/08/2009||02:00||Especificar Módulo||Reunião com o grupo todo para separação das tarefas||
+||27/08/2009||01:00||Projetar||Exibir Árvore||
+||27/08/2009||01:00||Codificar Módulo||Exibir Árvore||
+||31/08/2009||01:00||Revisar Módulo||||Reunião onde revisamos a codificação de todos||
+||31/08/2009||01:00||Codificar Módulo||Reunião onde prosseguimos a codificação das alterações necessárias||
+||06/09/2009||01:00||Estudar||Aprender a usar o repositório criado pelo Eduardo||
+||12/09/2009||01:00||Revisar código||Revisão da função Criar Arvore ||
+||12/09/2009||01:00||Revisar código||Revisão do módulo de teste específico||
+||12/09/2009||02:00||Redigir scripts||Alteração e redação de scripts de teste||
+||12/09/2009||01:00||Realizar testes||Realização dos testes elaborados||
+||12/09/2009||02:00||Diagnosticar e corrigir||Correção dos problemas encontrados||
