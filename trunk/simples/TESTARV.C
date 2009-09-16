@@ -10,9 +10,12 @@
 *  Projeto: Disciplinas INF 1628 / 1301
 *  Gestor:  DI/PUC-Rio
 *  Autores: avs - Arndt von Staa
+*			cev - Caio D'Angelo, Eduardo Velloso e Vitor Barbarisi
 *
 *  $HA Histórico de evolução:
 *     Versão  Autor    Data     Observações
+*		4.00   cev   15/09/2009 Criação de novos comandos de teste e remoção de comandos
+*								não aplicáveis ao novo Módulo árvore
 *       3.00   avs   28/02/2003 Uniformização da interface das funções e
 *                               de todas as condições de retorno.
 *       2.00   avs   03/08/2002 Eliminação de código duplicado, reestruturação
