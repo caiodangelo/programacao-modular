@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary Ata da Reunião do dia 18/09/2009.
 
 = Dúvidas =
 
@@ -10,3 +10,7 @@ Como lidar com origens?
 = Conclusões =
 
 GRA_ExcluirVertice: remove o vertice corrente do grafo recebido. Colocar isso na documentação.
+Atribuições das tarefas:
+Eduardo -> implementar TESTVER
+Caio -> implementar GRAFO
+Vitor -> implementar VERTICE
