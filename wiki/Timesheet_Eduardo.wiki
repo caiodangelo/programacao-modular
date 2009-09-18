@@ -14,6 +14,8 @@ Possíveis tarefas:
  * realizar os testes
  * diagnosticar e corrigir os problemas encontrados
 
+= Trabalho 01 =
+
 || *Data* || *Horas* || *Tipo de Tarefa* || *Descrição da Tarefa* ||
 ||24/08/2009||01:00||Estudar||Analisar a especificação do trabalho e gerar um relatório de possíveis soluções||
 ||26/08/2009||02:00||Especificar Módulo||Reunião com o grupo todo para separação das tarefas||
@@ -23,3 +25,8 @@ Possíveis tarefas:
 ||12/09/2009||02:00||Revisar código||Revisão do módulo de teste específico||
 ||12/09/2009||02:00||Redigir scripts||Alteração e redação de scripts de teste||
 ||12/09/2009||01:00||Realizar testes||Realização dos testes elaborados||
+
+= Trabalho 02 =
+
+|| *Data* || *Horas* || *Tipo de Tarefa* || *Descrição da Tarefa* ||
+||18/09/2009||01:00||Especificar os módulos||Analisamos a especificação do trabalho, dividimos tarefas e definimos as interfaces iniciais dos módulos||
