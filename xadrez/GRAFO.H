@@ -38,7 +38,8 @@
 
    typedef enum {
 
-         
+		 GRA_CondRetOK = 0 ,
+               /* Executou correto */
 
    } GRA_tpCondRet ;
 
