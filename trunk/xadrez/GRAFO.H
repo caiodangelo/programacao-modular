@@ -1,20 +1,19 @@
 /***************************************************************************
-*
 *  $MCD Módulo de definição: Módulo grafo
 *
 *  Arquivo gerado:              GRAFO.H
 *  Letras identificadoras:      GRA
 *
-*  Nome da base de software:    -
-*  Arquivo da base de software: -
+*  Nome da base de software:    Exemplo de teste automatizado
+*  Arquivo da base de software: D:\AUTOTEST\PROJETOS\SIMPLES.BSW
 *
-*  Projeto: Disciplinas INF 1301
+*  Projeto: Disciplina INF 1301
 *  Gestor:  DI/PUC-Rio
 *  Autores: cev - Caio D'Angelo, Eduardo Velloso e Vitor Barbarisi
 *
 *  $HA Histórico de evolução:
 *     Versão  Autor    Data     Observações
-*       1.00   cev   15/08/2001 Início do desenvolvimento
+*       1.00   cev   19/09/2009 Início do desenvolvimento
 *
 *  $ED Descrição do módulo
 *     Este módulo implementa um conjunto simples de funções para criar e
@@ -76,7 +75,10 @@
 
 /***********************************************************************
 *
-*  $FC Função: ARV Destruir grafo
+*  $FC Função: GRA Destruir grafo
+*
+*  $ED Descrição da função
+*     Destrói o grafo passado.
 *
 *  $EP Parâmetros
 *     $P pGrafo - endereço do ponteiro para a cabeça do grafo a ser destruído.
@@ -93,6 +95,9 @@
 /***********************************************************************
 *
 *  $FC Função: GRA Inserir vértice
+*
+*  $ED Descrição da função
+*     Insere um vértice na lista de vértices do grafo.
 *
 *  $EP Parâmetros
 *     $P ValorParm - valor a ser inserido no novo nó.
@@ -112,6 +117,9 @@
 *
 *  $FC Função: GRA Excluir vértice
 *
+*  $ED Descrição da função
+*     Exclui o vértice corrente na cabeça do grafo.
+*
 *  $EP Parâmetros
 *     $P pGrafo - ponteiro para a cabeça do grafo.
 *
@@ -127,8 +135,13 @@
 *
 *  $FC Função: GRA Inserir aresta
 *
+*  $ED Descrição da função
+*     Insere uma aresta entre os vértices passados como parâmetros.
+*
 *  $EP Parâmetros
 *     $P pGrafo - ponteiro para a cabeça do grafo.
+*     $P pVerticeOrigem - ponteiro para o vértice de origem da aresta.
+*     $P pVerticeDestino - ponteiro para o vértice de destino da aresta.
 *
 *  $FV Valor retornado
 *     ...
@@ -142,10 +155,13 @@
 *
 *  $FC Função: GRA Remover aresta
 *
+*  $ED Descrição da função
+*     Remove a aresta que liga os vértices passados como parâmetros
+*
 *  $EP Parâmetros
 *     $P pGrafo - ponteiro para a cabeça do grafo.
-*     $P pGrafo - ponteiro para a cabeça do grafo.
-*     $P pGrafo - ponteiro para a cabeça do grafo.
+*     $P pVerticeOrigem - ponteiro para o vértice de origem da aresta.
+*     $P pVerticeDestino - ponteiro para o vértice de destino da aresta.
 *
 *  $FV Valor retornado
 *     ...
@@ -159,6 +175,9 @@
 *
 *  $FC Função: GRA Exibir grafo
 *
+*  $ED Descrição da função
+*     Exibe o grafo passado como parâmetro.
+*
 *  $EP Parâmetros
 *     $P pGrafo - ponteiro para a cabeça do grafo.
 *     
@@ -169,4 +188,4 @@
 
 	GRA_tpCondRet GRA_ExibirGrafo ( tpGrafo * pGrafo );
 
-/********** Fim do módulo de definição: Módulo árvore **********/
+/********** Fim do módulo de definição: Módulo grafo **********/
