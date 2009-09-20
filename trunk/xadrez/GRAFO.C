@@ -20,9 +20,7 @@
 #include   <malloc.h>
 #include   <stdio.h>
 
-#define ARVORE_OWN
-#include "ARVORE.H"
-#undef ARVORE_OWN
+#include "GRAFO.H"
 
 /***********************************************************************
 *
@@ -66,14 +64,12 @@
 
 /***********************************************************************
 *
-*  $TC Tipo de dados: ARV Descritor da cabeça de uma árvore
+*  $TC Tipo de dados: ARV Descritor da cabeça de um grafo
 *
 *
 *  $ED Descrição do tipo
-*     A cabe‡a da árvore é o ponto de acesso para uma determinada árvore.
-*     Por intermédio da referência para o nó corrente e do ponteiro
-*     pai pode-se navegar a árvore sem necessitar de uma pilha.
-*     Pode-se, inclusive, operar com a árvore em forma de co-rotina.
+*     A cabeça do grafo é o ponto de acesso para um determinado grafo.
+*     ...
 *
 ***********************************************************************/
 
@@ -90,15 +86,7 @@
 
 /***** Protótipos das funções encapsuladas no módulo *****/
 
-   static tpNoArvore * CriarNo( char ValorParm ) ;
-
-   static ARV_tpCondRet CriarNoRaiz( tpArvore * pArvore, char ValorParm ) ;
-
-   static void DestroiArvore( tpNoArvore * pNo ) ;
-
-   static ARV_tpCondRet MarcarVisitado ( tpArvore * pArvore, ARV_tpModoVisita Modo ) ;
-
-   static void ExibeArvore( tpNoArvore * pNo ) ;
+  
 
 /*****  Código das funções exportadas pelo módulo  *****/
 
