@@ -76,9 +76,9 @@
          return GRA_CondRetFaltouMemoria ;
       } /* if */
 
-      (*ppArvore)->Origens = NULL ;
-      (*ppArvore)->Vertices = NULL ;
-	  (*ppArvore)->pVertice = NULL ;
+      (*ppGrafo)->Origens = NULL ;
+      (*ppGrafo)->Vertices = NULL ;
+	  (*ppGrafo)->pVertice = NULL ;
 
 	  return GRA_CondRetOK ;
 
@@ -137,6 +137,17 @@
 *  ****/
 
    GRA_tpCondRet GRA_DestruirGrafo ( tpGrafo * pGrafo ){
+
+	   if( pGrafo == NULL )
+	   {
+		   return GRA_CondRetGrafoVazio;
+	   } /* if */
+	   LIS_DestruirLista(pGrafo->Origens);
+	   LIS_DestruirLista(pGrafo->Vertices);
+	   free(pGrafo);
+	   pGrafo = NULL;
+
+	   return GRA_CondRetOK ;
 
 } /* Fim função: GRA Destruir grafo */
 		
