@@ -21,50 +21,12 @@
 #include   <stdio.h>
 
 #include "GRAFO.H"
+#include "VERTICE.H"
+#include "LISTA.H"
 
 /***********************************************************************
 *
-*  $TC Tipo de dados: ARV Descritor do nó da árvore
-*
-*
-*  $ED Descrição do tipo
-*     Descreve a organização do nó
-*
-***********************************************************************/
-
-   typedef struct tgNoArvore {
-
-         struct tgNoArvore * pNoPai ;
-               /* Ponteiro para pai
-               *
-               *$EED Assertivas estruturais
-               *   É NULL sse o nó é raiz
-               *   Se não for raiz, um de pNoEsq ou pNoDir de pNoPai do nó
-               *   corrente apontam para o nó corrente */
-
-         struct tgNoArvore * pNoEsq ;
-               /* Ponteiro para o primeiro filho.
-               *
-               *$EED Assertivas estruturais
-               *   se pNoEsq do nó X != NULL então pNoPai de pNoEsq aponta para o nó X */
-
-         struct tgNoArvore * pNoDir ;
-               /* Ponteiro para o primeiro irmão.
-               *
-               *$EED Assertivas estruturais
-               *   se pNoDir do nó X != NULL então pNoPai de pNoDir aponta para o nó X->pNoPai */
-
-         char Valor ;
-               /* Valor do nó */
-
-		 ARV_tpModoVisita Modo;
-				/* Modo de visita do nó */
-
-   } tpNoArvore ;
-
-/***********************************************************************
-*
-*  $TC Tipo de dados: ARV Descritor da cabeça de um grafo
+*  $TC Tipo de dados: GRA Descritor da cabeça de um grafo
 *
 *
 *  $ED Descrição do tipo
@@ -75,11 +37,17 @@
 
    typedef struct tgGrafo {
 
-         tpNoArvore * pNoRaiz ;
-               /* Ponteiro para a raiz da árvore */
+         LIS_tppLista * Origens ;
+               /* Ponteiro para a lista de vértices origem
+			   *
+			   *$EED Assertivas estruturais
+			   * ... */
 
-         tpNoArvore * pNoCorr ;
-               /* Ponteiro para o nó corrente da árvore */
+         LIS_tppLista * Vertices ;
+               /* Ponteiro para a lista de vértices do grafo */
+
+		 tpVertice * pVertice ;
+			   /* Ponteiro para o vértice corrente */
 
    } tpGrafo ;
 /*****  Dados encapsulados no módulo  *****/
@@ -96,6 +64,23 @@
 *  ****/
 
    GRA_tpCondRet GRA_CriarGrafo ( tpGrafo ** ppGrafo ){
+
+	    if ( *ppGrafo != NULL )
+      {
+         GRA_DestruirGrafo( &ppGrafo ) ;
+      } /* if */
+
+      *ppGrafo = ( tpGrafo * ) malloc( sizeof( tpGrafo )) ;
+      if ( *ppGrafo == NULL )
+      {
+         return GRA_CondRetFaltouMemoria ;
+      } /* if */
+
+      (*ppArvore)->Origens = NULL ;
+      (*ppArvore)->Vertices = NULL ;
+	  (*ppArvore)->pVertice = NULL ;
+
+	  return GRA_CondRetOK ;
 
 } /* Fim função: GRA Criar grafo */
 
