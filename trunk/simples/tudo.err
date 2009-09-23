@@ -1,0 +1,21 @@
+TestArv.c
+Arvore.c
+Microsoft (R) Incremental Linker Version 9.00.21022.08
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/OUT:ExemploSimples.exe 
+/INCREMENTAL:NO 
+/MACHINE:IX86 
+TestArv.obj Arvore.obj 
+ArcaboucoTeste.lib 
+TestArv.c
+Arvore.c
+Microsoft (R) Incremental Linker Version 9.00.21022.08
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/OUT:ExemploSimplesDBG.exe 
+/INCREMENTAL:NO 
+/MACHINE:IX86 
+TestArv.obj Arvore.obj 
+ArcaboucoTeste.lib 
+

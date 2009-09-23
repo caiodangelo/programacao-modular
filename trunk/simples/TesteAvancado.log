@@ -1,0 +1,139 @@
+
+!!! Inicio dos testes
+!!!      Construto sob teste: exemploSimples
+!!!      Script de teste:     TesteAvancado.script
+
+!!!    0  Linha:     1  // Script:    TesteAvancado.script 
+!!!    0  Linha:     2  // Autores:     Caio, Eduardo e Vitor 
+!!!    0  Linha:     3  // Data:      12/09/2009 
+!!!    0  Linha:     4  // Propósito: Executar testes mais avançados em nosso código, 
+!!!    0  Linha:     5  //            Testa criação de várias árvores simultaneamente 
+!!!    0  Linha:     6  //            Teste alguns erros não testados no teste básico 
+   10  == Criar árvore
+   13  == Inserir Filho
+   16  == Obter o valor inserido
+   19  == Inserir Filho
+   22  == Obter o valor inserido
+   25  == Ir para no pai, tem e é a raiz
+   30  == Inserir filho no pai
+   35  == Ir para no pai, tem e é a raiz
+   40  == Inserir filho no pai
+   45  == Ir para no pai, tem e é a raiz
+   50  == Inserir filho no pai
+   55  == Ir para no pai, tem e é raiz
+   61  == Ir para o filho b
+   66  == Adicionar filho no b
+   70  == Ir para no pai b
+   75  == Adicionar filho no b
+   80  == Ir para o pai b
+   84  == Ir para o irmão c
+   89  == Adicionar filho no c
+   93  == Ir para no pai c
+   98  == Adicionar filho no c
+  103  == Ir para no pai c
+  108  == Ir para o irmão d
+  112  == Ir para o irmão e
+  117  == Inserir filho no pai e
+  122  == Ir para no pai e
+  126  == Inserir filho no pai
+  131  == Ir para no pai e
+  135  == Inserir filho no pai
+  139  == Ir para no pai e
+  143  == Ir para o filho J
+  147  == Ir para o irmão L
+  151  == Inserir filho no pai l
+  156  == Ir para no pai el
+  160  == Inserir filho no pai
+  165  == Ir para no pai l
+  169  == Inserir filho no pai
+  173  == Imprime a arvore atual
+  176  == Destroi a arvore
+  181  == Criar árvore
+  184  == Inserir Filho
+  187  == Obter o valor inserido
+  190  == Inserir Filho
+  193  == Obter o valor inserido
+  196  == Ir para no pai, tem e é a raiz
+  201  == Inserir filho no pai
+  205  == Imprime a arvore atual
+  208  == Destroi a arvore
+  212  == Inserir filho em árvore vazia
+  216  == Criar árvore
+  219  == Inserir Filho
+  222  == Imprime a arvore atual
+  225  == Destroi a arvore
+  228  == Criar árvore
+  231  == Inserir Filho
+  234  == Obter o valor inserido
+  237  == Inserir Filho
+  240  == Obter o valor inserido
+  243  == Ir para no pai, tem e é a raiz
+  248  == Inserir filho no pai
+  252  == Inserir filho no pai c
+  256  == Ir para no pai c
+  260  == Inserir filho no pai c
+  265  == Imprime a arvore atual
+  268  == Criar árvore
+  271  == Inserir Filho
+  274  == Inserir Filho
+  277  == Inserir Filho
+  280  == Inserir Filho
+  283  == Inserir Filho
+  286  == Imprime a arvore atual
+  289  == Destroi a arvore 3
+  292  == Destroi a arvore 4
+  295  == Criar árvore
+  298  == Inserir Filho
+  301  == Inserir Filho
+  304  == Inserir Filho
+  307  == Ir para o pai b
+  310  == Inserir Filho
+  313  == Inserir Filho
+  316  == Imprime a arvore atual
+  319  == Destroi a arvore 5
+  322  == Criar árvore
+  325  == Inserir Filho
+  328  == Inserir Filho
+  331  == Inserir Filho
+  334  == Ir para o pai b
+  337  == Inserir Filho
+  340  == Ir para o pai b
+  343  == Inserir Filho
+  346  == Criar árvore
+  349  == Inserir Filho
+  352  == Inserir Filho
+  355  == Ir para o pai a
+  358  == Inserir Filho
+  361  == Ir para o pai a
+  364  == Inserir Filho
+  367  == Ir para o pai a
+  370  == Inserir Filho
+  373  == Imprime a arvore 6
+  376  == Imprime a arvore 7
+  379  == Destroi a arvore 6
+  382  == Destroi a arvore 7
+  385  == Criar árvore
+  388  == Inserir Filho
+  391  == Inserir Filho
+  394  == Inserir Filho
+  397  == Inserir Filho
+  400  == Ir para o pai c
+  403  == Inserir Filho
+  406  == Imprime a arvore atual
+  409  == Destroi a arvore 8
+  412  == Criar árvore
+  415  == Inserir Filho
+  418  == Inserir Filho
+  421  == Imprime a arvore atual
+  424  == Destroi a arvore 8
+!!!    0  Linha:   428  //fim 
+
+!!! Número de linhas lidas:         428
+!!! Número de casos de teste:       117
+!!! Número comandos corretos:       165
+!!! Número de falhas encontradas:     0
+
+!!! Não foram encontrados problemas
+
+
+!!! Numero de espacos ainda alocados: 0
