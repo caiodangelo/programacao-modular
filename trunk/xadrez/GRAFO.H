@@ -113,7 +113,7 @@
 *
 ***********************************************************************/
 
-   GRA_tpCondRet GRA_InserirVertice ( tpGrafo * pGrafo, tpVertice * pVertice );
+   GRA_tpCondRet GRA_InserirVertice ( tpGrafo * pGrafo, void * pVertice );
 
 
 /***********************************************************************
@@ -151,7 +151,7 @@
 *
 ***********************************************************************/
 
-	GRA_tpCondRet GRA_InserirAresta ( tpGrafo * pGrafo, tpVertice * pVerticeOrigem, tpVertice * pVerticeDestino );
+	GRA_tpCondRet GRA_InserirAresta ( tpGrafo * pGrafo, void * pVerticeOrigem, void * pVerticeDestino );
 
 
 /***********************************************************************
@@ -171,7 +171,7 @@
 *
 ***********************************************************************/
 
-	GRA_tpCondRet GRA_RemoverAresta ( tpGrafo * pGrafo, tpVertice * pVerticeOrigem, tpVertice * pVerticeDestino );
+	GRA_tpCondRet GRA_RemoverAresta ( tpGrafo * pGrafo, void * pVerticeOrigem, void * pVerticeDestino );
 
 
 /***********************************************************************
