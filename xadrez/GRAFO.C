@@ -35,19 +35,43 @@
 *
 ***********************************************************************/
 
-   typedef struct tgGrafo {
+   typedef struct tgVerticeGrafo {
 
-         LIS_tppLista * Origens ;
-               /* Ponteiro para a lista de vértices origem
+         LIS_tppLista * Sucessores ;
+               /* Ponteiro para a lista de vértices que são atingidos
 			   *
 			   *$EED Assertivas estruturais
 			   * ... */
 
-         LIS_tppLista * Vertices ;
-               /* Ponteiro para a lista de vértices do grafo */
+         LIS_tppLista * Antecessores ;
+               /* Ponteiro para a lista de vértices que atingem
+			   *
+			   *$EED Assertivas estruturais
+			   * ... */
 
-		 tpVertice * pVertice ;
+		 void * pVertice ;
 			   /* Ponteiro para o vértice corrente */
+
+   } tpVerticeGrafo ;
+
+/***********************************************************************
+*
+*  $TC Tipo de dados: GRA Descritor da cabeça de um grafo
+*
+*
+*  $ED Descrição do tipo
+*     A cabeça do grafo é o ponto de acesso para um determinado grafo.
+*     ...
+*
+***********************************************************************/
+
+   typedef struct tgGrafo {
+
+         LIS_tppLista * Vertices ;
+               /* Ponteiro para a lista de vértices do grafo 
+			   *
+			   *$EED Assertivas estruturais
+			   * ... */	 
 
    } tpGrafo ;
 /*****  Dados encapsulados no módulo  *****/
@@ -76,9 +100,7 @@
          return GRA_CondRetFaltouMemoria ;
       } /* if */
 
-      (*ppGrafo)->Origens = NULL ;
-      (*ppGrafo)->Vertices = NULL ;
-	  (*ppGrafo)->pVertice = NULL ;
+      (*ppGrafo)->Vertices = LIS_CriarLista(NULL);/* criar função de destruição de elementos */
 
 	  return GRA_CondRetOK ;
 
@@ -91,11 +113,16 @@
 
    GRA_tpCondRet GRA_InserirVertice ( tpGrafo * pGrafo, void * pVertice ){
 
-	   if((pGrafo->Vertices)==NULL)
+	   GRA_tpCondRet temp;
+
+	   if( pGrafo == NULL )
 	   {
-		  pGrafo->Vertices = LIS_CriarLista();
-		  pGrafo->Origens = LIS_CriarLista();
-	   }
+		  temp = GRA_CriarGrafo(pGrafo);
+	   } /* if */
+
+	   LIS_InserirElementoAntes( LIS_tppLista pLista ,
+                                           void * pValor        )
+
 
 } /* Fim função: GRA Inserir vértice */
 
@@ -148,7 +175,6 @@
 	   {
 		   return GRA_CondRetGrafoVazio;
 	   } /* if */
-	   LIS_DestruirLista(pGrafo->Origens);
 	   LIS_DestruirLista(pGrafo->Vertices);
 	   free(pGrafo);
 	   pGrafo = NULL;
