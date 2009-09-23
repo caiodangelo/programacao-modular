@@ -89,7 +89,13 @@
 *  Função: GRA Inserir vértice
 *  ****/
 
-   GRA_tpCondRet GRA_InserirVertice ( tpGrafo * pGrafo, tpVertice * pVertice ){
+   GRA_tpCondRet GRA_InserirVertice ( tpGrafo * pGrafo, void * pVertice ){
+
+	   if((pGrafo->Vertices)==NULL)
+	   {
+		  pGrafo->Vertices = LIS_CriarLista();
+		  pGrafo->Origens = LIS_CriarLista();
+	   }
 
 } /* Fim função: GRA Inserir vértice */
 
@@ -109,7 +115,7 @@
 *  Função: GRA Inserir aresta
 *  ****/
 
-   GRA_tpCondRet GRA_InserirAresta ( tpGrafo * pGrafo, tpVertice * pVerticeOrigem, tpVertice * pVerticeDestino ){
+   GRA_tpCondRet GRA_InserirAresta ( tpGrafo * pGrafo, void * pVerticeOrigem, void * pVerticeDestino ){
 
 } /* Fim função: GRA Inserir aresta */
 
@@ -118,7 +124,7 @@
 *  Função: GRA Remover aresta
 *  ****/
 
-   GRA_tpCondRet GRA_RemoverAresta ( tpGrafo * pGrafo, tpVertice * pVerticeOrigem, tpVertice * pVerticeDestino ){
+   GRA_tpCondRet GRA_RemoverAresta ( tpGrafo * pGrafo, void * pVerticeOrigem, void * pVerticeDestino ){
 
 } /* Fim função: GRA Remover aresta */
 
