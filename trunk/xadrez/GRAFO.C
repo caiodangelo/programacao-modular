@@ -49,9 +49,6 @@
 			   *$EED Assertivas estruturais
 			   * ... */
 
-		 void * pVertice ;
-			   /* Ponteiro para o vértice corrente */
-
    } tpVerticeGrafo ;
 
 /***********************************************************************
@@ -72,6 +69,12 @@
 			   *
 			   *$EED Assertivas estruturais
 			   * ... */	 
+
+		 //tpVerticeGrafo * VerticeCorrente;
+			  /* Ponteiro para o vértice corrente 
+			  *
+			  *$EED Assertivas estruturais
+			  * ... */
 
    } tpGrafo ;
 /*****  Dados encapsulados no módulo  *****/
@@ -101,6 +104,7 @@
       } /* if */
 
       (*ppGrafo)->Vertices = LIS_CriarLista(NULL);/* criar função de destruição de elementos */
+	  (*ppGrafo)->VerticeCorrente = NULL;
 
 	  return GRA_CondRetOK ;
 
@@ -113,16 +117,31 @@
 
    GRA_tpCondRet GRA_InserirVertice ( tpGrafo * pGrafo, void * pVertice ){
 
-	   GRA_tpCondRet temp;
+	   GRA_tpCondRet tempGrafo;
+	   LIS_tpCondRet tempLista;
 
 	   if( pGrafo == NULL )
 	   {
-		  temp = GRA_CriarGrafo(pGrafo);
+		  tempGrafo = GRA_CriarGrafo(pGrafo);
+
+		  if( tempGrafo != GRA_CondRetOK )
+		  {
+			  return tempGrafo;
+		  } /* if */
+
 	   } /* if */
 
-	   LIS_InserirElementoAntes( LIS_tppLista pLista ,
-                                           void * pValor        )
+	   tempLista = LIS_InserirElementoAntes( (pGrafo->Vertices) , pVertice );
 
+	   if( tempLista == LIS_CondRetOK )
+	   {
+		   //(pGrafo->VerticeCorrente) = (pGrafo->Vertices);
+		   return GRA_CondRetOK;
+	   }
+	   else
+	   {
+		   return GRA_CondRetFaltouMemoria;
+	   }
 
 } /* Fim função: GRA Inserir vértice */
 
@@ -132,6 +151,25 @@
 *  ****/
 
    GRA_tpCondRet GRA_ExcluirVertice ( tpGrafo * pGrafo ){
+
+	   GRA_tpCondRet tempGrafo;
+	   LIS_tpCondRet tempLista;
+
+	   if( pGrafo == NULL )
+	   {
+		  return GRA_CondRetGrafoVazio;
+	   } /* if */
+
+	   tempLista = LIS_ExcluirElemento( pGrafo->Vertices ) ;
+
+	   if( tempLista == LIS_CondRetOK )
+	   {
+		   return GRA_CondRetOK;
+	   }
+	   else
+	   {
+		   return GRA_CondRetGrafoVazio;
+	   }
 
 } /* Fim função: GRA Excluir vértice */
 
@@ -176,6 +214,7 @@
 		   return GRA_CondRetGrafoVazio;
 	   } /* if */
 	   LIS_DestruirLista(pGrafo->Vertices);
+	   //pGrafo->VerticeCorrente = NULL;
 	   free(pGrafo);
 	   pGrafo = NULL;
 
