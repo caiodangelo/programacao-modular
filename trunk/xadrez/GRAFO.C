@@ -26,11 +26,11 @@
 
 /***********************************************************************
 *
-*  $TC Tipo de dados: GRA Descritor da cabeça de um grafo
+*  $TC Tipo de dados: GRA Descritor do vértice de um grafo
 *
 *
 *  $ED Descrição do tipo
-*     A cabeça do grafo é o ponto de acesso para um determinado grafo.
+*     O vértice de um grafo é a estrutura mais elementar do grafo.
 *     ...
 *
 ***********************************************************************/
@@ -48,6 +48,9 @@
 			   *
 			   *$EED Assertivas estruturais
 			   * ... */
+
+		 void * Nome;
+			   /* Nome do Vértice */
 
    } tpVerticeGrafo ;
 
@@ -104,7 +107,7 @@
       } /* if */
 
       (*ppGrafo)->Vertices = LIS_CriarLista(NULL);/* criar função de destruição de elementos */
-	  (*ppGrafo)->VerticeCorrente = NULL;
+	  //(*ppGrafo)->VerticeCorrente = NULL;
 
 	  return GRA_CondRetOK ;
 
@@ -120,6 +123,8 @@
 	   GRA_tpCondRet tempGrafo;
 	   LIS_tpCondRet tempLista;
 
+	   //pVertice = ( tpVerticeGrafo * ) malloc( sizeof( tpVerticeGrafo )) ;
+
 	   if( pGrafo == NULL )
 	   {
 		  tempGrafo = GRA_CriarGrafo(pGrafo);
@@ -131,7 +136,7 @@
 
 	   } /* if */
 
-	   tempLista = LIS_InserirElementoAntes( (pGrafo->Vertices) , pVertice );
+	   tempLista = LIS_InserirElementoAntes( (pGrafo->Vertices) , &pVertice );
 
 	   if( tempLista == LIS_CondRetOK )
 	   {
@@ -181,7 +186,7 @@
 *  ****/
 
    GRA_tpCondRet GRA_InserirAresta ( tpGrafo * pGrafo, void * pVerticeOrigem, void * pVerticeDestino ){
-
+	   
 } /* Fim função: GRA Inserir aresta */
 
 /***************************************************************************
@@ -191,6 +196,7 @@
 
    GRA_tpCondRet GRA_RemoverAresta ( tpGrafo * pGrafo, void * pVerticeOrigem, void * pVerticeDestino ){
 
+	   
 } /* Fim função: GRA Remover aresta */
 
 /***************************************************************************
