@@ -30,3 +30,4 @@ Possíveis tarefas:
 
 || *Data* || *Horas* || *Tipo de Tarefa* || *Descrição da Tarefa* ||
 ||18/09/2009||01:00||Especificar os módulos||Analisamos a especificação do trabalho, dividimos tarefas e definimos as interfaces iniciais dos módulos||
+||23/09/2009||03:00||Codificar os módulos||||
