@@ -17,7 +17,7 @@ typedef enum {
 VER_tpCondRet VER_ObterValor ( tpVertice * Vertice, void * Valor );
 
 /* Pode retornar 0, 3*/
-VER_tpCondRet VER_CriarVertice ( tpVertice * Vertice, void * Valor );
+VER_tpCondRet VER_CriarVertice ( tpVertice ** Vertice, void * Valor );
 
 /* Pode retornar 0, 1*/
 VER_tpCondRet VER_DestruirVertice ( tpVertice * Vertice );
