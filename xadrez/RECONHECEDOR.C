@@ -2,7 +2,7 @@
 #include "GRAFO.H"
 #include "VERTICE.H"
 
-
+char * ArquivoRegras = NULL;
 /* Esas função exportada vai pegar o tabuleiro e chamar as
 		funções auxiliares */
 REC_tpCondRet REC_ReconheceXeque ( tpTabuleiro Tabuleiro ){
@@ -46,7 +46,15 @@ REC_tpCondRet GeraPossiblidades ( tpTabuleiro Tabuleiro ){
 			if ( CondRetGRA != GRA_CondRetOK ){
 				return REC_tpCondRetNaoInseriuPeca;
 			}
+
+			
 		}
 	}
 }
+
+REC_tpCondRet AdicionaPosicoesSeguintes ( tpPeca * pPeca , tpTabuleiro Tabuleiro ){
+}
+
+REC_tpCondRet REC_DeterminaArquivoRegras ( char * ArquivoRegras ){
+
 	
