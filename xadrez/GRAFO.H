@@ -43,6 +43,9 @@
 	     GRA_CondRetFaltouMemoria = 1 ,
 			   /* Faltou memória ao alocar dados */
 
+	     GRA_CondRetGrafoVazio = 2 ,
+			   /* Grafo está vazio */
+
    } GRA_tpCondRet ;
 
 /***********************************************************************
