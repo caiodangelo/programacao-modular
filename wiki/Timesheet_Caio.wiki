@@ -35,3 +35,4 @@ Possíveis tarefas:
 ||18/09/2009||01:00||Especificar Módulos||Reunião com o grupo todo para especificação e separação das tarefas ||
 ||20/09/2009||01:00||Codificar módulo||Início da codificação do Módulo Grafo||
 ||22/09/2009||01:00||Codificar módulo||Codificação do Módulo grafo||
+||23/09/2009||02:00||Codificar módulo||Codificação do Módulo grafo||
