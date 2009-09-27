@@ -5,7 +5,7 @@
 char * ArquivoRegras = NULL;
 /* Esas função exportada vai pegar o tabuleiro e chamar as
 		funções auxiliares */
-REC_tpCondRet REC_ReconheceXeque ( tpTabuleiro Tabuleiro ){
+tpPeca * REC_ReconheceXeque ( tpTabuleiro Tabuleiro, tpCorPeca Cor ){
 }
 
 /* Essa função encapsulada vai ler a disposição das peças no tabuleiro e
@@ -55,6 +55,6 @@ REC_tpCondRet GeraPossiblidades ( tpTabuleiro Tabuleiro ){
 REC_tpCondRet AdicionaPosicoesSeguintes ( tpPeca * pPeca , tpTabuleiro Tabuleiro ){
 }
 
-REC_tpCondRet REC_DeterminaArquivoRegras ( char * ArquivoRegras ){
+REC_tpCondRet REC_DeterminaRegras ( char * ArquivoRegras ){
 
 	
