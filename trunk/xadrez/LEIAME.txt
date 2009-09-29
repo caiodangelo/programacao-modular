@@ -18,3 +18,97 @@ Regras de Sintaxe para a Criação de Arquivos de Disposição de Peças no Tabuleiro
 	Linha: Contada do topo para baixo, variando de 1 a 8
 
 	Coluna: Contada da esquerda para a direita, variando de A a H
+
+Regras de Sintaxe para a Criação de Arquivos de Especificação de Regras de Movimentação de Peças no Tabuleiro
+
+	Cada linha especificará as regras de movimentação de apenas uma peça do jogo.
+	No entanto, mais de uma linha poderá especificar a movimentaçao de uma mesma peça.
+	A sintaxe será de dois tipos:
+
+	Movimentação Discreta (Coordenadas Quadradas)
+	<TipoDaPeça> <TipoDaCasaDeDestino> <CasasNaHorizontal> <CasasNaVertical>
+
+	Tipo da Peça:
+		P - peão
+		T - torre
+		C - cavalo
+		B - bispo
+		D - dama
+		R - rei
+
+	Tipo da Casa de Destino:
+		V - vazia
+		C - cheia
+		? - não importa
+
+	Casas na Horizontal:
+		valores positivos - número de casas para a direita
+		valores negativos - número de casas para a esquerda
+
+	Casas na Vertical:
+		valores positivos - número de casas para frente
+		valores negativos - número de casas para trás
+
+	Movimentação Contínua (Coordenadas Polares)
+	<TipoDaPeça> <Direcao> <Casas>
+ 
+	Tipo da Peça:
+		P - peão
+		T - torre
+		C - cavalo
+		B - bispo
+		D - dama
+		R - rei
+
+	Direção:
+		N - norte (vertical frente)
+		NE - nordeste (diagonal frente-direita)
+		E - leste (horizontal direita)
+		SE - sudeste (diagonal trás-direita)
+		S - sul (vertical trás)
+		SW - sudoeste (diagonal trás-esquerda)
+		W - oeste (horizontal esquerda)
+		NW - noroeste (diagonal frente-esquerda)
+
+	Casas:
+		valores positivos: número máximo de casas que podem ser caminhadas naquela direção
+		N - qualquer valor até encontrar uma casa cheia
+
+	No xadrez clássico, a movimentação das peças é especificada da seguinte forma:
+	P V 0 1
+	P C 1 1
+	P C -1 1
+	T N N
+	T E N
+	T S N
+	T W N
+	C ? 3 1
+	C ? 3 -1
+	C ? -3 1
+	C ? -3 -1
+	C ? 1 3
+	C ? 1 -3
+	C ? -1 3
+	C ? -1 -3
+	B NE N
+	B SE N
+	B SW N
+	B NW N
+	D N N
+	D NE N
+	D E N
+	D SE N
+	D S N
+	D SW N
+	D W N
+	D NW N
+	R N 1
+	R NE 1
+	R E 1
+	R SE 1
+	R S 1
+	R SW 1
+	R W 1
+	R NW 1 
+	
+	É importante ressaltar que este sistema não dá suporte para movimentações especiais tais como Roque e Movimentação dupla do peão na primeira rodada

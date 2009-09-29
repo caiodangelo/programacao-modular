@@ -194,4 +194,7 @@
 
 	GRA_tpCondRet GRA_ExibirGrafo ( tpGrafo * pGrafo );
 
+	/* Função a ser implementada ->>> GRA_ObterOrigem ( tpGrafo * pGrafo , tpVertice * pVertice ); /*
+	GRA_ObterOrigem ( tpGrafo * pGrafo , tpVertice * pVertice );
+
 /********** Fim do módulo de definição: Módulo grafo **********/

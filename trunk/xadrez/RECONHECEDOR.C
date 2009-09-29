@@ -27,9 +27,9 @@ REC_tpCondRet GeraPossiblidades ( tpTabuleiro Tabuleiro ){
 		return REC_tpCondRetNaoCriouGrafo;
 	}
 
-	
+	/* Percorre todas as posições do tabuleiro adicionando as peças na lista de vértices do grafo */
 
-	for ( linha = 0 ; linha <= ultLinha ; linha++ ){
+	for ( linha = 1 ; linha <= ultLinha ; linha++ ){
 		for ( coluna = 'A' ; coluna <= ultColuna ; (char)(coluna++) ){
 			
 			CondRetGER = GER_ObtemPeca ( pPeca , coluna , linha , Tabuleiro );
@@ -46,10 +46,11 @@ REC_tpCondRet GeraPossiblidades ( tpTabuleiro Tabuleiro ){
 			if ( CondRetGRA != GRA_CondRetOK ){
 				return REC_tpCondRetNaoInseriuPeca;
 			}
-
-			
 		}
 	}
+
+	/* Percorre todos os vértices checando o arquivo de regras para descobrir quais as posições alcançáveis */
+
 }
 
 REC_tpCondRet AdicionaPosicoesSeguintes ( tpPeca * pPeca , tpTabuleiro Tabuleiro ){
