@@ -15,10 +15,35 @@ Composição do construto: Trabalho.comp
 
 Módulos do construto: Trabalho.comp
 
+   Lista.c
    TestVer.c
    Vertice.c
 
 Estatísticas do construto
+
+   Estatísticas do arquivo: LISTA.H
+      Total linhas:             346
+      Linhas de código:          35
+      Linhas de comentário:     262
+      Linhas em branco:          49
+   Arquivos em que é incluído
+      Vertice.c
+
+   Estatísticas do arquivo: LISTA.h
+      Total linhas:             346
+      Linhas de código:          35
+      Linhas de comentário:     262
+      Linhas em branco:          49
+   Arquivos em que é incluído
+      Lista.c
+
+   Estatísticas do arquivo: Lista.c
+      Total linhas:             560
+      Linhas de código:         288
+      Linhas de comentário:     136
+      Linhas em branco:         154
+   Arquivos de inclusão de que necessita
+      LISTA.h
 
    Estatísticas do arquivo: TST_ESPC.H
       Total linhas:             228
@@ -38,10 +63,10 @@ Estatísticas do construto
       generico.h
 
    Estatísticas do arquivo: TestVer.c
-      Total linhas:             183
-      Linhas de código:          76
+      Total linhas:             187
+      Linhas de código:          84
       Linhas de comentário:      66
-      Linhas em branco:          46
+      Linhas em branco:          42
    Arquivos de inclusão de que necessita
       TST_ESPC.H
       TST_Espc.h
@@ -50,20 +75,21 @@ Estatísticas do construto
       lerparm.h
 
    Estatísticas do arquivo: VERTICE.H
-      Total linhas:             135
-      Linhas de código:          11
-      Linhas de comentário:     107
-      Linhas em branco:          17
+      Total linhas:             187
+      Linhas de código:          16
+      Linhas de comentário:     147
+      Linhas em branco:          24
    Arquivos em que é incluído
       TestVer.c
       Vertice.c
 
    Estatísticas do arquivo: Vertice.c
-      Total linhas:             136
-      Linhas de código:          48
-      Linhas de comentário:      53
-      Linhas em branco:          39
+      Total linhas:             356
+      Linhas de código:         173
+      Linhas de comentário:      79
+      Linhas em branco:         115
    Arquivos de inclusão de que necessita
+      LISTA.H
       VERTICE.H
 
    Estatísticas do arquivo: generico.h
@@ -101,11 +127,11 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: DEFAULT  Path: .
-         Total linhas do tipo:      1595
-         Linhas de código:           152
-         Linhas de comentário:      1237
-         Linhas em branco:           206
-         Arquivos deste tipo:          5
+         Total linhas do tipo:      2339
+         Linhas de código:           227
+         Linhas de comentário:      1801
+         Linhas em branco:           311
+         Arquivos deste tipo:          7
 
   Tipo: espstr   Path: .
          Total linhas do tipo:         0
@@ -122,17 +148,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: .
-         Total linhas do tipo:       319
-         Linhas de código:           124
-         Linhas de comentário:       119
-         Linhas em branco:            85
-         Arquivos deste tipo:          2
+         Total linhas do tipo:      1103
+         Linhas de código:           545
+         Linhas de comentário:       281
+         Linhas em branco:           311
+         Arquivos deste tipo:          3
 
 Totais para todo o construto Trabalho
 
-   Total linhas:              1914
-   Linhas de código:           276
-   Linhas de comentário:      1356
-   Linhas em branco:           291
-   Arquivos processados:         7
+   Total linhas:              3442
+   Linhas de código:           772
+   Linhas de comentário:      2082
+   Linhas em branco:           622
+   Arquivos processados:        10
 

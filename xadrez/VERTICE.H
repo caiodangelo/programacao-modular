@@ -82,7 +82,7 @@ typedef enum {
 *
 ***********************************************************************/
 
-	VER_tpCondRet VER_CriarVertice ( tpVertice ** ppVertice, void * Valor );
+	VER_tpCondRet VER_CriarVertice ( tpVertice ** ppVertice, void * Valor, int idVertice );
 
 /***********************************************************************
 *
@@ -102,7 +102,7 @@ typedef enum {
 *
 ***********************************************************************/
 
-	VER_tpCondRet VER_ObterValor ( tpVertice * pVertice, void * Valor );
+	VER_tpCondRet VER_ObterValor ( tpVertice * pVertice, void ** Valor );
 
 /***********************************************************************
 *
@@ -139,7 +139,7 @@ typedef enum {
 *
 ***********************************************************************/
 
-	VER_tpCondRet VER_DestruirVertice ( tpVertice * pVertice );
+	void VER_DestruirVertice ( tpVertice * pVertice );
 
 /***********************************************************************
 *

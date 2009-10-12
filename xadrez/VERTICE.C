@@ -39,10 +39,10 @@
 		 void * Valor;
 			   /* Informação do Vértice */
 		 
-         LIS_tppLista * Sucessores ;
+         LIS_tppLista Sucessores ;
                /* Ponteiro para a lista de vértices que são atingidos*/
 
-         LIS_tppLista * Antecessores ;
+         LIS_tppLista Antecessores ;
                /* Ponteiro para a lista de vértices que atingem*/
 
 		 int idVertice;
@@ -50,13 +50,14 @@
 
    } tpVertice ;
 
+
 /*****  Dados encapsulados no módulo  *****/
 
 /***** Protótipos das funções encapsuladas no módulo *****/
 
-   VER_tpCondRet VER_AdicionarAntecessor ( tpVertice * pVertice );
+   VER_tpCondRet AdicionarAntecessor ( tpVertice * pVerticeOrigem, tpVertice * pVerticeDestino );
 
-   VER_tpCondRet VER_RemoverAntecessor ( tpVertice * pVertice );
+   VER_tpCondRet RemoverAntecessor ( tpVertice * pVerticeOrigem, tpVertice * pVerticeDestino );
   
 
 /*****  Código das funções exportadas pelo módulo  *****/
@@ -67,10 +68,10 @@
 *  ****/
 
    VER_tpCondRet VER_CriarVertice ( tpVertice ** ppVertice, void * Valor, int idVertice ){
-
+		
 	  if ( *ppVertice != NULL )
       {
-         VER_DestruirVertice( &ppVertice ) ;
+         VER_DestruirVertice( *ppVertice ) ;
       } /* if */
 
       *ppVertice = ( tpVertice * ) malloc( sizeof( tpVertice )) ;
@@ -94,20 +95,21 @@
 *  Função: VER Obter valor
 *  ****/
 
-   VER_tpCondRet VER_ObterValor ( tpVertice * pVertice, void * Valor ) {
-   
+   VER_tpCondRet VER_ObterValor ( tpVertice * pVertice, void ** ppValor ) {
+
 		if ( pVertice == NULL )
 		{
 			return VER_CondRetVerticeNaoExiste ;
 		} /* if */
 
-		if ( ( pVertice->Valor ) == NULL )
+		if ( pVertice->Valor == NULL )
 		{
 			return VER_CondRetVerticeVazio ;
-		} else {
-			
-			Valor = pVertice->Valor	
 		} /* if */
+		
+		else {
+			*ppValor = pVertice->Valor;	
+		} /* else */
 
    	  return VER_CondRetOK ;
 
@@ -136,16 +138,17 @@
 *  Função: VER Destruir vértice
 *  ****/
 
-	VER_tpCondRet VER_DestruirVertice ( tpVertice * pVertice ){
+	void VER_DestruirVertice ( tpVertice * pVertice ){
 		
 		if ( pVertice == NULL )
 		{
-			return VER_CondRetVerticeNaoExiste ;
+			return; //VER_CondRetVerticeNaoExiste ;
 		} /* if */
 
 		free( pVertice );
 		pVertice = NULL;
-
+		
+		return ;//VER_CondRetOK;
 
 } /* Fim função: VER Destruir Vertice */
 
@@ -166,8 +169,7 @@
 
 		if((pVerticeOrigem->Sucessores)==NULL)
 		{
-			pVerticeOrigem->Sucessores = LIS_CriarLista( VER_tpCondRet ( * VER_DestruirVertice ) 
-														(tpVertice * pVertice ) );
+			pVerticeOrigem->Sucessores = LIS_CriarLista( VER_DestruirVertice );
 
 			if((pVerticeOrigem->Sucessores)==NULL)
 			{
@@ -191,7 +193,7 @@
 
 		if(CondRetLista == LIS_CondRetOK)
 		{
-			CondRetVertice = VER_AdicionarAntecessor ( tpVertice * pVerticeDestino, tpVertice * pVerticeOrigem );
+			CondRetVertice = AdicionarAntecessor (  pVerticeDestino, pVerticeOrigem );
 
 			return CondRetVertice;
 
@@ -227,7 +229,7 @@
 		CondRetLista = LIS_ProcurarValor( pVerticeOrigem->Sucessores ,
                                     pVerticeDestino        ) ;
 
-		if(CondRetLista==LIS_CondRetNaoEncontrou)
+		if(CondRetLista==LIS_CondRetNaoAchou)
 		{
 			return VER_CondRetVerticeNaoEhSucessor;
 
@@ -245,13 +247,15 @@
 
 			if(CondRetLista==LIS_CondRetOK)
 			{
-				CondRetVertice = VER_RemoverAntecessor ( tpVertice * pVerticeDestino, tpVertice * pVerticeOrigem );
+				CondRetVertice = RemoverAntecessor ( pVerticeDestino, pVerticeOrigem );
 
 				return CondRetVertice;
 
 			}/* if */
 
 		}/* if */
+
+		return VER_CondRetOK;
 
 } /* Fim função: VER Remover Sucessor */
 
@@ -263,7 +267,6 @@
 	VER_tpCondRet AdicionarAntecessor ( tpVertice * pVerticeOrigem, tpVertice * pVerticeDestino ){
 		
 		LIS_tpCondRet CondRetLista;
-		VER_tpCondRet CondRetVertice;
 
 		if ( pVerticeOrigem == NULL )
 		{
@@ -272,8 +275,7 @@
 
 		if((pVerticeOrigem->Antecessores)==NULL)
 		{
-			pVerticeOrigem->Antecessores = LIS_CriarLista( VER_tpCondRet ( * VER_DestruirVertice ) 
-														(tpVertice * pVertice ) );
+			pVerticeOrigem->Antecessores = LIS_CriarLista( VER_DestruirVertice );
 
 			if((pVerticeOrigem->Antecessores)==NULL)
 			{
@@ -307,7 +309,6 @@
 	VER_tpCondRet RemoverAntecessor ( tpVertice * pVerticeOrigem, tpVertice * pVerticeDestino ){
 		
 		LIS_tpCondRet CondRetLista;
-		VER_tpCondRet CondRetVertice;
 
 		if ( pVerticeOrigem == NULL )
 		{
@@ -324,7 +325,7 @@
 		CondRetLista = LIS_ProcurarValor( pVerticeOrigem->Antecessores ,
                                     pVerticeDestino        ) ;
 
-		if(CondRetLista==LIS_CondRetNaoEncontrou)
+		if(CondRetLista==LIS_CondRetNaoAchou)
 		{
 			return VER_CondRetVerticeNaoEhAntecessor;
 
@@ -347,6 +348,8 @@
 			}/* if */
 
 		}/* if */
+
+		return VER_CondRetOK;
 
 } /* Fim função: VER Remover Antecessor */
 

@@ -49,7 +49,7 @@ INCLUDE = $(INCLUDE);$(PDEFAULT)
 ### Regras de geração
 
 all : limpa \
-   $(Fobj)\TestVer.obj   $(Fobj)\Vertice.obj \
+   $(Fobj)\Lista.obj   $(Fobj)\TestVer.obj   $(Fobj)\Vertice.obj \
    Construto
 
 ### Limpar arquivos
@@ -60,20 +60,24 @@ limpa :
 
 ### Dependências de módulos objeto a compilar
 
+$(Fobj)\Lista.obj :  {$(Pc)}\Lista.c \
+    {$(PDEFAULT)}LISTA.h             
+   cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c               >> $(Ferr)\$(NOME).err
+
 $(Fobj)\TestVer.obj :  {$(Pc)}\TestVer.c \
     {$(PDEFAULT)}TST_ESPC.H           {$(PDEFAULT)}TST_Espc.h           {$(PDEFAULT)}VERTICE.H            \
     {$(PDEFAULT)}generico.h           {$(PDEFAULT)}lerparm.h           
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c               >> $(Ferr)\$(NOME).err
 
 $(Fobj)\Vertice.obj :  {$(Pc)}\Vertice.c \
-    {$(PDEFAULT)}VERTICE.H           
+    {$(PDEFAULT)}LISTA.H              {$(PDEFAULT)}VERTICE.H           
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c               >> $(Ferr)\$(NOME).err
 
 
 ### Terminação
 
 Construto : \
-   $(Fobj)\TestVer.obj   $(Fobj)\Vertice.obj
+   $(Fobj)\Lista.obj   $(Fobj)\TestVer.obj   $(Fobj)\Vertice.obj
     cd $(Fobj)
     LINK $(L) @$(NOME).build >> $(Ferr)\$(NOME).err
 

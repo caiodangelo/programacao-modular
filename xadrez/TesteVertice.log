@@ -1,0 +1,22 @@
+
+!!! Inicio dos testes
+!!!      Construto sob teste: trabalho
+!!!      Script de teste:     TesteVertice.script
+
+!!!    0  Linha:     1  // Script:    TesteBasico.script 
+!!!    0  Linha:     2  // Autores:   Caio, Eduardo e Vitor 
+!!!    0  Linha:     3  // Data:      12/out/2009 
+!!!    0  Linha:     4  // Propósito: Testar o módulo VERTICE 
+    6  == Verificar criar vértice
+>>>    1  Linha:     8  Conteúdo do nó está errado. Deveria ser: >casa<  É: >gato<
+!!!    1  Linha:    11  //fim 
+
+!!! Número de linhas lidas:          12
+!!! Número de casos de teste:         1
+!!! Número comandos corretos:         1
+!!! Número de falhas encontradas:     1
+
+!!! Foram encontrados problemas
+
+
+!!! Numero de espacos ainda alocados: 0
