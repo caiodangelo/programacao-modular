@@ -2,6 +2,6 @@ REM executa os testes dos exemplos simples
 
 del estatisticas.estat
 
-trabalho      /sTesteVertice        /lTesteVertice       /aestatisticas
+trabalho      /sTesteGrafo       /lTesteGrafo       /aestatisticas
 
 exbestat /eestatisticas

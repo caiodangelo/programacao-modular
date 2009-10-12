@@ -1,0 +1,11 @@
+// Script:    Testegrafo.script
+// Autores:   Caio, Eduardo e Vitor
+// Data:      12/out/2009
+// Propósito: Testar o módulo GRAFO
+
+== Verificar criar grafo
+=criar 0
+
+
+//fim
+
