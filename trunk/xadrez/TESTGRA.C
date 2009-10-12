@@ -51,7 +51,7 @@
 #include    "generico.h"
 #include    "lerparm.h"
 
-#include    "VERTICE.H"
+#include    "GRAFO.H"
 
 /* Tabela dos nomes dos comandos de teste específicos */
 
@@ -70,7 +70,7 @@
 /*****  Dados encapsulados no módulo  *****/
 
       static tpGrafo * pGrafo;
-            /* Vetor de ponteiros para 10 vértices */
+            /* Ponteiro para o grafo a ser manipulado */
 
 /***********************************************************************
 *
@@ -91,8 +91,8 @@
    TST_tpCondRet TST_EfetuarComando( char * ComandoTeste )
    {
 
-      VER_tpCondRet CondRetObtido   = VER_CondRetOK ;
-      VER_tpCondRet CondRetEsperada = VER_CondRetFaltouMemoria ;
+      GRA_tpCondRet CondRetObtido   = GRA_CondRetOK ;
+      GRA_tpCondRet CondRetEsperada = GRA_CondRetFaltouMemoria ;
                                       /* inicializa para qualquer coisa */
 
       char ValorEsperado[10] = "vaca"  ;

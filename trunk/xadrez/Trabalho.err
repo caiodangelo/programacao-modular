@@ -1,14 +1,17 @@
 Lista.c
-TestVer.c
 Vertice.c
+TestGra.c
+.\TestGra.c(100) : warning C4189: 'ValorDado' : local variable is initialized but not referenced
+.\TestGra.c(104) : warning C4101: 'Ret' : unreferenced local variable
+.\TestGra.c(99) : warning C4189: 'ValorObtido' : local variable is initialized but not referenced
+.\TestGra.c(98) : warning C4189: 'ValorEsperado' : local variable is initialized but not referenced
 Grafo.c
-.\Grafo.c(296) : warning C4100: 'pGrafo' : unreferenced formal parameter
-c:\dudu\programa‡Æo modular\trabalho\xadrez\grafo.c(279) : warning C4700: uninitialized local variable 'tempVertice' used
+.\Grafo.c(297) : warning C4100: 'pGrafo' : unreferenced formal parameter
 Microsoft (R) Incremental Linker Version 9.00.21022.08
 Copyright (C) Microsoft Corporation.  All rights reserved.
 
 /OUT:Trabalho.exe 
 /INCREMENTAL:NO 
 /MACHINE:IX86 
-Lista.obj TestVer.obj Vertice.obj Grafo.obj 
+Lista.obj Vertice.obj TestGra.obj Grafo.obj 
 ArcaboucoTeste.lib 
