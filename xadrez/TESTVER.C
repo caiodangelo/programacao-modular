@@ -86,6 +86,7 @@
       char ValorObtido[10]  = "cachorro"  ;
       char ValorDado[10]     = "gato" ;
 	  int ixVertice		 = -1;
+	  char * pString;
 
       int  NumLidos      = -1 ;
 
@@ -95,14 +96,14 @@
 
          if ( strcmp( ComandoTeste , CRIAR_VER_CMD ) == 0 )
          {
-
+			printf("Criar\n");
             NumLidos = LER_LerParametros( "isi" , 
                                &ixVertice, ValorDado, &CondRetEsperada ) ;
             if ( NumLidos != 3 )
             {
                return TST_CondRetParm ;
             } /* if */
-
+			
             CondRetObtido = VER_CriarVertice( &vtpVertice[ixVertice], ValorDado ) ;
 
             return TST_CompararInt( CondRetEsperada , CondRetObtido ,
@@ -114,7 +115,7 @@
 
          else if ( strcmp( ComandoTeste , ALT_VAL_CMD ) == 0 )
          {
-
+			printf("alterar\n");
             NumLidos = LER_LerParametros( "isi" ,
                                &ixVertice, ValorDado , &CondRetEsperada ) ;
             if ( NumLidos != 3 )
@@ -127,14 +128,14 @@
             return TST_CompararInt( CondRetEsperada , CondRetObtido ,
                                     "Retorno errado ao alterar valor." );
 
-         } /* fim ativa: Testar VER Adicionar filho à esquerda */
+         } /* fim ativa: Testar VER Alterar valor */
 
 
       /* Testar VER Obter valor  */
 
          else if ( strcmp( ComandoTeste , OBTER_VAL_CMD ) == 0 )
          {
-
+			printf("obter\n");
             NumLidos = LER_LerParametros( "isi" ,
                                &ixVertice, ValorEsperado , &CondRetEsperada ) ;
             if ( NumLidos != 3 )
@@ -142,16 +143,19 @@
                return TST_CondRetParm ;
             } /* if */
 
-            CondRetObtido = VER_ObterValor( vtpVertice[ixVertice], ValorObtido ) ;
-
+            CondRetObtido = VER_ObterValor( vtpVertice[ixVertice], &pString ) ;
+			printf("String depois: %s\n", pString);
             Ret = TST_CompararInt( CondRetEsperada , CondRetObtido ,
                                    "Retorno errado ao obter valor corrente." );
+			
+			strcpy( ValorObtido, pString );
 
             if ( Ret != TST_CondRetOK )
             {
                return Ret ;
             } /* if */
 
+			printf("VALORESP: %s VALOROBT %s \n", ValorEsperado, ValorObtido);
             return TST_CompararString( ValorEsperado , ValorObtido ,
                                      "Conteúdo do nó está errado." ) ;
 
@@ -161,7 +165,7 @@
 
          else if ( strcmp( ComandoTeste , DESTRUIR_CMD ) == 0 )
          {
-
+			printf("destruir\n");
 			NumLidos = LER_LerParametros( "i" ,
                                &ixVertice ) ;
             if ( NumLidos != 1 )
