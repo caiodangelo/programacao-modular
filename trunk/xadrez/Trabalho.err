@@ -1,5 +1,11 @@
+Lista.c
 TestVer.c
 Vertice.c
-.\Vertice.c(60) : warning C4047: 'function' : 'tpVertice *' differs in levels of indirection from 'tpVertice ***'
-.\Vertice.c(60) : warning C4024: 'VER_DestruirVertice' : different types for formal and actual parameter 1
-.\Vertice.c(93) : error C2143: syntax error : missing ';' before '}'
+Microsoft (R) Incremental Linker Version 9.00.21022.08
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/OUT:Trabalho.exe 
+/INCREMENTAL:NO 
+/MACHINE:IX86 
+Lista.obj TestVer.obj Vertice.obj 
+ArcaboucoTeste.lib 

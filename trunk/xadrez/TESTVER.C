@@ -104,7 +104,7 @@
                return TST_CondRetParm ;
             } /* if */
 			
-            CondRetObtido = VER_CriarVertice( &vtpVertice[ixVertice], ValorDado ) ;
+            CondRetObtido = VER_CriarVertice( &vtpVertice[ixVertice], ValorDado, 1 ) ;
 
             return TST_CompararInt( CondRetEsperada , CondRetObtido ,
                                     "Retorno errado ao criar vértice." );
