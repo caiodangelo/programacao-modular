@@ -68,7 +68,7 @@
 *
 ***********************************************************************/
 
-   GRA_tpCondRet GRA_CriarGrafo ( tpGrafo ** ppGrafo );
+     GRA_tpCondRet GRA_CriarGrafo ( tpGrafo ** ppGrafo );
 
 
 /***********************************************************************
@@ -87,7 +87,7 @@
 *
 ***********************************************************************/
 
-   GRA_tpCondRet GRA_DestruirGrafo ( tpGrafo * pGrafo );
+  GRA_tpCondRet GRA_DestruirGrafo ( tpGrafo * pGrafo );
 
 
 /***********************************************************************
@@ -108,7 +108,7 @@
 *
 ***********************************************************************/
 
-   GRA_tpCondRet GRA_InserirVertice ( tpGrafo * pGrafo, void * pVertice );
+   GRA_tpCondRet GRA_InserirVertice ( tpGrafo * pGrafo, tpVertice * pVertice );
 
 
 /***********************************************************************
@@ -146,8 +146,8 @@
 *
 ***********************************************************************/
 
-	GRA_tpCondRet GRA_InserirAresta ( tpGrafo * pGrafo, void * pVerticeOrigem, void * pVerticeDestino );
-
+GRA_tpCondRet GRA_InserirAresta ( tpGrafo * pGrafo, int idVerticeOrigem, 
+									int idVerticeDestino );
 
 /***********************************************************************
 *
@@ -166,8 +166,8 @@
 *
 ***********************************************************************/
 
-	GRA_tpCondRet GRA_RemoverAresta ( tpGrafo * pGrafo, void * pVerticeOrigem, void * pVerticeDestino );
-
+GRA_tpCondRet GRA_RemoverAresta ( tpGrafo * pGrafo, int idVerticeOrigem, 
+									int idVerticeDestino );
 
 /***********************************************************************
 *
@@ -185,5 +185,10 @@
 ***********************************************************************/
 
 	GRA_tpCondRet GRA_ExibirGrafo ( tpGrafo * pGrafo );
+
+	 GRA_tpCondRet GRA_MarcarComoOrigem ( tpGrafo * pGrafo, int idVertice );
+
+	 GRA_tpCondRet GRA_DesmarcarComoOrigem ( tpGrafo * pGrafo, int idVertice );
+	 
 
 /********** Fim do módulo de definição: Módulo grafo **********/
