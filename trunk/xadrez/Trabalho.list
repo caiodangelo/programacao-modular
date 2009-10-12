@@ -1,0 +1,138 @@
+GERADOR DE SCRIPT DE DIRETIVAS PARA MAKE
+   LES / Informática / PUC-Rio    Versão 6.00 (c) 2005
+
+Composição do construto: Trabalho.comp
+
+   Nome do Construto:           Trabalho
+   Diretório base:              C:\Dudu\Programação Modular\trabalho\xadrez
+
+   Arquivo composição:          Trabalho.comp
+   Arquivo plataforma:          gmake.parm
+
+   Arquivo diretivas MAKE:      Trabalho.make
+   Arquivo diretivas LINK:      Trabalho.build
+   Arquivo listagem:            Trabalho.list
+
+Módulos do construto: Trabalho.comp
+
+   TestVer.c
+   Vertice.c
+
+Estatísticas do construto
+
+   Estatísticas do arquivo: TST_ESPC.H
+      Total linhas:             228
+      Linhas de código:          23
+      Linhas de comentário:     185
+      Linhas em branco:          20
+   Arquivos em que é incluído
+      TestVer.c
+
+   Estatísticas do arquivo: TST_Espc.h
+      Total linhas:             228
+      Linhas de código:          23
+      Linhas de comentário:     185
+      Linhas em branco:          20
+   Arquivos em que é incluído
+      TestVer.c
+      generico.h
+
+   Estatísticas do arquivo: TestVer.c
+      Total linhas:             183
+      Linhas de código:          76
+      Linhas de comentário:      66
+      Linhas em branco:          46
+   Arquivos de inclusão de que necessita
+      TST_ESPC.H
+      TST_Espc.h
+      VERTICE.H
+      generico.h
+      lerparm.h
+
+   Estatísticas do arquivo: VERTICE.H
+      Total linhas:             135
+      Linhas de código:          11
+      Linhas de comentário:     107
+      Linhas em branco:          17
+   Arquivos em que é incluído
+      TestVer.c
+      Vertice.c
+
+   Estatísticas do arquivo: Vertice.c
+      Total linhas:             136
+      Linhas de código:          48
+      Linhas de comentário:      53
+      Linhas em branco:          39
+   Arquivos de inclusão de que necessita
+      VERTICE.H
+
+   Estatísticas do arquivo: generico.h
+      Total linhas:             713
+      Linhas de código:          59
+      Linhas de comentário:     572
+      Linhas em branco:          82
+   Arquivos de inclusão de que necessita
+      TST_Espc.h
+   Arquivos em que é incluído
+      TestVer.c
+
+   Estatísticas do arquivo: lerparm.h
+      Total linhas:             291
+      Linhas de código:          36
+      Linhas de comentário:     188
+      Linhas em branco:          67
+   Arquivos em que é incluído
+      TestVer.c
+
+Totais por tipo de arquivo
+
+  Tipo: obj      Path: .
+         Total linhas do tipo:         0
+         Linhas de código:             0
+         Linhas de comentário:         0
+         Linhas em branco:             0
+         Arquivos deste tipo:          0
+
+  Tipo: err      Path: .
+         Total linhas do tipo:         0
+         Linhas de código:             0
+         Linhas de comentário:         0
+         Linhas em branco:             0
+         Arquivos deste tipo:          0
+
+  Tipo: DEFAULT  Path: .
+         Total linhas do tipo:      1595
+         Linhas de código:           152
+         Linhas de comentário:      1237
+         Linhas em branco:           206
+         Arquivos deste tipo:          5
+
+  Tipo: espstr   Path: .
+         Total linhas do tipo:         0
+         Linhas de código:             0
+         Linhas de comentário:         0
+         Linhas em branco:             0
+         Arquivos deste tipo:          0
+
+  Tipo: lista    Path: .
+         Total linhas do tipo:         0
+         Linhas de código:             0
+         Linhas de comentário:         0
+         Linhas em branco:             0
+         Arquivos deste tipo:          0
+
+  Tipo: c        Path: .
+         Total linhas do tipo:       319
+         Linhas de código:           124
+         Linhas de comentário:       119
+         Linhas em branco:            85
+         Arquivos deste tipo:          2
+
+Totais para todo o construto Trabalho
+
+   Total linhas:              1914
+   Linhas de código:           276
+   Linhas de comentário:      1356
+   Linhas em branco:           291
+   Arquivos processados:         7
+
