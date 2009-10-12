@@ -1,0 +1,135 @@
+------------------------------------------------------------------
+    Arquivo LEIAME do Grupo XXXXXXX
+------------------------------------------------------------------
+
+Este documento fornece informações complementares ou posteriores para 
+o YYYY e sua instalação.
+
+
+-------------------------
+COMO USAR ESTE DOCUMENTO
+-------------------------
+
+Para ver o arquivo Leiame.txt na tela no Bloco de Notas, maximize a 
+janela do Bloco de Notas. No menu Formatar, clique em Quebra automática 
+de linha. Para imprimir o Leiame.txt, abra-o no Bloco de Notas ou em 
+outro processador de texto e, em seguida, utilize o comando Imprimir no 
+menu Arquivo.
+
+
+--------
+SUMÁRIO
+--------
+
+REQUISITOS DO SISTEMA
+REQUISITOS ADICIONAIS
+INSTALAÇÃO
+COMPILAÇÃO
+TESTES
+COMO OBTER AJUDA
+
+
+----------------------
+REQUISITOS DO SISTEMA
+----------------------
+
+  - Arcabouço de Testes devidamente instalado
+  - Visual Studio 2005 ou 2008
+
+
+----------------------
+REQUISITOS ADICIONAIS
+----------------------
+
+Para suportar a correto funcionamento do programa execute o batch
+vsvar32s.bat.  Execute-o sempre que uma nova janela de linha de 
+comando for aberta
+
+-----------
+INSTALAÇÃO
+-----------
+
+// Aqui vocês descrevem como proceder ao receber o arquivo (.zip).
+
+--------------------
+COMPILAÇÃO
+--------------------
+
+// Aqui vocês descrevem como compilar os fontes.
+
+
+--------------------
+TESTES
+--------------------
+
+// Descrever os scripts
+// Descrever como proceder para testar
+
+-----------------
+COMO OBTER AJUDA
+-----------------
+
+Se tiver qualquer problema com este produto, entre em contato pleo 
+email XXXXX@XXX.com.br
+
+Regras de Sintaxe para a Criação de Arquivos de Disposição de Peças no Tabuleiro
+	
+	Cada linha do arquivo especificará a posição de apenas uma peça do jogo.
+	A sintaxe será <TipoDaPeça> <CorDaPeca> <Linha> <Coluna>
+	
+	Tipo da Peça:
+		P - peão
+		T - torre
+		C - cavalo
+		B - bispo
+		D - dama
+		R - rei
+
+	Cor da Peça:
+		B - branca
+		P - preta
+
+	Linha: Contada do topo para baixo, variando de 1 a 8
+
+	Coluna: Contada da esquerda para a direita, variando de A a H
+
+Regras de Sintaxe para a Criação de Arquivos de Especificação de Regras de Movimentação de Peças no Tabuleiro
+
+	Cada linha especificará as regras de movimentação de apenas uma peça do jogo.
+	No entanto, mais de uma linha poderá especificar a movimentaçao de uma mesma peça.
+	A sintaxe será de dois tipos:
+
+	Movimentação Discreta (Coordenadas Quadradas)
+	<TipoDaPeça> <TipoDaCasaDeDestino> <CasasNaHorizontal> <CasasNaVertical>
+
+	Tipo da Peça:
+		P - peão
+		T - torre
+		C - cavalo
+		B - bispo
+		D - dama
+		R - rei
+
+	Tipo da Casa de Destino:
+		V - vazia
+		C - cheia
+		? - não importa
+
+	Casas na Horizontal:
+		valores positivos - número de casas para a direita
+		valores negativos - número de casas para a esquerda
+
+	Casas na Vertical:
+		valores positivos - número de casas para frente
+		valores negativos - número de casas para trás
+
+	Movimentação Contínua (Coordenadas Polares)
+	<TipoDaPeça> <Direcao> <Casas>
+ 
+	Tipo da Peça:
+		P - peão
+		T - torre
+		C - cavalo
+		B - bispo
+		D - dama
+		R - rei

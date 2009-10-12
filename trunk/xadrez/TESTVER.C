@@ -142,7 +142,7 @@
                return TST_CondRetParm ;
             } /* if */
 
-            CondRetObtido = VER_ObterValorCorr( vtpVertice[ixVertice], ValorObtido ) ;
+            CondRetObtido = VER_ObterValor( vtpVertice[ixVertice], ValorObtido ) ;
 
             Ret = TST_CompararInt( CondRetEsperada , CondRetObtido ,
                                    "Retorno errado ao obter valor corrente." );
@@ -152,14 +152,14 @@
                return Ret ;
             } /* if */
 
-            return TST_CompararCharString( ValorEsperado , ValorObtido ,
+            return TST_CompararString( ValorEsperado , ValorObtido ,
                                      "Conteúdo do nó está errado." ) ;
 
          } /* fim ativa: Testar VER Obter valor corrente */
 
       /* Testar VER Destruir vértice */
 
-         else if ( strcmp( ComandoTeste , DESTROI_CMD ) == 0 )
+         else if ( strcmp( ComandoTeste , DESTRUIR_CMD ) == 0 )
          {
 
 			NumLidos = LER_LerParametros( "i" ,
@@ -169,7 +169,7 @@
                return TST_CondRetParm ;
             } /* if */
 
-            VER_DestruirVertice( &vtpVertice[ixVertice] ) ;
+            VER_DestruirVertice( vtpVertice[ixVertice] ) ;
 
             return TST_CondRetOK ;
 
