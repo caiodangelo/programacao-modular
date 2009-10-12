@@ -37,6 +37,15 @@
 
 		 void * Valor;
 			   /* Informação do Vértice */
+		 
+         LIS_tppLista * Sucessores ;
+               /* Ponteiro para a lista de vértices que são atingidos*/
+
+         LIS_tppLista * Antecessores ;
+               /* Ponteiro para a lista de vértices que atingem*/
+
+		 int idVertice;
+			  /* Identificador do vértice */
 
    } tpVertice ;
 
@@ -44,6 +53,9 @@
 
 /***** Protótipos das funções encapsuladas no módulo *****/
 
+   VER_tpCondRet VER_AdicionarAntecessor ( tpVertice * pVertice );
+
+   VER_tpCondRet VER_RemoverAntecessor ( tpVertice * pVertice );
   
 
 /*****  Código das funções exportadas pelo módulo  *****/
@@ -53,7 +65,7 @@
 *  Função: VER Criar vértice
 *  ****/
 
-   VER_tpCondRet VER_CriarVertice ( tpVertice ** ppVertice, void * Valor ){
+   VER_tpCondRet VER_CriarVertice ( tpVertice ** ppVertice, void * Valor, int idVertice ){
 
 	  if ( *ppVertice != NULL )
       {
@@ -67,6 +79,10 @@
       } /* if */
 
       (*ppVertice)->Valor = Valor;
+	  (*ppVertice)->Sucessores = NULL;
+	  (*ppVertice)->Antecessores = NULL;
+	  (*ppVertice)->idVertice = idVertice;
+
 
 	  return VER_CondRetOK ;
 
@@ -132,5 +148,164 @@
 
 } /* Fim função: VER Destruir Vertice */
 
-/********** Fim do módulo de implementação: Módulo grafo **********/
+/***************************************************************************
+*
+*  Função: VER Adicionar Sucessor
+*  ****/
 
+	VER_tpCondRet VER_AdicionarSucessor ( tpVertice * pVerticeOrigem, tpVertice * pVerticeDestino ){
+		
+		LIS_tpCondRet CondRetLista;
+		VER_tpCondRet CondRetVertice;
+
+		if ( pVerticeOrigem == NULL )
+		{
+			return VER_CondRetVerticeNaoExiste ;
+		} /* if */
+
+		if((pVerticeOrigem->Sucessores)==NULL)
+		{
+			pVerticeOrigem->Sucessores = LIS_CriarLista( VER_tpCondRet ( * VER_DestruirVertice ) 
+														(tpVertice * pVertice ) );
+
+			if((pVerticeOrigem->Sucessores)==NULL)
+			{
+				return  VER_CondRetFaltouMemoria;				
+
+			}/* if */
+
+		}/* if */
+
+		CondRetLista = LIS_InserirElementoApos( pVerticeOrigem->Sucessores ,
+                                          pVerticeDestino        );
+
+		if(CondRetLista == LIS_CondRetOK)
+		{
+			CondRetVertice = VER_AdicionarAntecessor ( tpVertice * pVerticeDestino, tpVertice * pVerticeOrigem );
+
+			return CondRetVertice;
+
+		}/* if */
+
+		return VER_CondRetFaltouMemoria;
+
+
+} /* Fim função: VER Adicionar Sucessor */
+
+/***************************************************************************
+*
+*  Função: VER Remover Sucessor
+*  ****/
+
+	VER_tpCondRet VER_RemoverSucessor ( tpVertice * pVerticeOrigem, tpVertice * pVerticeDestino ){
+		
+		LIS_tpCondRet CondRetLista;
+		VER_tpCondRet CondRetVertice;
+
+		if ( pVerticeOrigem == NULL )
+		{
+			return VER_CondRetVerticeNaoExiste ;
+		} /* if */
+
+		if((pVerticeOrigem->Sucessores)==NULL)
+		{
+			return VER_CondRetVerticeSemSucessor;
+			
+
+		}/* if */
+
+				
+
+
+} /* Fim função: VER Remover Sucessor */
+
+	/***************************************************************************
+*
+*  Função: VER Adicionar Antecessor
+*  ****/
+
+	VER_tpCondRet AdicionarAntecessor ( tpVertice * pVerticeOrigem, tpVertice * pVerticeDestino ){
+		
+		LIS_tpCondRet CondRetLista;
+		VER_tpCondRet CondRetVertice;
+
+		if ( pVerticeOrigem == NULL )
+		{
+			return VER_CondRetVerticeNaoExiste ;
+		} /* if */
+
+		if((pVerticeOrigem->Antecessores)==NULL)
+		{
+			pVerticeOrigem->Antecessores = LIS_CriarLista( VER_tpCondRet ( * VER_DestruirVertice ) 
+														(tpVertice * pVertice ) );
+
+			if((pVerticeOrigem->Antecessores)==NULL)
+			{
+				return  VER_CondRetFaltouMemoria;				
+
+			}/* if */
+
+		}/* if */
+
+		CondRetLista = LIS_InserirElementoApos( pVerticeOrigem->Antecessores ,
+                                          pVerticeDestino        );
+
+		if(CondRetLista == LIS_CondRetOK)
+		{
+			
+			return VER_CondRetOK;
+
+		}/* if */
+
+		return VER_CondRetFaltouMemoria;
+
+	
+
+} /* Fim função: VER Adicionar Antecessor */
+
+/***************************************************************************
+*
+*  Função: VER Remover Antecessor
+*  ****/
+
+	VER_tpCondRet RemoverAntecessor ( tpVertice * pVerticeOrigem, tpVertice * pVerticeDestino ){
+		
+		LIS_tpCondRet CondRetLista;
+		VER_tpCondRet CondRetVertice;
+
+		if ( pVerticeOrigem == NULL )
+		{
+			return VER_CondRetVerticeNaoExiste ;
+		} /* if */
+
+		if((pVerticeOrigem->Antecessores)==NULL)
+		{
+			pVerticeOrigem->Antecessores = LIS_CriarLista( VER_tpCondRet ( * VER_DestruirVertice ) 
+														(tpVertice * pVertice ) );
+
+			if((pVerticeOrigem->Antecessores)==NULL)
+			{
+				return  VER_CondRetFaltouMemoria;				
+
+			}/* if */
+
+		}/* if */
+
+		CondRetLista = LIS_InserirElementoApos( pVerticeOrigem->Antecessores ,
+                                          pVerticeDestino        );
+
+		if(CondRetLista == LIS_CondRetOK)
+		{
+			
+			return VER_CondRetOK;
+
+		}/* if */
+
+		return VER_CondRetFaltouMemoria;
+
+		
+
+
+} /* Fim função: VER Remover Antecessor */
+
+/********** Fim do módulo de implementação: Módulo vértice **********/
