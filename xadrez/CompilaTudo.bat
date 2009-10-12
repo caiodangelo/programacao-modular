@@ -1,16 +1,13 @@
 @ECHO  OFF
-REM  Compila todos os exemplos simples 
+REM  Compila o trabalho 
 
 pushd  .
 
 del *.err
-del ExemploSimples*.exe
+del Trabalho*.exe
 
 del *.obj
-nmake /Fexemplosimples.make "PRD="
-
-del *.obj
-nmake /FexemplosimplesDBG.make 
+nmake /Ftrabalho.make "PRD=" 
 
 copy  *.err  tudo.err
 
