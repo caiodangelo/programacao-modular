@@ -184,4 +184,24 @@ typedef enum {
 
 	VER_tpCondRet VER_RemoverSucessor ( tpVertice * pVerticeOrigem, tpVertice * pVerticeDestino );
 
+/***********************************************************************
+*
+*  $FC Função: VER Obter ID
+*
+*  $ED Descrição da função
+*     Obtém o ID do vértice.
+*
+*  $EP Parâmetros
+*     $P pVertice - ponteiro que referencia o vértice.
+*	  $p pIdVertice - ponteiro para armazenar o id a ser retornado
+*
+*  $FV Valor retornado
+*     	VER_CondRetOK
+*		VER_CondRetVerticeNaoExiste
+*
+***********************************************************************/
+
+	void VER_ObterId ( tpVertice * pVertice, int * pIdVertice );
+
+
 /********** Fim do módulo de definição: Módulo vértice **********/
