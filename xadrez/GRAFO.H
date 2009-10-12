@@ -35,8 +35,26 @@
 	     GRA_CondRetFaltouMemoria = 1 ,
 			   /* Faltou memória ao alocar dados */
 
-	     GRA_CondRetGrafoVazio = 2 ,
-			   /* Grafo está vazio */
+	     GRA_CondRetGrafoInexistente = 2 ,
+			/* Grafo não existe */
+
+		GRA_CondRetGrafoVazio = 3 ,
+			/* Grafo está vazio */ 
+
+		GRA_CondRetVerticeInexistente = 4,
+			/* Vertice dado não existe */ 
+		
+		GRA_CondRetIndiceInvalido = 5 ,
+			/* Índice dado não corresponde a um vértice na Lista de Vértices */ 
+		
+		GRA_CondRetArestaJaExiste = 6 ,
+			/* Tentou criar uma aresta que já existe */ 
+		
+		GRA_CondRetArestaNaoExiste = 7,
+			/* Tentou criar uma aresta que já existe */ 
+		
+		 GRA_CondRetVerticeNaoEhOrigem = 8,
+			/* Vertice dado nao eh origem */ 
 
    } GRA_tpCondRet ;
 
@@ -52,6 +70,8 @@
 ***********************************************************************/
 
 	typedef struct tgGrafo tpGrafo ;
+
+	typedef struct tgVertice tpVertice ; 
 
 /***********************************************************************
 *
