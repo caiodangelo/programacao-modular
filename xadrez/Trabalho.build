@@ -1,0 +1,6 @@
+/OUT:Trabalho.exe
+/INCREMENTAL:NO
+/MACHINE:IX86
+TestVer.obj  Vertice.obj  
+ArcaboucoTeste.lib
+
