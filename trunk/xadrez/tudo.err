@@ -2,91 +2,14 @@ Lista.c
 TestVer.c
 Vertice.c
 Grafo.c
-c:\dudu\programa‡Æo modular\trabalho\xadrez\GRAFO.H(111) : error C2143: syntax error : missing ')' before '*'
-c:\dudu\programa‡Æo modular\trabalho\xadrez\GRAFO.H(111) : error C2081: 'tpVertice' : name in formal parameter list illegal
-c:\dudu\programa‡Æo modular\trabalho\xadrez\GRAFO.H(111) : error C2143: syntax error : missing '{' before '*'
-c:\dudu\programa‡Æo modular\trabalho\xadrez\GRAFO.H(111) : error C2059: syntax error : ')'
-c:\dudu\programa‡Æo modular\trabalho\xadrez\GRAFO.H(111) : warning C4431: missing type specifier - int assumed. Note: C no longer supports default-int
-c:\dudu\programa‡Æo modular\trabalho\xadrez\GRAFO.H(111) : warning C4218: nonstandard extension used : must specify at least a storage class or a type
-.\Grafo.c(85) : error C2143: syntax error : missing ')' before 'type'
-.\Grafo.c(85) : error C2198: 'LIS_CriarLista' : too few arguments for call
-.\Grafo.c(85) : warning C4047: '=' : 'LIS_tppLista *' differs in levels of indirection from 'LIS_tppLista'
-.\Grafo.c(98) : error C2061: syntax error : identifier 'GRA_InserirVertice'
-.\Grafo.c(98) : error C2059: syntax error : ';'
-.\Grafo.c(98) : error C2059: syntax error : 'type'
-.\Grafo.c(143) : warning C4047: 'function' : 'LIS_tppLista' differs in levels of indirection from 'LIS_tppLista *'
-.\Grafo.c(143) : warning C4024: 'LIS_ExcluirElemento' : different types for formal and actual parameter 1
-.\Grafo.c(168) : error C2065: 'GRA_CondRetGrafoInexistente' : undeclared identifier
-.\Grafo.c(171) : warning C4013: 'ObtemVerticeComId' undefined; assuming extern returning int
-.\Grafo.c(171) : warning C4047: '=' : 'tpVertice *' differs in levels of indirection from 'int'
-.\Grafo.c(174) : error C2065: 'GRA_CondRetVerticeInexistente' : undeclared identifier
-.\Grafo.c(177) : warning C4047: 'function' : 'LIS_tppLista' differs in levels of indirection from 'LIS_tppLista *'
-.\Grafo.c(177) : warning C4024: 'LIS_InserirElementoAntes' : different types for formal and actual parameter 1
-.\Grafo.c(199) : error C2065: 'GRA_CondRetGrafoInexistente' : undeclared identifier
-.\Grafo.c(202) : warning C4047: 'function' : 'LIS_tppLista' differs in levels of indirection from 'LIS_tppLista *'
-.\Grafo.c(202) : warning C4024: 'LIS_ProcurarValor' : different types for formal and actual parameter 1
-.\Grafo.c(204) : error C2065: 'LIS_CondRetNaoEncontrou' : undeclared identifier
-.\Grafo.c(205) : error C2065: 'GRA_CondRetVerticeNaoEhOrigem' : undeclared identifier
-.\Grafo.c(208) : warning C4047: 'function' : 'LIS_tppLista' differs in levels of indirection from 'LIS_tppLista *'
-.\Grafo.c(208) : warning C4024: 'LIS_ExcluirElemento' : different types for formal and actual parameter 1
-.\Grafo.c(211) : error C2065: 'GRA_CondRetVerticeNaoEhOrigem' : undeclared identifier
-.\Grafo.c(217) : error C2275: 'LIS_tpCondRet' : illegal use of this type as an expression
-        c:\dudu\programa‡Æo modular\trabalho\xadrez\LISTA.H(94) : see declaration of 'LIS_tpCondRet'
-.\Grafo.c(217) : error C2146: syntax error : missing ';' before identifier 'LIS_ExcluirElemento'
-.\Grafo.c(217) : error C2143: syntax error : missing ')' before 'type'
-.\Grafo.c(217) : error C2198: 'LIS_ExcluirElemento' : too few arguments for call
-.\Grafo.c(217) : error C2059: syntax error : ')'
-.\Grafo.c(221) : error C2065: 'GRA_CondRetOk' : undeclared identifier
-.\Grafo.c(237) : error C2065: 'GRA_CondRetGrafoInexistente' : undeclared identifier
-.\Grafo.c(240) : error C2275: 'tpVertice' : illegal use of this type as an expression
-        c:\dudu\programa‡Æo modular\trabalho\xadrez\VERTICE.H(66) : see declaration of 'tpVertice'
-.\Grafo.c(240) : error C2065: 'pVerticeOrigem' : undeclared identifier
-.\Grafo.c(241) : error C2275: 'tpVertice' : illegal use of this type as an expression
-        c:\dudu\programa‡Æo modular\trabalho\xadrez\VERTICE.H(66) : see declaration of 'tpVertice'
-.\Grafo.c(241) : error C2065: 'pVerticeDestino' : undeclared identifier
-.\Grafo.c(241) : warning C4013: 'ObterVerticeComId' undefined; assuming extern returning int
-.\Grafo.c(243) : error C2065: 'pVerticeOrigem' : undeclared identifier
-.\Grafo.c(243) : warning C4047: '==' : 'int' differs in levels of indirection from 'void *'
-.\Grafo.c(243) : error C2065: 'pVerticeDestino' : undeclared identifier
-.\Grafo.c(243) : warning C4047: '==' : 'int' differs in levels of indirection from 'void *'
-.\Grafo.c(244) : error C2065: 'GRA_CondRetVerticeInexistente' : undeclared identifier
-.\Grafo.c(247) : error C2065: 'pVerticeOrigem' : undeclared identifier
-.\Grafo.c(247) : warning C4047: 'function' : 'tpVertice *' differs in levels of indirection from 'int'
-.\Grafo.c(247) : warning C4024: 'VER_AdicionarSucessor' : different types for formal and actual parameter 1
-.\Grafo.c(247) : error C2065: 'pVerticeDestino' : undeclared identifier
-.\Grafo.c(247) : warning C4047: 'function' : 'tpVertice *' differs in levels of indirection from 'int'
-.\Grafo.c(247) : warning C4024: 'VER_AdicionarSucessor' : different types for formal and actual parameter 2
-.\Grafo.c(252) : error C2065: 'VER_VerticeNaoExiste' : undeclared identifier
-.\Grafo.c(253) : error C2065: 'GRA_CondRetVerticeInexistente' : undeclared identifier
-.\Grafo.c(255) : error C2065: 'VER_SucessorJaExiste' : undeclared identifier
-.\Grafo.c(256) : error C2065: 'GRA_CondRetArestaJaExiste' : undeclared identifier
-.\Grafo.c(274) : error C2065: 'GRA_CondRetGrafoInexistente' : undeclared identifier
-.\Grafo.c(277) : error C2275: 'tpVertice' : illegal use of this type as an expression
-        c:\dudu\programa‡Æo modular\trabalho\xadrez\VERTICE.H(66) : see declaration of 'tpVertice'
-.\Grafo.c(277) : error C2065: 'pVerticeOrigem' : undeclared identifier
-.\Grafo.c(278) : error C2275: 'tpVertice' : illegal use of this type as an expression
-        c:\dudu\programa‡Æo modular\trabalho\xadrez\VERTICE.H(66) : see declaration of 'tpVertice'
-.\Grafo.c(278) : error C2065: 'pVerticeDestino' : undeclared identifier
-.\Grafo.c(280) : error C2065: 'pVerticeOrigem' : undeclared identifier
-.\Grafo.c(280) : warning C4047: '==' : 'int' differs in levels of indirection from 'void *'
-.\Grafo.c(280) : error C2065: 'pVerticeDestino' : undeclared identifier
-.\Grafo.c(280) : warning C4047: '==' : 'int' differs in levels of indirection from 'void *'
-.\Grafo.c(281) : error C2065: 'GRA_CondRetVerticeInexistente' : undeclared identifier
-.\Grafo.c(284) : error C2065: 'pVerticeOrigem' : undeclared identifier
-.\Grafo.c(284) : warning C4047: 'function' : 'tpVertice *' differs in levels of indirection from 'int'
-.\Grafo.c(284) : warning C4024: 'VER_RemoverSucessor' : different types for formal and actual parameter 1
-.\Grafo.c(284) : error C2065: 'pVerticeDestino' : undeclared identifier
-.\Grafo.c(284) : warning C4047: 'function' : 'tpVertice *' differs in levels of indirection from 'int'
-.\Grafo.c(284) : warning C4024: 'VER_RemoverSucessor' : different types for formal and actual parameter 2
-.\Grafo.c(287) : error C2065: 'GRA_CondRetVerticeInexistente' : undeclared identifier
-.\Grafo.c(290) : error C2065: 'GRA_CondRetArestaNaoExiste' : undeclared identifier
-.\Grafo.c(320) : warning C4047: 'function' : 'LIS_tppLista' differs in levels of indirection from 'LIS_tppLista *'
-.\Grafo.c(320) : warning C4024: 'LIS_DestruirLista' : different types for formal and actual parameter 1
-.\Grafo.c(321) : warning C4047: 'function' : 'LIS_tppLista' differs in levels of indirection from 'LIS_tppLista *'
-.\Grafo.c(321) : warning C4024: 'LIS_DestruirLista' : different types for formal and actual parameter 1
-.\Grafo.c(336) : error C2040: 'ObtemVerticeComId' : 'tpVertice *(tpGrafo *,int)' differs in levels of indirection from 'int ()'
-.\Grafo.c(340) : warning C4047: 'function' : 'LIS_tppLista' differs in levels of indirection from 'LIS_tppLista *'
-.\Grafo.c(340) : warning C4024: 'LIS_ProcurarValor' : different types for formal and actual parameter 1
-.\Grafo.c(345) : error C2037: left of 'pElemCorr' specifies undefined struct/union 'LIS_tagLista'
-.\Grafo.c(345) : warning C4033: 'ObtemVerticeComId' must return a value
+.\Grafo.c(296) : warning C4100: 'pGrafo' : unreferenced formal parameter
+c:\dudu\programa‡Æo modular\trabalho\xadrez\grafo.c(279) : warning C4700: uninitialized local variable 'tempVertice' used
+Microsoft (R) Incremental Linker Version 9.00.21022.08
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/OUT:Trabalho.exe 
+/INCREMENTAL:NO 
+/MACHINE:IX86 
+Lista.obj TestVer.obj Vertice.obj Grafo.obj 
+ArcaboucoTeste.lib 
 
