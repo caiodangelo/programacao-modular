@@ -21,6 +21,7 @@
 #include   <stdio.h>
 
 #include "VERTICE.H"
+#include "LISTA.H"
 
 /***********************************************************************
 *
@@ -176,6 +177,15 @@
 
 		}/* if */
 
+		CondRetLista = LIS_ProcurarValor( pVerticeOrigem->Sucessores ,
+                                    pVerticeDestino        ) ;
+
+		if(CondRetLista==LIS_CondRetOK)
+		{
+			return VER_CondRetVerticeSucessorJahExiste;
+
+		}/* if */
+
 		CondRetLista = LIS_InserirElementoApos( pVerticeOrigem->Sucessores ,
                                           pVerticeDestino        );
 
@@ -209,13 +219,39 @@
 
 		if((pVerticeOrigem->Sucessores)==NULL)
 		{
-			return VER_CondRetVerticeSemSucessor;
+			return VER_CondRetVerticeNaoEhSucessor;
 			
 
 		}/* if */
 
-				
+		CondRetLista = LIS_ProcurarValor( pVerticeOrigem->Sucessores ,
+                                    pVerticeDestino        ) ;
 
+		if(CondRetLista==LIS_CondRetNaoEncontrou)
+		{
+			return VER_CondRetVerticeNaoEhSucessor;
+
+		}/* if */
+
+		if(CondRetLista== LIS_CondRetListaVazia)
+		{
+			return VER_CondRetVerticeNaoEhSucessor;
+
+		}/* if */
+
+		if(CondRetLista==LIS_CondRetOK)
+		{
+			CondRetLista = LIS_ExcluirElemento( pVerticeOrigem->Sucessores ) ;
+
+			if(CondRetLista==LIS_CondRetOK)
+			{
+				CondRetVertice = VER_RemoverAntecessor ( tpVertice * pVerticeDestino, tpVertice * pVerticeOrigem );
+
+				return CondRetVertice;
+
+			}/* if */
+
+		}/* if */
 
 } /* Fim função: VER Remover Sucessor */
 
@@ -280,31 +316,37 @@
 
 		if((pVerticeOrigem->Antecessores)==NULL)
 		{
-			pVerticeOrigem->Antecessores = LIS_CriarLista( VER_tpCondRet ( * VER_DestruirVertice ) 
-														(tpVertice * pVertice ) );
+			return VER_CondRetVerticeNaoEhAntecessor;
+			
 
-			if((pVerticeOrigem->Antecessores)==NULL)
+		}/* if */
+
+		CondRetLista = LIS_ProcurarValor( pVerticeOrigem->Antecessores ,
+                                    pVerticeDestino        ) ;
+
+		if(CondRetLista==LIS_CondRetNaoEncontrou)
+		{
+			return VER_CondRetVerticeNaoEhAntecessor;
+
+		}/* if */
+
+		if(CondRetLista== LIS_CondRetListaVazia)
+		{
+			return VER_CondRetVerticeNaoEhAntecessor;
+
+		}/* if */
+
+		if(CondRetLista==LIS_CondRetOK)
+		{
+			CondRetLista = LIS_ExcluirElemento( pVerticeOrigem->Antecessores ) ;
+
+			if(CondRetLista==LIS_CondRetOK)
 			{
-				return  VER_CondRetFaltouMemoria;				
+				return VER_CondRetOK;
 
 			}/* if */
 
 		}/* if */
-
-		CondRetLista = LIS_InserirElementoApos( pVerticeOrigem->Antecessores ,
-                                          pVerticeDestino        );
-
-		if(CondRetLista == LIS_CondRetOK)
-		{
-			
-			return VER_CondRetOK;
-
-		}/* if */
-
-		return VER_CondRetFaltouMemoria;
-
-		
-
 
 } /* Fim função: VER Remover Antecessor */
 

@@ -41,8 +41,14 @@ typedef enum {
          VER_CondRetFaltouMemoria = 3 ,
                /* Faltou memória ao alocar dados */
 
-		 VER_CondRetVerticeSemSucessor = 4 ,
-               /* Faltou memória ao alocar dados */
+		 VER_CondRetVerticeSucessorJahExiste = 4 ,
+               /* Vértice destino já é sucessor do vértice origem */
+
+	     VER_CondRetVerticeNaoEhSucessor = 5 ,
+				/* Vértice destino não é sucessor do vértice origem */
+
+		VER_CondRetVerticeNaoEhAntecessor = 6 ,
+				/* Vértice destino não é antecessor do vértice origem */
 
 } VER_tpCondRet;
 
@@ -151,6 +157,7 @@ typedef enum {
 *     	VER_CondRetOK
 *		VER_CondRetVerticeNaoExiste
 *		VER_CondRetFaltouMemoria;
+*		VER_CondRetVerticeSucessorJahExiste
 *
 ***********************************************************************/
 	
@@ -171,6 +178,7 @@ typedef enum {
 *  $FV Valor retornado
 *     	VER_CondRetOK
 *		VER_CondRetVerticeNaoExiste
+*		VER_CondRetVerticeJaEhSucessor
 *
 ***********************************************************************/
 
