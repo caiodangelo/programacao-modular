@@ -16,25 +16,26 @@ Composição do construto: Trabalho.comp
 Módulos do construto: Trabalho.comp
 
    Lista.c
-   TestVer.c
    Vertice.c
+   TestGra.c
    Grafo.c
 
 Estatísticas do construto
 
    Estatísticas do arquivo: GRAFO.H
-      Total linhas:             194
-      Linhas de código:          17
-      Linhas de comentário:     148
-      Linhas em branco:          29
+      Total linhas:             214
+      Linhas de código:          24
+      Linhas de comentário:     154
+      Linhas em branco:          36
    Arquivos em que é incluído
       Grafo.c
+      TestGra.c
 
    Estatísticas do arquivo: Grafo.c
-      Total linhas:             353
-      Linhas de código:         169
+      Total linhas:             347
+      Linhas de código:         167
       Linhas de comentário:      94
-      Linhas em branco:         100
+      Linhas em branco:          96
    Arquivos de inclusão de que necessita
       GRAFO.H
       LISTA.H
@@ -71,7 +72,7 @@ Estatísticas do construto
       Linhas de comentário:     185
       Linhas em branco:          20
    Arquivos em que é incluído
-      TestVer.c
+      TestGra.c
 
    Estatísticas do arquivo: TST_Espc.h
       Total linhas:             228
@@ -79,18 +80,18 @@ Estatísticas do construto
       Linhas de comentário:     185
       Linhas em branco:          20
    Arquivos em que é incluído
-      TestVer.c
+      TestGra.c
       generico.h
 
-   Estatísticas do arquivo: TestVer.c
-      Total linhas:             187
-      Linhas de código:          84
-      Linhas de comentário:      66
-      Linhas em branco:          42
+   Estatísticas do arquivo: TestGra.c
+      Total linhas:             129
+      Linhas de código:          39
+      Linhas de comentário:      68
+      Linhas em branco:          24
    Arquivos de inclusão de que necessita
+      GRAFO.H
       TST_ESPC.H
       TST_Espc.h
-      VERTICE.H
       generico.h
       lerparm.h
 
@@ -101,7 +102,6 @@ Estatísticas do construto
       Linhas em branco:          24
    Arquivos em que é incluído
       Grafo.c
-      TestVer.c
       Vertice.c
 
    Estatísticas do arquivo: Vertice.c
@@ -121,7 +121,7 @@ Estatísticas do construto
    Arquivos de inclusão de que necessita
       TST_Espc.h
    Arquivos em que é incluído
-      TestVer.c
+      TestGra.c
 
    Estatísticas do arquivo: lerparm.h
       Total linhas:             291
@@ -129,7 +129,7 @@ Estatísticas do construto
       Linhas de comentário:     188
       Linhas em branco:          67
    Arquivos em que é incluído
-      TestVer.c
+      TestGra.c
 
 Totais por tipo de arquivo
 
@@ -148,10 +148,10 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: DEFAULT  Path: .
-         Total linhas do tipo:      2533
-         Linhas de código:           244
-         Linhas de comentário:      1949
-         Linhas em branco:           340
+         Total linhas do tipo:      2553
+         Linhas de código:           251
+         Linhas de comentário:      1955
+         Linhas em branco:           347
          Arquivos deste tipo:          8
 
   Tipo: espstr   Path: .
@@ -169,17 +169,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: .
-         Total linhas do tipo:      1456
-         Linhas de código:           714
-         Linhas de comentário:       375
-         Linhas em branco:           411
+         Total linhas do tipo:      1392
+         Linhas de código:           667
+         Linhas de comentário:       377
+         Linhas em branco:           389
          Arquivos deste tipo:          4
 
 Totais para todo o construto Trabalho
 
-   Total linhas:              3989
-   Linhas de código:           958
-   Linhas de comentário:      2324
-   Linhas em branco:           751
+   Total linhas:              3945
+   Linhas de código:           918
+   Linhas de comentário:      2332
+   Linhas em branco:           736
    Arquivos processados:        12
 

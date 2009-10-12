@@ -49,7 +49,7 @@ INCLUDE = $(INCLUDE);$(PDEFAULT)
 ### Regras de geração
 
 all : limpa \
-   $(Fobj)\Lista.obj   $(Fobj)\TestVer.obj   $(Fobj)\Vertice.obj \
+   $(Fobj)\Lista.obj   $(Fobj)\Vertice.obj   $(Fobj)\TestGra.obj \
    $(Fobj)\Grafo.obj \
    Construto
 
@@ -65,13 +65,13 @@ $(Fobj)\Lista.obj :  {$(Pc)}\Lista.c \
     {$(PDEFAULT)}LISTA.h             
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c               >> $(Ferr)\$(NOME).err
 
-$(Fobj)\TestVer.obj :  {$(Pc)}\TestVer.c \
-    {$(PDEFAULT)}TST_ESPC.H           {$(PDEFAULT)}TST_Espc.h           {$(PDEFAULT)}VERTICE.H            \
-    {$(PDEFAULT)}generico.h           {$(PDEFAULT)}lerparm.h           
-   cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c               >> $(Ferr)\$(NOME).err
-
 $(Fobj)\Vertice.obj :  {$(Pc)}\Vertice.c \
     {$(PDEFAULT)}LISTA.H              {$(PDEFAULT)}VERTICE.H           
+   cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c               >> $(Ferr)\$(NOME).err
+
+$(Fobj)\TestGra.obj :  {$(Pc)}\TestGra.c \
+    {$(PDEFAULT)}GRAFO.H              {$(PDEFAULT)}TST_ESPC.H           {$(PDEFAULT)}TST_Espc.h           \
+    {$(PDEFAULT)}generico.h           {$(PDEFAULT)}lerparm.h           
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c               >> $(Ferr)\$(NOME).err
 
 $(Fobj)\Grafo.obj :  {$(Pc)}\Grafo.c \
@@ -82,7 +82,7 @@ $(Fobj)\Grafo.obj :  {$(Pc)}\Grafo.c \
 ### Terminação
 
 Construto : \
-   $(Fobj)\Lista.obj   $(Fobj)\TestVer.obj   $(Fobj)\Vertice.obj \
+   $(Fobj)\Lista.obj   $(Fobj)\Vertice.obj   $(Fobj)\TestGra.obj \
    $(Fobj)\Grafo.obj
     cd $(Fobj)
     LINK $(L) @$(NOME).build >> $(Ferr)\$(NOME).err

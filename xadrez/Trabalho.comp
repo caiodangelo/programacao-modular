@@ -8,8 +8,8 @@ err         =  .
 
 [Modulos]
 Lista
-TestVer
 Vertice
+TestGra
 Grafo
 
 [BuildInicio]

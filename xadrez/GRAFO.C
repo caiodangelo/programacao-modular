@@ -176,7 +176,8 @@
 
 		if ( tempLista == LIS_CondRetFaltouMemoria){
 			return GRA_CondRetFaltouMemoria ;
-		} else{
+		} 
+		else{
 			return GRA_CondRetOK ;
 		}/* if */
 
@@ -274,7 +275,7 @@
 			return GRA_CondRetVerticeInexistente;
 		}/* if */
 
-		VER_RemoverSucessor( pVerticeOrigem, pVerticeDestino ) ;
+		tempVertice = VER_RemoverSucessor( pVerticeOrigem, pVerticeDestino ) ;
 
 		if ( tempVertice == VER_CondRetVerticeNaoExiste ){
 			return GRA_CondRetVerticeInexistente;

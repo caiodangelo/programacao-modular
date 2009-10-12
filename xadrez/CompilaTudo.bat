@@ -7,7 +7,7 @@ del *.err
 del Trabalho*.exe
 
 del *.obj
-nmake /Ftrabalho.make "PRD=" 
+nmake /FTrabalho.make "PRD=" 
 
 copy  *.err  tudo.err
 
