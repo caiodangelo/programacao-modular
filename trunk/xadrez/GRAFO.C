@@ -13,7 +13,7 @@
 *
 *  $HA Histórico de evolução:
 *     Versão  Autor    Data     Observações
-*       1.00   avs   19/09/2009 Início do desenvolvimento
+*       1.00   cev   19/09/2009 Início do desenvolvimento
 *
 ***************************************************************************/
 
@@ -24,35 +24,6 @@
 #include "VERTICE.H"
 #include "LISTA.H"
 
-/***********************************************************************
-*
-*  $TC Tipo de dados: GRA Descritor do vértice de um grafo
-*
-*
-*  $ED Descrição do tipo
-*     O vértice de um grafo é a estrutura mais elementar do grafo.
-*     ...
-*
-***********************************************************************/
-
-   typedef struct tgVerticeGrafo {
-
-         LIS_tppLista * Sucessores ;
-               /* Ponteiro para a lista de vértices que são atingidos
-			   *
-			   *$EED Assertivas estruturais
-			   * ... */
-
-         LIS_tppLista * Antecessores ;
-               /* Ponteiro para a lista de vértices que atingem
-			   *
-			   *$EED Assertivas estruturais
-			   * ... */
-
-		 void * Nome;
-			   /* Nome do Vértice */
-
-   } tpVerticeGrafo ;
 
 /***********************************************************************
 *
@@ -67,13 +38,17 @@
 
    typedef struct tgGrafo {
 
-         LIS_tppLista * Vertices ;
-               /* Ponteiro para a lista de vértices do grafo 
-			   *
-			   *$EED Assertivas estruturais
-			   * ... */	 
-
-		 //tpVerticeGrafo * VerticeCorrente;
+        LIS_tppLista * ListaVertices ;
+            /* Ponteiro para a lista de vértices do grafo 
+			*
+			*$EED Assertivas estruturais
+			* ... */	 
+		LIS_tppLista * ListaOrigens ;
+			/* Ponteiro para a lista de vértices do grafo 
+			*
+			*$EED Assertivas estruturais
+			* ... */	 
+		tpVertice * VerticeCorrente;
 			  /* Ponteiro para o vértice corrente 
 			  *
 			  *$EED Assertivas estruturais
@@ -95,9 +70,9 @@
 
    GRA_tpCondRet GRA_CriarGrafo ( tpGrafo ** ppGrafo ){
 
-	    if ( *ppGrafo != NULL )
+	  if ( *ppGrafo != NULL )
       {
-         GRA_DestruirGrafo( &ppGrafo ) ;
+         GRA_DestruirGrafo( *ppGrafo ) ;
       } /* if */
 
       *ppGrafo = ( tpGrafo * ) malloc( sizeof( tpGrafo )) ;
@@ -106,8 +81,10 @@
          return GRA_CondRetFaltouMemoria ;
       } /* if */
 
-      (*ppGrafo)->Vertices = LIS_CriarLista(NULL);/* criar função de destruição de elementos */
-	  //(*ppGrafo)->VerticeCorrente = NULL;
+      (*ppGrafo)->ListaVertices = LIS_CriarLista(VER_tpCondRet   
+							( * VER_DestruirVertice ) ( tpVertice * pVertice ));
+	  
+	  (*ppGrafo)->VerticeCorrente = NULL;
 
 	  return GRA_CondRetOK ;
 
@@ -118,12 +95,10 @@
 *  Função: GRA Inserir vértice
 *  ****/
 
-   GRA_tpCondRet GRA_InserirVertice ( tpGrafo * pGrafo, void * pVertice ){
+   GRA_tpCondRet GRA_InserirVertice ( tpGrafo * pGrafo, tpVertice * pVertice ){
 
 	   GRA_tpCondRet tempGrafo;
 	   LIS_tpCondRet tempLista;
-
-	   //pVertice = ( tpVerticeGrafo * ) malloc( sizeof( tpVerticeGrafo )) ;
 
 	   if( pGrafo == NULL )
 	   {
@@ -136,11 +111,11 @@
 
 	   } /* if */
 
-	   tempLista = LIS_InserirElementoAntes( (pGrafo->Vertices) , &pVertice );
+	   tempLista = LIS_InserirElementoAntes( (pGrafo->ListaVertices) , &pVertice );
 
 	   if( tempLista == LIS_CondRetOK )
 	   {
-		   //(pGrafo->VerticeCorrente) = (pGrafo->Vertices);
+		   (pGrafo->VerticeCorrente) = pVertice;
 		   return GRA_CondRetOK;
 	   }
 	   else
@@ -165,7 +140,7 @@
 		  return GRA_CondRetGrafoVazio;
 	   } /* if */
 
-	   tempLista = LIS_ExcluirElemento( pGrafo->Vertices ) ;
+	   tempLista = LIS_ExcluirElemento( pGrafo->ListaVertices ) ;
 
 	   if( tempLista == LIS_CondRetOK )
 	   {
@@ -174,18 +149,114 @@
 	   else
 	   {
 		   return GRA_CondRetGrafoVazio;
-	   }
+	   } /* if */
 
 } /* Fim função: GRA Excluir vértice */
 
 
+   /***************************************************************************
+*
+*  Função: GRA_MarcarComoOrigem
+*  ****/
+
+   GRA_tpCondRet GRA_MarcarComoOrigem ( tpGrafo * pGrafo, int idVertice ){
+
+		LIS_tpCondRet tempLista;
+		tpVertice * pVertice;
+
+		if ( pGrafo == NULL ){
+			return GRA_CondRetGrafoInexistente;
+		}/* if */
+	
+		pVertice = ObtemVerticeComId( pGrafo, idVertice ) ;
+
+		if ( pVertice == NULL){
+			return GRA_CondRetVerticeInexistente;
+		}/* if */
+
+		tempLista = LIS_InserirElementoAntes( pGrafo->ListaOrigens , pVertice ) ;
+
+		if ( tempLista == LIS_CondRetFaltouMemoria){
+			return GRA_CondRetFaltouMemoria ;
+		} else{
+			return GRA_CondRetOK ;
+		}/* if */
+
+} /* Fim função: GRA_MarcarComoOrigem */
+
+
+   /***************************************************************************
+*
+*  Função: GRA_DesmarcarComoOrigem
+*  ****/
+
+   GRA_tpCondRet GRA_DesmarcarComoOrigem ( tpGrafo * pGrafo, int idVertice ){
+
+		LIS_tpCondRet tempLista;
+		tpVertice * pVertice;
+
+		if ( pGrafo == NULL ){
+			return GRA_CondRetGrafoInexistente;
+		}/* if */
+	
+		tempLista = LIS_ProcurarValor( pGrafo->ListaOrigens , &idVertice );
+		
+		if ( tempLista == LIS_CondRetNaoEncontrou || tempLista == LIS_CondRetListaVazia ){
+			return GRA_CondRetVerticeNaoEhOrigem ;
+		} /* if */
+
+		tempLista = LIS_ExcluirElemento( pGrafo->ListaOrigens) ;
+
+		if ( tempLista == LIS_CondRetListaVazia ){
+			return GRA_CondRetVerticeNaoEhOrigem ;
+		} /* if */
+	
+		return GRA_CondRetOK;
+
+
+   LIS_tpCondRet LIS_ExcluirElemento( LIS_tppLista pLista ) ;
+		if ( tempLista == LIS_CondRetFaltouMemoria){
+			return GRA_CondRetFaltouMemoria ;
+		} else{
+			return GRA_CondRetOk ;
+		}/* if */
+
+} /* Fim função: GRA_DesmarcarComoOrigem */
 
 /***************************************************************************
 *
 *  Função: GRA Inserir aresta
 *  ****/
 
-   GRA_tpCondRet GRA_InserirAresta ( tpGrafo * pGrafo, void * pVerticeOrigem, void * pVerticeDestino ){
+   GRA_tpCondRet GRA_InserirAresta ( tpGrafo * pGrafo, int idVerticeOrigem, 
+									int idVerticeDestino ){
+
+		VER_tpCondRet tempVertice;
+
+		if ( pGrafo == NULL ){
+			return GRA_CondRetGrafoInexistente;
+		}/* if */
+	
+		tpVertice * pVerticeOrigem = ObtemVerticeComId( pGrafo, idVerticeOrigem ) ;
+		tpVertice * pVerticeDestino = ObterVerticeComId( idVerticeDestino ) ;
+
+		if ( pVerticeOrigem == NULL || pVerticeDestino == NULL ){
+			return GRA_CondRetVerticeInexistente;
+		}/* if */
+		
+		tempVertice = VER_AdicionarSucessor( pVerticeOrigem, pVerticeDestino ) ;
+
+		if ( tempVertice == VER_CondRetFaltouMemoria ){
+			return GRA_CondRetFaltouMemoria;
+		} /* if */
+		if ( tempVertice == VER_VerticeNaoExiste ){
+			return GRA_CondRetVerticeInexistente;
+		} /* if */
+		if ( tempVertice == VER_SucessorJaExiste ){
+			return GRA_CondRetArestaJaExiste;
+		}else {
+			return GRA_CondRetOK ;
+		} /* if */
 	   
 } /* Fim função: GRA Inserir aresta */
 
@@ -194,10 +265,35 @@
 *  Função: GRA Remover aresta
 *  ****/
 
-   GRA_tpCondRet GRA_RemoverAresta ( tpGrafo * pGrafo, void * pVerticeOrigem, void * pVerticeDestino ){
+   GRA_tpCondRet GRA_RemoverAresta ( tpGrafo * pGrafo, int idVerticeOrigem, 
+									int idVerticeDestino ){
 
-	   
+		VER_tpCondRet tempVertice;
+		
+		if ( pGrafo == NULL ){
+			return GRA_CondRetGrafoInexistente;
+		}/* if */
+		
+		tpVertice * pVerticeOrigem = ObtemVerticeComId( pGrafo, idVerticeOrigem ) ;
+		tpVertice * pVerticeDestino = ObterVerticeComId( idVerticeDestino ) ;
+
+		if ( pVerticeOrigem == NULL || pVerticeDestino == NULL ){
+			return GRA_CondRetVerticeInexistente;
+		}/* if */
+
+		VER_RemoverSucessor( pVerticeOrigem, pVerticeDestino ) ;
+
+		if ( tempVertice = VER_CondRetVerticeNaoExiste ){
+			return GRA_CondRetVerticeInexistente;
+		} /* if */
+		if ( tempVertice = VER_CondRetVerticeNaoEhSucessor ){
+			return GRA_CondRetArestaNaoExiste;
+		} else {
+			return GRA_CondRetOK ;
+		} /* if */
+		
 } /* Fim função: GRA Remover aresta */
+
 
 /***************************************************************************
 *
@@ -207,6 +303,7 @@
    GRA_tpCondRet GRA_ExibirGrafo ( tpGrafo * pGrafo ){
 
 } /* Fim função: GRA Exibir Grafo */
+  
 
 /***************************************************************************
 *
@@ -219,13 +316,38 @@
 	   {
 		   return GRA_CondRetGrafoVazio;
 	   } /* if */
-	   LIS_DestruirLista(pGrafo->Vertices);
-	   //pGrafo->VerticeCorrente = NULL;
+
+	   LIS_DestruirLista(pGrafo->ListaVertices);
+	   LIS_DestruirLista(pGrafo->ListaOrigens);
+	  
 	   free(pGrafo);
 	   pGrafo = NULL;
 
 	   return GRA_CondRetOK ;
 
 } /* Fim função: GRA Destruir grafo */
+
+
+/***************************************************************************
+*
+*  Função: ObtemVerticeComId
+*  ****/
+
+   tpVertice * ObtemVerticeComId ( tpGrafo * pGrafo, int idVertice ){
+
+		LIS_tpCondRet tempLista;
+	   
+		tempLista = LIS_ProcurarValor( pGrafo->ListaVertices , &idVertice );
+		if ( tempLista != LIS_CondRetOK ){
+			return NULL;
+		}/* if */
+
+		return pGrafo->ListaVertices->pElemCorr;
+
+
+} /* Fim função: ObtemVerticeComId */
+
+
+
 		
 /********** Fim do módulo de implementação: Módulo grafo **********/

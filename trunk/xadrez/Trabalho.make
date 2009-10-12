@@ -50,6 +50,7 @@ INCLUDE = $(INCLUDE);$(PDEFAULT)
 
 all : limpa \
    $(Fobj)\Lista.obj   $(Fobj)\TestVer.obj   $(Fobj)\Vertice.obj \
+   $(Fobj)\Grafo.obj \
    Construto
 
 ### Limpar arquivos
@@ -73,11 +74,16 @@ $(Fobj)\Vertice.obj :  {$(Pc)}\Vertice.c \
     {$(PDEFAULT)}LISTA.H              {$(PDEFAULT)}VERTICE.H           
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c               >> $(Ferr)\$(NOME).err
 
+$(Fobj)\Grafo.obj :  {$(Pc)}\Grafo.c \
+    {$(PDEFAULT)}GRAFO.H              {$(PDEFAULT)}LISTA.H              {$(PDEFAULT)}VERTICE.H           
+   cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c               >> $(Ferr)\$(NOME).err
+
 
 ### Terminação
 
 Construto : \
-   $(Fobj)\Lista.obj   $(Fobj)\TestVer.obj   $(Fobj)\Vertice.obj
+   $(Fobj)\Lista.obj   $(Fobj)\TestVer.obj   $(Fobj)\Vertice.obj \
+   $(Fobj)\Grafo.obj
     cd $(Fobj)
     LINK $(L) @$(NOME).build >> $(Ferr)\$(NOME).err
 

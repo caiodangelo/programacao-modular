@@ -10,6 +10,7 @@ err         =  .
 Lista
 TestVer
 Vertice
+Grafo
 
 [BuildInicio]
 /OUT:Trabalho.exe

@@ -18,8 +18,27 @@ Módulos do construto: Trabalho.comp
    Lista.c
    TestVer.c
    Vertice.c
+   Grafo.c
 
 Estatísticas do construto
+
+   Estatísticas do arquivo: GRAFO.H
+      Total linhas:             194
+      Linhas de código:          17
+      Linhas de comentário:     148
+      Linhas em branco:          29
+   Arquivos em que é incluído
+      Grafo.c
+
+   Estatísticas do arquivo: Grafo.c
+      Total linhas:             353
+      Linhas de código:         169
+      Linhas de comentário:      94
+      Linhas em branco:         100
+   Arquivos de inclusão de que necessita
+      GRAFO.H
+      LISTA.H
+      VERTICE.H
 
    Estatísticas do arquivo: LISTA.H
       Total linhas:             346
@@ -27,6 +46,7 @@ Estatísticas do construto
       Linhas de comentário:     262
       Linhas em branco:          49
    Arquivos em que é incluído
+      Grafo.c
       Vertice.c
 
    Estatísticas do arquivo: LISTA.h
@@ -80,6 +100,7 @@ Estatísticas do construto
       Linhas de comentário:     147
       Linhas em branco:          24
    Arquivos em que é incluído
+      Grafo.c
       TestVer.c
       Vertice.c
 
@@ -127,11 +148,11 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: DEFAULT  Path: .
-         Total linhas do tipo:      2339
-         Linhas de código:           227
-         Linhas de comentário:      1801
-         Linhas em branco:           311
-         Arquivos deste tipo:          7
+         Total linhas do tipo:      2533
+         Linhas de código:           244
+         Linhas de comentário:      1949
+         Linhas em branco:           340
+         Arquivos deste tipo:          8
 
   Tipo: espstr   Path: .
          Total linhas do tipo:         0
@@ -148,17 +169,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: .
-         Total linhas do tipo:      1103
-         Linhas de código:           545
-         Linhas de comentário:       281
-         Linhas em branco:           311
-         Arquivos deste tipo:          3
+         Total linhas do tipo:      1456
+         Linhas de código:           714
+         Linhas de comentário:       375
+         Linhas em branco:           411
+         Arquivos deste tipo:          4
 
 Totais para todo o construto Trabalho
 
-   Total linhas:              3442
-   Linhas de código:           772
-   Linhas de comentário:      2082
-   Linhas em branco:           622
-   Arquivos processados:        10
+   Total linhas:              3989
+   Linhas de código:           958
+   Linhas de comentário:      2324
+   Linhas em branco:           751
+   Arquivos processados:        12
 
