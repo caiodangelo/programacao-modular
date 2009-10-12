@@ -41,6 +41,9 @@ typedef enum {
          VER_CondRetFaltouMemoria = 3 ,
                /* Faltou memória ao alocar dados */
 
+		 VER_CondRetVerticeSemSucessor = 4 ,
+               /* Faltou memória ao alocar dados */
+
 } VER_tpCondRet;
 
 /***********************************************************************
@@ -131,5 +134,46 @@ typedef enum {
 ***********************************************************************/
 
 	VER_tpCondRet VER_DestruirVertice ( tpVertice * pVertice );
+
+/***********************************************************************
+*
+*  $FC Função: VER Adicionar Sucessor
+*
+*  $ED Descrição da função
+*     Adiciona o vértice passado como destino à lista de sucessores
+*	  do vértice passado como origem.
+*	
+*  $EP Parâmetros
+*     $P pVerticeOrigem - ponteiro que referencia o vértice de origem.
+*	  $P pVerticeDestino - ponteiro que referencia o vértice de destino.
+*
+*  $FV Valor retornado
+*     	VER_CondRetOK
+*		VER_CondRetVerticeNaoExiste
+*		VER_CondRetFaltouMemoria;
+*
+***********************************************************************/
+	
+	VER_tpCondRet VER_AdicionarSucessor ( tpVertice * pVerticeOrigem, tpVertice * pVerticeDestino );
+
+/***********************************************************************
+*
+*  $FC Função: VER Remover Sucessor
+*
+*  $ED Descrição da função
+*     Remove o vértice passado como destino da lista de sucessores
+*	  do vértice passado como origem.
+*
+*  $EP Parâmetros
+*     $P pVerticeOrigem - ponteiro que referencia o vértice de origem.
+*	  $P pVerticeDestino - ponteiro que referencia o vértice de destino.
+*
+*  $FV Valor retornado
+*     	VER_CondRetOK
+*		VER_CondRetVerticeNaoExiste
+*
+***********************************************************************/
+
+	VER_tpCondRet VER_RemoverSucessor ( tpVertice * pVerticeOrigem, tpVertice * pVerticeDestino );
 
 /********** Fim do módulo de definição: Módulo vértice **********/
