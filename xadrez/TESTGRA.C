@@ -69,7 +69,7 @@
 
 /*****  Dados encapsulados no módulo  *****/
 
-      static tpVertice * vtpVertice[10];
+      static tpGrafo * pGrafo;
             /* Vetor de ponteiros para 10 vértices */
 
 /***********************************************************************
@@ -98,52 +98,28 @@
       char ValorEsperado[10] = "vaca"  ;
       char ValorObtido[10]  = "cachorro"  ;
       char ValorDado[10]     = "gato" ;
-	  int ixVertice		 = -1;
-	  char * pString;
 
       int  NumLidos      = -1 ;
 
       TST_tpCondRet Ret ;
 
-      /* Testar GRA Criar vértice */
+      /* Testar GRA Criar grafo */
 
-         if ( strcmp( ComandoTeste , CRIAR_VER_CMD ) == 0 )
+         if ( strcmp( ComandoTeste , CRIAR_GRA_CMD ) == 0 )
          {
-			printf("Criar\n");
-            NumLidos = LER_LerParametros( "isi" , 
-                               &ixVertice, ValorDado, &CondRetEsperada ) ;
-            if ( NumLidos != 3 )
+            NumLidos = LER_LerParametros( "i" , 
+                               &CondRetEsperada ) ;
+            if ( NumLidos != 1 )
             {
                return TST_CondRetParm ;
             } /* if */
 			
-            CondRetObtido = VER_CriarVertice( &vtpVertice[ixVertice], ValorDado, 1 ) ;
+            CondRetObtido = GRA_CriarGrafo ( &pGrafo ) ;
 
             return TST_CompararInt( CondRetEsperada , CondRetObtido ,
-                                    "Retorno errado ao criar vértice." );
+                                    "Retorno errado ao criar grafo." );
 
-         } /* fim ativa: Testar GRA Criar vértice */
-
-      /* Testar GRA Alterar valor */
-
-         else if ( strcmp( ComandoTeste , ALT_VAL_CMD ) == 0 )
-         {
-			printf("alterar\n");
-            NumLidos = LER_LerParametros( "isi" ,
-                               &ixVertice, ValorDado , &CondRetEsperada ) ;
-            if ( NumLidos != 3 )
-            {
-               return TST_CondRetParm ;
-            } /* if */
-
-            CondRetObtido = VER_AlterarValor( vtpVertice[ixVertice], ValorDado ) ;
-
-            return TST_CompararInt( CondRetEsperada , CondRetObtido ,
-                                    "Retorno errado ao alterar valor." );
-
-         } /* fim ativa: Testar GRA Alterar valor */
-
-
+         } /* fim ativa: Testar GRA Criar grafo */
 
       return TST_CondRetNaoConhec ;
 
