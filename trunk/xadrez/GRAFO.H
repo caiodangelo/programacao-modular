@@ -20,14 +20,6 @@
 *     explorar grafos
 *	...
 *
-*
-*     As árvores possuem uma cabeça que contém uma referência para a raíz da
-*     árvore e outra para um nó corrente da árvore.
-*     Ao iniciar a execução do programa não existe árvore.
-*     Uma árvore poderá estar vazia. Neste caso a raiz e o nó corrente
-*     serão nulos, embora a cabeça esteja definida.
-*     O nó corrente será nulo se e somente se a árvore estiver vazia.
-*
 /***********************************************************************
 *
 *  $TC Tipo de dados: GRA Condicoes de retorno
@@ -50,7 +42,7 @@
 
 /***********************************************************************
 *
-*  $TC Tipo de dados: ARV Descritor da cabeça de um grafo
+*  $TC Tipo de dados: GRA Descritor da cabeça de um grafo
 *
 *
 *  $ED Descrição do tipo
@@ -106,13 +98,13 @@
 *     Insere um vértice na lista de vértices do grafo.
 *
 *  $EP Parâmetros
-*     $P ValorParm - valor a ser inserido no novo nó.
-*     $P pArvore - ponteiro para a cabeça da árvore em que o filho será inserido
-*
+*     $P pVertice - CONFERIR ESSES PARAMENTROS. ACHO QUE pVertice nao eh void.
+*     $P pGrafo - ponteiro para a cabeça do grafo em que o vértice será inserido.
+
 *  $FV Valor retornado
-*     ARV_CondRetOK
-*     ARV_CondRetErroEstrutura
-*     ARV_CondRetFaltouMemoria
+*     GRA_CondRetOK
+*     GRA_CondRetErroEstrutura
+*     GRA_CondRetFaltouMemoria
 *
 ***********************************************************************/
 
@@ -193,8 +185,5 @@
 ***********************************************************************/
 
 	GRA_tpCondRet GRA_ExibirGrafo ( tpGrafo * pGrafo );
-
-	/* Função a ser implementada ->>> GRA_ObterOrigem ( tpGrafo * pGrafo , tpVertice * pVertice ); /*
-	GRA_ObterOrigem ( tpGrafo * pGrafo , tpVertice * pVertice );
 
 /********** Fim do módulo de definição: Módulo grafo **********/
