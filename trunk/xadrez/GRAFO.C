@@ -368,8 +368,15 @@
    tpVertice * ObtemVerticeComId ( tpGrafo * pGrafo, int idVertice ){
 
 	   LIS_tpCondRet CondRetLista;
+	   LIS_tppLista pLista; 
+
+	   CondRetLista = LIS_IrInicioLista ( pGrafo->ListaVertices );
+	   if( CondRetLista != LIS_CondRetOK ){
+		   // Faz alguma coisa
+	   }
 	   
-	   CondRetLista = LIS_IrInicioLista
+	   do{
+		   CondRetLista = 
 
 
 
