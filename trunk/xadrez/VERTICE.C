@@ -45,7 +45,7 @@
          LIS_tppLista Antecessores ;
                /* Ponteiro para a lista de vértices que atingem*/
 
-		 int idVertice;
+		 int IdVertice;
 			  /* Identificador do vértice */
 
    } tpVertice ;
@@ -353,4 +353,21 @@
 
 } /* Fim função: VER Remover Antecessor */
 
+/***************************************************************************
+*
+*  Função: VER Obter ID
+*  ****/
+
+	VER_tpCondRet VER_ObterId ( tpVertice * pVertice, int * pIdVertice ){
+		
+		if ( pVertice == NULL )
+		{
+			return VER_CondRetVerticeNaoExiste ;
+		} /* if */
+
+		pIdVertice = pVertice->IdVertice;
+		
+		return VER_CondRetOK;
+
+} /* Fim função: VER Destruir Vertice */
 /********** Fim do módulo de implementação: Módulo vértice **********/
