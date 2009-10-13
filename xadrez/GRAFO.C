@@ -94,25 +94,41 @@
 *  Função: GRA Inserir vértice
 *  ****/
 
-   GRA_tpCondRet GRA_InserirVertice ( tpGrafo * pGrafo, tpVertice * pVertice ){
+   GRA_tpCondRet GRA_InserirVertice ( tpGrafo * pGrafo, void * pValor , int idVertice ){
 
-	   GRA_tpCondRet tempGrafo;
-	   LIS_tpCondRet tempLista;
+	   VER_tpCondRet CondRetVertice;
+	   GRA_tpCondRet CondRetGrafo;
+	   LIS_tpCondRet CondRetLista;
+	   tpVertice * pVertice;
 
+	   /* Se grafo não existir, cria o grafo */
 	   if( pGrafo == NULL )
 	   {
-		  tempGrafo = GRA_CriarGrafo( &pGrafo );
+		  CondRetGrafo = GRA_CriarGrafo( &pGrafo );
 
-		  if( tempGrafo != GRA_CondRetOK )
+		  if( CondRetGrafo != GRA_CondRetOK )
 		  {
-			  return tempGrafo;
+			  return CondRetGrafo;
 		  } /* if */
 
 	   } /* if */
 
-	   tempLista = LIS_InserirElementoAntes( (pGrafo->ListaVertices) , &pVertice );
+	   /* Checa se o id já existe */
+	   if ( ObtemVerticeComId ( pGrafo, id ) != NULL )
+	   {
+		   return GRA_CondRetIdJahExiste;
+	   }
 
-	   if( tempLista == LIS_CondRetOK )
+	   /* Cria o vértice */
+	   CondRetVertice = VER_CriarVertice ( &pVertice, pValor , idVertice );
+	   if( CondRetVertice != VER_CondRetOK )
+	   {
+		   return GRA_CondRetFaltouMemoria;
+	   }
+
+	   /* Adiciona o vértice na lista de vértices */
+	   CondRetLista = LIS_InserirElementoAntes( (pGrafo->ListaVertices) , &pVertice );
+	   if( CondRetLista == LIS_CondRetOK )
 	   {
 		   (pGrafo->VerticeCorrente) = pVertice;
 		   return GRA_CondRetOK;
@@ -298,6 +314,28 @@
 		return GRA_CondRetOK;
    } /* Fim função: GRA Exibir Grafo */
   
+/***************************************************************************
+*
+*  Função: GRA Obter Valor com Id
+*  ****/
+
+   GRA_tpCondRet GRA_ObterValorComId ( tpGrafo * pGrafo , int Id , void** ppValor ){
+		
+	   tpVertice * pVertice;
+	   VER_tpCondRet CondRetVertice;
+
+	   pVertice = ObtemVerticeComId ( pGrafo, Id );
+	   if ( pVertice == NULL ){
+		   return GRA_CondRetVerticeInexistente;
+	   }
+
+	   CondRetVertice = VER_ObterValor ( pVertice , ppValor );
+	   if( CondRetVertice != VER_CondRetOK ){
+		   return GRA_CondRetVerticeInexistente;
+	   }
+
+	   return GRA_CondRetOK;
+   } /* Fim função: GRA Exibir Grafo */
 
 /***************************************************************************
 *
@@ -329,8 +367,14 @@
 
    tpVertice * ObtemVerticeComId ( tpGrafo * pGrafo, int idVertice ){
 
-		LIS_tpCondRet tempLista;
+	   LIS_tpCondRet CondRetLista;
 	   
+	   CondRetLista = LIS_IrInicioLista
+
+
+
+
+
 		tempLista = LIS_ProcurarValor( pGrafo->ListaVertices , &idVertice );
 		if ( tempLista != LIS_CondRetOK ){
 			return NULL;
