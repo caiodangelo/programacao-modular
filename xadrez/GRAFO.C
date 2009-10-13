@@ -309,10 +309,40 @@
 *
 *  Função: GRA Exibir grafo
 *  ****/
+   
+/***************************************************************************/
 
    GRA_tpCondRet GRA_ExibirGrafo ( tpGrafo * pGrafo ){
-		return GRA_CondRetOK;
-   } /* Fim função: GRA Exibir Grafo */
+
+	    tpVertice * pVertice;
+
+		int IdVertice;
+
+	   	if ( pGrafo == NULL ){
+			return GRA_CondRetGrafoInexistente;
+		}/* if */
+
+	   IrInicioLista( pGrafo->ListaVertices ) ;
+	  
+	   do{
+		   pVertice = LIS_ObterValor( pGrafo->ListaVertices ) ;
+
+		   if ( VER_ObterId( pVertice, &IdVertice ) == VER_CondRetVerticeNaoExiste ){
+			
+			   return GRA_CondRetVerticeInexistente;
+
+		   } else {
+			    
+			   printf("Vertice %d: \nSucessores: \n", IdVertice);
+			   ExibeSucessores( pVertice);
+
+		   } /* if */
+
+
+	   }while( LIS_AvancarElementoCorrente( pGrafo->ListaVertices, 1 )
+		     != LIS_CondRetFimLista ) /* do while */
+
+} /* Fim função: GRA Exibir Grafo */
   
 /***************************************************************************
 *
