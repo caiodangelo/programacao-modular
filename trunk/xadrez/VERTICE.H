@@ -102,7 +102,7 @@ typedef enum {
 *
 ***********************************************************************/
 
-	VER_tpCondRet VER_ObterValor ( tpVertice * pVertice, void ** Valor );
+	VER_tpCondRet VER_ObterValor ( tpVertice * pVertice, void ** ppValor );
 
 /***********************************************************************
 *

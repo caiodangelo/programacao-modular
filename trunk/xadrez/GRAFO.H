@@ -56,6 +56,12 @@
 		 GRA_CondRetVerticeNaoEhOrigem = 8,
 			/* Vertice dado nao eh origem */ 
 
+		 GRA_CondRetIdJahExiste = 9,
+			/* Identificador já existe no grafo */
+
+		 GRA_CondRetNaoHaOrigens = 10,
+			/* Lista de Origens do grafo vazia */
+
    } GRA_tpCondRet ;
 
 /***********************************************************************
@@ -118,17 +124,18 @@
 *     Insere um vértice na lista de vértices do grafo.
 *
 *  $EP Parâmetros
-*     $P pVertice - CONFERIR ESSES PARAMENTROS. ACHO QUE pVertice nao eh void.
 *     $P pGrafo - ponteiro para a cabeça do grafo em que o vértice será inserido.
-
+*	  $P pValor - ponteiro para o valor a ser armazenado no vértice
+*	  $P idVertice - id único do vértice a ser inserido
+*
 *  $FV Valor retornado
 *     GRA_CondRetOK
-*     GRA_CondRetErroEstrutura
+*	  GRA_
 *     GRA_CondRetFaltouMemoria
 *
 ***********************************************************************/
 
-   GRA_tpCondRet GRA_InserirVertice ( tpGrafo * pGrafo, tpVertice * pVertice );
+   GRA_tpCondRet GRA_InserirVertice ( tpGrafo * pGrafo, void * pValor, int idVertice );
 
 
 /***********************************************************************
@@ -210,5 +217,6 @@ GRA_tpCondRet GRA_RemoverAresta ( tpGrafo * pGrafo, int idVerticeOrigem,
 
 	 GRA_tpCondRet GRA_DesmarcarComoOrigem ( tpGrafo * pGrafo, int idVertice );
 	 
+	 GRA_tpCondRet GRA_ObterValorComId ( tpGrafo * pGrafo , int Id , void** ppValor );
 
 /********** Fim do módulo de definição: Módulo grafo **********/
