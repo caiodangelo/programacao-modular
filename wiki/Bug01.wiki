@@ -1,0 +1,15 @@
+#summary Módulo: TESTVER | Bug: Reinicialização de valores do vértice
+
+= Descrição do Problema =
+
+No dia 12/10, ao testar o módulo VERTICE, foi percebido que a cada chamada da função de execução do comando de teste, o valor armazenado no vértice era resetado para o padrão, aparentemente sem motivo.
+
+
+= Motivo do Problema =
+
+O motivo do problema foi que na função de criação do vértice, passamos uma referência (ponteiro) para o valor que queremos armazenar no vértice. Sendo assim, na inicialização das variáveis, por exemplo, podemos atribuir a uma variável (que estava inicializada com -1) o valor 5 e criar um novo vértice passando para a função de criação o endereço dela. O problema é que, a cada chamada da função de teste, a variável é reinicializada para -1 e, como o valor é passado por referência, o valor avaliado no vértice será -1.
+
+= Possível Solução =
+
+Uma possível solução para este problema é inicializar as variáveis fora da função. Sendo assim, elas só serão inicializadas uma vez por execução do teste e não a cada comando de teste.
+Como o teste suporta até 10 vértices, provavelmente será necessário criar vetores de variáveis, para que cada vértice possa ter suas variáveis independentes uns dos outros.
