@@ -33,3 +33,4 @@ Possíveis tarefas:
 ||23/09/2009||03:00||Codificar os módulos||Inicio da codificação do módulo gerenciador||
 ||23/09/2009||02:00||Codificar os módulos||Inicio da codificação do módulo reconhecedor||
 ||12/10/2009||12:00||Revisar Especificações, Codificar Módulo, Redigir Script de Teste, Realizar os Testes, Diagnosticar e Corrigir Problemas Encontrados||Módulos Vértice, Grafo e seus módulos de teste específicos||
+||13/10/2009||02:00||Revisar Código do Módulo||Tentar corrigir os problemas no teste do módulo de teste de vértices||
