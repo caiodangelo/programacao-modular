@@ -8,14 +8,15 @@
 !!!    0  Linha:     3  // Data:      12/out/2009 
 !!!    0  Linha:     4  // Propósito: Testar o módulo GRAFO 
     6  == Verificar criar grafo
-!!!    0  Linha:    10  //fim 
+>>>    1  Linha:     7  Comando não conhecido:  =criargra 0
+!!!    1  Linha:    10  //fim 
 
 !!! Número de linhas lidas:          11
 !!! Número de casos de teste:         1
-!!! Número comandos corretos:         1
-!!! Número de falhas encontradas:     0
+!!! Número comandos corretos:         0
+!!! Número de falhas encontradas:     1
 
-!!! Não foram encontrados problemas
+!!! Foram encontrados problemas
 
 
 !!! Numero de espacos ainda alocados: 0

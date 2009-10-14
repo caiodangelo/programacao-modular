@@ -114,7 +114,7 @@
 	   } /* if */
 
 	   /* Checa se o id já existe */
-	   if ( ObtemVerticeComId ( pGrafo, id ) != NULL )
+	   if ( ObtemVerticeComId ( pGrafo, idVertice ) != NULL )
 	   {
 		   return GRA_CondRetIdJahExiste;
 	   }
@@ -400,7 +400,7 @@
 	   LIS_tpCondRet CondRetLista;
 	   LIS_tppLista pLista; 
 
-	   CondRetLista = LIS_IrInicioLista ( pGrafo->ListaVertices );
+	   CondRetLista = IrInicioLista ( pGrafo->ListaVertices );
 	   if( CondRetLista != LIS_CondRetOK ){
 		   // Faz alguma coisa
 	   }

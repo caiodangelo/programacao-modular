@@ -48,9 +48,9 @@
 /* Tabela dos nomes dos comandos de teste específicos */
 
 #define     CRIAR_VER_CMD       "=criar"
-#define		ALT_VAL_CMD			"=alterar"
-#define     OBTER_VAL_CMD       "=obter"
 #define     DESTRUIR_CMD        "=destruir"
+#define		OBTER_ID_CMD		"=obterid"
+#define		OBTER_VAL_CMD		"=obterval"
 
 /*****  Código das funções exportadas pelo módulo  *****/
 
@@ -78,106 +78,112 @@
    TST_tpCondRet TST_EfetuarComando( char * ComandoTeste )
    {
 
-      VER_tpCondRet CondRetObtido   = VER_CondRetOK ;
+      VER_tpCondRet CondRetObtida   = VER_CondRetOK ;
       VER_tpCondRet CondRetEsperada = VER_CondRetFaltouMemoria ;
                                       /* inicializa para qualquer coisa */
 
-      char ValorEsperado[10] = "vaca"  ;
-      char ValorObtido[10]  = "cachorro"  ;
-      char ValorDado[10]     = "gato" ;
-	  int ixVertice		 = -1;
-	  char * pString;
+      int IdEsperado	 = -1 ;
+	  int IdObtido		 = -2 ;
+	  int IdDado		 = -3 ;
+	  int ixVertice		 = -4 ;
+      int NumLidos       = -5 ;
+	  int ValorEsperado	 = -6 ;
+	  int ValorObtido	 = -7 ;
+	  int ValorDado		 = -8 ;
+	  int * pValorEsperado	= &ValorEsperado	;
+	  int * pValorObtido	= &ValorObtido		;
+	  int * pValorDado		= &ValorDado		;
 
-      int  NumLidos      = -1 ;
-
-      TST_tpCondRet Ret ;
+	  TST_tpCondRet Ret ;
 
       /* Testar VER Criar vértice */
 
          if ( strcmp( ComandoTeste , CRIAR_VER_CMD ) == 0 )
          {
-			printf("Criar\n");
-            NumLidos = LER_LerParametros( "isi" , 
-                               &ixVertice, ValorDado, &CondRetEsperada ) ;
-            if ( NumLidos != 3 )
-            {
-               return TST_CondRetParm ;
-            } /* if */
-			
-            CondRetObtido = VER_CriarVertice( &vtpVertice[ixVertice], ValorDado, 1 ) ;
+			 NumLidos = LER_LerParametros ( "iiii" , 
+											&ixVertice , pValorDado, &IdDado, &CondRetEsperada ) ;
+			 if ( NumLidos != 4 )
+			 {
+				 return TST_CondRetParm ;
+			 } /* if */
 
-            return TST_CompararInt( CondRetEsperada , CondRetObtido ,
-                                    "Retorno errado ao criar vértice." );
+			 CondRetObtida = VER_CriarVertice ( &vtpVertice[ixVertice] , pValorDado , IdDado );
+
+			 return TST_CompararInt ( CondRetEsperada , CondRetObtida , 
+									  "Retorno errado ao criar vértice. " );
 
          } /* fim ativa: Testar VER Criar vértice */
 
-      /* Testar VER Alterar valor */
+      /* Testar VER Obter id do vértice */
 
-         else if ( strcmp( ComandoTeste , ALT_VAL_CMD ) == 0 )
+         if ( strcmp( ComandoTeste , OBTER_ID_CMD ) == 0 )
          {
-			printf("alterar\n");
-            NumLidos = LER_LerParametros( "isi" ,
-                               &ixVertice, ValorDado , &CondRetEsperada ) ;
-            if ( NumLidos != 3 )
-            {
-               return TST_CondRetParm ;
-            } /* if */
-
-            CondRetObtido = VER_AlterarValor( vtpVertice[ixVertice], ValorDado ) ;
-
-            return TST_CompararInt( CondRetEsperada , CondRetObtido ,
-                                    "Retorno errado ao alterar valor." );
-
-         } /* fim ativa: Testar VER Alterar valor */
-
-
-      /* Testar VER Obter valor  */
-
-         else if ( strcmp( ComandoTeste , OBTER_VAL_CMD ) == 0 )
-         {
-			printf("obter\n");
-            NumLidos = LER_LerParametros( "isi" ,
-                               &ixVertice, ValorEsperado , &CondRetEsperada ) ;
-            if ( NumLidos != 3 )
-            {
-               return TST_CondRetParm ;
-            } /* if */
-
-            CondRetObtido = VER_ObterValor( vtpVertice[ixVertice], &pString ) ;
-			printf("String depois: %s\n", pString);
-            Ret = TST_CompararInt( CondRetEsperada , CondRetObtido ,
-                                   "Retorno errado ao obter valor corrente." );
 			
-			strcpy( ValorObtido, pString );
+			 NumLidos = LER_LerParametros ( "iii" , 
+											&ixVertice , &IdEsperado, &CondRetEsperada ) ;
+			 if ( NumLidos != 3 )
+			 {
+				 return TST_CondRetParm ;
+			 } /* if */
 
-            if ( Ret != TST_CondRetOK )
-            {
-               return Ret ;
-            } /* if */
+			 CondRetObtida = VER_ObterId ( vtpVertice[ixVertice] , &IdObtido );
 
-			printf("VALORESP: %s VALOROBT %s \n", ValorEsperado, ValorObtido);
-            return TST_CompararString( ValorEsperado , ValorObtido ,
-                                     "Conteúdo do nó está errado." ) ;
+			 Ret = TST_CompararInt ( CondRetEsperada , CondRetObtida , 
+									  "Retorno errado ao criar vértice. " );
 
-         } /* fim ativa: Testar VER Obter valor corrente */
+			 if ( Ret != TST_CondRetOK )
+			 {
+				 return Ret ;
+			 } /* if */
 
-      /* Testar VER Destruir vértice */
+			 return TST_CompararInt ( IdEsperado , IdObtido ,
+									  "Id do vértice está errado." );
 
-         else if ( strcmp( ComandoTeste , DESTRUIR_CMD ) == 0 )
+         } /* fim ativa: Testar VER Obter id do vértice */
+  
+	/* Testar VER Destruir vértice */
+
+         if ( strcmp( ComandoTeste , DESTRUIR_CMD ) == 0 )
          {
-			printf("destruir\n");
-			NumLidos = LER_LerParametros( "i" ,
-                               &ixVertice ) ;
-            if ( NumLidos != 1 )
-            {
-               return TST_CondRetParm ;
-            } /* if */
+			
+			 NumLidos = LER_LerParametros ( "ii" , 
+											&ixVertice ) ;
+			 if ( NumLidos != 1 )
+			 {
+				 return TST_CondRetParm ;
+			 } /* if */
 
-            VER_DestruirVertice( vtpVertice[ixVertice] ) ;
+			 VER_DestruirVertice ( vtpVertice[ixVertice] );
 
-            return TST_CondRetOK ;
+			 return TST_CondRetOK ;
 
          } /* fim ativa: Testar VER Destruir vértice */
+
+      /* Testar VER Obter valor do vértice */
+
+         if ( strcmp( ComandoTeste , OBTER_VAL_CMD ) == 0 )
+         {
+			 NumLidos = LER_LerParametros ( "iii" , 
+											&ixVertice , pValorEsperado, &CondRetEsperada ) ;
+			 if ( NumLidos != 3 )
+			 {
+				 return TST_CondRetParm ;
+			 } /* if */
+
+			 CondRetObtida = VER_ObterValor ( vtpVertice[ixVertice] , &pValorObtido );
+
+			 Ret = TST_CompararInt ( CondRetEsperada , CondRetObtida , 
+									  "Retorno errado ao criar vértice. " );
+
+			 if ( Ret != TST_CondRetOK )
+			 {
+				 return Ret ;
+			 } /* if */
+
+			 return TST_CompararInt ( *pValorEsperado , *pValorObtido ,
+									  "Valor do vértice está errado." );
+
+         } /* fim ativa: Testar VER Obter valor do vértice */
 
       return TST_CondRetNaoConhec ;
 

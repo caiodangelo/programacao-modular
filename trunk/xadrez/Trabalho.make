@@ -1,7 +1,7 @@
 ##################################################
 ###
 ### Diretivas de MAKE para o construto: Trabalho
-### Gerado a partir de: Trabalho.comp
+### Gerado a partir de: trabalho.comp
 ###
 ### ----- Arquivo gerado, NÃO EDITE!!! -----
 ###
@@ -49,8 +49,7 @@ INCLUDE = $(INCLUDE);$(PDEFAULT)
 ### Regras de geração
 
 all : limpa \
-   $(Fobj)\Lista.obj   $(Fobj)\Vertice.obj   $(Fobj)\TestGra.obj \
-   $(Fobj)\Grafo.obj \
+   $(Fobj)\Lista.obj   $(Fobj)\Vertice.obj   $(Fobj)\TestVer.obj \
    Construto
 
 ### Limpar arquivos
@@ -69,21 +68,16 @@ $(Fobj)\Vertice.obj :  {$(Pc)}\Vertice.c \
     {$(PDEFAULT)}LISTA.H              {$(PDEFAULT)}VERTICE.H           
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c               >> $(Ferr)\$(NOME).err
 
-$(Fobj)\TestGra.obj :  {$(Pc)}\TestGra.c \
-    {$(PDEFAULT)}GRAFO.H              {$(PDEFAULT)}TST_ESPC.H           {$(PDEFAULT)}TST_Espc.h           \
+$(Fobj)\TestVer.obj :  {$(Pc)}\TestVer.c \
+    {$(PDEFAULT)}TST_ESPC.H           {$(PDEFAULT)}TST_Espc.h           {$(PDEFAULT)}VERTICE.H            \
     {$(PDEFAULT)}generico.h           {$(PDEFAULT)}lerparm.h           
-   cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c               >> $(Ferr)\$(NOME).err
-
-$(Fobj)\Grafo.obj :  {$(Pc)}\Grafo.c \
-    {$(PDEFAULT)}GRAFO.H              {$(PDEFAULT)}LISTA.H              {$(PDEFAULT)}VERTICE.H           
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c               >> $(Ferr)\$(NOME).err
 
 
 ### Terminação
 
 Construto : \
-   $(Fobj)\Lista.obj   $(Fobj)\Vertice.obj   $(Fobj)\TestGra.obj \
-   $(Fobj)\Grafo.obj
+   $(Fobj)\Lista.obj   $(Fobj)\Vertice.obj   $(Fobj)\TestVer.obj
     cd $(Fobj)
     LINK $(L) @$(NOME).build >> $(Ferr)\$(NOME).err
 

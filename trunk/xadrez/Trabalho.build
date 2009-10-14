@@ -1,6 +1,6 @@
 /OUT:Trabalho.exe
 /INCREMENTAL:NO
 /MACHINE:IX86
-Lista.obj  Vertice.obj  TestGra.obj  Grafo.obj  
+Lista.obj  Vertice.obj  TestVer.obj  
 ArcaboucoTeste.lib
 

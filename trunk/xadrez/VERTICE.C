@@ -68,7 +68,7 @@
 *  ****/
 
    VER_tpCondRet VER_CriarVertice ( tpVertice ** ppVertice, void * Valor, int idVertice ){
-		
+
 	  if ( *ppVertice != NULL )
       {
          VER_DestruirVertice( *ppVertice ) ;
@@ -83,8 +83,7 @@
       (*ppVertice)->Valor = Valor;
 	  (*ppVertice)->Sucessores = NULL;
 	  (*ppVertice)->Antecessores = NULL;
-	  (*ppVertice)->idVertice = idVertice;
-
+	  (*ppVertice)->IdVertice = idVertice;
 
 	  return VER_CondRetOK ;
 
@@ -96,6 +95,7 @@
 *  ****/
 
    VER_tpCondRet VER_ObterValor ( tpVertice * pVertice, void ** ppValor ) {
+
 
 		if ( pVertice == NULL )
 		{
@@ -365,7 +365,7 @@
 			return VER_CondRetVerticeNaoExiste ;
 		} /* if */
 
-		pIdVertice = pVertice->IdVertice;
+		*pIdVertice = pVertice->IdVertice;
 		
 		return VER_CondRetOK;
 

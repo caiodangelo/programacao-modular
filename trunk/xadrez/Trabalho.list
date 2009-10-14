@@ -1,45 +1,25 @@
 GERADOR DE SCRIPT DE DIRETIVAS PARA MAKE
    LES / Informática / PUC-Rio    Versão 6.00 (c) 2005
 
-Composição do construto: Trabalho.comp
+Composição do construto: trabalho.comp
 
    Nome do Construto:           Trabalho
-   Diretório base:              C:\Dudu\Programação Modular\trabalho\xadrez
+   Diretório base:              C:\Dudu\Programacao Modular\trabalho\xadrez
 
-   Arquivo composição:          Trabalho.comp
+   Arquivo composição:          trabalho.comp
    Arquivo plataforma:          gmake.parm
 
    Arquivo diretivas MAKE:      Trabalho.make
    Arquivo diretivas LINK:      Trabalho.build
    Arquivo listagem:            Trabalho.list
 
-Módulos do construto: Trabalho.comp
+Módulos do construto: trabalho.comp
 
    Lista.c
    Vertice.c
-   TestGra.c
-   Grafo.c
+   TestVer.c
 
 Estatísticas do construto
-
-   Estatísticas do arquivo: GRAFO.H
-      Total linhas:             214
-      Linhas de código:          24
-      Linhas de comentário:     154
-      Linhas em branco:          36
-   Arquivos em que é incluído
-      Grafo.c
-      TestGra.c
-
-   Estatísticas do arquivo: Grafo.c
-      Total linhas:             347
-      Linhas de código:         167
-      Linhas de comentário:      94
-      Linhas em branco:          96
-   Arquivos de inclusão de que necessita
-      GRAFO.H
-      LISTA.H
-      VERTICE.H
 
    Estatísticas do arquivo: LISTA.H
       Total linhas:             346
@@ -47,7 +27,6 @@ Estatísticas do construto
       Linhas de comentário:     262
       Linhas em branco:          49
    Arquivos em que é incluído
-      Grafo.c
       Vertice.c
 
    Estatísticas do arquivo: LISTA.h
@@ -72,7 +51,7 @@ Estatísticas do construto
       Linhas de comentário:     185
       Linhas em branco:          20
    Arquivos em que é incluído
-      TestGra.c
+      TestVer.c
 
    Estatísticas do arquivo: TST_Espc.h
       Total linhas:             228
@@ -80,35 +59,35 @@ Estatísticas do construto
       Linhas de comentário:     185
       Linhas em branco:          20
    Arquivos em que é incluído
-      TestGra.c
+      TestVer.c
       generico.h
 
-   Estatísticas do arquivo: TestGra.c
-      Total linhas:             129
-      Linhas de código:          39
-      Linhas de comentário:      68
-      Linhas em branco:          24
+   Estatísticas do arquivo: TestVer.c
+      Total linhas:             164
+      Linhas de código:          66
+      Linhas de comentário:      64
+      Linhas em branco:          38
    Arquivos de inclusão de que necessita
-      GRAFO.H
       TST_ESPC.H
       TST_Espc.h
+      VERTICE.H
       generico.h
       lerparm.h
 
    Estatísticas do arquivo: VERTICE.H
-      Total linhas:             187
-      Linhas de código:          16
-      Linhas de comentário:     147
-      Linhas em branco:          24
+      Total linhas:             207
+      Linhas de código:          17
+      Linhas de comentário:     163
+      Linhas em branco:          27
    Arquivos em que é incluído
-      Grafo.c
+      TestVer.c
       Vertice.c
 
    Estatísticas do arquivo: Vertice.c
-      Total linhas:             356
-      Linhas de código:         173
-      Linhas de comentário:      79
-      Linhas em branco:         115
+      Total linhas:             373
+      Linhas de código:         181
+      Linhas de comentário:      84
+      Linhas em branco:         120
    Arquivos de inclusão de que necessita
       LISTA.H
       VERTICE.H
@@ -121,7 +100,7 @@ Estatísticas do construto
    Arquivos de inclusão de que necessita
       TST_Espc.h
    Arquivos em que é incluído
-      TestGra.c
+      TestVer.c
 
    Estatísticas do arquivo: lerparm.h
       Total linhas:             291
@@ -129,7 +108,7 @@ Estatísticas do construto
       Linhas de comentário:     188
       Linhas em branco:          67
    Arquivos em que é incluído
-      TestGra.c
+      TestVer.c
 
 Totais por tipo de arquivo
 
@@ -148,11 +127,11 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: DEFAULT  Path: .
-         Total linhas do tipo:      2553
-         Linhas de código:           251
-         Linhas de comentário:      1955
-         Linhas em branco:           347
-         Arquivos deste tipo:          8
+         Total linhas do tipo:      2359
+         Linhas de código:           228
+         Linhas de comentário:      1817
+         Linhas em branco:           314
+         Arquivos deste tipo:          7
 
   Tipo: espstr   Path: .
          Total linhas do tipo:         0
@@ -169,17 +148,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: .
-         Total linhas do tipo:      1392
-         Linhas de código:           667
-         Linhas de comentário:       377
-         Linhas em branco:           389
-         Arquivos deste tipo:          4
+         Total linhas do tipo:      1097
+         Linhas de código:           535
+         Linhas de comentário:       284
+         Linhas em branco:           312
+         Arquivos deste tipo:          3
 
 Totais para todo o construto Trabalho
 
-   Total linhas:              3945
-   Linhas de código:           918
-   Linhas de comentário:      2332
-   Linhas em branco:           736
-   Arquivos processados:        12
+   Total linhas:              3456
+   Linhas de código:           763
+   Linhas de comentário:      2101
+   Linhas em branco:           626
+   Arquivos processados:        10
 
