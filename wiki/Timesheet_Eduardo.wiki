@@ -24,7 +24,7 @@ Possíveis tarefas:
 ||03/09/2009||02:00||Estudar||Criação da página do projeto||
 ||12/09/2009||02:00||Revisar código||Revisão do módulo de teste específico||
 ||12/09/2009||02:00||Redigir scripts||Alteração e redação de scripts de teste||
-||12/09/2009||01:00||Realizar testes||Realização dos testes elaborados||
+||12/09/2009||01:00||Revisar Especificações, Codificar Módulo, Redigir Script de Teste, Realizar os Testes, Diagnosticar e Corrigir Problemas Encontrados||Módulos Vértice, Grafo e seus módulos de teste específicos||
 
 = Trabalho 02 =
 
@@ -32,3 +32,4 @@ Possíveis tarefas:
 ||18/09/2009||01:00||Especificar os módulos||Analisamos a especificação do trabalho, dividimos tarefas e definimos as interfaces iniciais dos módulos||
 ||23/09/2009||03:00||Codificar os módulos||Inicio da codificação do módulo gerenciador||
 ||23/09/2009||02:00||Codificar os módulos||Inicio da codificação do módulo reconhecedor||
+||12/10/2009||12:00||Realizar testes||Realização dos testes elaborados||
