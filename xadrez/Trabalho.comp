@@ -9,8 +9,7 @@ err         =  .
 [Modulos]
 Lista
 Vertice
-TestGra
-Grafo
+TestVer
 
 [BuildInicio]
 /OUT:Trabalho.exe
