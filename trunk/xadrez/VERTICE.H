@@ -203,5 +203,6 @@ typedef enum {
 
 	VER_tpCondRet VER_ObterId ( tpVertice * pVertice, int * pIdVertice );
 
+	VER_tpCondRet VER_ExibirSucessores ( tpVertice * pVertice );
 
 /********** Fim do módulo de definição: Módulo vértice **********/
