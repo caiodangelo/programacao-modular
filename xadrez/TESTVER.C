@@ -54,13 +54,12 @@
 #define		ALT_VAL_CMD			"=altval"
 #define		ADICIONAR_SUC_CMD	"=adicionarsuc"
 #define		REMOVER_SUC_CMD		"=removersuc"
-#define		EXIBIR_SUC_CMD		"=exibirsuc"
 
 /*****  Código das funções exportadas pelo módulo  *****/
 
 /*****  Dados encapsulados no módulo  *****/
 
-      static tppVertice vtpVertice[10];
+static VER_tppVertice vtpVertice[10] = {NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL};
             /* Vetor de ponteiros para 10 vértices */
 	  static int vtValorDado[10];
 			/* Vetor de ponteiros para valores passados pelo script */
@@ -123,7 +122,7 @@
 
       /* Testar VER Obter id do vértice */
 
-         if ( strcmp( ComandoTeste , OBTER_ID_CMD ) == 0 )
+         else if ( strcmp( ComandoTeste , OBTER_ID_CMD ) == 0 )
          {
 			
 			 NumLidos = LER_LerParametros ( "iii" , 
@@ -150,7 +149,7 @@
   
 	/* Testar VER Destruir vértice */
 
-         if ( strcmp( ComandoTeste , DESTRUIR_CMD ) == 0 )
+         else if ( strcmp( ComandoTeste , DESTRUIR_CMD ) == 0 )
          {
 			
 			 NumLidos = LER_LerParametros ( "ii" , 
@@ -168,7 +167,7 @@
 
       /* Testar VER Obter valor do vértice */
 
-         if ( strcmp( ComandoTeste , OBTER_VAL_CMD ) == 0 )
+         else if ( strcmp( ComandoTeste , OBTER_VAL_CMD ) == 0 )
          {
 			 NumLidos = LER_LerParametros ( "iii" , 
 											&ixVertice , &ValorEsperado, &CondRetEsperada ) ;
@@ -194,7 +193,7 @@
 
 	/* Testar VER Alterar valor do vértice */
 
-         if ( strcmp( ComandoTeste , ALT_VAL_CMD ) == 0 )
+         else if ( strcmp( ComandoTeste , ALT_VAL_CMD ) == 0 )
          {
 			 NumLidos = LER_LerParametros ( "iii" , 
 											&ixVertice , &ValorDado, &CondRetEsperada ) ;
@@ -214,7 +213,7 @@
 
 	  	/* Testar VER Adicionar sucessor ao vértice */
 
-         if ( strcmp( ComandoTeste , ADICIONAR_SUC_CMD ) == 0 )
+         else if ( strcmp( ComandoTeste , ADICIONAR_SUC_CMD ) == 0 )
          {
 			 NumLidos = LER_LerParametros ( "iii" , 
 											&ixVerticeOri , &ixVerticeDest, &CondRetEsperada ) ;
@@ -232,7 +231,7 @@
 
 	/* Testar VER Remover sucessor do vértice */
 
-         if ( strcmp( ComandoTeste , REMOVER_SUC_CMD ) == 0 )
+         else if ( strcmp( ComandoTeste , REMOVER_SUC_CMD ) == 0 )
          {
 			 NumLidos = LER_LerParametros ( "iii" , 
 											&ixVerticeOri , &ixVerticeDest, &CondRetEsperada ) ;
@@ -247,24 +246,6 @@
 									  "Retorno errado ao criar vértice. " );
 
          } /* fim ativa: Testar VER Remover sucessor do vértice */
-
-	/* Testar VER Exibir sucessores do vértice */
-
-         if ( strcmp( ComandoTeste , EXIBIR_SUC_CMD ) == 0 )
-         {
-			 NumLidos = LER_LerParametros ( "i" , 
-											&ixVertice ) ;
-			 if ( NumLidos != 3 )
-			 {
-				 return TST_CondRetParm ;
-			 } /* if */
-
-			 CondRetObtida = VER_RemoverSucessor ( vtpVertice[ixVerticeOri] , vtpVertice[ixVerticeDest] );
-
-			 return TST_CompararInt ( CondRetEsperada , CondRetObtida , 
-									  "Retorno errado ao criar vértice. " );
-
-         } /* fim ativa: Testar VER Exibir sucessores do vértice */
 
       return TST_CondRetNaoConhec ;
 
