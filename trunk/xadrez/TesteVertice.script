@@ -3,6 +3,10 @@
 // Data:      12/out/2009
 // Propósito: Testar o módulo VERTICE
 
+== Verificar comando recuperar
+=obterid 0 0 0
+=recuperar
+
 == Verificar criar vértice
 =criar 0 5 0 0 
 =obterid 0 0 0
@@ -35,6 +39,27 @@
 =adicionarsuc 3 0 1
 == Verificar remover sucessor de vértice inexistente
 =removersuc 3 0 1
+
+== Verificar destruir vértice
+=destruir 0
+=obterid 0 5 1
+=recuperar
+=obterval 0 5 1
+=recuperar
+
+== Verificar alterar valor do vértice
+=criar 0 5 0 0
+=obterval 0 5 0
+=altval 0 3 0
+=obterval 0 3 0
+
+== Verificar adicionar sucessor
+=criar 1 4 1 0
+=obterval 1 4 0
+=adicionarsuc 0 1 0
+
+== Verificar remover sucessor
+=removersuc 0 1 0
 
 //fim
 

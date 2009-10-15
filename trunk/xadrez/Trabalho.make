@@ -49,7 +49,8 @@ INCLUDE = $(INCLUDE);$(PDEFAULT)
 ### Regras de geração
 
 all : limpa \
-   $(Fobj)\Lista.obj   $(Fobj)\Vertice.obj   $(Fobj)\TestVer.obj \
+   $(Fobj)\Lista.obj   $(Fobj)\Vertice.obj   $(Fobj)\Gerenciador.obj \
+   $(Fobj)\TestGer.obj \
    Construto
 
 ### Limpar arquivos
@@ -68,7 +69,11 @@ $(Fobj)\Vertice.obj :  {$(Pc)}\Vertice.c \
     {$(PDEFAULT)}LISTA.H              {$(PDEFAULT)}VERTICE.H           
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c               >> $(Ferr)\$(NOME).err
 
-$(Fobj)\TestVer.obj :  {$(Pc)}\TestVer.c \
+$(Fobj)\Gerenciador.obj :  {$(Pc)}\Gerenciador.c \
+    {$(PDEFAULT)}GERENCIADOR.H        {$(PDEFAULT)}VERTICE.H           
+   cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c               >> $(Ferr)\$(NOME).err
+
+$(Fobj)\TestGer.obj :  {$(Pc)}\TestGer.c \
     {$(PDEFAULT)}TST_ESPC.H           {$(PDEFAULT)}TST_Espc.h           {$(PDEFAULT)}VERTICE.H            \
     {$(PDEFAULT)}generico.h           {$(PDEFAULT)}lerparm.h           
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c               >> $(Ferr)\$(NOME).err
@@ -77,7 +82,8 @@ $(Fobj)\TestVer.obj :  {$(Pc)}\TestVer.c \
 ### Terminação
 
 Construto : \
-   $(Fobj)\Lista.obj   $(Fobj)\Vertice.obj   $(Fobj)\TestVer.obj
+   $(Fobj)\Lista.obj   $(Fobj)\Vertice.obj   $(Fobj)\Gerenciador.obj \
+   $(Fobj)\TestGer.obj
     cd $(Fobj)
     LINK $(L) @$(NOME).build >> $(Ferr)\$(NOME).err
 

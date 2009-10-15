@@ -75,7 +75,7 @@ email XXXXX@XXX.com.br
 Regras de Sintaxe para a Criação de Arquivos de Disposição de Peças no Tabuleiro
 	
 	Cada linha do arquivo especificará a posição de apenas uma peça do jogo.
-	A sintaxe será <TipoDaPeça> <CorDaPeca> <Linha> <Coluna>
+	A sintaxe será <TipoDaPeça> <CorDaPeca> <Coluna> <Linha>
 	
 	Tipo da Peça:
 		P - peão

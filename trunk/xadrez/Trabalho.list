@@ -17,9 +17,27 @@ Módulos do construto: trabalho.comp
 
    Lista.c
    Vertice.c
-   TestVer.c
+   Gerenciador.c
+   TestGer.c
 
 Estatísticas do construto
+
+   Estatísticas do arquivo: GERENCIADOR.H
+      Total linhas:              92
+      Linhas de código:          29
+      Linhas de comentário:      32
+      Linhas em branco:          31
+   Arquivos em que é incluído
+      Gerenciador.c
+
+   Estatísticas do arquivo: Gerenciador.c
+      Total linhas:             177
+      Linhas de código:         135
+      Linhas de comentário:       4
+      Linhas em branco:          38
+   Arquivos de inclusão de que necessita
+      GERENCIADOR.H
+      VERTICE.H
 
    Estatísticas do arquivo: LISTA.H
       Total linhas:             346
@@ -51,7 +69,7 @@ Estatísticas do construto
       Linhas de comentário:     185
       Linhas em branco:          20
    Arquivos em que é incluído
-      TestVer.c
+      TestGer.c
 
    Estatísticas do arquivo: TST_Espc.h
       Total linhas:             228
@@ -59,14 +77,14 @@ Estatísticas do construto
       Linhas de comentário:     185
       Linhas em branco:          20
    Arquivos em que é incluído
-      TestVer.c
+      TestGer.c
       generico.h
 
-   Estatísticas do arquivo: TestVer.c
-      Total linhas:             164
-      Linhas de código:          66
-      Linhas de comentário:      64
-      Linhas em branco:          38
+   Estatísticas do arquivo: TestGer.c
+      Total linhas:             106
+      Linhas de código:          26
+      Linhas de comentário:      60
+      Linhas em branco:          22
    Arquivos de inclusão de que necessita
       TST_ESPC.H
       TST_Espc.h
@@ -75,19 +93,20 @@ Estatísticas do construto
       lerparm.h
 
    Estatísticas do arquivo: VERTICE.H
-      Total linhas:             207
-      Linhas de código:          17
+      Total linhas:             212
+      Linhas de código:          20
       Linhas de comentário:     163
-      Linhas em branco:          27
+      Linhas em branco:          29
    Arquivos em que é incluído
-      TestVer.c
+      Gerenciador.c
+      TestGer.c
       Vertice.c
 
    Estatísticas do arquivo: Vertice.c
-      Total linhas:             373
-      Linhas de código:         181
-      Linhas de comentário:      84
-      Linhas em branco:         120
+      Total linhas:             419
+      Linhas de código:         206
+      Linhas de comentário:      90
+      Linhas em branco:         137
    Arquivos de inclusão de que necessita
       LISTA.H
       VERTICE.H
@@ -100,7 +119,7 @@ Estatísticas do construto
    Arquivos de inclusão de que necessita
       TST_Espc.h
    Arquivos em que é incluído
-      TestVer.c
+      TestGer.c
 
    Estatísticas do arquivo: lerparm.h
       Total linhas:             291
@@ -108,7 +127,7 @@ Estatísticas do construto
       Linhas de comentário:     188
       Linhas em branco:          67
    Arquivos em que é incluído
-      TestVer.c
+      TestGer.c
 
 Totais por tipo de arquivo
 
@@ -127,11 +146,11 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: DEFAULT  Path: .
-         Total linhas do tipo:      2359
-         Linhas de código:           228
-         Linhas de comentário:      1817
-         Linhas em branco:           314
-         Arquivos deste tipo:          7
+         Total linhas do tipo:      2456
+         Linhas de código:           260
+         Linhas de comentário:      1849
+         Linhas em branco:           347
+         Arquivos deste tipo:          8
 
   Tipo: espstr   Path: .
          Total linhas do tipo:         0
@@ -148,17 +167,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: .
-         Total linhas do tipo:      1097
-         Linhas de código:           535
-         Linhas de comentário:       284
-         Linhas em branco:           312
-         Arquivos deste tipo:          3
+         Total linhas do tipo:      1262
+         Linhas de código:           655
+         Linhas de comentário:       290
+         Linhas em branco:           351
+         Arquivos deste tipo:          4
 
 Totais para todo o construto Trabalho
 
-   Total linhas:              3456
-   Linhas de código:           763
-   Linhas de comentário:      2101
-   Linhas em branco:           626
-   Arquivos processados:        10
+   Total linhas:              3718
+   Linhas de código:           915
+   Linhas de comentário:      2139
+   Linhas em branco:           698
+   Arquivos processados:        12
 

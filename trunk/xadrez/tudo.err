@@ -1,12 +1,13 @@
 Lista.c
 Vertice.c
-TestVer.c
+Gerenciador.c
+TestGer.c
 Microsoft (R) Incremental Linker Version 9.00.21022.08
 Copyright (C) Microsoft Corporation.  All rights reserved.
 
 /OUT:Trabalho.exe 
 /INCREMENTAL:NO 
 /MACHINE:IX86 
-Lista.obj Vertice.obj TestVer.obj 
+Lista.obj Vertice.obj Gerenciador.obj TestGer.obj 
 ArcaboucoTeste.lib 
 

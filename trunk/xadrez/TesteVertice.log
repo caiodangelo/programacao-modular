@@ -7,12 +7,23 @@
 !!!    0  Linha:     2  // Autores:   Caio, Eduardo e Vitor 
 !!!    0  Linha:     3  // Data:      12/out/2009 
 !!!    0  Linha:     4  // Propósito: Testar o módulo VERTICE 
-    6  == Verificar criar vértice
-!!!    0  Linha:    11  //fim 
+    6  == Verificar comando recuperar
+>>>    1  Linha:     7  Retorno errado ao criar vértice.  Deveria ser: 0  É: 1
+<<<    0  Linha:     8  Falha esperada foi recuperada. 
+   10  == Verificar criar vértice
+   15  == Verificar destruir vértice
+>>>    1  Linha:    17  Id do vértice está errado. Deveria ser: 5  É: -2
+<<<    0  Linha:    18  Falha esperada foi recuperada. 
+>>>    1  Linha:    19  Valor do vértice está errado. Deveria ser: 5  É: -7
+<<<    0  Linha:    20  Falha esperada foi recuperada. 
+   22  == Verificar alterar valor do vértice
+   28  == Verificar adicionar sucessor
+   33  == Verificar remover sucessor
+!!!    0  Linha:    36  //fim 
 
-!!! Número de linhas lidas:          12
-!!! Número de casos de teste:         1
-!!! Número comandos corretos:         3
+!!! Número de linhas lidas:          37
+!!! Número de casos de teste:         6
+!!! Número comandos corretos:        12
 !!! Número de falhas encontradas:     0
 
 !!! Não foram encontrados problemas

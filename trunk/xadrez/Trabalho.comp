@@ -9,7 +9,8 @@ err         =  .
 [Modulos]
 Lista
 Vertice
-TestVer
+Gerenciador
+TestGer
 
 [BuildInicio]
 /OUT:Trabalho.exe
