@@ -63,7 +63,9 @@ typedef enum {
 *
 ***********************************************************************/
 
-	typedef struct tgVertice tpVertice ;
+	typedef struct tgVertice * tppVertice ;
+
+	typedef struct LIS_tagLista * LIS_tppLista ;
 
 /***********************************************************************
 *
@@ -82,7 +84,7 @@ typedef enum {
 *
 ***********************************************************************/
 
-	VER_tpCondRet VER_CriarVertice ( tpVertice ** ppVertice, void * Valor, int idVertice );
+	VER_tpCondRet VER_CriarVertice ( tppVertice * ppVertice, void * Valor, int idVertice );
 
 /***********************************************************************
 *
@@ -102,7 +104,7 @@ typedef enum {
 *
 ***********************************************************************/
 
-	VER_tpCondRet VER_ObterValor ( tpVertice * pVertice, void ** ppValor );
+	VER_tpCondRet VER_ObterValor ( tppVertice pVertice, void ** ppValor );
 
 /***********************************************************************
 *
@@ -121,7 +123,7 @@ typedef enum {
 *
 ***********************************************************************/
 
-	VER_tpCondRet VER_AlterarValor ( tpVertice * pVertice, void * ValorNovo );
+	VER_tpCondRet VER_AlterarValor ( tppVertice pVertice, void * ValorNovo );
 
 /***********************************************************************
 *
@@ -139,7 +141,7 @@ typedef enum {
 *
 ***********************************************************************/
 
-	void VER_DestruirVertice ( tpVertice ** pVertice );
+	void VER_DestruirVertice ( tppVertice* pVertice );
 
 /***********************************************************************
 *
@@ -161,7 +163,7 @@ typedef enum {
 *
 ***********************************************************************/
 	
-	VER_tpCondRet VER_AdicionarSucessor ( tpVertice * pVerticeOrigem, tpVertice * pVerticeDestino );
+	VER_tpCondRet VER_AdicionarSucessor ( tppVertice pVerticeOrigem, tppVertice pVerticeDestino );
 
 /***********************************************************************
 *
@@ -182,7 +184,7 @@ typedef enum {
 *
 ***********************************************************************/
 
-	VER_tpCondRet VER_RemoverSucessor ( tpVertice * pVerticeOrigem, tpVertice * pVerticeDestino );
+	VER_tpCondRet VER_RemoverSucessor ( tppVertice pVerticeOrigem, tppVertice pVerticeDestino );
 
 /***********************************************************************
 *
@@ -201,8 +203,10 @@ typedef enum {
 *
 ***********************************************************************/
 
-	VER_tpCondRet VER_ObterId ( tpVertice * pVertice, int * pIdVertice );
+	VER_tpCondRet VER_ObterId ( tppVertice pVertice, int * pIdVertice );
 
-	VER_tpCondRet VER_ExibirSucessores ( tpVertice * pVertice );
+	void VER_ExibirSucessores ( tppVertice pVertice );
+
+	LIS_tppLista VER_ObterListaSucessores ( tppVertice pVertice );
 
 /********** Fim do módulo de definição: Módulo vértice **********/

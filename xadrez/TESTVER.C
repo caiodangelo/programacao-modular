@@ -60,7 +60,7 @@
 
 /*****  Dados encapsulados no módulo  *****/
 
-      static tpVertice * vtpVertice[10];
+      static tppVertice vtpVertice[10];
             /* Vetor de ponteiros para 10 vértices */
 	  static int vtValorDado[10];
 			/* Vetor de ponteiros para valores passados pelo script */
