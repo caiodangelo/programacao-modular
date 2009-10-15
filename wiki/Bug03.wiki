@@ -1,0 +1,22 @@
+#summary Módulo: GERENCIADOR | Bug: Erro de compilação no header
+
+= Descrição do Problema =
+
+Ao tentar compilar o código:
+{{{
+   tpTabuleiro GER_CriarTabuleiro ( void );
+}}}
+ o copilador exibia o seguinte erro: 
+{{{
+c:\dudu\programacao modular\trabalho\xadrez\GERENCIADOR.H(84) : error C2061: syntax error : identifier 'GER_CriarTabuleiro'
+c:\dudu\programacao modular\trabalho\xadrez\GERENCIADOR.H(84) : error C2059: syntax error : ';'
+c:\dudu\programacao modular\trabalho\xadrez\GERENCIADOR.H(84) : error C2059: syntax error : 'type'
+}}}
+
+= Motivo do Problema =
+
+O motivo do problema foi que o compilador não reconheceu o tipo da condição de retorno declarada
+
+= Possível Solução =
+
+Declarar o tipo retornado no .h ou alterar o tipo retornado para um já declarado
