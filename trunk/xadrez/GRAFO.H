@@ -17,13 +17,16 @@
 *
 *  $ED Descrição do módulo
 *     Este módulo implementa um conjunto simples de funções para criar e
-*     explorar grafos
+*     explorar grafos.
 *	...
 *
 /***********************************************************************
 *
 *  $TC Tipo de dados: GRA Condicoes de retorno
 *
+*
+*  $ED Descrição do tipo
+*     Condições de retorno das funções da grafo
 *
 ***********************************************************************/
 
@@ -41,7 +44,7 @@
 		GRA_CondRetGrafoVazio = 3 ,
 			/* Grafo está vazio */ 
 
-		GRA_CondRetVerticeInexistente = 4,
+		GRA_CondRetVerticeNaoExiste = 4,
 			/* Vertice dado não existe */ 
 		
 		GRA_CondRetIndiceInvalido = 5 ,
@@ -56,31 +59,34 @@
 		 GRA_CondRetVerticeNaoEhOrigem = 8,
 			/* Vertice dado nao eh origem */ 
 
-		 GRA_CondRetIdJahExiste = 9,
+		 GRA_CondRetIdJaExiste = 9,
 			/* Identificador já existe no grafo */
 
 		 GRA_CondRetNaoHaOrigens = 10,
 			/* Lista de Origens do grafo vazia */
 
+		 GRA_CondRetVerticeNaoEhSucessor = 11,
+			/* Vertice dado não é sucessor */
+
+		 GRA_CondRetNaoHaSucessores = 12,
+			/* Não há sucessores do Vértice dado */
+
    } GRA_tpCondRet ;
 
-/***********************************************************************
-*
-*  $TC Tipo de dados: GRA Descritor da cabeça de um grafo
-*
-*
-*  $ED Descrição do tipo
-*     A cabeça de um grafo é o ponto de acesso para um determinado grafo.
-*   ...
-*
-***********************************************************************/
 
-	typedef struct tgGrafo tpGrafo ;
+/***** Declarações exportadas pelo módulo *****/
 
-	typedef struct tgVertice tpVertice ; 
+/* Tipo referência para a cabeça de um grafo */
+
+	typedef struct GRA_tgGrafo * GRA_tppGrafo ;
+
+/***** Declarações importadas pelo módulo *****/
+
+	typedef struct VER_tgVertice * VER_tppVertice ;
+
+	typedef struct VER_tgVertice VER_tpVertice ;
 
 /***********************************************************************
-*
 *  $FC Função: GRA Criar grafo
 *
 *  $ED Descrição da função
@@ -90,30 +96,30 @@
 *     $P ppGrafo - endereço do ponteiro que irá referenciar o grafo criado.
 *
 *  $FV Valor retornado
-*     ...
-*
+*     GRA_CondRetFaltouMemoria - não houve memória suficiente para a alocação.
+*	  GRA_CondRetOK
+*  
 ***********************************************************************/
 
-     GRA_tpCondRet GRA_CriarGrafo ( tpGrafo ** ppGrafo );
-
+  GRA_tpCondRet GRA_CriarGrafo( GRA_tppGrafo* ppGrafo );
 
 /***********************************************************************
 *
 *  $FC Função: GRA Destruir grafo
 *
 *  $ED Descrição da função
-*     Destrói o grafo passado.
+*     Destrói a estrutura e a cabeça do grafo, anulando o grafo passado.
 *
 *  $EP Parâmetros
 *     $P pGrafo - endereço do ponteiro para a cabeça do grafo a ser destruído.
 *
-*  $ED Descrição da função
-*     Destrói a estrutura e a cabeça do grafo, anulando o grafo passado.
-*	  
+*  $FV Valor retornado
+*     GRA_CondRetGrafoVazio - grafo passado é vazio.
+*	  GRA_CondRetOK
 *
 ***********************************************************************/
 
-  GRA_tpCondRet GRA_DestruirGrafo ( tpGrafo * pGrafo );
+  GRA_tpCondRet GRA_DestruirGrafo( GRA_tppGrafo pGrafo );
 
 
 /***********************************************************************
@@ -122,6 +128,8 @@
 *
 *  $ED Descrição da função
 *     Insere um vértice na lista de vértices do grafo.
+*	  Cada vértice inserido no grafo deve conter um índice
+*	  arbitrariamente escolhido que será passado como parâmetro.
 *
 *  $EP Parâmetros
 *     $P pGrafo - ponteiro para a cabeça do grafo em que o vértice será inserido.
@@ -130,12 +138,15 @@
 *
 *  $FV Valor retornado
 *     GRA_CondRetOK
-*	  GRA_
-*     GRA_CondRetFaltouMemoria
+*	  GRA_CondRetVerticeNaoExiste - Vértice passado como parâmetro não existe.
+*     GRA_CondRetFaltouMemoria - não houve memória suficiente para a alocação.
+*
+*	  GRA_CondRetIdJaExiste - caso se tente inserir um vértice com um id que já foi
+*							  utilizado, a inserção não será feita.
 *
 ***********************************************************************/
 
-   GRA_tpCondRet GRA_InserirVertice ( tpGrafo * pGrafo, void * pValor, int idVertice );
+   GRA_tpCondRet GRA_InserirVertice( GRA_tppGrafo pGrafo, void * pValor, int idVertice );
 
 
 /***********************************************************************
@@ -149,11 +160,12 @@
 *     $P pGrafo - ponteiro para a cabeça do grafo.
 *
 *  $FV Valor retornado
-*     ...
+*     GRA_CondRetGrafoVazio - Grafo passado está vazio.
+*	  GRA_CondRetOK
 *
 ***********************************************************************/
 
-   GRA_tpCondRet GRA_ExcluirVertice ( tpGrafo * pGrafo );
+   GRA_tpCondRet GRA_ExcluirVertice( GRA_tppGrafo pGrafo );
 
 
 /***********************************************************************
@@ -162,19 +174,26 @@
 *
 *  $ED Descrição da função
 *     Insere uma aresta entre os vértices passados como parâmetros.
+*	  Será permitido a inserção de laços, isto é, arestas em que os vértices 
+*	  de origem e destino são o mesmo.
 *
 *  $EP Parâmetros
 *     $P pGrafo - ponteiro para a cabeça do grafo.
-*     $P pVerticeOrigem - ponteiro para o vértice de origem da aresta.
-*     $P pVerticeDestino - ponteiro para o vértice de destino da aresta.
+*     $P idVerticeOrigem - id do vértice de origem da aresta.
+*     $P idVerticeDestino - id do vértice de destino da aresta.
 *
 *  $FV Valor retornado
-*     ...
+*	  GRA_CondRetFaltouMemoria - não há memória para a alocação da aresta.
+*	  GRA_CondRetGrafoInexistente - grafo passado não existe.
+*	  GRA_CondRetVerticeNaoExiste - vértice de origem ou destino não existem.
+*	  GRA_CondRetArestaJaExiste - já existe aresta entre os vértices passados.
+*	  GRA_CondRetOK
 *
 ***********************************************************************/
 
-GRA_tpCondRet GRA_InserirAresta ( tpGrafo * pGrafo, int idVerticeOrigem, 
-									int idVerticeDestino );
+	GRA_tpCondRet GRA_InserirAresta( GRA_tppGrafo pGrafo, int idVerticeOrigem, 
+										int idVerticeDestino );
+
 
 /***********************************************************************
 *
@@ -185,16 +204,20 @@ GRA_tpCondRet GRA_InserirAresta ( tpGrafo * pGrafo, int idVerticeOrigem,
 *
 *  $EP Parâmetros
 *     $P pGrafo - ponteiro para a cabeça do grafo.
-*     $P pVerticeOrigem - ponteiro para o vértice de origem da aresta.
-*     $P pVerticeDestino - ponteiro para o vértice de destino da aresta.
+*     $P idVerticeOrigem - indice do vértice de origem da aresta.
+*     $P idVerticeDestino - indice do vértice de destino da aresta.
 *
 *  $FV Valor retornado
-*     ...
+*	  GRA_CondRetGrafoInexistente - grafo passado não existe.
+*	  GRA_CondRetVerticeNaoExiste - vértice de origem ou destino não existem.
+*	  GRA_CondRetArestaNaoExiste - não existe aresta entre os vértices passados.
+*	  GRA_CondRetOK
 *
 ***********************************************************************/
 
-GRA_tpCondRet GRA_RemoverAresta ( tpGrafo * pGrafo, int idVerticeOrigem, 
+GRA_tpCondRet GRA_RemoverAresta( GRA_tppGrafo pGrafo, int idVerticeOrigem, 
 									int idVerticeDestino );
+
 
 /***********************************************************************
 *
@@ -205,18 +228,119 @@ GRA_tpCondRet GRA_RemoverAresta ( tpGrafo * pGrafo, int idVerticeOrigem,
 *
 *  $EP Parâmetros
 *     $P pGrafo - ponteiro para a cabeça do grafo.
-*     
+*
 *  $FV Valor retornado
-*     ...
+*	  GRA_CondRetGrafoInexistente - grafo passado não existe.
+*	  GRA_CondRetVerticeNaoExiste - erro ao tentar percorrer o grafo.
+*	  GRA_CondRetOK
 *
 ***********************************************************************/
 
-	GRA_tpCondRet GRA_ExibirGrafo ( tpGrafo * pGrafo );
+	GRA_tpCondRet GRA_ExibirGrafo( GRA_tppGrafo pGrafo );
 
-	 GRA_tpCondRet GRA_MarcarComoOrigem ( tpGrafo * pGrafo, int idVertice );
 
-	 GRA_tpCondRet GRA_DesmarcarComoOrigem ( tpGrafo * pGrafo, int idVertice );
+/***********************************************************************
+*
+*  $FC Função: GRA Marcar Como Origem
+*
+*  $ED Descrição da função
+*     Coloca um vértice na lista de origens da cabeça do grafo
+*
+*  $EP Parâmetros
+*     $P pGrafo - ponteiro para a cabeça do grafo.
+*     $P idVertice - indice do vértice a ser marcado como origem.
+*
+*  $FV Valor retornado
+*	  GRA_CondRetFaltouMemoria - não há memória para a alocação da aresta.
+*	  GRA_CondRetGrafoInexistente - grafo passado não existe.
+*	  GRA_CondRetIndiceInvalido - índice passado não é válido
+*	  GRA_CondRetOK
+*
+***********************************************************************/
+
+	 GRA_tpCondRet GRA_MarcarComoOrigem( GRA_tppGrafo pGrafo, int idVertice );
+
+
+/***********************************************************************
+*
+*  $FC Função: GRA Desmarcar Como Origem
+*
+*  $ED Descrição da função
+*     Coloca um vértice na lista de origens da cabeça do grafo
+*
+*  $EP Parâmetros
+*     $P pGrafo - ponteiro para a cabeça do grafo.
+*     $P idVertice - indice do vértice a ser desmarcado.
+*
+*  $FV Valor retornado
+*	  GRA_CondRetGrafoInexistente - grafo passado não existe.
+*	  GRA_CondRetVerticeNaoEhOrigem - vértice passado não é origem ou ID passado é inválido
+*	  GRA_CondRetOK
+*
+***********************************************************************/
+
+	 GRA_tpCondRet GRA_DesmarcarComoOrigem( GRA_tppGrafo pGrafo, int idVertice );
+
+
+/***********************************************************************
+*
+*  $FC Função: GRA Obter Valor Com Id
+*
+*  $ED Descrição da função
+*     Obtém o valor do vértice a partir do seu indice.
+*
+*  $EP Parâmetros
+*     $P pGrafo - ponteiro para a cabeça do grafo.
+*     $P IdVertice - indice do vértice que se deseja obter o valor.
+*	  $P ppValor - variável do tipo ponteiro para ponteiro para void que 
+*				   referenciará o ponteiro para a estrutura do valor.
+*
+*  $FV Valor retornado
+*     ..
+*
+***********************************************************************/
 	 
-	 GRA_tpCondRet GRA_ObterValorComId ( tpGrafo * pGrafo , int Id , void** ppValor );
+	 GRA_tpCondRet GRA_ObterValorComId( GRA_tppGrafo pGrafo , int IdVertice , void** ppValor );
+
+
+ /***********************************************************************
+*
+*  $FC Função: GRA Avancar Sucessor
+*
+*  $ED Descrição da função
+*     Avança para o vértice sucessor com o índice dado, se o índice for sucessor.
+*
+*  $EP Parâmetros
+*     $P pGrafo - ponteiro para a cabeça do grafo.
+*     $P IdVertice - indice do vértice sucessor que se deseja avançar.
+*
+*  $FV Valor retornado
+*     ..
+*
+***********************************************************************/
+
+	 GRA_tpCondRet GRA_AvancarSucessor( GRA_tppGrafo pGrafo, int IdVertice );
+
+
+/***********************************************************************
+*
+*  $FC Função: Obtem Vértice Com ID
+*
+*  $ED Descrição da função
+*     Obtém o vértice a partir do índice dado.
+*
+*  $EP Parâmetros
+*     $P pGrafo - ponteiro para a cabeça do grafo.
+*     $P IdVertice - indice do vértice a ser marcado como origem.
+*
+*  $FV Valor retornado
+*     Retorna o endereço do vértice (tipo VER_tppVertice) caso este seja encontrado
+*	  ou NULL caso não seja encontrado nenhum vértice com o índice passado.
+*
+***********************************************************************/
+
+	 VER_tppVertice ObtemVerticeComId( GRA_tppGrafo pGrafo, int IdVertice );
+
+
 
 /********** Fim do módulo de definição: Módulo grafo **********/
