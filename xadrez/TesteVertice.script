@@ -6,7 +6,6 @@
 == Verificar criar vértice
 =criar 0 5 0 0 
 =obterid 0 0 0
-=destruir 0
 =obterval 0 5 0
 
 //fim

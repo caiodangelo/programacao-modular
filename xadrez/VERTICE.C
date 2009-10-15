@@ -71,7 +71,7 @@
 
 	  if ( *ppVertice != NULL )
       {
-         VER_DestruirVertice( *ppVertice ) ;
+         VER_DestruirVertice( ppVertice ) ;
       } /* if */
 
       *ppVertice = ( tpVertice * ) malloc( sizeof( tpVertice )) ;
@@ -96,7 +96,6 @@
 
    VER_tpCondRet VER_ObterValor ( tpVertice * pVertice, void ** ppValor ) {
 
-
 		if ( pVertice == NULL )
 		{
 			return VER_CondRetVerticeNaoExiste ;
@@ -108,7 +107,8 @@
 		} /* if */
 		
 		else {
-			*ppValor = pVertice->Valor;	
+			*ppValor = pVertice->Valor;
+			printf("valor - %d\n", *ppValor );
 		} /* else */
 
    	  return VER_CondRetOK ;
@@ -138,15 +138,15 @@
 *  Função: VER Destruir vértice
 *  ****/
 
-	void VER_DestruirVertice ( tpVertice * pVertice ){
+	void VER_DestruirVertice ( tpVertice ** ppVertice ){
 		
-		if ( pVertice == NULL )
+		if ( *ppVertice == NULL )
 		{
 			return; //VER_CondRetVerticeNaoExiste ;
 		} /* if */
 
-		free( pVertice );
-		pVertice = NULL;
+		free( *ppVertice );
+		*ppVertice = NULL;
 		
 		return ;//VER_CondRetOK;
 
