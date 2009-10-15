@@ -375,16 +375,15 @@
 *  Função: ExibeSucessores
 *  ****/
 
-   void ExibeSucessores ( VER_tppVertice pVertice){
-
-		LIS_tpCondRet CondRetLista;
+   void VER_ExibirSucessores ( tppVertice pVertice ){
 
 		int IdVertice;
 
 		LIS_tppLista ListaSucessores = VER_ObterListaSucessores ( pVertice);
 
 		if ( ListaSucessores == NULL ){
-			return;
+			printf ( "Lista de sucessores vazia\n");
+			return ;
 		}/* if */
 
 		IrInicioLista( ListaSucessores ) ;
@@ -394,8 +393,8 @@
 			pVertice = LIS_ObterValor( ListaSucessores ) ;
 
 		   if ( VER_ObterId( pVertice, &IdVertice ) == VER_CondRetVerticeNaoExiste ){
-			
-			   return GRA_CondRetVerticeInexistente;
+			   printf("\n");
+			   return ;
 
 		   } else {
 			    
@@ -405,11 +404,15 @@
 
 
 	   }while( LIS_AvancarElementoCorrente( ListaSucessores, 1 )
-		     != LIS_CondRetFimLista ) /* do while */
+		     != LIS_CondRetFimLista ); /* do while */
 
 		
    return;
 
 
 } /* Fim função: ExibeSucessores */
+
+   LIS_tppLista VER_ObterListaSucessores ( tppVertice pVertice ){
+	   return NULL;
+   }
 /********** Fim do módulo de implementação: Módulo vértice **********/
