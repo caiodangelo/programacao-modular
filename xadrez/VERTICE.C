@@ -369,5 +369,47 @@
 		
 		return VER_CondRetOK;
 
-} /* Fim função: VER Destruir Vertice */
+} /* Fim função: VER Obter ID */
+/***************************************************************************
+*
+*  Função: ExibeSucessores
+*  ****/
+
+   void ExibeSucessores ( VER_tppVertice pVertice){
+
+		LIS_tpCondRet CondRetLista;
+
+		int IdVertice;
+
+		LIS_tppLista ListaSucessores = VER_ObterListaSucessores ( pVertice);
+
+		if ( ListaSucessores == NULL ){
+			return;
+		}/* if */
+
+		IrInicioLista( ListaSucessores ) ;
+
+		do{
+		   
+			pVertice = LIS_ObterValor( ListaSucessores ) ;
+
+		   if ( VER_ObterId( pVertice, &IdVertice ) == VER_CondRetVerticeNaoExiste ){
+			
+			   return GRA_CondRetVerticeInexistente;
+
+		   } else {
+			    
+			   printf(" %d ", IdVertice);
+
+		   } /* if */
+
+
+	   }while( LIS_AvancarElementoCorrente( ListaSucessores, 1 )
+		     != LIS_CondRetFimLista ) /* do while */
+
+		
+   return;
+
+
+} /* Fim função: ExibeSucessores */
 /********** Fim do módulo de implementação: Módulo vértice **********/
