@@ -71,6 +71,9 @@
 		 GRA_CondRetNaoHaSucessores = 12,
 			/* Não há sucessores do Vértice dado */
 
+		 GRA_CondRetVerticeVazio = 13,
+			/* Vertice dado está vazio */ 
+
    } GRA_tpCondRet ;
 
 
@@ -160,7 +163,9 @@
 *     $P pGrafo - ponteiro para a cabeça do grafo.
 *
 *  $FV Valor retornado
+*	  GRA_CondRetGrafoInexistente - Grafo passado não existe.
 *     GRA_CondRetGrafoVazio - Grafo passado está vazio.
+*	  GRA_CondRetVerticeNaoExiste - o vértice dado não existe
 *	  GRA_CondRetOK
 *
 ***********************************************************************/
@@ -296,7 +301,8 @@ GRA_tpCondRet GRA_RemoverAresta( GRA_tppGrafo pGrafo, int idVerticeOrigem,
 *				   referenciará o ponteiro para a estrutura do valor.
 *
 *  $FV Valor retornado
-*     ..
+*	  GRA_CondRetIndiceInvalido - indice passado não é válido
+*     OK
 *
 ***********************************************************************/
 	 
@@ -309,13 +315,18 @@ GRA_tpCondRet GRA_RemoverAresta( GRA_tppGrafo pGrafo, int idVerticeOrigem,
 *
 *  $ED Descrição da função
 *     Avança para o vértice sucessor com o índice dado, se o índice for sucessor.
+*     Se o índice não for sucessor, vértice corrente não será alterado.
 *
 *  $EP Parâmetros
 *     $P pGrafo - ponteiro para a cabeça do grafo.
 *     $P IdVertice - indice do vértice sucessor que se deseja avançar.
 *
 *  $FV Valor retornado
-*     ..
+*     GRA_CondRetGrafoInexistente - Grafo passado não existe.
+*     GRA_CondRetGrafoVazio - Grafo passado está vazio.
+*     GRA_CondRetNaoHaSucessores - Vértice corrente não possui sucessores
+*     GRA_CondRetNaoEhSucessor - Vértice passado não é sucessor do corrente.
+*     GRA_CondRetOk
 *
 ***********************************************************************/
 
@@ -340,6 +351,25 @@ GRA_tpCondRet GRA_RemoverAresta( GRA_tppGrafo pGrafo, int idVerticeOrigem,
 ***********************************************************************/
 
 	 VER_tppVertice ObtemVerticeComId( GRA_tppGrafo pGrafo, int IdVertice );
+
+/***********************************************************************
+*
+*  $FC Função: GRA Ir Vertice Com Id
+*
+*  $ED Descrição da função
+*     Seta o vértice passado como índice como Vértice Corrente do grafo.
+*
+*  $EP Parâmetros
+*     $P pGrafo - ponteiro para a cabeça do grafo.
+*     $P IdVertice - indice do vértice a ser setado como corrente.
+*
+*  $FV Valor retornado
+	  GRA_CondRetIdInvalido - id passado é inválido
+	  GRA_CondRetOK
+*
+***********************************************************************/
+
+	 GRA_tpCondRet GRA_IrVerticeComId( GRA_tppGrafo pGrafo , int IdVertice);
 
 
 
