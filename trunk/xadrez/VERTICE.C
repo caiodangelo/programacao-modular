@@ -413,6 +413,24 @@
 } /* Fim função: ExibeSucessores */
 
    LIS_tppLista VER_ObterListaSucessores ( tppVertice pVertice ){
-	   return NULL;
+
+	   LIS_tppLista Sucessores;
+
+		if( pVertice == NULL )
+		{
+			return NULL;
+		}/* if */
+
+		if( pVertice->Sucessores == NULL )
+		{
+			return NULL;
+		}/* if */
+
+		IrInicioLista ( pVertice->Sucessores );
+
+		Sucessores = pVertice->Sucessores;
+
+		return Sucessores;
+
    }
 /********** Fim do módulo de implementação: Módulo vértice **********/
