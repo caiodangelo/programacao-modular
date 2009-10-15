@@ -149,7 +149,7 @@
 *
 ***********************************************************************/
 
-   GRA_tpCondRet GRA_InserirVertice( GRA_tppGrafo pGrafo, void * pValor, int idVertice );
+   GRA_tpCondRet GRA_InserirVertice( GRA_tppGrafo pGrafo, void * pValor, int IdVertice );
 
 
 /***********************************************************************
@@ -263,7 +263,7 @@ GRA_tpCondRet GRA_RemoverAresta( GRA_tppGrafo pGrafo, int idVerticeOrigem,
 *
 ***********************************************************************/
 
-	 GRA_tpCondRet GRA_MarcarComoOrigem( GRA_tppGrafo pGrafo, int idVertice );
+	 GRA_tpCondRet GRA_MarcarComoOrigem( GRA_tppGrafo pGrafo, int IdVertice );
 
 
 /***********************************************************************
@@ -284,7 +284,7 @@ GRA_tpCondRet GRA_RemoverAresta( GRA_tppGrafo pGrafo, int idVerticeOrigem,
 *
 ***********************************************************************/
 
-	 GRA_tpCondRet GRA_DesmarcarComoOrigem( GRA_tppGrafo pGrafo, int idVertice );
+	 GRA_tpCondRet GRA_DesmarcarComoOrigem( GRA_tppGrafo pGrafo, int IdVertice );
 
 
 /***********************************************************************
@@ -335,7 +335,7 @@ GRA_tpCondRet GRA_RemoverAresta( GRA_tppGrafo pGrafo, int idVerticeOrigem,
 
 /***********************************************************************
 *
-*  $FC Função: Obtem Vértice Com ID
+*  $FC Função: GRA Obtem Vértice Com ID
 *
 *  $ED Descrição da função
 *     Obtém o vértice a partir do índice dado.
@@ -350,7 +350,7 @@ GRA_tpCondRet GRA_RemoverAresta( GRA_tppGrafo pGrafo, int idVerticeOrigem,
 *
 ***********************************************************************/
 
-	 VER_tppVertice ObtemVerticeComId( GRA_tppGrafo pGrafo, int IdVertice );
+	 VER_tppVertice GRA_ObtemVerticeComId( GRA_tppGrafo pGrafo, int IdVertice );
 
 /***********************************************************************
 *

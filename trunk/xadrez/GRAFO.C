@@ -56,7 +56,7 @@
 
 /***** Protótipos das funções encapsuladas no módulo *****/
 
-  VER_tppVertice ObtemVerticeComId ( GRA_tppGrafo pGrafo, int idVertice );
+  VER_tppVertice GRA_ObtemVerticeComId ( GRA_tppGrafo pGrafo, int idVertice );
 
 
 /*****  Código das funções exportadas pelo módulo  *****/
@@ -93,7 +93,7 @@
 *  Função: GRA Inserir vértice
 *  ****/
 
-   GRA_tpCondRet GRA_InserirVertice ( GRA_tppGrafo pGrafo, void * pValor , int idVertice ){
+   GRA_tpCondRet GRA_InserirVertice ( GRA_tppGrafo pGrafo, void * pValor , int IdVertice ){
 
 	   VER_tpCondRet CondRetVertice;
 	   GRA_tpCondRet CondRetGrafo;
@@ -113,13 +113,13 @@
 	   } /* if */
 
 	   /* Checa se o id já existe */
-	   if ( ObtemVerticeComId ( pGrafo, idVertice ) != NULL )
+	   if ( GRA_ObtemVerticeComId ( pGrafo, IdVertice ) != NULL )
 	   {
 		   return GRA_CondRetIdJaExiste;
 	   }
 
 	   /* Cria o vértice */
-	   CondRetVertice = VER_CriarVertice ( &pVertice, pValor , idVertice );
+	   CondRetVertice = VER_CriarVertice ( &pVertice, pValor , IdVertice );
 	   if( CondRetVertice != VER_CondRetOK )
 	   {
 		   return GRA_CondRetFaltouMemoria;
@@ -216,7 +216,7 @@
 *  Função: GRA_MarcarComoOrigem
 *  ****/
 
-   GRA_tpCondRet GRA_MarcarComoOrigem ( GRA_tppGrafo pGrafo, int idVertice ){
+   GRA_tpCondRet GRA_MarcarComoOrigem ( GRA_tppGrafo pGrafo, int IdVertice ){
 
 		LIS_tpCondRet CondRetLista;
 		VER_tppVertice pVertice;
@@ -225,7 +225,7 @@
 			return GRA_CondRetGrafoInexistente;
 		}/* if */
 
-		pVertice = ObtemVerticeComId( pGrafo, idVertice ) ;
+		pVertice = GRA_ObtemVerticeComId( pGrafo, IdVertice ) ;
 
 		if ( pVertice == NULL){
 			return GRA_CondRetIndiceInvalido;  /*Conferir essa CONDRET */
@@ -247,7 +247,7 @@
 *  Função: GRA_DesmarcarComoOrigem
 *  ****/
 
-   GRA_tpCondRet GRA_DesmarcarComoOrigem ( GRA_tppGrafo pGrafo, int idVertice ){
+   GRA_tpCondRet GRA_DesmarcarComoOrigem ( GRA_tppGrafo pGrafo, int IdVertice ){
 
 		LIS_tpCondRet CondRetLista;
 		VER_tppVertice pVertice;
@@ -257,7 +257,7 @@
 		}/* if */
 
 			
-		pVertice = ObtemVerticeComId( pGrafo, idVertice ) ;
+		pVertice = GRA_ObtemVerticeComId( pGrafo, IdVertice ) ;
 
 		if ( pVertice == NULL){
 			return GRA_CondRetVerticeNaoEhOrigem ;
@@ -295,8 +295,8 @@
 			return GRA_CondRetGrafoInexistente;
 		}/* if */
 	
-		pVerticeOrigem = ObtemVerticeComId( pGrafo, idVerticeOrigem ) ;
-		pVerticeDestino = ObtemVerticeComId( pGrafo, idVerticeDestino ) ;
+		pVerticeOrigem = GRA_ObtemVerticeComId( pGrafo, idVerticeOrigem ) ;
+		pVerticeDestino = GRA_ObtemVerticeComId( pGrafo, idVerticeDestino ) ;
 
 		if ( pVerticeOrigem == NULL || pVerticeDestino == NULL ){
 			return GRA_CondRetVerticeNaoExiste;
@@ -334,8 +334,8 @@
 			return GRA_CondRetGrafoInexistente;
 		}/* if */
 		
-		pVerticeOrigem = ObtemVerticeComId( pGrafo, idVerticeOrigem ) ;
-		pVerticeDestino = ObtemVerticeComId( pGrafo, idVerticeDestino ) ;
+		pVerticeOrigem = GRA_ObtemVerticeComId( pGrafo, idVerticeOrigem ) ;
+		pVerticeDestino = GRA_ObtemVerticeComId( pGrafo, idVerticeDestino ) ;
 
 		if ( pVerticeOrigem == NULL || pVerticeDestino == NULL ){
 			return GRA_CondRetVerticeNaoExiste;
@@ -554,7 +554,7 @@
 
   GRA_tpCondRet GRA_IrVerticeComId( GRA_tppGrafo pGrafo , int IdVertice){
 
-		VER_tppVertice pVertice = ObtemVerticeComId( pGrafo, IdVertice);
+		VER_tppVertice pVertice = GRA_ObtemVerticeComId( pGrafo, IdVertice);
 	
 		if ( pVertice == NULL){
 			return GRA_CondRetIndiceInvalido;
@@ -571,10 +571,10 @@
 
 /***************************************************************************
 *
-*  Função: ObtemVerticeComId
+*  Função: GRA GRA_ObtemVerticeComId
 *  ****/
 
-   VER_tppVertice ObtemVerticeComId ( GRA_tppGrafo pGrafo, int IdVertice ){
+   VER_tppVertice GRA_ObtemVerticeComId ( GRA_tppGrafo pGrafo, int IdVertice ){
 
 
 	   int IdAuxiliar;  /* CHECAR NOME DESSA VARIÁVEL */
@@ -610,7 +610,7 @@
 
 	   return NULL;
 
-} /* Fim função: ObtemVerticeComId */
+} /* Fim função: GRA GRA_ObtemVerticeComId */
 
 
 
