@@ -205,7 +205,38 @@ typedef enum {
 
 	VER_tpCondRet VER_ObterId ( tppVertice pVertice, int * pIdVertice );
 
+/***********************************************************************
+*
+*  $FC Função: VER Exibir Sucessores
+*
+*  $ED Descrição da função
+*     Exibe na tela a lista de sucessores do vértice passado.
+*
+*  $EP Parâmetros
+*     $P pVertice - ponteiro que referencia o vértice.
+*
+*  $FV Valor retornado
+*
+***********************************************************************/
+
 	void VER_ExibirSucessores ( tppVertice pVertice );
+
+/***********************************************************************
+*
+*  $FC Função: VER Obter Lista de Sucessores
+*
+*  $ED Descrição da função
+*     Obtém a lista de sucessores do vértice passado.
+*
+*  $EP Parâmetros
+*     $P pVertice - ponteiro que referencia o vértice.
+*
+*  $FV Valor retornado
+*     	LIS_tppLista
+*		NULL - se o vértice não existir ou a lista de sucessores
+*		estiver vazia
+*
+***********************************************************************/
 
 	LIS_tppLista VER_ObterListaSucessores ( tppVertice pVertice );
 

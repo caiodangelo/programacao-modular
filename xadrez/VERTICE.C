@@ -372,7 +372,7 @@
 } /* Fim função: VER Obter ID */
 /***************************************************************************
 *
-*  Função: ExibeSucessores
+*  Função: VER Exibir Sucessores
 *  ****/
 
    void VER_ExibirSucessores ( tppVertice pVertice ){
@@ -410,7 +410,11 @@
    return;
 
 
-} /* Fim função: ExibeSucessores */
+} /* Fim função: VER Exibir Sucessores */
+   /***************************************************************************
+*
+*  Função: VER Obter Lista de Sucessores
+*  ****/
 
    LIS_tppLista VER_ObterListaSucessores ( tppVertice pVertice ){
 
@@ -432,5 +436,5 @@
 
 		return Sucessores;
 
-   }
+   }/* Fim função: VER Obter Lista de Sucessores */
 /********** Fim do módulo de implementação: Módulo vértice **********/
