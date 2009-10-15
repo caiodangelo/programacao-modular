@@ -13,10 +13,17 @@
 	     GER_CondRetFaltouMemoria = 1 ,
 			   /* Faltou memória ao alocar dados */
 
-	   GER_CondRetArqDispInvalido = 2;
+	     GER_CondRetArqDispInvalido = 2,
 				/* Sintaxe inválida do arquivo de disposição das peças */
-		 GER_CondRetArqInexistente = 3;
+
+		 GER_CondRetArqInexistente = 3,
 				/* Arquivo não foi encontrado */
+
+		 GER_CondRetPecaNaoExiste = 4,
+
+		 GER_CondRetTipoInvalido = 5,
+
+		 GER_CondRetCorInvalida = 6,
 
    } GER_tpCondRet ;
 
@@ -71,17 +78,22 @@
 			   
    } GER_tpTipoPeca ;
 
-   typedef struct tgPeca tpPeca;
+   typedef struct tgPeca * tppPeca;
 
-   typedef tpPeca *** tpTabuleiro;
+   tppPeca GER_CriarPeca ( GER_tpTipoPeca tipo , GER_tpCorPeca cor , char* movimentosPossiveis );
 
-   tpPeca * GER_CriaPeca ( GER_tpTipoPeca tipo , GER_tpCorPeca cor , char* movimentosPossiveis );
+   GER_tpCondRet GER_AtribuirPeca ( tppPeca pPeca , GER_tpTipoPeca tipo , GER_tpCorPeca cor , char* movimentosPossiveis );
+   
+   GER_tpCondRet GER_InicializarTabuleiro ( void );
 
-   tpCondRet GER_AtribuiPeca ( tpPeca * Peca , GER_tpTipoPeca tipo , GER_tpCorPeca cor , char* movimentosPossiveis );
+   GER_tpCondRet GER_PreencherTabuleiro ( char * ArquivoDisposicao );
 
-   tpTabuleiro GER_CriaTabuleiro ( void );
+   int GER_ObterUltimaLinhaTabuleiro ( void );
 
-   GER_tpCondRet GER_PreencheTabuleiro ( char * ArquivoDisposicao , tpTabuleiro Tabuleiro );
+   char GER_ObterUltimaColunaTabuleiro ( void );
 
+   GER_tpCondRet GER_ObterPecaDoTabuleiro ( tppPeca * pPeca, char coluna, int linha );
 
+   GER_tpTipoPeca GER_ObterTipo ( tppPeca pPeca ) ;
 
+   GER_tpCorPeca GER_ObterCor ( tppPeca pPeca ) ;
