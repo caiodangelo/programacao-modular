@@ -1,12 +1,17 @@
-Lista.c
-Vertice.c
 Gerenciador.c
-TestGer.c
+Reconhecedor.c
+.\Reconhecedor.c(53) : warning C4100: 'ArquivoRegras' : unreferenced formal parameter
+c:\dudu\programacao modular\trabalho\xadrez\reconhecedor.c(52) : warning C4715: 'REC_GeraMovimentacoes' : not all control paths return a value
+Grafo.c
+Vertice.c
+Lista.c
+TestRec.c
 Microsoft (R) Incremental Linker Version 9.00.21022.08
 Copyright (C) Microsoft Corporation.  All rights reserved.
 
 /OUT:Trabalho.exe 
 /INCREMENTAL:NO 
 /MACHINE:IX86 
-Lista.obj Vertice.obj Gerenciador.obj TestGer.obj 
+Gerenciador.obj Reconhecedor.obj Grafo.obj Vertice.obj Lista.obj 
+TestRec.obj 
 ArcaboucoTeste.lib 

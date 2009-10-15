@@ -29,29 +29,31 @@
 
 typedef enum{
 
-	tpCondRetOK = 0;
+	REC_CondRetOK = 0,
 		/* Executou corretamente */
 
-	tpCondRetArquivoNaoExiste = 1;
+	REC_CondRetArquivoNaoExiste = 1,
 		/* O arquivo passado não existe no diretório especificado */
 
-	tpCondRetArquivoInvalido = 2;
+	REC_CondRetArquivoInvalido = 2,
 		/* O arquivo passado não respeita a sintaxe correta */
 
-	tpCondRetFaltouMemoria = 3;
+	REC_CondRetFaltouMemoria = 3,
 		/* Faltou memória para ser alocada */
 
-	tpCondRetNaoCriouGrafo = 4;
+	REC_CondRetNaoCriouGrafo = 4,
 		/* O grafo para armazenar as peças não pôde ser criado */
 
-	tpCondRetNaoCriouVertice = 5;
+	REC_CondRetNaoCriouVertice = 5,
 		/* Um vértice do grafo não pôde ser criado */
 
-	tpCondRetNaoInseriuPeca = 6;
+	REC_CondRetNaoInseriuPeca = 6,
 		/* Não conseguiu inserir a peça */
 
 }REC_tpCondRet;
 
+
+typedef struct tgPeca tpPeca;
 /***********************************************************************
 *
 *  $FC Função: REC Reconhece Xeque
@@ -70,7 +72,7 @@ typedef enum{
 *
 ***********************************************************************/
 
-   tpPeca * REC_ReconheceXeque ( tpTabuleiro Tabuleiro, tpCorPeca Cor );
+   tpPeca * REC_ReconheceXeque ( void );
 
 
 /***********************************************************************
@@ -90,7 +92,7 @@ typedef enum{
 *
 ***********************************************************************/
 
-   REC_tpCondRet REC_DeterminaRegras ( char * ArquivoRegras )
+   REC_tpCondRet REC_DeterminaRegras ( char * ArquivoRegras );
 
-
+REC_tpCondRet REC_GeraMovimentacoes ( void );
 /********** Fim do módulo de definição: Módulo grafo **********/

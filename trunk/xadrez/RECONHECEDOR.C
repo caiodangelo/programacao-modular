@@ -1,61 +1,63 @@
-#include "GERENCIADOR_XADREZ.H"
+#include "GERENCIADOR.H"
+#include "RECONHECEDOR.H"
 #include "GRAFO.H"
-#include "VERTICE.H"
+#include <stdio.h>
+#include <stdlib.h>
 
-char * ArquivoRegras = NULL;
-/* Esas função exportada vai pegar o tabuleiro e chamar as
-		funções auxiliares */
-tpPeca * REC_ReconheceXeque ( tpTabuleiro Tabuleiro, tpCorPeca Cor ){
+
+
+int CodificaPosicao ( char Coluna , int Linha );
+
+tpPeca * REC_ReconheceXeque ( void ){
+	return NULL;
 }
 
-/* Essa função encapsulada vai ler a disposição das peças no tabuleiro e
-		gerar o grafo com as possibilidades da próxima jogada */
-REC_tpCondRet GeraPossiblidades ( tpTabuleiro Tabuleiro ){
-	tpGrafo * pGrafo;
-	tpVertice * pVertice;
+REC_tpCondRet REC_GeraMovimentacoes ( void ){
+	
+	GRA_tppGrafo pGrafo;
 	tpPeca * pPeca;
-	int linha; /* verificar padrão para essas variaveis */
+	int linha; 
 	char coluna;
-	int ultLinha = GER_ObtemNLinhasTabuleiro ();
-	int ultColuna = GER_ObtemNLinhasTabuleiro ();
+	int id;
+
 	GRA_tpCondRet CondRetGRA;
-	VER_tpCondRet CondRetVER;
 	GER_tpCondRet CondRetGER;
 
 	CondRetGRA = GRA_CriarGrafo ( &pGrafo );
-	if ( CondRetGRA != GRA_tpCondRetOK ){
-		return REC_tpCondRetNaoCriouGrafo;
+	if ( CondRetGRA != GRA_CondRetOK ){
+		return REC_CondRetNaoCriouGrafo;
 	}
 
-	/* Percorre todas as posições do tabuleiro adicionando as peças na lista de vértices do grafo */
+	/* Percorre todas as posições do tabuleiro adicionando as peças ao grafo */
 
-	for ( linha = 1 ; linha <= ultLinha ; linha++ ){
-		for ( coluna = 'A' ; coluna <= ultColuna ; (char)(coluna++) ){
+	for ( linha = 1 ; linha <= GER_ObterUltimaLinhaTabuleiro () ; linha++ ){
+		for ( coluna = 'A' ; coluna <= GER_ObterUltimaColunaTabuleiro () ; (char)(coluna++) ){
 			
-			CondRetGER = GER_ObtemPeca ( pPeca , coluna , linha , Tabuleiro );
-			if ( CondRegGER != GER_tpCondRetOK ){
-				return REC_tpCondRetNaoCriouVertice;
+			CondRetGER = GER_ObterPecaDoTabuleiro ( &pPeca , coluna , linha );
+			if ( CondRetGER != GER_CondRetOK ){
+				return REC_CondRetNaoCriouVertice;
 			}
 
-			CondRetVER = VER_CriarVertice ( &pVertice , pPeca );
-			if ( CondRetVER != VER_tpCondRetOK ){
-				return REC_tpCondRetNaoCriouVertice;
-			}
+			id = CodificaPosicao ( coluna , linha );
 
-			CondRetGRA = GRA_InserirVertice ( pGrafo , pVertice );
+			CondRetGRA = GRA_InserirVertice ( pGrafo , pPeca , id );
 			if ( CondRetGRA != GRA_CondRetOK ){
-				return REC_tpCondRetNaoInseriuPeca;
+				return REC_CondRetNaoInseriuPeca;
 			}
+
+
 		}
 	}
 
 	/* Percorre todos os vértices checando o arquivo de regras para descobrir quais as posições alcançáveis */
 
 }
+REC_tpCondRet REC_DeterminaRegras ( char * ArquivoRegras ){return 0;}
 
-REC_tpCondRet AdicionaPosicoesSeguintes ( tpPeca * pPeca , tpTabuleiro Tabuleiro ){
-}
-
-REC_tpCondRet REC_DeterminaRegras ( char * ArquivoRegras ){
-
+int CodificaPosicao ( char Coluna , int Linha ){
+	int NumeroDaLinha = Linha -1;
+	int NumeroDaColuna = ( int )( Coluna - 'A' );
+	int NumeroDeColunas = ( int )( GER_ObterUltimaColunaTabuleiro ( ) - 'A' ) ;
 	
+	return ( ( NumeroDaLinha * NumeroDeColunas ) + NumeroDaColuna );
+}

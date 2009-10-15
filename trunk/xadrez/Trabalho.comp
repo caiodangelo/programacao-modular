@@ -7,10 +7,13 @@ PathDefault =  .
 err         =  .
 
 [Modulos]
-Lista
-Vertice
 Gerenciador
-TestGer
+Reconhecedor
+Grafo
+Vertice
+Lista
+TestRec
+
 
 [BuildInicio]
 /OUT:Trabalho.exe

@@ -145,6 +145,7 @@
    GRA_tpCondRet GRA_ExcluirVertice ( GRA_tppGrafo pGrafo ){
 
 	  VER_tpCondRet CondRetVertice;
+	   VER_tpCondRet CondRetVertice;
 
 	   LIS_tppLista ListaSucessores;
 	   LIS_tppLista ListaAntecessores;
