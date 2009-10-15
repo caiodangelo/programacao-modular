@@ -4,9 +4,9 @@
 
 Ao tentar compilar o código:	tppPeca matpPeca[N_LINHAS][N_COLUNAS];
 o copilador exibia o seguinte erro: 
-.\Gerenciador.c(60) : error C2143: syntax error : missing ']' before ';'
-.\Gerenciador.c(60) : error C2143: syntax error : missing ';' before ']'
-.\Gerenciador.c(60) : error C2143: syntax error : missing ';' before ']'
+ * .\Gerenciador.c(60) : error C2143: syntax error : missing ']' before ';'
+ * .\Gerenciador.c(60) : error C2143: syntax error : missing ';' before ']'
+ * .\Gerenciador.c(60) : error C2143: syntax error : missing ';' before ']'
 
 
 = Motivo do Problema =
