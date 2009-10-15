@@ -144,12 +144,10 @@ typedef enum {
 *     $P pVertice - ponteiro que referencia o vértice.
 *
 *  $FV Valor retornado
-*     	VER_CondRetOK
-*		VER_CondRetVerticeNaoExiste
 *
 ***********************************************************************/
 
-	void VER_DestruirVertice ( VER_tppVertice* pVertice );
+	void VER_DestruirVertice ( VER_tppVertice* ppVertice );
 
 
 /***********************************************************************
@@ -240,6 +238,7 @@ typedef enum {
 *
 *  $ED Descrição da função
 *     Obtém a lista de sucessores do vértice passado.
+*	  A lista retornada está com o elemento corrente no início da lista.
 *
 *  $EP Parâmetros
 *     $P pVertice - ponteiro que referencia o vértice.
@@ -260,6 +259,7 @@ typedef enum {
 *
 *  $ED Descrição da função
 *     Obtém a lista de antecessores do vértice passado.
+*	  A lista retornada está com o elemento corrente no início da lista.
 *
 *  $EP Parâmetros
 *     $P pVertice - ponteiro que referencia o vértice.
