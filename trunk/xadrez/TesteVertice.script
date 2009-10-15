@@ -6,7 +6,35 @@
 == Verificar criar vértice
 =criar 0 5 0 0 
 =obterid 0 0 0
+== Verificar obter valor
 =obterval 0 5 0
+== Verificar criar vértice
+=criar 1 4 0 0
+== Verificar criar vértice
+=criar 2 10 0 0
+== Verificar obter valor
+=obterval 1 4 0
+== Verificar alterar valor
+=altval 0 15 0
+== Verificar obter valor
+=obterval 0 15 0
+== Verificar adicionar sucessor
+=adicionarsuc 0 1 0
+== Verificar adicionar sucessor novamente
+=adicionarsuc 0 1 4
+== Verificar remover sucessor inexistente
+=removersuc 0 2 5
+== Verificar remover sucessor existente 
+=removersuc 0 1 0
+== Verificar obter valor de vértice que não existe
+=obterval 3 5 1
+=recuperar
+== Verificar alterar valor de vértice que não existe
+=altval 3 10 1
+== Verificar adicionar sucessor a vértice inexistente
+=adicionarsuc 3 0 1
+== Verificar remover sucessor de vértice inexistente
+=removersuc 3 0 1
 
 //fim
 
