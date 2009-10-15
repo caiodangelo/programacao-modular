@@ -63,7 +63,7 @@ typedef enum {
 *
 ***********************************************************************/
 
-	typedef struct tgVertice * VER_tppVertice ;
+	typedef struct VER_tgVertice * VER_tppVertice ;
 
 
 /***** Declarações importadas pelo módulo *****/

@@ -34,7 +34,7 @@
 *
 ***********************************************************************/
 
-   typedef struct tgVertice {
+   typedef struct VER_tgVertice {
 
 		 void * Valor;
 			   /* Informação do Vértice */
@@ -48,7 +48,7 @@
 		 int IdVertice;
 			  /* Identificador do vértice */
 
-   } tpVertice ;
+   } VER_tpVertice ;
 
 
 /*****  Dados encapsulados no módulo  *****/
@@ -74,7 +74,7 @@
          VER_DestruirVertice( ppVertice ) ;
       } /* if */
 
-      *ppVertice = ( VER_tppVertice ) malloc( sizeof( tpVertice )) ;
+      *ppVertice = ( VER_tppVertice ) malloc( sizeof( VER_tpVertice )) ;
       if ( *ppVertice == NULL )
       {
          return VER_CondRetFaltouMemoria ;
@@ -140,11 +140,9 @@
 
 	void VER_DestruirVertice ( VER_tppVertice* ppVertice ){
 
-		printf("Entrou destruir\n");
-
 		if ( *ppVertice == NULL )
 		{
-			return; //VER_CondRetVerticeNaoExiste ;
+			return;
 		} /* if */
 
 		if( ((*ppVertice)->Antecessores) != NULL )
@@ -159,7 +157,7 @@
 		free( *ppVertice );
 		*ppVertice = NULL;
 		
-		return ;//VER_CondRetOK;
+		return ;
 
 } /* Fim função: VER Destruir Vertice */
 
