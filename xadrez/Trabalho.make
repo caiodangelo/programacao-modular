@@ -49,8 +49,8 @@ INCLUDE = $(INCLUDE);$(PDEFAULT)
 ### Regras de geração
 
 all : limpa \
-   $(Fobj)\Lista.obj   $(Fobj)\Vertice.obj   $(Fobj)\Gerenciador.obj \
-   $(Fobj)\TestGer.obj \
+   $(Fobj)\Gerenciador.obj   $(Fobj)\Reconhecedor.obj   $(Fobj)\Grafo.obj \
+   $(Fobj)\Vertice.obj   $(Fobj)\Lista.obj   $(Fobj)\TestRec.obj \
    Construto
 
 ### Limpar arquivos
@@ -61,20 +61,28 @@ limpa :
 
 ### Dependências de módulos objeto a compilar
 
-$(Fobj)\Lista.obj :  {$(Pc)}\Lista.c \
-    {$(PDEFAULT)}LISTA.h             
+$(Fobj)\Gerenciador.obj :  {$(Pc)}\Gerenciador.c \
+    {$(PDEFAULT)}GERENCIADOR.H        {$(PDEFAULT)}VERTICE.H           
+   cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c               >> $(Ferr)\$(NOME).err
+
+$(Fobj)\Reconhecedor.obj :  {$(Pc)}\Reconhecedor.c \
+    {$(PDEFAULT)}GERENCIADOR.H        {$(PDEFAULT)}GRAFO.H              {$(PDEFAULT)}RECONHECEDOR.H      
+   cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c               >> $(Ferr)\$(NOME).err
+
+$(Fobj)\Grafo.obj :  {$(Pc)}\Grafo.c \
+    {$(PDEFAULT)}GRAFO.H              {$(PDEFAULT)}LISTA.H              {$(PDEFAULT)}VERTICE.H           
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c               >> $(Ferr)\$(NOME).err
 
 $(Fobj)\Vertice.obj :  {$(Pc)}\Vertice.c \
     {$(PDEFAULT)}LISTA.H              {$(PDEFAULT)}VERTICE.H           
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c               >> $(Ferr)\$(NOME).err
 
-$(Fobj)\Gerenciador.obj :  {$(Pc)}\Gerenciador.c \
-    {$(PDEFAULT)}GERENCIADOR.H        {$(PDEFAULT)}VERTICE.H           
+$(Fobj)\Lista.obj :  {$(Pc)}\Lista.c \
+    {$(PDEFAULT)}LISTA.h             
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c               >> $(Ferr)\$(NOME).err
 
-$(Fobj)\TestGer.obj :  {$(Pc)}\TestGer.c \
-    {$(PDEFAULT)}TST_ESPC.H           {$(PDEFAULT)}TST_Espc.h           {$(PDEFAULT)}VERTICE.H            \
+$(Fobj)\TestRec.obj :  {$(Pc)}\TestRec.c \
+    {$(PDEFAULT)}RECONHECEDOR.H       {$(PDEFAULT)}TST_ESPC.H           {$(PDEFAULT)}TST_Espc.h           \
     {$(PDEFAULT)}generico.h           {$(PDEFAULT)}lerparm.h           
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c               >> $(Ferr)\$(NOME).err
 
@@ -82,8 +90,8 @@ $(Fobj)\TestGer.obj :  {$(Pc)}\TestGer.c \
 ### Terminação
 
 Construto : \
-   $(Fobj)\Lista.obj   $(Fobj)\Vertice.obj   $(Fobj)\Gerenciador.obj \
-   $(Fobj)\TestGer.obj
+   $(Fobj)\Gerenciador.obj   $(Fobj)\Reconhecedor.obj   $(Fobj)\Grafo.obj \
+   $(Fobj)\Vertice.obj   $(Fobj)\Lista.obj   $(Fobj)\TestRec.obj
     cd $(Fobj)
     LINK $(L) @$(NOME).build >> $(Ferr)\$(NOME).err
 
