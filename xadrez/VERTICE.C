@@ -67,7 +67,7 @@
 *  Função: VER Criar vértice
 *  ****/
 
-   VER_tpCondRet VER_CriarVertice ( tpVertice ** ppVertice, void * Valor, int idVertice ){
+   VER_tpCondRet VER_CriarVertice ( tpVertice ** ppVertice, void * Valor, int IdVertice ){
 
 	  if ( *ppVertice != NULL )
       {
@@ -83,7 +83,7 @@
       (*ppVertice)->Valor = Valor;
 	  (*ppVertice)->Sucessores = NULL;
 	  (*ppVertice)->Antecessores = NULL;
-	  (*ppVertice)->IdVertice = idVertice;
+	  (*ppVertice)->IdVertice = IdVertice;
 
 	  return VER_CondRetOK ;
 
