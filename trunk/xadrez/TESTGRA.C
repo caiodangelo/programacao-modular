@@ -153,7 +153,7 @@
             CondRetObtido = GRA_DestruirGrafo( pGrafo ) ;
 
             return TST_CompararInt( CondRetEsperada , CondRetObtido ,
-                                    "Retorno errado ao criar grafo." );
+                                    "Retorno errado ao destruir grafo." );
 
          } /* fim ativa: Testar GRA Destruir grafo */
 
@@ -171,7 +171,7 @@
             CondRetObtido = GRA_InserirVertice( pGrafo, &ValorVertice, IdVertice );
 
             return TST_CompararInt( CondRetEsperada , CondRetObtido ,
-                                    "Retorno errado ao criar grafo." );
+                                    "Retorno errado ao inserir vértice." );
 
          } /* fim ativa: Testar GRA Inserir vértice */
 
@@ -189,7 +189,7 @@
             CondRetObtido = GRA_ExcluirVertice ( pGrafo ) ;
 
             return TST_CompararInt( CondRetEsperada , CondRetObtido ,
-                                    "Retorno errado ao criar grafo." );
+                                    "Retorno errado ao excluir vértice." );
 
          } /* fim ativa: Testar GRA Excluir vértice */
 
@@ -208,7 +208,7 @@
 										IdVerticeDestino );
 
             return TST_CompararInt( CondRetEsperada , CondRetObtido ,
-                                    "Retorno errado ao criar grafo." );
+                                    "Retorno errado ao inserir aresta." );
 
          } /* fim ativa: Testar GRA Inserir aresta */
 
@@ -227,7 +227,7 @@
 									IdVerticeDestino );
 
             return TST_CompararInt( CondRetEsperada , CondRetObtido ,
-                                    "Retorno errado ao criar grafo." );
+                                    "Retorno errado ao remover aresta." );
 
          } /* fim ativa: Testar GRA Criar grafo */
 
@@ -245,7 +245,7 @@
             CondRetObtido = GRA_ExibirGrafo( pGrafo );
 
             return TST_CompararInt( CondRetEsperada , CondRetObtido ,
-                                    "Retorno errado ao criar grafo." );
+                                    "Retorno errado ao exibir grafo." );
 
          } /* fim ativa: Testar GRA Exibir grafo */
 
@@ -263,7 +263,7 @@
             CondRetObtido = GRA_MarcarComoOrigem( pGrafo, IdVertice );
 
             return TST_CompararInt( CondRetEsperada , CondRetObtido ,
-                                    "Retorno errado ao criar grafo." );
+                                    "Retorno errado ao marcar como origem." );
 
          } /* fim ativa: Testar GRA Marcar como origem */
 
@@ -281,7 +281,7 @@
             CondRetObtido = GRA_DesmarcarComoOrigem( pGrafo, IdVertice );
 
             return TST_CompararInt( CondRetEsperada , CondRetObtido ,
-                                    "Retorno errado ao criar grafo." );
+                                    "Retorno errado ao desmarcar como origem." );
 
          } /* fim ativa: Testar GRA Desmarcar como origem */
 
@@ -299,7 +299,7 @@
             CondRetObtido = GRA_ObterValorComId( pGrafo , IdVertice , &pValorObtido );
 
 			Ret = TST_CompararInt ( CondRetEsperada , CondRetObtido , 
-									  "Retorno errado ao criar vértice. " );
+									  "Retorno errado ao obter valor com id. " );
 
 			 if ( Ret != TST_CondRetOK )
 			 {
@@ -325,7 +325,7 @@
             CondRetObtido = GRA_AvancarSucessor( pGrafo, IdVertice );
 
             return TST_CompararInt( CondRetEsperada , CondRetObtido ,
-                                    "Retorno errado ao criar grafo." );
+                                    "Retorno errado ao avançar sucessor." );
 
          } /* fim ativa: Testar GRA Avançar sucessor */
 
@@ -343,7 +343,7 @@
             CondRetObtido = GRA_IrVerticeComId( pGrafo , IdVertice);
 
             return TST_CompararInt( CondRetEsperada , CondRetObtido ,
-                                    "Retorno errado ao criar grafo." );
+                                    "Retorno errado ao ir vértice com id." );
 
          } /* fim ativa: Testar GRA Ir vértice com Id */
 
