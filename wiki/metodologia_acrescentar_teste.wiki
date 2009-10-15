@@ -1,7 +1,7 @@
 #summary Metodologia para Acrescentar Blocos de Teste no Módulo de Teste Específico
 
-* Copiar um bloco existente
-* Colar no fim do código da função TST_EfetuarComando(), antes de "return TST_CondRetNaoConhec ;"
+# Copiar um bloco existente
+# Colar no fim do código da função TST_EfetuarComando(), antes de "return TST_CondRetNaoConhec ;"
 * Alterar o título (comentário) do bloco
 * Alterar o finalizador (comentário) do bloco
 * Alterar o comando de teste (ex: ALT_VAL_CMD )
