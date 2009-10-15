@@ -58,6 +58,8 @@
 
       static tpVertice * vtpVertice[10];
             /* Vetor de ponteiros para 10 vértices */
+	  static int vtValorDado[10];
+			/* Vetor de ponteiros para valores passados pelo script */
 
 /***********************************************************************
 *
@@ -89,11 +91,8 @@
       int NumLidos       = -5 ;
 	  int ValorEsperado	 = -6 ;
 	  int ValorObtido	 = -7 ;
+	  int * pValorObtido = &ValorObtido ;
 	  int ValorDado		 = -8 ;
-	  int * pValorEsperado	= &ValorEsperado	;
-	  int * pValorObtido	= &ValorObtido		;
-	  int * pValorDado		= &ValorDado		;
-
 	  TST_tpCondRet Ret ;
 
       /* Testar VER Criar vértice */
@@ -101,13 +100,15 @@
          if ( strcmp( ComandoTeste , CRIAR_VER_CMD ) == 0 )
          {
 			 NumLidos = LER_LerParametros ( "iiii" , 
-											&ixVertice , pValorDado, &IdDado, &CondRetEsperada ) ;
+											&ixVertice , &ValorDado, &IdDado, &CondRetEsperada ) ;
 			 if ( NumLidos != 4 )
 			 {
 				 return TST_CondRetParm ;
 			 } /* if */
 
-			 CondRetObtida = VER_CriarVertice ( &vtpVertice[ixVertice] , pValorDado , IdDado );
+			 vtValorDado[ixVertice] = ValorDado;
+
+			 CondRetObtida = VER_CriarVertice ( &vtpVertice[ixVertice] , &vtValorDado[ixVertice] , IdDado );
 
 			 return TST_CompararInt ( CondRetEsperada , CondRetObtida , 
 									  "Retorno errado ao criar vértice. " );
@@ -153,7 +154,7 @@
 				 return TST_CondRetParm ;
 			 } /* if */
 
-			 VER_DestruirVertice ( vtpVertice[ixVertice] );
+			 VER_DestruirVertice ( &vtpVertice[ixVertice] );
 
 			 return TST_CondRetOK ;
 
@@ -164,7 +165,7 @@
          if ( strcmp( ComandoTeste , OBTER_VAL_CMD ) == 0 )
          {
 			 NumLidos = LER_LerParametros ( "iii" , 
-											&ixVertice , pValorEsperado, &CondRetEsperada ) ;
+											&ixVertice , &ValorEsperado, &CondRetEsperada ) ;
 			 if ( NumLidos != 3 )
 			 {
 				 return TST_CondRetParm ;
@@ -180,7 +181,7 @@
 				 return Ret ;
 			 } /* if */
 
-			 return TST_CompararInt ( *pValorEsperado , *pValorObtido ,
+			 return TST_CompararInt ( ValorEsperado , *pValorObtido ,
 									  "Valor do vértice está errado." );
 
          } /* fim ativa: Testar VER Obter valor do vértice */

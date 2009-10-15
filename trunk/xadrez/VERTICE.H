@@ -139,7 +139,7 @@ typedef enum {
 *
 ***********************************************************************/
 
-	void VER_DestruirVertice ( tpVertice * pVertice );
+	void VER_DestruirVertice ( tpVertice ** pVertice );
 
 /***********************************************************************
 *

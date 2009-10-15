@@ -8,15 +8,14 @@
 !!!    0  Linha:     3  // Data:      12/out/2009 
 !!!    0  Linha:     4  // Propósito: Testar o módulo VERTICE 
     6  == Verificar criar vértice
->>>    1  Linha:    10  Valor do vértice está errado. Deveria ser: 5  É: 2883780
-!!!    1  Linha:    12  //fim 
+!!!    0  Linha:    11  //fim 
 
-!!! Número de linhas lidas:          13
+!!! Número de linhas lidas:          12
 !!! Número de casos de teste:         1
 !!! Número comandos corretos:         3
-!!! Número de falhas encontradas:     1
+!!! Número de falhas encontradas:     0
 
-!!! Foram encontrados problemas
+!!! Não foram encontrados problemas
 
 
 !!! Numero de espacos ainda alocados: 0
