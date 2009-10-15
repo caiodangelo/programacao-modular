@@ -32,6 +32,11 @@
 *     "=obter <Int> <String>"		- chama a função VER_ObterValor( vtpVertice[<Int>] ) e compara
 *										o valor retornado com o valor <String>
 *
+*	  "=adicionarsuc <Int> <Int>"	- chama a função VER_AdicionarSucessor( vtpVertice[<Int>], vtpVertice[<Int>] )
+*
+*
+*	  "=removersuc <Int> <Int>"		- chama a função VER_RemoverSucessor( vtpVertice[<Int>], vtpVertice[<Int>] )
+*
 *
 ***************************************************************************/
 
@@ -177,6 +182,8 @@ static VER_tppVertice vtpVertice[10] = {NULL, NULL, NULL, NULL, NULL, NULL, NULL
 			 } /* if */
 
 			 CondRetObtida = VER_ObterValor ( vtpVertice[ixVertice] , &pValorObtido );
+
+			 printf("Retorno: %d\n",CondRetObtida);
 
 			 Ret = TST_CompararInt ( CondRetEsperada , CondRetObtida , 
 									  "Retorno errado ao criar vértice. " );
