@@ -63,7 +63,12 @@ typedef enum {
 *
 ***********************************************************************/
 
-	typedef struct tgVertice * tppVertice ;
+	typedef struct tgVertice * VER_tppVertice ;
+
+
+/***** Declarações importadas pelo módulo *****/
+
+/* Tipo referência para uma lista */
 
 	typedef struct LIS_tagLista * LIS_tppLista ;
 
@@ -84,7 +89,8 @@ typedef enum {
 *
 ***********************************************************************/
 
-	VER_tpCondRet VER_CriarVertice ( tppVertice * ppVertice, void * Valor, int idVertice );
+	VER_tpCondRet VER_CriarVertice ( VER_tppVertice * ppVertice, void * Valor, int idVertice );
+
 
 /***********************************************************************
 *
@@ -104,7 +110,8 @@ typedef enum {
 *
 ***********************************************************************/
 
-	VER_tpCondRet VER_ObterValor ( tppVertice pVertice, void ** ppValor );
+	VER_tpCondRet VER_ObterValor ( VER_tppVertice pVertice, void ** ppValor );
+
 
 /***********************************************************************
 *
@@ -123,7 +130,8 @@ typedef enum {
 *
 ***********************************************************************/
 
-	VER_tpCondRet VER_AlterarValor ( tppVertice pVertice, void * ValorNovo );
+	VER_tpCondRet VER_AlterarValor ( VER_tppVertice pVertice, void * ValorNovo );
+
 
 /***********************************************************************
 *
@@ -141,7 +149,8 @@ typedef enum {
 *
 ***********************************************************************/
 
-	void VER_DestruirVertice ( tppVertice* pVertice );
+	void VER_DestruirVertice ( VER_tppVertice* pVertice );
+
 
 /***********************************************************************
 *
@@ -163,7 +172,8 @@ typedef enum {
 *
 ***********************************************************************/
 	
-	VER_tpCondRet VER_AdicionarSucessor ( tppVertice pVerticeOrigem, tppVertice pVerticeDestino );
+	VER_tpCondRet VER_AdicionarSucessor ( VER_tppVertice pVerticeOrigem, VER_tppVertice pVerticeDestino );
+
 
 /***********************************************************************
 *
@@ -180,11 +190,12 @@ typedef enum {
 *  $FV Valor retornado
 *     	VER_CondRetOK
 *		VER_CondRetVerticeNaoExiste
-*		VER_CondRetVerticeJaEhSucessor
+*		VER_CondRetVerticeNaoEhSucessor
 *
 ***********************************************************************/
 
-	VER_tpCondRet VER_RemoverSucessor ( tppVertice pVerticeOrigem, tppVertice pVerticeDestino );
+	VER_tpCondRet VER_RemoverSucessor ( VER_tppVertice pVerticeOrigem, VER_tppVertice pVerticeDestino );
+
 
 /***********************************************************************
 *
@@ -203,7 +214,8 @@ typedef enum {
 *
 ***********************************************************************/
 
-	VER_tpCondRet VER_ObterId ( tppVertice pVertice, int * pIdVertice );
+	VER_tpCondRet VER_ObterId ( VER_tppVertice pVertice, int * pIdVertice );
+
 
 /***********************************************************************
 *
@@ -219,7 +231,8 @@ typedef enum {
 *
 ***********************************************************************/
 
-	void VER_ExibirSucessores ( tppVertice pVertice );
+	void VER_ExibirSucessores ( VER_tppVertice pVertice );
+
 
 /***********************************************************************
 *
@@ -238,6 +251,25 @@ typedef enum {
 *
 ***********************************************************************/
 
-	LIS_tppLista VER_ObterListaSucessores ( tppVertice pVertice );
+	LIS_tppLista VER_ObterListaSucessores ( VER_tppVertice pVertice );
 
+
+	/***********************************************************************
+*
+*  $FC Função: VER Obter Lista de Antecessores
+*
+*  $ED Descrição da função
+*     Obtém a lista de antecessores do vértice passado.
+*
+*  $EP Parâmetros
+*     $P pVertice - ponteiro que referencia o vértice.
+*
+*  $FV Valor retornado
+*     	LIS_tppLista
+*		NULL - se o vértice não existir ou a lista de antecessores
+*		estiver vazia
+*
+***********************************************************************/
+
+	LIS_tppLista VER_ObterListaAntecessores ( VER_tppVertice pVertice );
 /********** Fim do módulo de definição: Módulo vértice **********/
