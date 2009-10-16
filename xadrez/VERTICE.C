@@ -108,7 +108,6 @@
 		
 		else {
 			*ppValor = pVertice->Valor;
-			printf("valor - %d\n", *ppValor );//Verificar se é necessário
 		} /* else */
 
    	  return VER_CondRetOK ;
@@ -147,17 +146,13 @@
 
 		if( ((*ppVertice)->Antecessores) != NULL )
 		{
-			printf("Entrou destruir lista de antecessores\n\n");
-			//LIS_DestruirLista( ((*ppVertice)->Antecessores) );
 			((*ppVertice)->Antecessores) = NULL;
-			printf("Saiu destruir lista de antecessores\n\n");
+			
 		}/* if */
 		if( ((*ppVertice)->Sucessores) != NULL )
 		{
-			printf("Entrou destruir lista de sucessores\n\n");
-			//LIS_DestruirLista( ((*ppVertice)->Sucessores) );
 			((*ppVertice)->Sucessores) = NULL;
-			printf("Saiu destruir lista de sucessores\n\n");
+			
 		}/* if */		
 
 		free( *ppVertice );

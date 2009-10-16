@@ -61,7 +61,31 @@
 //=recuperar
 == Verificar exibir grafo
 =exibirgra 0
+== Verificar obter valor com id
+=obtervalorcomid 1 5 0
+== Verificar obter valor com id, tentando obter valor errado
+=obtervalorcomid 2 10 0
+=recuperar
+== Verificar marcar origem
+=marcarorigem 1 0
+== Verificar desmarcar origem
+=desmarcarorigem 1 0
+== Verificar desmarcar origem inexistente
+=desmarcarorigem 2 8
+//== Verificar avançar sucessor
+//=avancarsucessor 1 0
+//== Verificar avançar sucessor de vertice sem sucessor 
+//=avancarsucessor 2 12
 
+//obterverticecomid
+
+//obterant
+
+//obtersuc
+== Verificar Destruir grafo
+=destruirgra 0
+//== Tentar exibir grafo vazio
+//=exibirgra 2
 
 //fim
 
