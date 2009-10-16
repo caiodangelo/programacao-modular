@@ -367,16 +367,15 @@
 *  Função: VER Obter ID
 *  ****/
 
-	VER_tpCondRet VER_ObterId ( VER_tppVertice pVertice, int * pIdVertice ){
-
-		int IdVerticeTemp = *pIdVertice;
+	VER_tpCondRet VER_ObterId ( VER_tppVertice pVertice, int * pIdVertice ){		
 
 		if ( pVertice == NULL )
 		{
 			return VER_CondRetVerticeNaoExiste;
 		} /* if */
 
-		IdVerticeTemp = pVertice->IdVertice;
+		*pIdVertice = pVertice->IdVertice;
+		printf("Id dentro da obter id: %d\n",*pIdVertice);
 		
 		return VER_CondRetOK;
 
