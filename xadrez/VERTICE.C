@@ -81,8 +81,8 @@
       } /* if */
 	 
       (*ppVertice)->Valor = Valor;
-	  (*ppVertice)->Sucessores = NULL;
-	  (*ppVertice)->Antecessores = NULL;
+	  (*ppVertice)->Sucessores = LIS_CriarLista( NULL );
+	  (*ppVertice)->Antecessores = LIS_CriarLista( NULL );
 	  (*ppVertice)->IdVertice = IdVertice;
 	 
 	  return VER_CondRetOK ;
@@ -223,6 +223,18 @@
 		LIS_tpCondRet CondRetLista;
 		VER_tpCondRet CondRetVertice;
 
+		int IdVertice;
+
+		CondRetVertice = VER_ObterId ( pVerticeOrigem, &IdVertice );
+
+
+		printf("Origem: %d\n\n",IdVertice);
+
+		CondRetVertice = VER_ObterId ( pVerticeDestino, &IdVertice );
+
+
+		printf("Destino: %d\n\n",IdVertice);
+
 		if ( pVerticeOrigem == NULL )
 		{
 			return VER_CondRetVerticeNaoExiste ;
@@ -230,22 +242,27 @@
 
 		if((pVerticeOrigem->Sucessores)==NULL)
 		{
+			printf("Ponteiro nulo\n\n");
 			return VER_CondRetVerticeNaoEhSucessor;
 			
 
 		}/* if */
 
+		IrInicioLista ( pVerticeOrigem->Sucessores );
+
 		CondRetLista = LIS_ProcurarValor( pVerticeOrigem->Sucessores ,
-                                    pVerticeDestino        ) ;
+                                    pVerticeDestino        );
 
 		if(CondRetLista==LIS_CondRetNaoAchou)
 		{
+			printf("Nao achou destino no sucessor\n\n");
 			return VER_CondRetVerticeNaoEhSucessor;
 
 		}/* if */
 
 		if(CondRetLista== LIS_CondRetListaVazia)
 		{
+			printf("Lista vazia \n\n");
 			return VER_CondRetVerticeNaoEhSucessor;
 
 		}/* if */
@@ -257,6 +274,8 @@
 			if(CondRetLista==LIS_CondRetOK)
 			{
 				CondRetVertice = RemoverAntecessor ( pVerticeDestino, pVerticeOrigem );
+
+				printf("Executou RemoverAntecessor e teve retorno: %d\n\n",CondRetVertice);
 
 				return CondRetVertice;
 
@@ -330,6 +349,8 @@
 			
 
 		}/* if */
+
+		IrInicioLista ( pVerticeOrigem->Antecessores );
 
 		CondRetLista = LIS_ProcurarValor( pVerticeOrigem->Antecessores ,
                                     pVerticeDestino        ) ;
