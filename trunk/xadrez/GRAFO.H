@@ -429,7 +429,7 @@ GRA_tpCondRet GRA_RemoverAresta( GRA_tppGrafo pGrafo, int idVerticeOrigem,
 *
 ***********************************************************************/
 
-	 GRA_tpCondRet GRA_Antecessor ( GRA_tppGrafo pGrafo , int IdVertice , int * pIdSucessor ) ;
+	 GRA_tpCondRet GRA_ObterAntecessor ( GRA_tppGrafo pGrafo , int IdVertice , int * pIdSucessor ) ;
 
 
 
