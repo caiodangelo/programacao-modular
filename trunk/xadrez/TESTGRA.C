@@ -360,7 +360,7 @@
          {
             NumLidos = LER_LerParametros( "ii" , &IdVertice , &IdEsperado ,
                                &CondRetEsperada ) ;
-            if ( NumLidos != 2 )
+            if ( NumLidos != 3 )
             {
                return TST_CondRetParm ;
             } /* if */
@@ -387,7 +387,7 @@
          {
             NumLidos = LER_LerParametros( "ii" , &IdVertice , &IdEsperado ,
                                &CondRetEsperada ) ;
-            if ( NumLidos != 2 )
+            if ( NumLidos != 3 )
             {
                return TST_CondRetParm ;
             } /* if */
