@@ -1,7 +1,7 @@
 Gerenciador.c
 Reconhecedor.c
-.\Reconhecedor.c(53) : warning C4100: 'ArquivoRegras' : unreferenced formal parameter
-c:\dudu\programacao modular\trabalho\xadrez\reconhecedor.c(52) : warning C4715: 'REC_GeraMovimentacoes' : not all control paths return a value
+.\Reconhecedor.c(101) : warning C4100: 'ArquivoRegras' : unreferenced formal parameter
+.\Reconhecedor.c(141) : warning C4029: declared formal parameter list different from definition
 Grafo.c
 Vertice.c
 Lista.c

@@ -50,10 +50,18 @@ typedef enum{
 	REC_CondRetNaoInseriuPeca = 6,
 		/* Não conseguiu inserir a peça */
 
+	REC_CondRetErroNaStringDeMovimento = 7,
+
+	REC_CondRetPosicaoInvalida = 9,
+
+	REC_CondRetNaoAdicionouProx = 10,
+
 }REC_tpCondRet;
 
 
 typedef struct tgPeca tpPeca;
+
+typedef struct GRA_tgGrafo * GRA_tppGrafo;
 /***********************************************************************
 *
 *  $FC Função: REC Reconhece Xeque
@@ -93,6 +101,9 @@ typedef struct tgPeca tpPeca;
 ***********************************************************************/
 
    REC_tpCondRet REC_DeterminaRegras ( char * ArquivoRegras );
+   
+   REC_tpCondRet REC_GeraMovimentacoes ( void );
 
-REC_tpCondRet REC_GeraMovimentacoes ( void );
+   REC_tpCondRet REC_AdicionarPecasAoGrafo ( GRA_tppGrafo * ppGrafo );
+
 /********** Fim do módulo de definição: Módulo grafo **********/

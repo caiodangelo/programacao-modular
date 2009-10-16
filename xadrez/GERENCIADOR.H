@@ -97,3 +97,7 @@
    GER_tpTipoPeca GER_ObterTipo ( tppPeca pPeca ) ;
 
    GER_tpCorPeca GER_ObterCor ( tppPeca pPeca ) ;
+
+   GER_tpCorPeca GER_ObterCodigoDaCor ( char Cor );
+
+   GER_tpTipoPeca GER_ObterCodigoDoTipo ( char Tipo );

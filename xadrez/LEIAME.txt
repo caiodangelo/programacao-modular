@@ -133,3 +133,13 @@ Regras de Sintaxe para a Criação de Arquivos de Especificação de Regras de Movim
 		B - bispo
 		D - dama
 		R - rei
+
+	Direcao:
+		NN - norte
+		SS - sul
+		EE - leste
+		WW - oeste
+		NE - nordeste
+		NW - noroeste
+		SE - sudeste
+		SW - sudoeste

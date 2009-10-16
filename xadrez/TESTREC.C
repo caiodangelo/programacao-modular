@@ -49,15 +49,18 @@
 #include    "lerparm.h"
 
 #include    "RECONHECEDOR.H"
+#include	"GERENCIADOR.H"
+#include	"GRAFO.H"
 
 /* Tabela dos nomes dos comandos de teste específicos */
 
-#define		GERAR_MOV_CMD	"=geramov"
+#define		MONTAR_GRAFO_CMD	"=montargrafo"
 
 /*****  Código das funções exportadas pelo módulo  *****/
 
 /*****  Dados encapsulados no módulo  *****/
 
+GRA_tppGrafo pGrafo;
 
 /***********************************************************************
 *
@@ -84,9 +87,9 @@
 	  int NumLidos = -1;
 	  TST_tpCondRet Ret ;
 
-      /* Testar REC Gerar Movimentações */
+      /* Testar REC Montar Grafo */
 
-         if ( strcmp( ComandoTeste , GERAR_MOV_CMD ) == 0 )
+         if ( strcmp( ComandoTeste , MONTAR_GRAFO_CMD ) == 0 )
          {
 			 NumLidos = LER_LerParametros ( "i" , 
 											&CondRetEsperada ) ;
@@ -95,13 +98,22 @@
 				 return TST_CondRetParm ;
 			 } /* if */
 
-			 CondRetObtida = REC_GeraMovimentacoes ( );
+
+			 GER_InicializarTabuleiro ( );
+			 GER_PreencherTabuleiro ( "DISPOSICAO.TXT" );
+			 CondRetObtida = REC_AdicionarPecasAoGrafo ( &pGrafo );
 
 			 Ret = TST_CompararInt ( CondRetEsperada , CondRetObtida , 
-									  "Retorno errado ao gerar movimentacoes. " );
+									  "Retorno errado ao montar o grafo. " );
+			 if ( Ret != TST_CondRetOK )
+			 {
+				 return Ret ;
+			 }
+
+			 GRA_ExibirGrafo ( pGrafo );
 
 			 return Ret;
-         } /* fim ativa: Testar REC Gerar Movimentações */
+         } /* fim ativa: Testar REC Montar Grafo */
 
       
       return TST_CondRetNaoConhec ;
