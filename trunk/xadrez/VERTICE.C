@@ -108,7 +108,7 @@
 		
 		else {
 			*ppValor = pVertice->Valor;
-			printf("valor - %d\n", *ppValor );
+			printf("valor - %d\n", *ppValor );//Verificar se é necessário
 		} /* else */
 
    	  return VER_CondRetOK ;
@@ -147,11 +147,17 @@
 
 		if( ((*ppVertice)->Antecessores) != NULL )
 		{
-			LIS_DestruirLista( ((*ppVertice)->Antecessores) );
+			printf("Entrou destruir lista de antecessores\n\n");
+			//LIS_DestruirLista( ((*ppVertice)->Antecessores) );
+			((*ppVertice)->Antecessores) = NULL;
+			printf("Saiu destruir lista de antecessores\n\n");
 		}/* if */
 		if( ((*ppVertice)->Sucessores) != NULL )
 		{
-			LIS_DestruirLista( ((*ppVertice)->Sucessores) );
+			printf("Entrou destruir lista de sucessores\n\n");
+			//LIS_DestruirLista( ((*ppVertice)->Sucessores) );
+			((*ppVertice)->Sucessores) = NULL;
+			printf("Saiu destruir lista de sucessores\n\n");
 		}/* if */		
 
 		free( *ppVertice );
@@ -222,19 +228,7 @@
 		
 		LIS_tpCondRet CondRetLista;
 		VER_tpCondRet CondRetVertice;
-
-		int IdVertice;
-
-		CondRetVertice = VER_ObterId ( pVerticeOrigem, &IdVertice );
-
-
-		printf("Origem: %d\n\n",IdVertice);
-
-		CondRetVertice = VER_ObterId ( pVerticeDestino, &IdVertice );
-
-
-		printf("Destino: %d\n\n",IdVertice);
-
+	
 		if ( pVerticeOrigem == NULL )
 		{
 			return VER_CondRetVerticeNaoExiste ;
@@ -242,7 +236,6 @@
 
 		if((pVerticeOrigem->Sucessores)==NULL)
 		{
-			printf("Ponteiro nulo\n\n");
 			return VER_CondRetVerticeNaoEhSucessor;
 			
 
@@ -255,14 +248,12 @@
 
 		if(CondRetLista==LIS_CondRetNaoAchou)
 		{
-			printf("Nao achou destino no sucessor\n\n");
 			return VER_CondRetVerticeNaoEhSucessor;
 
 		}/* if */
 
 		if(CondRetLista== LIS_CondRetListaVazia)
 		{
-			printf("Lista vazia \n\n");
 			return VER_CondRetVerticeNaoEhSucessor;
 
 		}/* if */
@@ -274,9 +265,7 @@
 			if(CondRetLista==LIS_CondRetOK)
 			{
 				CondRetVertice = RemoverAntecessor ( pVerticeDestino, pVerticeOrigem );
-
-				printf("Executou RemoverAntecessor e teve retorno: %d\n\n",CondRetVertice);
-
+				
 				return CondRetVertice;
 
 			}/* if */
@@ -500,4 +489,52 @@
 		return Antecessores;
 
    }/* Fim função: VER Obter Lista de Antecessores */
+/***************************************************************************
+*
+*  Função: VER Exibir Antecessores
+*  ****/
+
+   void VER_ExibirAntecessores ( VER_tppVertice pVertice ){
+
+		int IdVertice;
+		LIS_tppLista ListaAntecessores;
+
+		if( pVertice == NULL )
+		{
+			return;
+
+		}/* if */
+
+		ListaAntecessores = VER_ObterListaAntecessores ( pVertice);
+
+		if ( ListaAntecessores == NULL ){
+			printf ( "Lista de antecessores vazia");
+			return ;
+		}/* if */
+
+		IrInicioLista( ListaAntecessores ) ;
+
+		do{
+		   
+			pVertice = LIS_ObterValor( ListaAntecessores ) ;
+
+		   if ( VER_ObterId( pVertice, &IdVertice ) == VER_CondRetVerticeNaoExiste ){
+			   printf("\n");
+			   return ;
+
+		   } else {
+			    
+			   printf(" %d ", IdVertice);
+
+		   } /* if */
+
+
+	   }while( LIS_AvancarElementoCorrente( ListaAntecessores, 1 )
+		     != LIS_CondRetFimLista ); /* do while */
+
+		
+   return;
+
+
+} /* Fim função: VER Exibir Antecessores */
 /********** Fim do módulo de implementação: Módulo vértice **********/

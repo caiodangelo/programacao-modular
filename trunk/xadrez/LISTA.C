@@ -302,6 +302,8 @@
             pLista->pFimLista = pElem->pAnt ;
          } /* if */
 
+		 printf("Chama LiberarElemento\n\n");
+
       LiberarElemento( pLista , pElem ) ;
 
       return LIS_CondRetOK ;
