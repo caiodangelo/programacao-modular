@@ -50,6 +50,7 @@ typedef enum {
 		VER_CondRetVerticeNaoEhAntecessor = 6 ,
 				/* Vértice destino não é antecessor do vértice origem */
 
+
 } VER_tpCondRet;
 
 /***********************************************************************
@@ -272,4 +273,22 @@ typedef enum {
 ***********************************************************************/
 
 	LIS_tppLista VER_ObterListaAntecessores ( VER_tppVertice pVertice );
+
+/***********************************************************************
+*
+*  $FC Função: VER Exibir Antecessores
+*
+*  $ED Descrição da função
+*     Exibe na tela a lista de antecessores do vértice passado.
+*
+*  $EP Parâmetros
+*     $P pVertice - ponteiro que referencia o vértice.
+*
+*  $FV Valor retornado
+*
+***********************************************************************/
+
+	void VER_ExibirAntecessores ( VER_tppVertice pVertice );
+
+
 /********** Fim do módulo de definição: Módulo vértice **********/

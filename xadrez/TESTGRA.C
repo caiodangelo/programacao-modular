@@ -195,7 +195,7 @@
 			
             CondRetObtido = GRA_ExcluirVertice ( pGrafo ) ;
 
-            return TST_CompararInt( CondRetEsperada , CondRetObtido ,
+			return TST_CompararInt( CondRetEsperada , CondRetObtido ,
                                     "Retorno errado ao excluir vértice." );
 
          } /* fim ativa: Testar GRA Excluir vértice */
