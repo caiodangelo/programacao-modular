@@ -55,13 +55,13 @@
 !!!    0  Linha:    82  //obterant 
 !!!    0  Linha:    84  //obtersuc 
    85  == Verificar Destruir grafo
-!!!    0  Linha:    87  //== Tentar exibir grafo vazio 
-!!!    0  Linha:    88  //=exibirgra 2 
-!!!    0  Linha:    90  //fim 
+   88  == Tentar inserir vértice em grafo inexistente
+   90  == Tentar exibir grafo
+!!!    0  Linha:    93  //fim 
 
-!!! Número de linhas lidas:          91
-!!! Número de casos de teste:        27
-!!! Número comandos corretos:        26
+!!! Número de linhas lidas:          94
+!!! Número de casos de teste:        29
+!!! Número comandos corretos:        28
 !!! Número de falhas encontradas:     0
 
 !!! Não foram encontrados problemas

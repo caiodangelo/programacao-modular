@@ -68,7 +68,6 @@
 #define		OBTER_VALOR_COM_ID_CMD		"=obtervalorcomid"
 #define		IR_VERTICE_COM_ID_CMD		"=irverticecomid"
 #define		AVANCAR_SUCESSOR_CMD		"=avancarsucessor"
-#define		OBTER_VERTICE_COM_ID_CMD	"=obterverticecomid"
 #define		OBTER_ANTECESSOR_CMD		"=obterant"
 #define		OBTER_SUCESSOR_CMD			"=obtersuc"
 
@@ -161,9 +160,9 @@
                return TST_CondRetParm ;
             } /* if */
 			
-            CondRetObtido = GRA_DestruirGrafo( pGrafo ) ;
+            CondRetObtido = GRA_DestruirGrafo( &pGrafo ) ;
 
-            return TST_CompararInt( CondRetEsperada , CondRetObtido ,
+			return TST_CompararInt( CondRetEsperada , CondRetObtido ,
                                     "Retorno errado ao destruir grafo." );
 
          } /* fim ativa: Testar GRA Destruir grafo */
@@ -182,7 +181,9 @@
 			vtValorVertice[IdVertice] = ValorVertice;
 			vtIdVertice[IdVertice] = IdVertice;
 			
-            CondRetObtido = GRA_InserirVertice( pGrafo, &vtValorVertice[IdVertice], vtIdVertice[IdVertice] );			
+            CondRetObtido = GRA_InserirVertice( pGrafo, &vtValorVertice[IdVertice], vtIdVertice[IdVertice] );	
+
+				printf("ponteiro pro grafo: %p\n\n",pGrafo);
 			
             return TST_CompararInt( CondRetEsperada , CondRetObtido ,
                                     "Retorno errado ao inserir vértice." );

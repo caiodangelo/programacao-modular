@@ -72,20 +72,23 @@
 =desmarcarorigem 1 0
 == Verificar desmarcar origem inexistente
 =desmarcarorigem 2 8
+
 //== Verificar avançar sucessor
 //=avancarsucessor 1 0
 //== Verificar avançar sucessor de vertice sem sucessor 
 //=avancarsucessor 2 12
 
-//obterverticecomid
-
 //obterant
 
 //obtersuc
+
 == Verificar Destruir grafo
 =destruirgra 0
-//== Tentar exibir grafo vazio
-//=exibirgra 2
+
+== Tentar inserir vértice em grafo inexistente
+=inserirver 12 8 2
+== Tentar exibir grafo
+=exibirgra 2
 
 //fim
 
