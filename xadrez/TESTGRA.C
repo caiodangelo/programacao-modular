@@ -78,6 +78,12 @@
       static GRA_tppGrafo pGrafo;
             /* Ponteiro para o grafo a ser manipulado */
 
+	  static int vtValorVertice[10];
+			/* Vetor de ponteiros para valores de vértices */
+
+	  static int vtIdVertice[10];
+			/* Vetor de ponteiros para ids de vértices */
+
 /***********************************************************************
 *
 *  $FC Função: TVER Efetuar operações de teste específicas para vértice
@@ -167,9 +173,12 @@
             {
                return TST_CondRetParm ;
             } /* if */
-			
-            CondRetObtido = GRA_InserirVertice( pGrafo, &ValorVertice, IdVertice );
 
+			vtValorVertice[IdVertice] = ValorVertice;
+			vtIdVertice[IdVertice] = IdVertice;
+			
+            CondRetObtido = GRA_InserirVertice( pGrafo, &vtValorVertice[IdVertice], vtIdVertice[IdVertice] );			
+			
             return TST_CompararInt( CondRetEsperada , CondRetObtido ,
                                     "Retorno errado ao inserir vértice." );
 
@@ -203,6 +212,8 @@
             {
                return TST_CondRetParm ;
             } /* if */
+
+			printf("Origem: %d - Destino: %d\n",IdVerticeOrigem,IdVerticeDestino);
 			
             CondRetObtido = GRA_InserirAresta( pGrafo, IdVerticeOrigem, 
 										IdVerticeDestino );
@@ -229,7 +240,7 @@
             return TST_CompararInt( CondRetEsperada , CondRetObtido ,
                                     "Retorno errado ao remover aresta." );
 
-         } /* fim ativa: Testar GRA Criar grafo */
+         } /* fim ativa: Testar GRA Remover aresta */
 
 		 /* Testar GRA Exibir grafo */
 
