@@ -73,18 +73,18 @@
       {
          VER_DestruirVertice( ppVertice ) ;
       } /* if */
-
-      *ppVertice = ( VER_tppVertice ) malloc( sizeof( VER_tpVertice )) ;
+	 
+      (*ppVertice) = ( VER_tppVertice ) malloc( sizeof( VER_tpVertice )) ;
       if ( *ppVertice == NULL )
       {
          return VER_CondRetFaltouMemoria ;
       } /* if */
-
+	 
       (*ppVertice)->Valor = Valor;
 	  (*ppVertice)->Sucessores = NULL;
 	  (*ppVertice)->Antecessores = NULL;
 	  (*ppVertice)->IdVertice = IdVertice;
-
+	 
 	  return VER_CondRetOK ;
 
 } /* Fim função: VER Criar vértice */
@@ -368,13 +368,15 @@
 *  ****/
 
 	VER_tpCondRet VER_ObterId ( VER_tppVertice pVertice, int * pIdVertice ){
-		
+
+		int IdVerticeTemp = *pIdVertice;
+
 		if ( pVertice == NULL )
 		{
-			return VER_CondRetVerticeNaoExiste ;
+			return VER_CondRetVerticeNaoExiste;
 		} /* if */
 
-		*pIdVertice = pVertice->IdVertice;
+		IdVerticeTemp = pVertice->IdVertice;
 		
 		return VER_CondRetOK;
 
