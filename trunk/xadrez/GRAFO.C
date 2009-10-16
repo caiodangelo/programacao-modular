@@ -93,7 +93,7 @@
 *  Função: GRA Inserir vértice
 *  ****/
 
-   GRA_tpCondRet GRA_InserirVertice ( GRA_tppGrafo pGrafo, void * pValor , int IdVertice ){
+   GRA_tpCondRet GRA_InserirVertice( GRA_tppGrafo pGrafo, void * pValor , int IdVertice ){
 
 	   VER_tpCondRet CondRetVertice;
 	   GRA_tpCondRet CondRetGrafo;
@@ -126,7 +126,7 @@
 	   }
 	   
 	   /* Adiciona o vértice na lista de vértices */
-	   CondRetLista = LIS_InserirElementoAntes( ( pGrafo->ListaVertices) , &pVertice );
+	   CondRetLista = LIS_InserirElementoAntes( pGrafo->ListaVertices , pVertice );
 	   if( CondRetLista == LIS_CondRetOK )
 	   {
 		   pGrafo->VerticeCorrente = pVertice;
@@ -290,18 +290,15 @@
 		VER_tpCondRet CondRetVertice;
 		VER_tppVertice pVerticeOrigem;
 		VER_tppVertice pVerticeDestino;
-		printf("Origem: %d - Destino: %d\n",idVerticeOrigem,idVerticeDestino);
-
+		
 		if ( pGrafo == NULL ){
 			return GRA_CondRetGrafoInexistente;
 		}/* if */
 	
 		pVerticeOrigem = GRA_ObtemVerticeComId( pGrafo, idVerticeOrigem ) ;
 		pVerticeDestino = GRA_ObtemVerticeComId( pGrafo, idVerticeDestino ) ;
-		printf("Obteve vertices com ids\n");
 
 		if ( (pVerticeOrigem == NULL) || (pVerticeDestino == NULL) ){
-			printf("Obteve NULL onde nao era para obter\n");
 			return GRA_CondRetVerticeNaoExiste;
 		}/* if */
 		
@@ -384,8 +381,9 @@
 
 		   } else {
 			    
-			   printf("Vertice %d: \nSucessores: \n", IdVertice);
+			   printf("Vertice: %d Sucessores: ", IdVertice);
 			   VER_ExibirSucessores(pVertice);
+			   printf("\n\n");
 
 		   } /* if */
 
@@ -567,7 +565,117 @@
 
 		return GRA_CondRetOK;
 
-} /* Fim função: GRA Obter Valor Com Id */
+} /* Fim função: GRA Ir Vertice Com Id */
+
+
+  /***************************************************************************
+*
+*  Função: GRA Obter Sucessor
+*  ****/
+
+   	 GRA_tpCondRet GRA_ObterSucessor ( GRA_tppGrafo pGrafo , int IdVertice , 
+								      int * pIdSucessor ) {
+		
+		  VER_tpCondRet CondRetVertice;
+		  LIS_tpCondRet CondRetLista;
+		  LIS_tppLista ListaSucessores;
+		  	    
+		  VER_tppVertice pVerticeSucessor;
+		  VER_tppVertice pVertice = GRA_ObtemVerticeComId( pGrafo, IdVertice);
+
+		  if ( pVertice == NULL ){
+			  return GRA_CondRetIndiceInvalido ;
+		  }/* if */
+
+		  /* Obtém índice do vertice corrente da lista de sucessores de pVertice*/
+		  ListaSucessores = VER_ObterListaSucessores ( pVertice );
+
+		  if ( ListaSucessores == NULL ){
+			  return GRA_CondRetNaoHaSucessores ;
+		  }/* if */
+
+		  pVerticeSucessor = LIS_ObterValor( ListaSucessores ) ;
+
+			  if ( pVerticeSucessor == NULL ){
+				  return GRA_CondRetNaoHaSucessores ;
+			  }/* if */
+														/*modifica valor do id*/
+		  CondRetVertice = VER_ObterId( pVerticeSucessor, pIdSucessor ); 
+
+				  if ( CondRetVertice == VER_CondRetVerticeNaoExiste ){
+						return GRA_CondRetNaoHaSucessores ;
+				  }/* if */
+
+		  /* Seta o novo elemento corrente da lista*/
+		  CondRetLista = LIS_AvancarElementoCorrente( ListaSucessores, 1) ;
+				  
+		  if ( CondRetLista == LIS_CondRetListaVazia ){
+				return GRA_CondRetNaoHaSucessores ;
+		  }/* if */
+		  
+		  if ( CondRetLista == LIS_CondRetFimLista ){
+				IrInicioLista( ListaSucessores ) ;
+		  }/* if */
+
+
+     return GRA_CondRetOK; 
+
+} /* Fim função: GRA ObterSucessor */
+
+
+  /***************************************************************************
+*
+*  Função: GRA Obter Antecessor
+*  ****/
+
+   	 GRA_tpCondRet GRA_ObterAntecessor ( GRA_tppGrafo pGrafo , int IdVertice , 
+								        int * pIdAntecessor ) {
+		
+		  VER_tpCondRet CondRetVertice;
+		  LIS_tpCondRet CondRetLista;
+		  LIS_tppLista ListaAntecessores;
+
+		  VER_tppVertice pVerticeAntecessor;
+		  VER_tppVertice pVertice = GRA_ObtemVerticeComId( pGrafo, IdVertice);
+
+		  if ( pVertice == NULL ){
+			  return GRA_CondRetIndiceInvalido ;
+		  }/* if */
+
+		  /* Obtém índice do vertice corrente da lista de antecessores de pVertice*/
+		  ListaAntecessores = VER_ObterListaAntecessores ( pVertice );
+
+		  if ( ListaAntecessores == NULL ){
+			  return GRA_CondRetNaoHaAntecessores ;
+		  }/* if */
+
+		  pVerticeAntecessor = LIS_ObterValor( ListaAntecessores ) ;
+
+			  if ( pVerticeAntecessor == NULL ){
+				  return GRA_CondRetNaoHaAntecessores ;
+			  }/* if */
+														/*modifica valor do id*/
+		  CondRetVertice = VER_ObterId( pVerticeAntecessor, pIdAntecessor ); 
+
+				  if ( CondRetVertice == VER_CondRetVerticeNaoExiste ){
+						return GRA_CondRetNaoHaAntecessores ;
+				  }/* if */
+
+		  /* Seta o novo elemento corrente da lista*/
+		  CondRetLista = LIS_AvancarElementoCorrente( ListaAntecessores, 1) ;
+				  
+		  if ( CondRetLista == LIS_CondRetListaVazia ){
+				return GRA_CondRetNaoHaAntecessores ;
+		  }/* if */
+		  
+		  if ( CondRetLista == LIS_CondRetFimLista ){
+				IrInicioLista( ListaAntecessores ) ;
+		  }/* if */
+
+
+     return GRA_CondRetOK; 
+
+} /* Fim função: GRA ObterAntecessor */
 
 
  /*****  Código das funções encapsuladas no módulo  *****/
@@ -579,7 +687,7 @@
 
    VER_tppVertice GRA_ObtemVerticeComId ( GRA_tppGrafo pGrafo, int IdVertice ){
 
-	   int IdAuxiliar;  /* CHECAR NOME DESSA VARIÁVEL */
+	   int IdAuxiliar;
 	   VER_tppVertice pVertice;
 
 	   if( pGrafo == NULL ){
@@ -588,19 +696,16 @@
 
 	   IrInicioLista( pGrafo->ListaVertices ) ;
 	   
-	   do{
+	   do{      
 		   pVertice = LIS_ObterValor( pGrafo->ListaVertices ) ;
 		   
 		   if ( (VER_ObterId( pVertice, &IdAuxiliar )) == VER_CondRetVerticeNaoExiste ){
 			   return NULL;
 
 		   } else {
-			   printf("Recebida: %d - Auxiliar: %d\n",IdVertice,IdAuxiliar);
-							   
+			   							   
 			   if ( IdVertice == IdAuxiliar){
-
 				   return pVertice; 
-
 			   } /* if */ 
 
 		   } /* if */
@@ -612,7 +717,6 @@
 	  return NULL;
 
 } /* Fim função: GRA GRA_ObtemVerticeComId */
-
 
 
 
