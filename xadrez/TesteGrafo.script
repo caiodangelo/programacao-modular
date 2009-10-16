@@ -5,6 +5,20 @@
 
 == Verificar criar grafo
 =criargra 0
+== Verificar inserir vértice
+=inserirver 5 1 0
+== Verificar inserir vértice
+=inserirver 6 2 0
+== Verificar inserir vértice
+=inserirver 7 3 0
+== Verificar inserir vértice
+=inserirver 8 4 0
+== Verificar inserir aresta
+=inserirare 1 2 0
+== Verificar inserir aresta
+=inserirare 1 3 0
+//=exibirgra 0
+//=recuperar
 
 
 //fim

@@ -56,7 +56,7 @@
 
 /***** Protótipos das funções encapsuladas no módulo *****/
 
-  VER_tppVertice GRA_ObtemVerticeComId ( GRA_tppGrafo pGrafo, int idVertice );
+  VER_tppVertice GRA_ObtemVerticeComId ( GRA_tppGrafo pGrafo, int IdVertice );
 
 
 /*****  Código das funções exportadas pelo módulo  *****/
@@ -98,7 +98,7 @@
 	   VER_tpCondRet CondRetVertice;
 	   GRA_tpCondRet CondRetGrafo;
 	   LIS_tpCondRet CondRetLista;
-	   VER_tppVertice pVertice;
+	   VER_tppVertice pVertice = NULL;
 
 	   /* Se grafo não existir, cria o grafo */
 	   if( pGrafo == NULL )
@@ -117,14 +117,14 @@
 	   {
 		   return GRA_CondRetIdJaExiste;
 	   }
-
+	  
 	   /* Cria o vértice */
 	   CondRetVertice = VER_CriarVertice ( &pVertice, pValor , IdVertice );
 	   if( CondRetVertice != VER_CondRetOK )
 	   {
 		   return GRA_CondRetFaltouMemoria;
 	   }
-
+	   
 	   /* Adiciona o vértice na lista de vértices */
 	   CondRetLista = LIS_InserirElementoAntes( ( pGrafo->ListaVertices) , &pVertice );
 	   if( CondRetLista == LIS_CondRetOK )
@@ -290,6 +290,7 @@
 		VER_tpCondRet CondRetVertice;
 		VER_tppVertice pVerticeOrigem;
 		VER_tppVertice pVerticeDestino;
+		printf("Origem: %d - Destino: %d\n",idVerticeOrigem,idVerticeDestino);
 
 		if ( pGrafo == NULL ){
 			return GRA_CondRetGrafoInexistente;
@@ -297,8 +298,10 @@
 	
 		pVerticeOrigem = GRA_ObtemVerticeComId( pGrafo, idVerticeOrigem ) ;
 		pVerticeDestino = GRA_ObtemVerticeComId( pGrafo, idVerticeDestino ) ;
+		printf("Obteve vertices com ids\n");
 
-		if ( pVerticeOrigem == NULL || pVerticeDestino == NULL ){
+		if ( (pVerticeOrigem == NULL) || (pVerticeDestino == NULL) ){
+			printf("Obteve NULL onde nao era para obter\n");
 			return GRA_CondRetVerticeNaoExiste;
 		}/* if */
 		
@@ -571,34 +574,32 @@
 
 /***************************************************************************
 *
-*  Função: GRA GRA_ObtemVerticeComId
+*  Função: GRA ObtemVerticeComId
 *  ****/
 
    VER_tppVertice GRA_ObtemVerticeComId ( GRA_tppGrafo pGrafo, int IdVertice ){
 
-
 	   int IdAuxiliar;  /* CHECAR NOME DESSA VARIÁVEL */
 	   VER_tppVertice pVertice;
-		
+
 	   if( pGrafo == NULL ){
 		   return NULL;
 	   } /* if */
 
 	   IrInicioLista( pGrafo->ListaVertices ) ;
-	  
+	   
 	   do{
 		   pVertice = LIS_ObterValor( pGrafo->ListaVertices ) ;
-
-		   if ( VER_ObterId( (VER_tpVertice *)pVertice, &IdAuxiliar ) == VER_CondRetVerticeNaoExiste ){
-			
+		   
+		   if ( (VER_ObterId( pVertice, &IdAuxiliar )) == VER_CondRetVerticeNaoExiste ){
 			   return NULL;
 
 		   } else {
-			    
+			   printf("Recebida: %d - Auxiliar: %d\n",IdVertice,IdAuxiliar);
 							   
 			   if ( IdVertice == IdAuxiliar){
-				
-					return pVertice; 
+
+				   return pVertice; 
 
 			   } /* if */ 
 
@@ -608,7 +609,7 @@
 	   }while( LIS_AvancarElementoCorrente( pGrafo->ListaVertices, 1 )
 		     != LIS_CondRetFimLista ); /* do while */
 
-	   return NULL;
+	  return NULL;
 
 } /* Fim função: GRA GRA_ObtemVerticeComId */
 
