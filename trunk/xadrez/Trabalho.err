@@ -1,7 +1,5 @@
 Gerenciador.c
 Reconhecedor.c
-.\Reconhecedor.c(101) : warning C4100: 'ArquivoRegras' : unreferenced formal parameter
-.\Reconhecedor.c(141) : warning C4029: declared formal parameter list different from definition
 Grafo.c
 Vertice.c
 Lista.c

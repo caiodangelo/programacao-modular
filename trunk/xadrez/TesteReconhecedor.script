@@ -1,0 +1,9 @@
+// Script:    Testereconhecedor.script
+// Autores:   Caio, Eduardo e Vitor
+// Data:      12/out/2009
+// Propósito: Testar o módulo RECONHECEDOR
+
+==Verificar montar grafo
+=adicionarmov 0
+//fim
+

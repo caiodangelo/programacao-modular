@@ -1,3 +1,19 @@
+/***************************************************************************
+*  $MCI Módulo de implementação: REC Reconhecedor de Xeque Mate
+*
+*  Arquivo gerado:              RECONHECEDOR.C
+*  Letras identificadoras:      REC
+*
+*  Projeto: INF 1301 Programação Modular
+*  Gestor:  DI/PUC-Rio
+*  Autores: cev - Caio D'Angelo , Eduardo Velloso e Vitor Barbarisi
+*
+*  $HA Histórico de evolução:
+*     Versão  Autor    Data     Observações
+*     0       cev   12/set/2009 Início desenvolvimento
+*	  1		  cev	19/out/2009 Entrega do trabalho
+*
+***************************************************************************/
 #include "GERENCIADOR.H"
 #include "RECONHECEDOR.H"
 #include "GRAFO.H"
@@ -5,19 +21,31 @@
 #include <stdlib.h>
 
 #define TAM_MOVIMENTO 10
-#define REGRAS "REGRAS.TXT"
+#define REGRASD "REGRASD.TXT"
+#define REGRASC "REGRASC.TXT"
 #define INX_TIPO 0
 
+/***** Protótipos das funções encapuladas no módulo *****/
+
 int CodificaPosicao ( char Coluna , int Linha );
-REC_tpCondRet AdicionaProximo ( GRA_tppGrafo pGrafo,  char ColunaCorrente, int LinhaCorrente ,  char ColunaProximo, int LinhaProximo,char TipoDaCasa );
+
+REC_tpCondRet AdicionaProximo ( GRA_tppGrafo pGrafo,  char ColunaCorrente, int LinhaCorrente ,  char ColunaProximo, int LinhaProximo,char TipoDaCasa, GER_tpCorPeca p );
+
 REC_tpCondRet AdicionaProximosDiscretos ( GER_tppPeca pPeca , GRA_tppGrafo pGrafo , char * Movimento , char ColunaCorrente , int LinhaCorrente );
+
 REC_tpCondRet AdicionaProximosContinuos ( GER_tppPeca pPeca , GRA_tppGrafo pGrafo , char * Movimentos, char Coluna, int Linha );
 
-GER_tpPeca * REC_ReconheceXeque ( void ){
-	return NULL;
-}
+/*****  Código das funções exportadas pelo módulo  *****/
+
+
+/***************************************************************************
+*
+*  Função: REC  &Adicionar Pecas Ao Grafo
+*  ****/
 
 REC_tpCondRet REC_AdicionarPecasAoGrafo ( GRA_tppGrafo * ppGrafo ){
+	
+	/* Declaração das variáveis locais */
 	int linha;
 	int coluna;
 	GER_tpCondRet CondRetGER;
@@ -25,36 +53,45 @@ REC_tpCondRet REC_AdicionarPecasAoGrafo ( GRA_tppGrafo * ppGrafo ){
 	GER_tppPeca pPeca;
 	int id;
 	
-
+	/* Cria o grafo */
 	CondRetGRA = GRA_CriarGrafo ( ppGrafo );
 	if ( CondRetGRA != GRA_CondRetOK ){
 		return REC_CondRetNaoCriouGrafo;
 	}
 
+	/* Percorre o tabuleiro */
 	for ( linha = 1 ; linha <= GER_ObterUltimaLinhaTabuleiro () ; linha++ ){
 		for ( coluna = 'A' ; coluna <= GER_ObterUltimaColunaTabuleiro () ; (char)(coluna++) ){
 			
+			/* Obtém a peça do tabuleiro */
 			CondRetGER = GER_ObterPecaDoTabuleiro ( &pPeca , (char)coluna , linha );
 			if ( CondRetGER != GER_CondRetOK ){
 				return REC_CondRetNaoCriouVertice;
 			}
 
+			/* Gera o identificador da peça */
 			id = CodificaPosicao ( (char)coluna , linha );
-
+			
+			/* Insere a peça no grafo com o id gerado */
 			CondRetGRA = GRA_InserirVertice ( *ppGrafo , pPeca , id );
+
 			if ( CondRetGRA != GRA_CondRetOK ){
+
 				return REC_CondRetNaoInseriuPeca;
 			}
 		}
 	}
 
 	return REC_CondRetOK ;
-}
+} /* Fim da Função: REC  &Adicionar Pecas Ao Grafo */
 
-
-REC_tpCondRet REC_GeraMovimentacoes ( void ){
+/***************************************************************************
+*
+*  Função: REC  &Gera Movimentações
+*  ****/
+REC_tpCondRet REC_GeraMovimentacoes ( GRA_tppGrafo * ppGrafo ){
 	FILE * ArquivoDeRegras;
-	GRA_tppGrafo pGrafo;
+	GRA_tppGrafo pGrafo = *ppGrafo;
 	int linha;
 	int coluna;
 	GER_tpCondRet CondRetGer;
@@ -62,69 +99,105 @@ REC_tpCondRet REC_GeraMovimentacoes ( void ){
 	char movimentos[TAM_MOVIMENTO];
 	GER_tpTipoPeca TipoPeca;
 
-	ArquivoDeRegras = fopen ( REGRAS , "r" );
-	if ( ArquivoDeRegras == NULL )
-	{
-		return REC_CondRetArquivoNaoExiste ;
-	}
-
+	/* Cria o grafo e adiciona as peças a ele */
 	REC_AdicionarPecasAoGrafo ( &pGrafo ) ;
 	if ( pGrafo == NULL )
 	{
-		//checa qualquer coisa
+		return REC_CondRetNaoCriouGrafo ;
 	}
 
+	/* Percorre todas as peças do tabuleiro */
 	for ( linha = 1 ; linha <= GER_ObterUltimaLinhaTabuleiro () ; linha++ ){
 		for ( coluna = 'A' ; coluna <= GER_ObterUltimaColunaTabuleiro () ; (char)(coluna++) ){
-			
+
+			/* Obtém a peça do tabuleiro */
 			CondRetGer = GER_ObterPecaDoTabuleiro ( &pPeca , (char)coluna , linha );
 			if (CondRetGer != GER_CondRetOK )
 			{
-				// faz alguma coisa
+				return REC_CondRetPosicaoInvalida ;
 			}
 
+			/* Obtém o tipo da peça */
 			TipoPeca = GER_ObterTipo ( pPeca );
+			if ( TipoPeca == -1 )
+			{
+				return REC_CondRetPosicaoInvalida;
+			}
 
+			/* Abre o arquivo de regras de movimentação discreta para leitura */
+			ArquivoDeRegras = fopen ( REGRASD , "r" );
+			if ( ArquivoDeRegras == NULL )
+			{
+				return REC_CondRetArquivoNaoExiste ;
+			}
+
+			/* Busca no arquivo as regras correspondentes àquele tipo */
 			while ( fgets ( movimentos , TAM_MOVIMENTO , ArquivoDeRegras ) )
 			{
+				/* Se a regra corresponder ao tipo, adicionar as peças correspondentes */
 				if ( TipoPeca == GER_ObterCodigoDoTipo (  movimentos[INX_TIPO] ) )
 				{
-					AdicionaProximosDiscretos ( pPeca , pGrafo , movimentos, (char)coluna, linha );
+					AdicionaProximosDiscretos ( pPeca , pGrafo , movimentos, (char)coluna, linha );					
 				}
 			}
+
+			/* Fecha o arquivo de regras de movimentação discreta */
+			fclose( ArquivoDeRegras );
+
+			/* Abre o arquivo de regras de movimentação contínua para leitura */
+			ArquivoDeRegras = fopen ( REGRASC , "r" );
+			if ( ArquivoDeRegras == NULL )
+			{
+				return REC_CondRetArquivoNaoExiste ;
+			}
+
+			/* Busca no arquivo as regras correspondentes àquele tipo */
+			while ( fgets ( movimentos , TAM_MOVIMENTO , ArquivoDeRegras ) )
+			{
+				/* Se a regra corresponder ao tipo, adicionar as peças correspondentes */
+				if ( TipoPeca == GER_ObterCodigoDoTipo (  movimentos[INX_TIPO] ) )
+				{
+					AdicionaProximosContinuos ( pPeca , pGrafo , movimentos, (char)coluna, linha );					
+				}
+			}
+
+			/* Fecha o arquivo de regras de movimentação contínua */
+			fclose( ArquivoDeRegras );
 
 		}
 	}
 
-	return 0;
-}
-REC_tpCondRet REC_DeterminaRegras ( char * ArquivoRegras ){return 0;}
+	*ppGrafo = pGrafo;
+	return REC_CondRetOK;
+} /* Fim da Função: REC  &Gera Movimentações */
 
-int CodificaPosicao ( char Coluna , int Linha ){
-	int NumeroDaLinha = Linha -1;
-	int NumeroDaColuna = ( int )( Coluna - 'A' );
-	int NumeroDeColunas = ( int )( GER_ObterUltimaColunaTabuleiro ( ) - 'A' ) ;
-	
-	return ( ( NumeroDaLinha * NumeroDeColunas ) + NumeroDaColuna );
-}
 
+
+/***************************************************************************
+*
+*  Função: REC  &Adiciona Próximos Discretos
+*  ****/
 REC_tpCondRet AdicionaProximosDiscretos ( GER_tppPeca pPeca , GRA_tppGrafo pGrafo , char * Movimento , char ColunaCorrente , int LinhaCorrente ){
 
+	/* Declaração e Inicialização de Variáveis Locais */
 	int NumCasasNaVertical		= 0;
 	int NumCasasNaHorizontal	= 0;
 	char TipoDaCasa				= '!';
 	int LinhaDoProximo			= -1;
 	char ColunaDoProximo		= '@';
-	REC_tpCondRet CondRetREC	= REC_CondRetOK ;	
+	REC_tpCondRet CondRetREC	= REC_CondRetOK ;
+	GER_tpCorPeca CorDaPeca		= GER_CorSemCor ;
 
+	/* Obtém os dados a partir da regra */
 	if ( sscanf ( Movimento , "%*c %c %d %d" , 
-				&TipoDaCasa , NumCasasNaVertical , &NumCasasNaHorizontal )
+				&TipoDaCasa , &NumCasasNaVertical , &NumCasasNaHorizontal )
 				!= 3)
 	{
 		return REC_CondRetErroNaStringDeMovimento;
 	}
 
-	if ( GER_ObterCor ( pPeca ) == GER_CorBranca )
+	CorDaPeca = GER_ObterCor ( pPeca ) ;
+	if ( CorDaPeca == GER_CorBranca )
 	{
 		NumCasasNaVertical = NumCasasNaVertical * (-1) ;
 		NumCasasNaHorizontal = NumCasasNaHorizontal * (-1) ;
@@ -133,24 +206,26 @@ REC_tpCondRet AdicionaProximosDiscretos ( GER_tppPeca pPeca , GRA_tppGrafo pGraf
 	LinhaDoProximo = LinhaCorrente + NumCasasNaVertical ;
 	ColunaDoProximo = ( char )( ColunaCorrente + NumCasasNaHorizontal ) ;
 
-	CondRetREC = AdicionaProximo ( pGrafo , (char)ColunaCorrente , LinhaCorrente , (char)ColunaDoProximo , LinhaDoProximo, (char)TipoDaCasa );
-	
+	CondRetREC = AdicionaProximo ( pGrafo , (char)ColunaCorrente , LinhaCorrente , (char)ColunaDoProximo , LinhaDoProximo, (char)TipoDaCasa, CorDaPeca );
+
 	return CondRetREC;
-}
+}/* Fim da Função: REC  &Adiciona Próximos Discretos */
 
 REC_tpCondRet AdicionaProximosContinuos ( GER_tppPeca pPeca , GRA_tppGrafo pGrafo , char * Movimento, char ColunaCorrente, int LinhaCorrente ){
 	
 	char Direcao[2]				= "";
-	int NumMaxDeCasas			= -1;
+	int NumMaxDeCasas			= 0;
 	int CoefHorizontal			= 0;
 	int CoefVertical			= 0;
 	int Fator					= 0;
 	REC_tpCondRet CondRetREC	= REC_CondRetOK;
 	int LinhaDoProximo			= -1;
 	char ColunaDoProximo		='@';
+	char MaxCasas				= '#';
+	GER_tpCorPeca CorDaPeca		= GER_CorSemCor ;
 
-	if ( sscanf ( Movimento , "%*c %s %d" ,
-				&Direcao , &NumMaxDeCasas )
+	if ( sscanf ( Movimento , "%*c %s %c",
+				&Direcao , &MaxCasas )
 				!= 2 )
 	{
 		return REC_CondRetErroNaStringDeMovimento;
@@ -170,18 +245,34 @@ REC_tpCondRet AdicionaProximosContinuos ( GER_tppPeca pPeca , GRA_tppGrafo pGraf
 		case 'W': CoefHorizontal = -1; break;
 	}
 
-	if ( GER_ObterCor ( pPeca ) == GER_CorBranca )
+	if ( MaxCasas == 'N' )
+	{
+		NumMaxDeCasas = GER_ObterUltimaLinhaTabuleiro();
+	}
+	else if ( ( MaxCasas > '9' )||
+		      ( MaxCasas < '0' ) )
+	{
+		return REC_CondRetErroNaStringDeMovimento;
+	}
+	else
+	{
+		NumMaxDeCasas = ( int )( MaxCasas - '0' );
+	}
+
+
+	CorDaPeca = GER_ObterCor ( pPeca );
+	if ( CorDaPeca == GER_CorBranca )
 	{
 		CoefHorizontal = CoefHorizontal * (-1);
 		CoefVertical = CoefVertical * (-1);
 	}
 
-	for ( Fator = 0 ; Fator <=NumMaxDeCasas ; Fator++ )
+	for ( Fator = 1 ; Fator <=NumMaxDeCasas ; Fator++ )
 	{
 		LinhaDoProximo = LinhaCorrente + Fator * CoefVertical;
 		ColunaDoProximo = ( char )( ColunaCorrente + Fator * CoefHorizontal );
 
-		CondRetREC = AdicionaProximo ( pGrafo, ColunaCorrente , LinhaCorrente, ColunaDoProximo, LinhaDoProximo, '?' );
+		CondRetREC = AdicionaProximo ( pGrafo, ColunaCorrente , LinhaCorrente, ColunaDoProximo, LinhaDoProximo, '?', CorDaPeca );
 		if ( CondRetREC != REC_CondRetOK )
 		{
 			break;
@@ -191,14 +282,15 @@ REC_tpCondRet AdicionaProximosContinuos ( GER_tppPeca pPeca , GRA_tppGrafo pGraf
 	return REC_CondRetOK;
 }
 
-REC_tpCondRet AdicionaProximo ( GRA_tppGrafo pGrafo, char ColunaCorrente, int LinhaCorrente , char ColunaProximo, int LinhaProximo, char TipoDaCasa ){
+REC_tpCondRet AdicionaProximo ( GRA_tppGrafo pGrafo, char ColunaCorrente, int LinhaCorrente , char ColunaProximo, int LinhaProximo, char TipoDaCasa, GER_tpCorPeca CorPecaCorrente ){
 
 	int IdCorrente				= -1;
 	int IdProximo				= -1;
 	GRA_tpCondRet CondRetGRA	= GRA_CondRetOK;
 	GER_tpCondRet CondRetGER	= GER_CondRetOK ;
-	GER_tppPeca pPeca				= NULL;
+	GER_tppPeca pPeca			= NULL;
 	GER_tpTipoPeca TipoDaPeca	= GER_TipoVazia;	
+	GER_tpCorPeca CorDaProxPeca	= GER_CorSemCor ;
 
 	if (( LinhaCorrente < 1 )||
 		( LinhaProximo < 1 )||
@@ -230,6 +322,12 @@ REC_tpCondRet AdicionaProximo ( GRA_tppGrafo pGrafo, char ColunaCorrente, int Li
 		return REC_CondRetPosicaoInvalida;
 	}
 
+	CorDaProxPeca = GER_ObterCor ( pPeca );
+	if ( CorPecaCorrente == CorDaProxPeca )
+	{
+		return REC_CondRetPosicaoInvalida ;
+	}
+
 	IdCorrente = CodificaPosicao ( (char)ColunaCorrente , LinhaCorrente );
 	IdProximo = CodificaPosicao ( (char)ColunaProximo , LinhaProximo );
 
@@ -244,6 +342,8 @@ REC_tpCondRet AdicionaProximo ( GRA_tppGrafo pGrafo, char ColunaCorrente, int Li
 
 REC_tpCondRet REC_ReconheceXequeMate ( GRA_tppGrafo pGrafo , GER_tpCorPeca CorPeca , int * pIdProx ){
 
+	int LinhaRei					= -1;
+	char ColunaRei					= '!' ;
 	int IdRei						= -1 ;
 	GER_tpCondRet CondRetGER		= GER_CondRetOK ;
 	GRA_tpCondRet CondRetGRA		= GRA_CondRetOK ;
@@ -251,14 +351,15 @@ REC_tpCondRet REC_ReconheceXequeMate ( GRA_tppGrafo pGrafo , GER_tpCorPeca CorPe
 	int IdAntecessor				= -1 ;
 	int IdPrimeiroSucessor			= -1 ;
 	int IdPrimeiroAntecessor		= -1 ;
-	int PossuiAntecessorAdversario	= 0 ;
 
-	CondRetGER = GER_ObterRei ( CorPeca , &IdRei ) ;
+	CondRetGER = GER_ObterRei ( CorPeca , &ColunaRei , &LinhaRei  ) ;
+
 	if ( CondRetGER != GER_CondRetOK )
 	{
 		return REC_CondRetReiNaoExiste ;
 	}
 
+	IdRei = CodificaPosicao ( ColunaRei , LinhaRei );
 	CondRetGRA = GRA_IrVerticeComId ( pGrafo , IdRei ) ;
 	if ( CondRetGRA != GRA_CondRetOK )
 	{
@@ -268,7 +369,7 @@ REC_tpCondRet REC_ReconheceXequeMate ( GRA_tppGrafo pGrafo , GER_tpCorPeca CorPe
 	CondRetGRA = GRA_ObterSucessor ( pGrafo , IdRei , &IdPrimeiroSucessor );
 	if ( CondRetGRA != GRA_CondRetOK )
 	{
-		* pIdProx = NULL ;
+		pIdProx = NULL ;
 		return REC_CondRetXequeMate ;
 	}
 
@@ -277,14 +378,14 @@ REC_tpCondRet REC_ReconheceXequeMate ( GRA_tppGrafo pGrafo , GER_tpCorPeca CorPe
 		CondRetGRA = GRA_ObterSucessor ( pGrafo , IdRei , &IdSucessor );
 		if ( CondRetGRA != GRA_CondRetOK )
 		{
-			* pIdProx = NULL ;
+			pIdProx = NULL ;
 			return REC_CondRetXequeMate ;
 		}
 
 		CondRetGRA = GRA_ObterAntecessor ( pGrafo , IdSucessor , &IdPrimeiroAntecessor );
 		if ( CondRetGRA != GRA_CondRetOK )
 		{
-				* IdProx = IdSucessor ;
+				* pIdProx = -1 ;
 				return REC_CondRetNaoEstaEmXequeMate ;
 		}
 
@@ -293,7 +394,7 @@ REC_tpCondRet REC_ReconheceXequeMate ( GRA_tppGrafo pGrafo , GER_tpCorPeca CorPe
 			CondRetGRA = GRA_ObterAntecessor ( pGrafo , IdSucessor , &IdAntecessor ) ;
 			if ( CondRetGRA != GRA_CondRetOK )
 			{
-				* IdProx = IdSucessor ;
+				* pIdProx = -1 ;
 				return REC_CondRetNaoEstaEmXequeMate ;
 			}
 
@@ -302,8 +403,15 @@ REC_tpCondRet REC_ReconheceXequeMate ( GRA_tppGrafo pGrafo , GER_tpCorPeca CorPe
 	}
 	while ( IdSucessor != IdPrimeiroSucessor ) ;
 	
-	*IdProx = NULL ;
+	*pIdProx = -1 ;
 	return REC_CondRetXequeMate ;
 }
 
+int CodificaPosicao ( char Coluna , int Linha ){
+	
+	int NumeroDaLinha = Linha -1;
+	int NumeroDaColuna = ( int )( Coluna - 'A' )+1;
+	int NumeroDeColunas = ( int )( GER_ObterUltimaColunaTabuleiro ( ) - 'A' + 1)  ;
 
+	return ( ( NumeroDaLinha * NumeroDeColunas ) + NumeroDaColuna );
+}

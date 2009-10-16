@@ -13,11 +13,15 @@
 *
 *  $HA Histórico de evolução:
 *     Versão  Autor    Data     Observações
-*       1.00   cev   19/09/2009 Início do desenvolvimento
+*     0       cev   12/set/2009 Início desenvolvimento
+*	  1		  cev	19/out/2009 Entrega do trabalho
 *
 *  $ED Descrição do módulo
 *     Este módulo implementa as funções para reconhecer se, dado um
-*	  tabuleiro de xadrez, um rei está em xeque mate
+*	  tabuleiro de xadrez, um rei está em xeque mate. Ele parte do ta-
+*	  buleiro construído pelo módulo GERENCIADOR e do arquivo de regras
+*	  de movimentação para montar um grafo contendo todas as possibili-
+*	  dades de movimentação de todas as peças.
 *
 *
 /***********************************************************************
@@ -60,56 +64,59 @@ typedef enum{
 
 	REC_CondRetXequeMate = 12 ,
 
-	REC_CondRetNaoEstaEmXeque = 13 ,
+	REC_CondRetNaoEstaEmXequeMate = 13 ,
 
 }REC_tpCondRet;
 
 
 typedef struct GER_tgPeca GER_tpPeca;
 
+typedef struct GER_tgPeca * GER_tppPeca;
+
 typedef struct GRA_tgGrafo * GRA_tppGrafo;
-/***********************************************************************
-*
-*  $FC Função: REC Reconhece Xeque
-*
-*  $ED Descrição da função
-*     Dado um tabuleiro e uma cor, a função determina se o rei da
-*	  cor passada está em xeque mate
-*
-*  $EP Parâmetros
-*     $P Tabuleiro - tabuleiro de xadrez
-*	  $P Cor - cor do rei
-*
-*  $FV Valor retornado
-*     Ponteiro para uma casa para onde o rei ainda pode ir
-*     NULL se o rei estiver em xeque mate
-*
-***********************************************************************/
-
-   GER_tpPeca * REC_ReconheceXeque ( void );
-
 
 /***********************************************************************
 *
-*  $FC Função: REC Determinar Regras
+*  $FC Função: REC &Adicionar Peças ao Grafo
 *
 *  $ED Descrição da função
-*     Determina as regras de movimentação das peças
+*     Cria um grafo e, a partir do tabuleiro montado pelo módulo GERENCI-
+*	  ADOR e do arquivo de regras de movimentação, constrói um grafo com 
+*	  as movimentações possíveis das peças.
 *
 *  $EP Parâmetros
-*     $P ArquivoRegras - string com o nome do arquivo de regras
+*     ppGrafo - endereço da referência que apontará para o grafo criado
 *
 *  $FV Valor retornado
-*     tpCondRetOK
-*	  
-*	  
+*     REC_CondRetOK - adicionou as peças sem problemas
+*	  REC_CondRetNaoCriouGrafo - erro ao criar o grafo
+*	  REC_CondRetNaoCriouVertice - erro ao criar o vértice
+*	  REC_CondRetNaoInseriuPeca - erro ao inserir o vértice
 *
 ***********************************************************************/
-
-   REC_tpCondRet REC_DeterminaRegras ( char * ArquivoRegras );
-   
-   REC_tpCondRet REC_GeraMovimentacoes ( void );
 
    REC_tpCondRet REC_AdicionarPecasAoGrafo ( GRA_tppGrafo * ppGrafo );
 
+/***********************************************************************
+*
+*  $FC Função: REC &Adicionar Peças ao Grafo
+*
+*  $ED Descrição da função
+*     Cria um grafo e, a partir do tabuleiro montado pelo módulo GERENCI-
+*	  ADOR e do arquivo de regras de movimentação, constrói um grafo com 
+*	  as movimentações possíveis das peças.
+*
+*  $EP Parâmetros
+*     ppGrafo - endereço da referência que apontará para o grafo criado
+*
+*  $FV Valor retornado
+*     REC_CondRetOK - adicionou as peças sem problemas
+*	  REC_CondRetNaoCriouGrafo - erro ao criar o grafo
+*	  REC_CondRetNaoCriouVertice - erro ao criar o vértice
+*	  REC_CondRetNaoInseriuPeca - erro ao inserir o vértice
+*
+***********************************************************************/
+   
+   REC_tpCondRet REC_GeraMovimentacoes ( GRA_tppGrafo * ppGrafo );
+   
 /********** Fim do módulo de definição: Módulo grafo **********/

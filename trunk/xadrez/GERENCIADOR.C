@@ -9,7 +9,7 @@
 *
 *  Projeto: INF 1301 Programação Modular
 *  Gestor:  DI/PUC-Rio
-*  Autores: cev - Caio D'Angelo , Eduardo Vellos e Vitor Barbarisi
+*  Autores: cev - Caio D'Angelo , Eduardo Velloso e Vitor Barbarisi
 *
 *  $HA Histórico de evolução:
 *     Versão  Autor    Data     Observações
@@ -56,7 +56,7 @@ typedef struct GER_tgPeca{
 GER_tppPeca Tabuleiro[N_LINHAS][N_COLUNAS];
 	/* Tabuleiro de Peças */
 
-/***** Protótipos das funções encapuladas no módulo *****/
+/***** Protótipos das funções encapsuladas no módulo *****/
 
 
 GER_tpPeca * ObtemPeca ( char * disposicao );
@@ -116,6 +116,24 @@ GER_tppPeca GER_CriarPeca ( GER_tpTipoPeca tipo , GER_tpCorPeca cor  ){
 
 	return pPeca;
 }/* Fim função: GER  &Criar Peça */
+
+/***************************************************************************
+*
+*  Função: GER  &Destruir Peça
+*  ****/
+void GER_DestruirPeca ( GER_tppPeca * ppPeca  ){
+	
+	if ( *ppPeca == NULL )
+	{
+		return ;
+	}
+
+	free( *ppPeca );
+
+	*ppPeca = NULL ;
+
+	return;
+}/* Fim função: GER  &Destruir Peça */
 
 /***************************************************************************
 *
@@ -186,6 +204,26 @@ GER_tpCondRet GER_InicializarTabuleiro ( void ){
 
 /***************************************************************************
 *
+*  Função: GER  &Destruir Tabuleiro
+*  ****/
+void GER_LimparTabuleiro ( void ){
+	
+	/* Inicializa variáveis locais */
+	int linha	= 0;
+	int coluna	= 0;
+
+	/* Preenche o tabuleiro com ponteiros para casas vazias */
+	for ( linha = 0 ; linha < N_LINHAS ; linha++ ){
+		for ( coluna = 0 ; coluna < N_COLUNAS ; coluna++){
+			GER_DestruirPeca ( &Tabuleiro[linha][coluna] );
+		} /* for */
+	} /* for */
+
+	return ;
+}/* Fim função: GER  &Limpar Tabuleiro */
+
+/***************************************************************************
+*
 *  Função: GER  &Preencher Tabuleiro
 *  ****/
 GER_tpCondRet GER_PreencherTabuleiro ( char * ArquivoDisposicao ){
@@ -251,6 +289,7 @@ GER_tpCondRet GER_ObterPecaDoTabuleiro ( GER_tppPeca * ppPeca, char coluna, int 
 	if((ixLinha<0)||(ixLinha>=N_LINHAS)){
 		return GER_CondRetPecaNaoExiste;
 	} /* if */
+
 	/* Verifica se a coluna é válida */
 	else if((ixColuna<0)||(ixColuna>=N_COLUNAS)){
 		return GER_CondRetPecaNaoExiste;
@@ -288,6 +327,10 @@ char GER_ObterUltimaColunaTabuleiro ( void ){
 *  ****/
 GER_tpTipoPeca GER_ObterTipo ( GER_tppPeca pPeca ) {
 
+	if ( pPeca == NULL )
+	{
+		return -1;
+	}
 	return pPeca->Tipo ;
 
 }/* Fim função: GER  &Obter Tipo da Peça */
@@ -298,6 +341,10 @@ GER_tpTipoPeca GER_ObterTipo ( GER_tppPeca pPeca ) {
 *  ****/
 GER_tpCorPeca GER_ObterCor ( GER_tppPeca pPeca ) {
 
+	if ( pPeca == NULL )
+	{
+		return -1;
+	}
 	return pPeca->Cor ;
 
 }/* Fim função: GER  &Obter Cor da Peça */
