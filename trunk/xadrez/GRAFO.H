@@ -372,5 +372,7 @@ GRA_tpCondRet GRA_RemoverAresta( GRA_tppGrafo pGrafo, int idVerticeOrigem,
 	 GRA_tpCondRet GRA_IrVerticeComId( GRA_tppGrafo pGrafo , int IdVertice);
 
 
+	 /* Retorna OK, NaoHaSucessores */
+	 GRA_tpCondRet GRA_ObterSucessor ( GRA_tppGrafo pGrafo , int IdCorrente , int * IdSucessor ) ;
 
 /********** Fim do módulo de definição: Módulo grafo **********/
