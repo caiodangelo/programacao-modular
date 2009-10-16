@@ -61,7 +61,7 @@
 
 /*****  Dados encapsulados no módulo  *****/
 
-tppPeca pPeca = NULL;
+GER_tppPeca pPeca = NULL;
 
 /***********************************************************************
 *
@@ -86,15 +86,15 @@ tppPeca pPeca = NULL;
       GER_tpCondRet CondRetObtida   = GER_CondRetOK ;
       GER_tpCondRet CondRetEsperada = GER_CondRetFaltouMemoria ;
                                       /* inicializa para qualquer coisa */
-	  int NumLidos = -1;
-	  int TipoPeca = -2 ;
-	  int ValorObtido = -3;
-	  int ValorEsperado = -4;
-	  int CorPeca = -3;
-	  char ColunaEsperada = '!';
-	  char ColunaObtida = '@';
-	  char Coluna = '#';
-	  int Linha = -5;
+	  int NumLidos			= -1;
+	  int TipoPeca			= -2 ;
+	  int ValorObtido		= -3;
+	  int ValorEsperado		= -4;
+	  int CorPeca			= -3;
+	  char ColunaEsperada	= '!';
+	  char ColunaObtida		= '@';
+	  char Coluna			= '#';
+	  int Linha				= -5;
 	  TST_tpCondRet Ret ;
 
       /* Testar GER Inicializar tabuleiro */
@@ -126,7 +126,7 @@ tppPeca pPeca = NULL;
 				 return TST_CondRetParm ;
 			 } /* if */
 
-			 pPeca = GER_CriarPeca ( TipoPeca , CorPeca , NULL );
+			 pPeca = GER_CriarPeca ( TipoPeca , CorPeca );
 
 			 return TST_CondRetOK;
 
@@ -179,7 +179,7 @@ tppPeca pPeca = NULL;
 				 return TST_CondRetParm ;
 			 } /* if */
 
-			 CondRetObtida = GER_AtribuirPeca ( pPeca, TipoPeca , CorPeca , NULL );
+			 CondRetObtida = GER_AtribuirPeca ( pPeca, TipoPeca , CorPeca );
 
 			 return TST_CompararInt ( CondRetEsperada , CondRetObtida ,
 									  "Erro ao atribuir peça." );

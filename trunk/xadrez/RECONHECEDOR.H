@@ -56,10 +56,16 @@ typedef enum{
 
 	REC_CondRetNaoAdicionouProx = 10,
 
+	REC_CondRetReiNaoExiste = 11,
+
+	REC_CondRetXequeMate = 12 ,
+
+	REC_CondRetNaoEstaEmXeque = 13 ,
+
 }REC_tpCondRet;
 
 
-typedef struct tgPeca tpPeca;
+typedef struct GER_tgPeca GER_tpPeca;
 
 typedef struct GRA_tgGrafo * GRA_tppGrafo;
 /***********************************************************************
@@ -80,7 +86,7 @@ typedef struct GRA_tgGrafo * GRA_tppGrafo;
 *
 ***********************************************************************/
 
-   tpPeca * REC_ReconheceXeque ( void );
+   GER_tpPeca * REC_ReconheceXeque ( void );
 
 
 /***********************************************************************

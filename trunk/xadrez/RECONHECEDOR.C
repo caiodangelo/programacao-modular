@@ -10,10 +10,10 @@
 
 int CodificaPosicao ( char Coluna , int Linha );
 REC_tpCondRet AdicionaProximo ( GRA_tppGrafo pGrafo,  char ColunaCorrente, int LinhaCorrente ,  char ColunaProximo, int LinhaProximo,char TipoDaCasa );
-REC_tpCondRet AdicionaProximosDiscretos ( tppPeca pPeca , GRA_tppGrafo pGrafo , char * Movimento , char ColunaCorrente , int LinhaCorrente );
-REC_tpCondRet AdicionaProximosContinuos ( tppPeca pPeca , GRA_tppGrafo pGrafo , char * Movimentos, char Coluna, int Linha );
+REC_tpCondRet AdicionaProximosDiscretos ( GER_tppPeca pPeca , GRA_tppGrafo pGrafo , char * Movimento , char ColunaCorrente , int LinhaCorrente );
+REC_tpCondRet AdicionaProximosContinuos ( GER_tppPeca pPeca , GRA_tppGrafo pGrafo , char * Movimentos, char Coluna, int Linha );
 
-tpPeca * REC_ReconheceXeque ( void ){
+GER_tpPeca * REC_ReconheceXeque ( void ){
 	return NULL;
 }
 
@@ -22,7 +22,7 @@ REC_tpCondRet REC_AdicionarPecasAoGrafo ( GRA_tppGrafo * ppGrafo ){
 	int coluna;
 	GER_tpCondRet CondRetGER;
 	GRA_tpCondRet CondRetGRA;
-	tppPeca pPeca;
+	GER_tppPeca pPeca;
 	int id;
 	
 
@@ -58,7 +58,7 @@ REC_tpCondRet REC_GeraMovimentacoes ( void ){
 	int linha;
 	int coluna;
 	GER_tpCondRet CondRetGer;
-	tppPeca pPeca;
+	GER_tppPeca pPeca;
 	char movimentos[TAM_MOVIMENTO];
 	GER_tpTipoPeca TipoPeca;
 
@@ -108,7 +108,7 @@ int CodificaPosicao ( char Coluna , int Linha ){
 	return ( ( NumeroDaLinha * NumeroDeColunas ) + NumeroDaColuna );
 }
 
-REC_tpCondRet AdicionaProximosDiscretos ( tppPeca pPeca , GRA_tppGrafo pGrafo , char * Movimento , char ColunaCorrente , int LinhaCorrente ){
+REC_tpCondRet AdicionaProximosDiscretos ( GER_tppPeca pPeca , GRA_tppGrafo pGrafo , char * Movimento , char ColunaCorrente , int LinhaCorrente ){
 
 	int NumCasasNaVertical		= 0;
 	int NumCasasNaHorizontal	= 0;
@@ -124,7 +124,7 @@ REC_tpCondRet AdicionaProximosDiscretos ( tppPeca pPeca , GRA_tppGrafo pGrafo , 
 		return REC_CondRetErroNaStringDeMovimento;
 	}
 
-	if ( GER_ObterCor ( pPeca ) == GER_tpCorBranca )
+	if ( GER_ObterCor ( pPeca ) == GER_CorBranca )
 	{
 		NumCasasNaVertical = NumCasasNaVertical * (-1) ;
 		NumCasasNaHorizontal = NumCasasNaHorizontal * (-1) ;
@@ -138,7 +138,7 @@ REC_tpCondRet AdicionaProximosDiscretos ( tppPeca pPeca , GRA_tppGrafo pGrafo , 
 	return CondRetREC;
 }
 
-REC_tpCondRet AdicionaProximosContinuos ( tppPeca pPeca , GRA_tppGrafo pGrafo , char * Movimento, char ColunaCorrente, int LinhaCorrente ){
+REC_tpCondRet AdicionaProximosContinuos ( GER_tppPeca pPeca , GRA_tppGrafo pGrafo , char * Movimento, char ColunaCorrente, int LinhaCorrente ){
 	
 	char Direcao[2]				= "";
 	int NumMaxDeCasas			= -1;
@@ -170,7 +170,7 @@ REC_tpCondRet AdicionaProximosContinuos ( tppPeca pPeca , GRA_tppGrafo pGrafo , 
 		case 'W': CoefHorizontal = -1; break;
 	}
 
-	if ( GER_ObterCor ( pPeca ) == GER_tpCorBranca )
+	if ( GER_ObterCor ( pPeca ) == GER_CorBranca )
 	{
 		CoefHorizontal = CoefHorizontal * (-1);
 		CoefVertical = CoefVertical * (-1);
@@ -181,7 +181,7 @@ REC_tpCondRet AdicionaProximosContinuos ( tppPeca pPeca , GRA_tppGrafo pGrafo , 
 		LinhaDoProximo = LinhaCorrente + Fator * CoefVertical;
 		ColunaDoProximo = ( char )( ColunaCorrente + Fator * CoefHorizontal );
 
-		CondRetREC = AdicionaProximo ( pGrafo, ColunaCorrente , LinhaCorrente, ColunaDoProximo, LinhaDoProximo, TipoDaCasa );
+		CondRetREC = AdicionaProximo ( pGrafo, ColunaCorrente , LinhaCorrente, ColunaDoProximo, LinhaDoProximo, '?' );
 		if ( CondRetREC != REC_CondRetOK )
 		{
 			break;
@@ -197,8 +197,8 @@ REC_tpCondRet AdicionaProximo ( GRA_tppGrafo pGrafo, char ColunaCorrente, int Li
 	int IdProximo				= -1;
 	GRA_tpCondRet CondRetGRA	= GRA_CondRetOK;
 	GER_tpCondRet CondRetGER	= GER_CondRetOK ;
-	tppPeca pPeca				= NULL;
-	GER_tpTipoPeca TipoDaPeca	= GER_tpTipoVazia;	
+	GER_tppPeca pPeca				= NULL;
+	GER_tpTipoPeca TipoDaPeca	= GER_TipoVazia;	
 
 	if (( LinhaCorrente < 1 )||
 		( LinhaProximo < 1 )||
@@ -219,12 +219,12 @@ REC_tpCondRet AdicionaProximo ( GRA_tppGrafo pGrafo, char ColunaCorrente, int Li
 	} 
 
 	TipoDaPeca = GER_ObterTipo ( pPeca );
-	if (( TipoDaPeca == GER_tpTipoVazia )&&
+	if (( TipoDaPeca == GER_TipoVazia )&&
 		( TipoDaCasa == 'C' ))
 	{
 		return REC_CondRetPosicaoInvalida;
 	}
-	else if (( TipoDaPeca != GER_tpTipoVazia)&&
+	else if (( TipoDaPeca != GER_TipoVazia)&&
 			( TipoDaCasa == 'V'))
 	{
 		return REC_CondRetPosicaoInvalida;
@@ -242,5 +242,68 @@ REC_tpCondRet AdicionaProximo ( GRA_tppGrafo pGrafo, char ColunaCorrente, int Li
 	return REC_CondRetOK;
 }
 
+REC_tpCondRet REC_ReconheceXequeMate ( GRA_tppGrafo pGrafo , GER_tpCorPeca CorPeca , int * pIdProx ){
+
+	int IdRei						= -1 ;
+	GER_tpCondRet CondRetGER		= GER_CondRetOK ;
+	GRA_tpCondRet CondRetGRA		= GRA_CondRetOK ;
+	int IdSucessor					= -1 ;
+	int IdAntecessor				= -1 ;
+	int IdPrimeiroSucessor			= -1 ;
+	int IdPrimeiroAntecessor		= -1 ;
+	int PossuiAntecessorAdversario	= 0 ;
+
+	CondRetGER = GER_ObterRei ( CorPeca , &IdRei ) ;
+	if ( CondRetGER != GER_CondRetOK )
+	{
+		return REC_CondRetReiNaoExiste ;
+	}
+
+	CondRetGRA = GRA_IrVerticeComId ( pGrafo , IdRei ) ;
+	if ( CondRetGRA != GRA_CondRetOK )
+	{
+		return REC_CondRetReiNaoExiste ;
+	}
+
+	CondRetGRA = GRA_ObterSucessor ( pGrafo , IdRei , &IdPrimeiroSucessor );
+	if ( CondRetGRA != GRA_CondRetOK )
+	{
+		* pIdProx = NULL ;
+		return REC_CondRetXequeMate ;
+	}
+
+	do
+	{
+		CondRetGRA = GRA_ObterSucessor ( pGrafo , IdRei , &IdSucessor );
+		if ( CondRetGRA != GRA_CondRetOK )
+		{
+			* pIdProx = NULL ;
+			return REC_CondRetXequeMate ;
+		}
+
+		CondRetGRA = GRA_ObterAntecessor ( pGrafo , IdSucessor , &IdPrimeiroAntecessor );
+		if ( CondRetGRA != GRA_CondRetOK )
+		{
+				* IdProx = IdSucessor ;
+				return REC_CondRetNaoEstaEmXequeMate ;
+		}
+
+		do
+		{
+			CondRetGRA = GRA_ObterAntecessor ( pGrafo , IdSucessor , &IdAntecessor ) ;
+			if ( CondRetGRA != GRA_CondRetOK )
+			{
+				* IdProx = IdSucessor ;
+				return REC_CondRetNaoEstaEmXequeMate ;
+			}
+
+		}
+		while ( IdAntecessor != IdPrimeiroAntecessor ) ;
+	}
+	while ( IdSucessor != IdPrimeiroSucessor ) ;
+	
+	*IdProx = NULL ;
+	return REC_CondRetXequeMate ;
+}
 
 
