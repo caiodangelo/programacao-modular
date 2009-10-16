@@ -25,37 +25,37 @@ Módulos do construto: trabalho.comp
 Estatísticas do construto
 
    Estatísticas do arquivo: GERENCIADOR.H
-      Total linhas:             103
-      Linhas de código:          35
-      Linhas de comentário:      32
-      Linhas em branco:          36
+      Total linhas:             351
+      Linhas de código:          40
+      Linhas de comentário:     256
+      Linhas em branco:          55
    Arquivos em que é incluído
       Gerenciador.c
       Reconhecedor.c
 
    Estatísticas do arquivo: GRAFO.H
-      Total linhas:             376
-      Linhas de código:          34
-      Linhas de comentário:     280
-      Linhas em branco:          62
+      Total linhas:             436
+      Linhas de código:          38
+      Linhas de comentário:     329
+      Linhas em branco:          69
    Arquivos em que é incluído
       Grafo.c
       Reconhecedor.c
 
    Estatísticas do arquivo: Gerenciador.c
-      Total linhas:             232
-      Linhas de código:         178
-      Linhas de comentário:       4
-      Linhas em branco:          50
+      Total linhas:             478
+      Linhas de código:         242
+      Linhas de comentário:     155
+      Linhas em branco:          99
    Arquivos de inclusão de que necessita
       GERENCIADOR.H
       VERTICE.H
 
    Estatísticas do arquivo: Grafo.c
-      Total linhas:             619
-      Linhas de código:         319
-      Linhas de comentário:     124
-      Linhas em branco:         198
+      Total linhas:             724
+      Linhas de código:         382
+      Linhas de comentário:     139
+      Linhas em branco:         226
    Arquivos de inclusão de que necessita
       GRAFO.H
       LISTA.H
@@ -87,19 +87,19 @@ Estatísticas do construto
       LISTA.h
 
    Estatísticas do arquivo: RECONHECEDOR.H
-      Total linhas:             106
-      Linhas de código:          17
+      Total linhas:             115
+      Linhas de código:          21
       Linhas de comentário:      69
-      Linhas em branco:          20
+      Linhas em branco:          25
    Arquivos em que é incluído
       Reconhecedor.c
       TestRec.c
 
    Estatísticas do arquivo: Reconhecedor.c
-      Total linhas:             147
-      Linhas de código:         113
+      Total linhas:             309
+      Linhas de código:         248
       Linhas de comentário:       2
-      Linhas em branco:          32
+      Linhas em branco:          59
    Arquivos de inclusão de que necessita
       GERENCIADOR.H
       GRAFO.H
@@ -145,10 +145,10 @@ Estatísticas do construto
       Vertice.c
 
    Estatísticas do arquivo: Vertice.c
-      Total linhas:             475
-      Linhas de código:         238
+      Total linhas:             482
+      Linhas de código:         243
       Linhas de comentário:      98
-      Linhas em branco:         153
+      Linhas em branco:         155
    Arquivos de inclusão de que necessita
       LISTA.H
       VERTICE.H
@@ -188,10 +188,10 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: DEFAULT  Path: .
-         Total linhas do tipo:      3012
-         Linhas de código:           318
-         Linhas de comentário:      2245
-         Linhas em branco:           449
+         Total linhas do tipo:      3329
+         Linhas de código:           331
+         Linhas de comentário:      2518
+         Linhas em branco:           480
          Arquivos deste tipo:         10
 
   Tipo: espstr   Path: .
@@ -209,17 +209,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: .
-         Total linhas do tipo:      2157
-         Linhas de código:          1174
-         Linhas de comentário:       428
-         Linhas em branco:           611
+         Total linhas do tipo:      2677
+         Linhas de código:          1441
+         Linhas de comentário:       594
+         Linhas em branco:           717
          Arquivos deste tipo:          6
 
 Totais para todo o construto Trabalho
 
-   Total linhas:              5169
-   Linhas de código:          1492
-   Linhas de comentário:      2673
-   Linhas em branco:          1060
+   Total linhas:              6006
+   Linhas de código:          1772
+   Linhas de comentário:      3112
+   Linhas em branco:          1197
    Arquivos processados:        16
 

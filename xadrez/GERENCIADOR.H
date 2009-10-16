@@ -150,6 +150,20 @@ typedef struct GER_tgPeca * GER_tppPeca;
 
 /***********************************************************************
 *
+*  $FC Função: GER  &Destruir Peça
+*
+*  $ED Descrição da função
+*     Destroi a peça passada por parâmetro.
+*
+*  $EP Parâmetros
+*     ppPeca - endereço da referência para a peça a ser destruída
+*
+***********************************************************************/
+
+   void GER_DestruirPeca ( GER_tppPeca * ppPeca  ) ;
+
+/***********************************************************************
+*
 *  $FC Função: GER  &Atribuir Peça
 *
 *  $ED Descrição da função
@@ -185,6 +199,16 @@ typedef struct GER_tgPeca * GER_tppPeca;
 
    GER_tpCondRet GER_InicializarTabuleiro ( void );
 
+/***********************************************************************
+*
+*  $FC Função: GER  &Limpar Tabuleiro
+*
+*  $ED Descrição da função
+*     Destrói as peças do tabuleiro.
+*
+***********************************************************************/
+
+   void GER_LimparTabuleiro ( void );
 /***********************************************************************
 *
 *  $FC Função: GER  &Preencher Tabuleiro

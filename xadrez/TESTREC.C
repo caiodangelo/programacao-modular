@@ -52,9 +52,13 @@
 #include	"GERENCIADOR.H"
 #include	"GRAFO.H"
 
+#define		ARQ_DISPOSICAO		"DISPOSICAO.TXT"
+
 /* Tabela dos nomes dos comandos de teste específicos */
 
 #define		MONTAR_GRAFO_CMD	"=montargrafo"
+#define		ADICIONAR_MOV_CMD	"=adicionarmov"
+#define		ADICIONAR_REG_CMD	"=adicionarreg"
 
 /*****  Código das funções exportadas pelo módulo  *****/
 
@@ -83,6 +87,7 @@ GRA_tppGrafo pGrafo;
 
       REC_tpCondRet CondRetObtida   = REC_CondRetOK ;
       REC_tpCondRet CondRetEsperada = REC_CondRetFaltouMemoria ;
+	  GER_tpCondRet CondRetGER		= GER_CondRetOK ;
                                       /* inicializa para qualquer coisa */
 	  int NumLidos = -1;
 	  TST_tpCondRet Ret ;
@@ -99,8 +104,21 @@ GRA_tppGrafo pGrafo;
 			 } /* if */
 
 
-			 GER_InicializarTabuleiro ( );
-			 GER_PreencherTabuleiro ( "DISPOSICAO.TXT" );
+			 /* Inicializa o tabuleiro */
+			 CondRetGER = GER_InicializarTabuleiro ( );
+			 if ( CondRetGER != GER_CondRetOK )
+			 {
+				 // retorna erro
+			 }
+
+			 /* Preenche o tabuleiro */
+			 CondRetGER = GER_PreencherTabuleiro ( ARQ_DISPOSICAO );
+			 if ( CondRetGER != GER_CondRetOK )
+			 {
+				 // retorna erro
+			 }
+
+			 /* Adiciona as peças ao grafo */
 			 CondRetObtida = REC_AdicionarPecasAoGrafo ( &pGrafo );
 
 			 Ret = TST_CompararInt ( CondRetEsperada , CondRetObtida , 
@@ -115,7 +133,46 @@ GRA_tppGrafo pGrafo;
 			 return Ret;
          } /* fim ativa: Testar REC Montar Grafo */
 
-      
+		 /* Testar REC Montar Grafo */
+
+         else if ( strcmp( ComandoTeste , ADICIONAR_MOV_CMD ) == 0 )
+         {
+			 NumLidos = LER_LerParametros ( "i" , 
+											&CondRetEsperada ) ;
+			 if ( NumLidos != 1 )
+			 {
+				 return TST_CondRetParm ;
+			 } /* if */
+
+			 /* Inicializa o tabuleiro */
+			 CondRetGER = GER_InicializarTabuleiro ( );
+			 if ( CondRetGER != GER_CondRetOK )
+			 {
+				 // retorna erro
+			 }
+
+			 /* Preenche o tabuleiro */
+			 CondRetGER = GER_PreencherTabuleiro ( ARQ_DISPOSICAO );
+			 if ( CondRetGER != GER_CondRetOK )
+			 {
+				 // retorna erro
+			 }
+
+			 /* Adiciona as movimentações das peças */
+			 CondRetObtida = REC_GeraMovimentacoes ( &pGrafo );
+
+			 
+			 Ret = TST_CompararInt ( CondRetEsperada , CondRetObtida , 
+									  "Retorno errado ao montar o grafo. " );
+			 if ( Ret != TST_CondRetOK )
+			 {
+				 return Ret ;
+			 }
+
+			GRA_ExibirGrafo(pGrafo);
+			 return Ret;
+         } /* fim ativa: Testar REC Adicionar Movimentos */
+
       return TST_CondRetNaoConhec ;
 
    } /* Fim função: TREC Efetuar operações de teste específicas para vértice */
