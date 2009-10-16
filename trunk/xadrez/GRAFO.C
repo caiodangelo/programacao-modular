@@ -152,6 +152,8 @@
 	   VER_tppVertice pVertice = pGrafo->VerticeCorrente;
 	   VER_tppVertice pVerticeSucessorCorrente;
 	   VER_tppVertice pVerticeAntecessorCorrente;
+
+	   int IdVertice;
 	   
 	   if( pGrafo == NULL ){
 		  return GRA_CondRetGrafoInexistente;
@@ -161,10 +163,18 @@
 		   return GRA_CondRetGrafoVazio;
 	   }
 
+	   CondRetVertice = VER_ObterId ( pVertice, &IdVertice );
+
+	   printf("Id do vertice a ser removido: %d\n\n",IdVertice);
+
 	   /* Percorre a lista de sucessores do vértice e os remove*/
 	   ListaSucessores = VER_ObterListaSucessores( pVertice );
 
 	   if (ListaSucessores != NULL){
+
+		    IrInicioLista ( ListaSucessores );
+
+		   printf("Vertice tem sucessores\n\n");
 			
 		   do{
 				pVerticeSucessorCorrente = LIS_ObterValor( ListaSucessores ) ;
@@ -186,14 +196,23 @@
 	   ListaAntecessores = VER_ObterListaAntecessores( pVertice );
 
 	   if (ListaAntecessores != NULL){
+
+		   IrInicioLista ( ListaAntecessores );
+
+		   printf("Vertice tem antecessores\n\n");
 			
 		   do{
 				pVerticeAntecessorCorrente = LIS_ObterValor( ListaAntecessores ) ;
+
+				CondRetVertice = VER_ObterId ( pVerticeAntecessorCorrente, &IdVertice );
+
+				printf("Id do vertice antecessor corrente: %d\n\n",IdVertice);
 
 				CondRetVertice = VER_RemoverSucessor ( pVerticeAntecessorCorrente,	
 													  pVertice );
 				
 				if (CondRetVertice != VER_CondRetOK){
+					printf("Retorno da RemoverSucessor para a ExcluirVertice: %d\n\n",CondRetVertice);
 					return GRA_CondRetVerticeNaoExiste;
 				}/* if */
 
