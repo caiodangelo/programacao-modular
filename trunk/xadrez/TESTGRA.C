@@ -213,9 +213,7 @@
                return TST_CondRetParm ;
             } /* if */
 
-			printf("Origem: %d - Destino: %d\n",IdVerticeOrigem,IdVerticeDestino);
-			
-            CondRetObtido = GRA_InserirAresta( pGrafo, IdVerticeOrigem, 
+			CondRetObtido = GRA_InserirAresta( pGrafo, IdVerticeOrigem, 
 										IdVerticeDestino );
 
             return TST_CompararInt( CondRetEsperada , CondRetObtido ,
