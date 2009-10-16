@@ -375,7 +375,6 @@
 		} /* if */
 
 		*pIdVertice = pVertice->IdVertice;
-		printf("Id dentro da obter id: %d\n",*pIdVertice);
 		
 		return VER_CondRetOK;
 
@@ -388,11 +387,18 @@
    void VER_ExibirSucessores ( VER_tppVertice pVertice ){
 
 		int IdVertice;
+		LIS_tppLista ListaSucessores;
 
-		LIS_tppLista ListaSucessores = VER_ObterListaSucessores ( pVertice);
+		if( pVertice == NULL )
+		{
+			return;
+
+		}/* if */
+
+		ListaSucessores = VER_ObterListaSucessores ( pVertice);
 
 		if ( ListaSucessores == NULL ){
-			printf ( "Lista de sucessores vazia\n");
+			printf ( "Lista de sucessores vazia");
 			return ;
 		}/* if */
 
