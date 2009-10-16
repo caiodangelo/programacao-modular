@@ -253,7 +253,7 @@ typedef enum {
 	LIS_tppLista VER_ObterListaSucessores ( VER_tppVertice pVertice );
 
 
-	/***********************************************************************
+/***********************************************************************
 *
 *  $FC Função: VER Obter Lista de Antecessores
 *
