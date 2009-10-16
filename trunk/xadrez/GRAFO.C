@@ -69,7 +69,7 @@
    GRA_tpCondRet GRA_CriarGrafo ( GRA_tppGrafo * ppGrafo ){
 
 	  if ( *ppGrafo != NULL ){
-         GRA_DestruirGrafo( *ppGrafo ) ;
+         GRA_DestruirGrafo( ppGrafo ) ;
       } /* if */
 
       *ppGrafo = ( GRA_tppGrafo ) malloc( sizeof( GRA_tpGrafo )) ;
@@ -96,19 +96,13 @@
    GRA_tpCondRet GRA_InserirVertice( GRA_tppGrafo pGrafo, void * pValor , int IdVertice ){
 
 	   VER_tpCondRet CondRetVertice;
-	   GRA_tpCondRet CondRetGrafo;
 	   LIS_tpCondRet CondRetLista;
 	   VER_tppVertice pVertice = NULL;
 
 	   /* Se grafo não existir, cria o grafo */
 	   if( pGrafo == NULL )
 	   {
-		  CondRetGrafo = GRA_CriarGrafo( &pGrafo );
-
-		  if( CondRetGrafo != GRA_CondRetOK )
-		  {
-			  return CondRetGrafo;
-		  } /* if */
+		 return GRA_CondRetGrafoInexistente;
 
 	   } /* if */
 
@@ -416,18 +410,18 @@ CondRetLista = LIS_ExcluirElemento( pGrafo->ListaVertices ) ;
 *  Função: GRA Destruir grafo
 *  ****/
 
-   GRA_tpCondRet GRA_DestruirGrafo ( GRA_tppGrafo pGrafo ){
+   GRA_tpCondRet GRA_DestruirGrafo ( GRA_tppGrafo* ppGrafo ){
 
-	   if( pGrafo == NULL ){
+	   if( *ppGrafo == NULL ){
 		   return GRA_CondRetGrafoInexistente;
 	   } /* if */
 
-	   LIS_DestruirLista(pGrafo->ListaVertices);
-	   LIS_DestruirLista(pGrafo->ListaOrigens);
+	   LIS_DestruirLista((*ppGrafo)->ListaVertices);
+	   LIS_DestruirLista((*ppGrafo)->ListaOrigens);
 
 	  
-	   free(pGrafo);
-	   pGrafo = NULL;
+	   free(*ppGrafo);
+	   (*ppGrafo) = NULL;
 
 	   return GRA_CondRetOK ;
 

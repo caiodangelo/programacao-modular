@@ -125,7 +125,7 @@
 *
 ***********************************************************************/
 
-  GRA_tpCondRet GRA_DestruirGrafo( GRA_tppGrafo pGrafo );
+  GRA_tpCondRet GRA_DestruirGrafo( GRA_tppGrafo* ppGrafo );
 
 
 /***********************************************************************
@@ -149,6 +149,8 @@
 *
 *	  GRA_CondRetIdJaExiste - caso se tente inserir um vértice com um id que já foi
 *							  utilizado, a inserção não será feita.
+*
+*	  GRA_CondRetGrafoInexistente - Grafo passado como parâmetro não existe.
 *
 ***********************************************************************/
 
