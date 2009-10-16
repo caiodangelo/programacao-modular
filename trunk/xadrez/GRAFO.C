@@ -205,18 +205,13 @@
 
 	   }/* if */
 
-	   printf("Chegou no final da ExcluirVertice\n\n");
-
-		/* Destrói o vértice */	
+	  /* Destrói o vértice */	
 
 	   IrInicioLista ( pGrafo->ListaVertices );
 
 		 CondRetLista = LIS_ProcurarValor( pGrafo->ListaVertices ,
                                     pVertice        ) ;
-
-		 printf("Encontrou vertice na lista de vertices\n\n");
-
-		 CondRetLista = LIS_ExcluirElemento( pGrafo->ListaVertices ) ;
+CondRetLista = LIS_ExcluirElemento( pGrafo->ListaVertices ) ;
 
 		 VER_DestruirVertice ( &pVertice );
 
@@ -278,7 +273,7 @@
 			return GRA_CondRetVerticeNaoEhOrigem ;
 		}/* if */
 	
-		CondRetLista = LIS_ProcurarValor( pGrafo->ListaOrigens , &pVertice );
+		CondRetLista = LIS_ProcurarValor( pGrafo->ListaOrigens , pVertice );
 		
 		if ( CondRetLista == LIS_CondRetNaoAchou || CondRetLista == LIS_CondRetListaVazia ){
 			return GRA_CondRetVerticeNaoEhOrigem ;
@@ -521,8 +516,15 @@
 	  int IdVerticeTemp = -1;
 	  int controle = 0;
 
+	  if( ListaVertices != NULL )
+	  {
+		   IrInicioLista ( ListaVertices );
+
+	  } /* if */	 
+
 	   while( ( ListaVertices != NULL ) && ( controle == 0 ) )
-	   {
+	   {   
+
 		    pVertice = LIS_ObterValor( ListaVertices );
 
 			if((VER_ObterId ( pVertice, &IdVerticeTemp )) == VER_CondRetOK )
