@@ -65,10 +65,10 @@
 #define		EXIBIR_GRA_CMD				"=exibirgra"
 #define		MARCAR_ORIGEM_CMD			"=marcarorigem"
 #define		DESMARCAR_ORIGEM_CMD		"=desmarcarorigem"
-#define		OBTER_VALOR_COM_ID_CMD		"=obtervalorcomid"	
+#define		OBTER_VALOR_COM_ID_CMD		"=obtervalorcomid"
+#define		IR_VERTICE_COM_ID_CMD		"=irverticecomid"
 #define		AVANCAR_SUCESSOR_CMD		"=avancarsucessor"
 #define		OBTER_VERTICE_COM_ID_CMD	"=obterverticecomid"
-#define		IR_VERTICE_COM_ID_CMD		"=irverticecomid"
 #define		OBTER_ANTECESSOR_CMD		"=obterant"
 #define		OBTER_SUCESSOR_CMD			"=obtersuc"
 
@@ -124,6 +124,13 @@
 	  int IdEsperado		= -9;
 
       TST_tpCondRet Ret ;
+
+	  /*int i;
+
+	  for(i=0;i<10;i++){
+		  printf("ID do vertice: %d |--| Valor do vertice: %d\n\n",vtIdVertice[i],vtValorVertice[i]);
+
+	  }*/
 
       /* Testar GRA Criar grafo */
 
@@ -298,7 +305,7 @@
          {
             NumLidos = LER_LerParametros( "iii" , &IdVertice , &ValorEsperado ,  
                                &CondRetEsperada ) ;
-            if ( NumLidos != 2 )
+            if ( NumLidos != 3 )
             {
                return TST_CondRetParm ;
             } /* if */
