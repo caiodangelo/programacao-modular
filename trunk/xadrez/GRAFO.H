@@ -74,6 +74,9 @@
 		 GRA_CondRetVerticeVazio = 13,
 			/* Vertice dado está vazio */ 
 
+		 GRA_CondRetNaoHaAntecessores = 14,
+			/* Não há sucessores do Vértice dado */
+
    } GRA_tpCondRet ;
 
 
@@ -372,7 +375,62 @@ GRA_tpCondRet GRA_RemoverAresta( GRA_tppGrafo pGrafo, int idVerticeOrigem,
 	 GRA_tpCondRet GRA_IrVerticeComId( GRA_tppGrafo pGrafo , int IdVertice);
 
 
-	 /* Retorna OK, NaoHaSucessores */
-	 GRA_tpCondRet GRA_ObterSucessor ( GRA_tppGrafo pGrafo , int IdCorrente , int * IdSucessor ) ;
+/***********************************************************************
+*
+*  $FC Função: GRA Obter Sucessor
+*
+*  $ED Descrição da função
+*     Obtem o Id do vértice corrente da lista de sucessores de um vértice com IdVertice. 
+*	  Seta o corrente para o próximo elemento da lista de sucessores.
+*	  Se o próximo elemente for NULL, o corrente passa a ser o primeiro elemento
+*	  da lista de sucessores, criando assim uma circularidade no percorrimento da lista.
+*
+*	  O Id do sucessor será passado via dereferência.
+*
+*  $EP Parâmetros
+*     $P pGrafo - ponteiro para a cabeça do grafo.
+*     $P IdVertice - indice do vértice que se deseja obter sucessor.
+*     $P pIdSucessor - ponteiro para o índice do vértice a ser retornado.
+*
+*  $FV Valor retornado
+	  GRA_CondRetNaoHaSucessores - IdVertice não possui sucessores
+	  GRA_CondRetIdInvalido	- Indice passado não é válido
+	  GRA_CondRetOK
+*
+***********************************************************************/
+	 
+	 GRA_tpCondRet GRA_ObterSucessor ( GRA_tppGrafo pGrafo , int IdVertice , 
+									  int * pIdSucessor ) ;
+
+
+/***********************************************************************
+*
+*  $FC Função: GRA Obter Antecessor
+*
+*  $ED Descrição da função
+*     Obtém o Id do vértice corrente da lista de antecessores de um vértice com 
+*	  IdVertice. 
+*	  Seta o corrente para o próximo elemento da lista de antecessores.
+*	  Se o próximo elemente for NULL, o corrente passa a ser o primeiro elemento
+*	  da lista de antecessores, criando assim uma circularidade no 
+*	  percorrimento da lista.
+*
+*	  O Id do antecessor será passado via dereferência.
+*
+*  $EP Parâmetros
+*     $P pGrafo - ponteiro para a cabeça do grafo.
+*     $P IdVertice - indice do vértice que se deseja obter antecessor.
+*     $P pIdAntecessor - ponteiro para o índice do vértice a ser retornado.
+*
+*  $FV Valor retornado
+*	  GRA_CondRetNaoHaAntecessores - IdVertice não possui antecessores
+	  GRA_CondRetIdInvalido	- Indice passado não é válido
+*	  GRA_CondRetOK
+*
+***********************************************************************/
+
+	 GRA_tpCondRet GRA_Antecessor ( GRA_tppGrafo pGrafo , int IdVertice , int * pIdSucessor ) ;
+
+
 
 /********** Fim do módulo de definição: Módulo grafo **********/
