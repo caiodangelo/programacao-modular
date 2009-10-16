@@ -109,8 +109,8 @@ GER_tpCondRet GER_PreencherTabuleiro ( char * ArquivoDisposicao ){
 			return CondRet;
 		}
 		pPeca = ObtemPeca ( disposicao );
-		Tipo = ObtemCodigoDoTipo ( disposicao[INX_TIPO] );
-		Cor = ObtemCodigoDaCor ( disposicao[INX_COR] );
+		Tipo = GER_ObterCodigoDoTipo ( disposicao[INX_TIPO] );
+		Cor = GER_ObterCodigoDaCor ( disposicao[INX_COR] );
 		CondRet = GER_AtribuirPeca( pPeca, Tipo, Cor, NULL );
 
 		if ( CondRet != GER_CondRetOK){
@@ -210,7 +210,7 @@ GER_tpCorPeca GER_ObterCor ( tppPeca pPeca ) {
 	return pPeca->Cor ;
 }
 
-GER_tpTipoPeca ObtemCodigoDoTipo ( char Tipo ){
+GER_tpTipoPeca GER_ObterCodigoDoTipo ( char Tipo ){
 	switch ( Tipo ){
 		case 'P': return GER_tpTipoPeao;
 		case 'T': return GER_tpTipoTorre;
@@ -222,10 +222,11 @@ GER_tpTipoPeca ObtemCodigoDoTipo ( char Tipo ){
 	}
 }
 
-GER_tpCorPeca ObtemCodigoDaCor ( char Cor ){
+GER_tpCorPeca GER_ObterCodigoDaCor ( char Cor ){
 	switch ( Cor ){
 		case 'B': return GER_tpCorBranca;
 		case 'P': return GER_tpCorPreta;
 		default:  return GER_tpCorSemCor;
 	}
 }
+
