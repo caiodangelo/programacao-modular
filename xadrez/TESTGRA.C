@@ -69,6 +69,9 @@
 #define		AVANCAR_SUCESSOR_CMD		"=avancarsucessor"
 #define		OBTER_VERTICE_COM_ID_CMD	"=obterverticecomid"
 #define		IR_VERTICE_COM_ID_CMD		"=irverticecomid"
+#define		OBTER_ANTECESSOR_CMD		"=obterant"
+#define		OBTER_SUCESSOR_CMD			"=obtersuc"
+
 
 
 /*****  Código das funções exportadas pelo módulo  *****/
@@ -86,7 +89,7 @@
 
 /***********************************************************************
 *
-*  $FC Função: TVER Efetuar operações de teste específicas para vértice
+*  $FC Função: TVER Efetuar operações de teste específicas para grafo
 *
 *  $ED Descrição da função
 *     Efetua os diversos comandos de teste específicos para o módulo
@@ -116,14 +119,9 @@
 	  int * pValorObtido	= &ValorObtido;
 	  int ValorEsperado		= -6;
 	  int NumLidos			= -7 ;
-	  //int IdObtido		 = -2 ;
-	  //int IdDado		 = -3 ;
-	  //int ixVertice		 = -4 ;
-      //int ValorObtido	 = -7 ;
-	  //int * pValorObtido = &ValorObtido ;
-	  //int ValorDado		 = -8 ;
-	  //int ixVerticeOri	 = -9 ;
-	  //int ixVerticeDest	 = -10;
+	  int IdObtido			= -8;
+	  int * pIdObtido		= &IdObtido;
+	  int IdEsperado		= -9;
 
       TST_tpCondRet Ret ;
 
@@ -356,9 +354,63 @@
 
          } /* fim ativa: Testar GRA Ir vértice com Id */
 
+		 /* Testar GRA Obter Sucessor */
+
+         if ( strcmp( ComandoTeste , OBTER_SUCESSOR_CMD ) == 0 )
+         {
+            NumLidos = LER_LerParametros( "ii" , &IdVertice , &IdEsperado ,
+                               &CondRetEsperada ) ;
+            if ( NumLidos != 2 )
+            {
+               return TST_CondRetParm ;
+            } /* if */
+			
+            CondRetObtido = GRA_ObterSucessor ( pGrafo , IdVertice , 
+									 pIdObtido ) ;
+
+			Ret = TST_CompararInt ( CondRetEsperada , CondRetObtido , 
+									  "Retorno errado ao obter sucessor. " );
+
+			 if ( Ret != TST_CondRetOK )
+			 {
+				 return Ret ;
+			 } /* if */
+
+			 return TST_CompararInt ( IdEsperado , *pIdObtido ,
+									  "Id do vértice está errado." );
+
+         } /* fim ativa: Testar GRA Obter Sucessor */
+
+		 /* Testar GRA Obter Antecessor */
+
+         if ( strcmp( ComandoTeste , OBTER_ANTECESSOR_CMD ) == 0 )
+         {
+            NumLidos = LER_LerParametros( "ii" , &IdVertice , &IdEsperado ,
+                               &CondRetEsperada ) ;
+            if ( NumLidos != 2 )
+            {
+               return TST_CondRetParm ;
+            } /* if */
+			
+            CondRetObtido = GRA_ObterAntecessor ( pGrafo , IdVertice , 
+									 pIdObtido ) ;
+
+			Ret = TST_CompararInt ( CondRetEsperada , CondRetObtido , 
+									  "Retorno errado ao obter sucessor. " );
+
+			 if ( Ret != TST_CondRetOK )
+			 {
+				 return Ret ;
+			 } /* if */
+
+			 return TST_CompararInt ( IdEsperado , *pIdObtido ,
+									  "Id do vértice está errado." );
+
+			 } /* fim ativa: Testar GRA Obter Antecessor */
+
       return TST_CondRetNaoConhec ;
 
-   } /* Fim função: TVER Efetuar operações de teste específicas para vértice */
+         } /* Fim função: TGRA Efetuar operações de teste específicas para grafo */
 
 /********** Fim do módulo de implementação: Módulo de teste específico **********/
 
