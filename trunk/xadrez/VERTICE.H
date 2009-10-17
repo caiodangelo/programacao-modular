@@ -4,21 +4,22 @@
 *  Arquivo gerado:              VERTICE.H
 *  Letras identificadoras:      VER
 *
-*  Nome da base de software:    Exemplo de teste automatizado
-*  Arquivo da base de software: D:\AUTOTEST\PROJETOS\SIMPLES.BSW
-*
 *  Projeto: Disciplina INF 1301
 *  Gestor:  DI/PUC-Rio
 *  Autores: cev - Caio D'Angelo, Eduardo Velloso e Vitor Barbarisi
 *
 *  $HA Histórico de evolução:
 *     Versão  Autor    Data     Observações
-*       1.00   cev   25/09/2009 Início do desenvolvimento
+*       0	   cev   12/09/2009 Início do desenvolvimento
+*       1	   cev   19/10/2009 Entrega do trabalho
 *
 *  $ED Descrição do módulo
 *     Este módulo implementa um conjunto simples de funções para criar e
 *     explorar vértices.
-*	...
+*	  Cada vértice pode referenciar um tipo arbitrário de dados. Cada vér-
+*	  tice também possui um identificador, uma lista de sucessores e uma
+*	  lista de antecessores.
+*	
 *
 /***********************************************************************
 *

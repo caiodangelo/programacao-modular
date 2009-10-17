@@ -477,6 +477,8 @@ GER_tppPeca ObtemPeca ( char * disposicao ){
 ***********************************************************************/
 
 GER_tpCondRet ValidaLinha ( char * disposicao ){
+	
+	/* Declara e inicializa variáveis */
 	int Linha;
 	int Coluna;
 	char Tipo = disposicao[INX_TIPO];
@@ -487,6 +489,7 @@ GER_tpCondRet ValidaLinha ( char * disposicao ){
 	Linha = (int) (charLinha - '1');
 	Coluna = (int) (charColuna - 'A');
 
+	/* Verifica posição */
 	if((Linha<0)||(Linha>7)){
 
 		return GER_CondRetArqDispInvalido;
@@ -496,6 +499,7 @@ GER_tpCondRet ValidaLinha ( char * disposicao ){
 		return GER_CondRetArqDispInvalido;
 	} /* else if */
 
+	/* Verifica tipo */
 	if(
 		( Tipo != 'P' )&&
 		( Tipo != 'T' )&&
@@ -509,6 +513,7 @@ GER_tpCondRet ValidaLinha ( char * disposicao ){
 			return GER_CondRetArqDispInvalido;
 	} /* if */
 
+	/* Verifica cor */
 	if(
 		( Cor != 'B' )&&
 		( Cor != 'P' )

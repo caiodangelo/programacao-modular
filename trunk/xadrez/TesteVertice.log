@@ -11,19 +11,35 @@
 >>>    1  Linha:     7  Retorno errado ao criar vértice.  Deveria ser: 0  É: 1
 <<<    0  Linha:     8  Falha esperada foi recuperada. 
    10  == Verificar criar vértice
-   15  == Verificar destruir vértice
->>>    1  Linha:    17  Id do vértice está errado. Deveria ser: 5  É: -2
-<<<    0  Linha:    18  Falha esperada foi recuperada. 
->>>    1  Linha:    19  Valor do vértice está errado. Deveria ser: 5  É: -7
-<<<    0  Linha:    20  Falha esperada foi recuperada. 
-   22  == Verificar alterar valor do vértice
-   28  == Verificar adicionar sucessor
-   33  == Verificar remover sucessor
-!!!    0  Linha:    36  //fim 
+   13  == Verificar obter valor
+   15  == Verificar criar vértice
+   17  == Verificar criar vértice
+   19  == Verificar obter valor
+   21  == Verificar alterar valor
+   23  == Verificar obter valor
+   25  == Verificar adicionar sucessor
+   27  == Verificar adicionar sucessor novamente
+   29  == Verificar remover sucessor inexistente
+   31  == Verificar remover sucessor existente
+   33  == Verificar obter valor de vértice que não existe
+>>>    1  Linha:    34  Valor do vértice está errado. Deveria ser: 5  É: -7
+<<<    0  Linha:    35  Falha esperada foi recuperada. 
+   36  == Verificar alterar valor de vértice que não existe
+   38  == Verificar adicionar sucessor a vértice inexistente
+   40  == Verificar remover sucessor de vértice inexistente
+   43  == Verificar destruir vértice
+>>>    1  Linha:    45  Id do vértice está errado. Deveria ser: 5  É: -2
+<<<    0  Linha:    46  Falha esperada foi recuperada. 
+>>>    1  Linha:    47  Valor do vértice está errado. Deveria ser: 5  É: -7
+<<<    0  Linha:    48  Falha esperada foi recuperada. 
+   50  == Verificar alterar valor do vértice
+   56  == Verificar adicionar sucessor
+   61  == Verificar remover sucessor
+!!!    0  Linha:    64  //fim 
 
-!!! Número de linhas lidas:          37
-!!! Número de casos de teste:         6
-!!! Número comandos corretos:        12
+!!! Número de linhas lidas:          65
+!!! Número de casos de teste:        20
+!!! Número comandos corretos:        24
 !!! Número de falhas encontradas:     0
 
 !!! Não foram encontrados problemas

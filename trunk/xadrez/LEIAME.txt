@@ -1,9 +1,9 @@
 ------------------------------------------------------------------
-    Arquivo LEIAME do Grupo XXXXXXX
+    Arquivo LEIAME do Grupo CEV
 ------------------------------------------------------------------
 
 Este documento fornece informações complementares ou posteriores para 
-o YYYY e sua instalação.
+o trabalho 2 de INF1301 - Programação Modular e sua instalação.
 
 
 -------------------------
@@ -27,7 +27,9 @@ INSTALAÇÃO
 COMPILAÇÃO
 TESTES
 COMO OBTER AJUDA
-
+REGRAS DE SINTAXE DOS ARQUIVOS DE DISPOSIÇÃO DE PEÇAS NO TABULEIRO
+REGRAS DE SINTAXE DOS ARQUIVOS DE REGRAS DE MOVIMENTAÇÃO DISCRETA
+REGRAS DE SINTAXE DOS ARQUIVOS DE REGRAS DE MOVIMENTAÇÃO CONTÍNUA
 
 ----------------------
 REQUISITOS DO SISTEMA
@@ -69,10 +71,14 @@ TESTES
 COMO OBTER AJUDA
 -----------------
 
-Se tiver qualquer problema com este produto, entre em contato pleo 
-email XXXXX@XXX.com.br
+Se tiver qualquer problema com este produto, entre em contato por email:
+Eduardo Velloso	- eduardo.velloso@gmail.com
+Caio D'Angelo	- caioluizdangelo@gmail.com
+Vitor Barbarisi	- vitorbarbarisi@yahoo.com
 
-Regras de Sintaxe para a Criação de Arquivos de Disposição de Peças no Tabuleiro
+--------------------------------------------------------------------------------
+REGRAS DE SINTAXE DOS ARQUIVOS DE DISPOSIÇÃO DE PEÇAS NO TABULEIRO
+--------------------------------------------------------------------------------
 	
 	Cada linha do arquivo especificará a posição de apenas uma peça do jogo.
 	A sintaxe será <TipoDaPeça> <CorDaPeca> <Coluna> <Linha>
@@ -93,11 +99,12 @@ Regras de Sintaxe para a Criação de Arquivos de Disposição de Peças no Tabuleiro
 
 	Coluna: Contada da esquerda para a direita, variando de A a H
 
-Regras de Sintaxe para a Criação de Arquivos de Especificação de Regras de Movimentação de Peças no Tabuleiro
+-----------------------------------------------------------------
+REGRAS DE SINTAXE DOS ARQUIVOS DE REGRAS DE MOVIMENTAÇÃO DISCRETA
+----------------------------------------------------------------- 
 
 	Cada linha especificará as regras de movimentação de apenas uma peça do jogo.
 	No entanto, mais de uma linha poderá especificar a movimentaçao de uma mesma peça.
-	A sintaxe será de dois tipos:
 
 	Movimentação Discreta (Coordenadas Quadradas)
 	<TipoDaPeça> <TipoDaCasaDeDestino> <CasasNaHorizontal> <CasasNaVertical>
@@ -123,6 +130,13 @@ Regras de Sintaxe para a Criação de Arquivos de Especificação de Regras de Movim
 		valores positivos - número de casas para frente
 		valores negativos - número de casas para trás
 
+-----------------------------------------------------------------
+REGRAS DE SINTAXE DOS ARQUIVOS DE REGRAS DE MOVIMENTAÇÃO CONTÍNUA
+----------------------------------------------------------------- 
+
+	Cada linha especificará as regras de movimentação de apenas uma peça do jogo.
+	No entanto, mais de uma linha poderá especificar a movimentaçao de uma mesma peça.
+	
 	Movimentação Contínua (Coordenadas Polares)
 	<TipoDaPeça> <Direcao> <Casas>
  
@@ -143,3 +157,7 @@ Regras de Sintaxe para a Criação de Arquivos de Especificação de Regras de Movim
 		NW - noroeste
 		SE - sudeste
 		SW - sudoeste
+
+	Casas:
+		0..9	- número máximo de casas que a peça pode andar nesta direção
+		N 	- pode andar nesta direção até encontrar uma peça ou alcançar o fim do tabuleiro

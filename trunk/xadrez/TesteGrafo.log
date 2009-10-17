@@ -47,13 +47,12 @@
    69  == Verificar marcar origem
    71  == Verificar desmarcar origem
    73  == Verificar desmarcar origem inexistente
-!!!    0  Linha:    75  //== Verificar avançar sucessor 
-!!!    0  Linha:    76  //=avancarsucessor 1 0 
-!!!    0  Linha:    77  //== Verificar avançar sucessor de vertice sem sucessor 
-!!!    0  Linha:    78  //=avancarsucessor 2 12 
-!!!    0  Linha:    80  //obterverticecomid 
-!!!    0  Linha:    82  //obterant 
-!!!    0  Linha:    84  //obtersuc 
+!!!    0  Linha:    76  //== Verificar avançar sucessor 
+!!!    0  Linha:    77  //=avancarsucessor 1 0 
+!!!    0  Linha:    78  //== Verificar avançar sucessor de vertice sem sucessor 
+!!!    0  Linha:    79  //=avancarsucessor 2 12 
+!!!    0  Linha:    81  //obterant 
+!!!    0  Linha:    83  //obtersuc 
    85  == Verificar Destruir grafo
    88  == Tentar inserir vértice em grafo inexistente
    90  == Tentar exibir grafo

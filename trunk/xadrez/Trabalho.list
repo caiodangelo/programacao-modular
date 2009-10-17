@@ -1,19 +1,19 @@
 GERADOR DE SCRIPT DE DIRETIVAS PARA MAKE
    LES / Informática / PUC-Rio    Versão 6.00 (c) 2005
 
-Composição do construto: trabalho.comp
+Composição do construto: comprec.comp
 
    Nome do Construto:           Trabalho
    Diretório base:              C:\Dudu\Programacao Modular\trabalho\xadrez
 
-   Arquivo composição:          trabalho.comp
+   Arquivo composição:          comprec.comp
    Arquivo plataforma:          gmake.parm
 
    Arquivo diretivas MAKE:      Trabalho.make
    Arquivo diretivas LINK:      Trabalho.build
    Arquivo listagem:            Trabalho.list
 
-Módulos do construto: trabalho.comp
+Módulos do construto: comprec.comp
 
    Gerenciador.c
    Reconhecedor.c
@@ -25,37 +25,37 @@ Módulos do construto: trabalho.comp
 Estatísticas do construto
 
    Estatísticas do arquivo: GERENCIADOR.H
-      Total linhas:             351
-      Linhas de código:          40
-      Linhas de comentário:     256
-      Linhas em branco:          55
+      Total linhas:             375
+      Linhas de código:          42
+      Linhas de comentário:     275
+      Linhas em branco:          58
    Arquivos em que é incluído
       Gerenciador.c
       Reconhecedor.c
 
    Estatísticas do arquivo: GRAFO.H
-      Total linhas:             436
+      Total linhas:             438
       Linhas de código:          38
-      Linhas de comentário:     329
+      Linhas de comentário:     331
       Linhas em branco:          69
    Arquivos em que é incluído
       Grafo.c
       Reconhecedor.c
 
    Estatísticas do arquivo: Gerenciador.c
-      Total linhas:             478
-      Linhas de código:         242
-      Linhas de comentário:     155
-      Linhas em branco:          99
+      Total linhas:             524
+      Linhas de código:         269
+      Linhas de comentário:     167
+      Linhas em branco:         108
    Arquivos de inclusão de que necessita
       GERENCIADOR.H
       VERTICE.H
 
    Estatísticas do arquivo: Grafo.c
-      Total linhas:             724
-      Linhas de código:         382
+      Total linhas:             738
+      Linhas de código:         389
       Linhas de comentário:     139
-      Linhas em branco:         226
+      Linhas em branco:         233
    Arquivos de inclusão de que necessita
       GRAFO.H
       LISTA.H
@@ -87,19 +87,19 @@ Estatísticas do construto
       LISTA.h
 
    Estatísticas do arquivo: RECONHECEDOR.H
-      Total linhas:             115
-      Linhas de código:          21
-      Linhas de comentário:      69
-      Linhas em branco:          25
+      Total linhas:             122
+      Linhas de código:          20
+      Linhas de comentário:      78
+      Linhas em branco:          24
    Arquivos em que é incluído
       Reconhecedor.c
       TestRec.c
 
    Estatísticas do arquivo: Reconhecedor.c
-      Total linhas:             309
-      Linhas de código:         248
-      Linhas de comentário:       2
-      Linhas em branco:          59
+      Total linhas:             417
+      Linhas de código:         292
+      Linhas de comentário:      53
+      Linhas em branco:          75
    Arquivos de inclusão de que necessita
       GERENCIADOR.H
       GRAFO.H
@@ -123,10 +123,10 @@ Estatísticas do construto
       generico.h
 
    Estatísticas do arquivo: TestRec.c
-      Total linhas:             124
-      Linhas de código:          38
-      Linhas de comentário:      64
-      Linhas em branco:          24
+      Total linhas:             181
+      Linhas de código:          74
+      Linhas de comentário:      76
+      Linhas em branco:          34
    Arquivos de inclusão de que necessita
       RECONHECEDOR.H
       TST_ESPC.H
@@ -135,20 +135,20 @@ Estatísticas do construto
       lerparm.h
 
    Estatísticas do arquivo: VERTICE.H
-      Total linhas:             275
-      Linhas de código:          21
-      Linhas de comentário:     210
-      Linhas em branco:          44
+      Total linhas:             294
+      Linhas de código:          22
+      Linhas de comentário:     223
+      Linhas em branco:          49
    Arquivos em que é incluído
       Gerenciador.c
       Grafo.c
       Vertice.c
 
    Estatísticas do arquivo: Vertice.c
-      Total linhas:             482
-      Linhas de código:         243
-      Linhas de comentário:      98
-      Linhas em branco:         155
+      Total linhas:             535
+      Linhas de código:         269
+      Linhas de comentário:     104
+      Linhas em branco:         178
    Arquivos de inclusão de que necessita
       LISTA.H
       VERTICE.H
@@ -188,10 +188,10 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: DEFAULT  Path: .
-         Total linhas do tipo:      3329
-         Linhas de código:           331
-         Linhas de comentário:      2518
-         Linhas em branco:           480
+         Total linhas do tipo:      3381
+         Linhas de código:           333
+         Linhas de comentário:      2561
+         Linhas em branco:           487
          Arquivos deste tipo:         10
 
   Tipo: espstr   Path: .
@@ -209,17 +209,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: .
-         Total linhas do tipo:      2677
-         Linhas de código:          1441
-         Linhas de comentário:       594
-         Linhas em branco:           717
+         Total linhas do tipo:      2955
+         Linhas de código:          1581
+         Linhas de comentário:       675
+         Linhas em branco:           782
          Arquivos deste tipo:          6
 
 Totais para todo o construto Trabalho
 
-   Total linhas:              6006
-   Linhas de código:          1772
-   Linhas de comentário:      3112
-   Linhas em branco:          1197
+   Total linhas:              6336
+   Linhas de código:          1914
+   Linhas de comentário:      3236
+   Linhas em branco:          1269
    Arquivos processados:        16
 
