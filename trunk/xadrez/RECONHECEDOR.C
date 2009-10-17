@@ -25,7 +25,7 @@
 #define REGRASC "REGRASC.TXT"
 #define INX_TIPO 0
 
-/***** Protótipos das funções encapuladas no módulo *****/
+/***** Protótipos das funções encapsuladas no módulo *****/
 
 int CodificaPosicao ( char Coluna , int Linha );
 
@@ -172,11 +172,30 @@ REC_tpCondRet REC_GeraMovimentacoes ( GRA_tppGrafo * ppGrafo ){
 } /* Fim da Função: REC  &Gera Movimentações */
 
 
+/*****  Código das funções encapsuladas no módulo  *****/
 
-/***************************************************************************
+/***********************************************************************
 *
-*  Função: REC  &Adiciona Próximos Discretos
-*  ****/
+*  $FC Função: REC -Adiciona Próximas Peças ( Movimentação Discreta )
+*
+*  $ED Descrição da função
+*     Adiciona no grafo as peças alcançadas pela peça atual por um movimento
+*	  discreto.
+*
+*  $EP Parâmetros
+*     pPeca - referência para a peça de origem
+*	  pGrafo - grafo que contém a peça
+*	  Movimento - string que determina a movimentação da peça
+*	  ColunaCorrente - letra da coluna onde está a peça
+*	  LinhaCorrente - número da linha onde está a peça
+*
+*  $FV Valor retornado
+*     REC_CondRetOK - adicionou as peças sem problemas
+*	  REC_CondRetErroNaStringDeMovimento - string de movimentação com sintaxe incorreta
+*	  REC_CondRetPosicaoInvalida - peça referida pela string de movimento está numa posição inválida
+*	  REC_CondRetNaoInseriuPeca - erro ao inserir a peça
+*
+***********************************************************************/
 REC_tpCondRet AdicionaProximosDiscretos ( GER_tppPeca pPeca , GRA_tppGrafo pGrafo , char * Movimento , char ColunaCorrente , int LinhaCorrente ){
 
 	/* Declaração e Inicialização de Variáveis Locais */
@@ -209,8 +228,30 @@ REC_tpCondRet AdicionaProximosDiscretos ( GER_tppPeca pPeca , GRA_tppGrafo pGraf
 	CondRetREC = AdicionaProximo ( pGrafo , (char)ColunaCorrente , LinhaCorrente , (char)ColunaDoProximo , LinhaDoProximo, (char)TipoDaCasa, CorDaPeca );
 
 	return CondRetREC;
-}/* Fim da Função: REC  &Adiciona Próximos Discretos */
+}/* Fim da Função: REC -Adiciona Próximas Peças ( Movimentação Discreta ) */
 
+/***********************************************************************
+*
+*  $FC Função: REC -Adiciona Próximas Peças ( Movimentação Contínua )
+*
+*  $ED Descrição da função
+*     Adiciona no grafo as peças alcançadas pela peça atual por um movimento
+*	  contínuo.
+*
+*  $EP Parâmetros
+*     pPeca - referência para a peça de origem
+*	  pGrafo - grafo que contém a peça
+*	  Movimento - string que determina a movimentação da peça
+*	  ColunaCorrente - letra da coluna onde está a peça
+*	  LinhaCorrente - número da linha onde está a peça
+*
+*  $FV Valor retornado
+*     REC_CondRetOK - adicionou as peças sem problemas
+*	  REC_CondRetErroNaStringDeMovimento - string de movimentação com sintaxe incorreta
+*	  REC_CondRetPosicaoInvalida - peça referida pela string de movimento está numa posição inválida
+*	  REC_CondRetNaoInseriuPeca - erro ao inserir a peça
+*
+***********************************************************************/
 REC_tpCondRet AdicionaProximosContinuos ( GER_tppPeca pPeca , GRA_tppGrafo pGrafo , char * Movimento, char ColunaCorrente, int LinhaCorrente ){
 	
 	char Direcao[2]				= "";
@@ -282,6 +323,29 @@ REC_tpCondRet AdicionaProximosContinuos ( GER_tppPeca pPeca , GRA_tppGrafo pGraf
 	return REC_CondRetOK;
 }
 
+/***********************************************************************
+*
+*  $FC Função: REC -Adiciona Próxima Peça ( Genérica )
+*
+*  $ED Descrição da função
+*     Adiciona no grafo uma peça como próxima de uma outra
+*
+*  $EP Parâmetros
+*	  pGrafo - grafo que contém a peça
+*	  ColunaCorrente - coluna da peça de origem
+*	  LinhaCorrente - linha da peça de origem
+*	  ColunaProximo - coluna da peça de destino
+*	  LinhaPróximo - linha da peça de destino
+*	  TipoDaCasa - tipo da casa de destino ( se cheia, vazia ou não importa )
+*	  CorPecaCorrente - cor da peça de origem
+*
+*  $FV Valor retornado
+*     REC_CondRetOK - adicionou as peças sem problemas
+*	  REC_CondRetErroNaStringDeMovimento - string de movimentação com sintaxe incorreta
+*	  REC_CondRetPosicaoInvalida - peça referida pela string de movimento está numa posição inválida
+*	  REC_CondRetNaoInseriuPeca - erro ao inserir a peça
+*
+***********************************************************************/
 REC_tpCondRet AdicionaProximo ( GRA_tppGrafo pGrafo, char ColunaCorrente, int LinhaCorrente , char ColunaProximo, int LinhaProximo, char TipoDaCasa, GER_tpCorPeca CorPecaCorrente ){
 
 	int IdCorrente				= -1;
@@ -338,75 +402,23 @@ REC_tpCondRet AdicionaProximo ( GRA_tppGrafo pGrafo, char ColunaCorrente, int Li
 	}
 
 	return REC_CondRetOK;
-}
+} /* Fim da Função: REC -Adiciona Próxima Peça ( Genérica ) */
 
-REC_tpCondRet REC_ReconheceXequeMate ( GRA_tppGrafo pGrafo , GER_tpCorPeca CorPeca , int * pIdProx ){
-
-	int LinhaRei					= -1;
-	char ColunaRei					= '!' ;
-	int IdRei						= -1 ;
-	GER_tpCondRet CondRetGER		= GER_CondRetOK ;
-	GRA_tpCondRet CondRetGRA		= GRA_CondRetOK ;
-	int IdSucessor					= -1 ;
-	int IdAntecessor				= -1 ;
-	int IdPrimeiroSucessor			= -1 ;
-	int IdPrimeiroAntecessor		= -1 ;
-
-	CondRetGER = GER_ObterRei ( CorPeca , &ColunaRei , &LinhaRei  ) ;
-
-	if ( CondRetGER != GER_CondRetOK )
-	{
-		return REC_CondRetReiNaoExiste ;
-	}
-
-	IdRei = CodificaPosicao ( ColunaRei , LinhaRei );
-	CondRetGRA = GRA_IrVerticeComId ( pGrafo , IdRei ) ;
-	if ( CondRetGRA != GRA_CondRetOK )
-	{
-		return REC_CondRetReiNaoExiste ;
-	}
-
-	CondRetGRA = GRA_ObterSucessor ( pGrafo , IdRei , &IdPrimeiroSucessor );
-	if ( CondRetGRA != GRA_CondRetOK )
-	{
-		pIdProx = NULL ;
-		return REC_CondRetXequeMate ;
-	}
-
-	do
-	{
-		CondRetGRA = GRA_ObterSucessor ( pGrafo , IdRei , &IdSucessor );
-		if ( CondRetGRA != GRA_CondRetOK )
-		{
-			pIdProx = NULL ;
-			return REC_CondRetXequeMate ;
-		}
-
-		CondRetGRA = GRA_ObterAntecessor ( pGrafo , IdSucessor , &IdPrimeiroAntecessor );
-		if ( CondRetGRA != GRA_CondRetOK )
-		{
-				* pIdProx = -1 ;
-				return REC_CondRetNaoEstaEmXequeMate ;
-		}
-
-		do
-		{
-			CondRetGRA = GRA_ObterAntecessor ( pGrafo , IdSucessor , &IdAntecessor ) ;
-			if ( CondRetGRA != GRA_CondRetOK )
-			{
-				* pIdProx = -1 ;
-				return REC_CondRetNaoEstaEmXequeMate ;
-			}
-
-		}
-		while ( IdAntecessor != IdPrimeiroAntecessor ) ;
-	}
-	while ( IdSucessor != IdPrimeiroSucessor ) ;
-	
-	*pIdProx = -1 ;
-	return REC_CondRetXequeMate ;
-}
-
+/***********************************************************************
+*
+*  $FC Função: REC -Codifica Posição
+*
+*  $ED Descrição da função
+*     A partir da posição da peça no tabuleiro, gera um identificador para a peça
+*
+*  $EP Parâmetros
+*	  Coluna - letra da coluna da peça no tabuleiro
+*	  Linha - número da linha da peça no tabuleiro
+*
+*  $FV Valor retornado
+*     Retorna um identificador único para a peça no grafo.
+*
+***********************************************************************/
 int CodificaPosicao ( char Coluna , int Linha ){
 	
 	int NumeroDaLinha = Linha -1;
@@ -414,4 +426,4 @@ int CodificaPosicao ( char Coluna , int Linha ){
 	int NumeroDeColunas = ( int )( GER_ObterUltimaColunaTabuleiro ( ) - 'A' + 1)  ;
 
 	return ( ( NumeroDaLinha * NumeroDeColunas ) + NumeroDaColuna );
-}
+} /* Fim da Função: REC Codifica Posição */
