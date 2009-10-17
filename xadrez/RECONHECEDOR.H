@@ -55,23 +55,32 @@ typedef enum{
 		/* Não conseguiu inserir a peça */
 
 	REC_CondRetErroNaStringDeMovimento = 7,
+		/* String de movimento inválida */
 
 	REC_CondRetPosicaoInvalida = 9,
+		/* Posição inválida da peça no tabuleiro */
 
 	REC_CondRetNaoAdicionouProx = 10,
+		/* Erro ao adicionar peça como próxima */
 
 	REC_CondRetReiNaoExiste = 11,
+		/* Rei não foi encontrado no tabuleiro */
 
 	REC_CondRetXequeMate = 12 ,
+		/* Rei em Xeque Mate */
 
 	REC_CondRetNaoEstaEmXequeMate = 13 ,
+		/* Rei não está em Xeque Mate */
 
 }REC_tpCondRet;
 
+/***** Declarações importadas pelo módulo *****/
 
-typedef struct GER_tgPeca GER_tpPeca;
+/* Tipo referência para uma peça */
 
 typedef struct GER_tgPeca * GER_tppPeca;
+
+/* Tipo referência para um grafo */
 
 typedef struct GRA_tgGrafo * GRA_tppGrafo;
 
