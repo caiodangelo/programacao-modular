@@ -1,7 +1,7 @@
 ##################################################
 ###
 ### Diretivas de MAKE para o construto: Trabalho
-### Gerado a partir de: trabalho.comp
+### Gerado a partir de: comprec.comp
 ###
 ### ----- Arquivo gerado, NÃO EDITE!!! -----
 ###

@@ -254,6 +254,7 @@ REC_tpCondRet AdicionaProximosDiscretos ( GER_tppPeca pPeca , GRA_tppGrafo pGraf
 ***********************************************************************/
 REC_tpCondRet AdicionaProximosContinuos ( GER_tppPeca pPeca , GRA_tppGrafo pGrafo , char * Movimento, char ColunaCorrente, int LinhaCorrente ){
 	
+	/* Declara e inicializa variáveis */
 	char Direcao[2]				= "";
 	int NumMaxDeCasas			= 0;
 	int CoefHorizontal			= 0;
@@ -265,6 +266,7 @@ REC_tpCondRet AdicionaProximosContinuos ( GER_tppPeca pPeca , GRA_tppGrafo pGraf
 	char MaxCasas				= '#';
 	GER_tpCorPeca CorDaPeca		= GER_CorSemCor ;
 
+	/* Obtém os dados a partir da regra */
 	if ( sscanf ( Movimento , "%*c %s %c",
 				&Direcao , &MaxCasas )
 				!= 2 )
@@ -272,11 +274,13 @@ REC_tpCondRet AdicionaProximosContinuos ( GER_tppPeca pPeca , GRA_tppGrafo pGraf
 		return REC_CondRetErroNaStringDeMovimento;
 	}
 
+	/* Verifica as direções possíveis */
 	switch ( Direcao[0] ){
 		case 'N': CoefVertical = 1; break;
 		case 'S': CoefVertical = -1; break;
 		case 'E': CoefVertical = 0; break;
 		case 'W': CoefVertical = 0; break;
+		default: return REC_CondRetErroNaStringDeMovimento ;
 	}
 
 	switch ( Direcao[1] ){
@@ -284,8 +288,10 @@ REC_tpCondRet AdicionaProximosContinuos ( GER_tppPeca pPeca , GRA_tppGrafo pGraf
 		case 'S': CoefHorizontal = 0; break;
 		case 'E': CoefHorizontal = 1; break;
 		case 'W': CoefHorizontal = -1; break;
+		default: return REC_CondRetErroNaStringDeMovimento ;
 	}
 
+	/* Verifica o número de casas máximos */
 	if ( MaxCasas == 'N' )
 	{
 		NumMaxDeCasas = GER_ObterUltimaLinhaTabuleiro();
@@ -301,6 +307,7 @@ REC_tpCondRet AdicionaProximosContinuos ( GER_tppPeca pPeca , GRA_tppGrafo pGraf
 	}
 
 
+	/* Ajusta coeficiente para peças brancas */
 	CorDaPeca = GER_ObterCor ( pPeca );
 	if ( CorDaPeca == GER_CorBranca )
 	{
@@ -308,6 +315,7 @@ REC_tpCondRet AdicionaProximosContinuos ( GER_tppPeca pPeca , GRA_tppGrafo pGraf
 		CoefVertical = CoefVertical * (-1);
 	}
 
+	/* Adiciona as casas possíveis na direção dada */
 	for ( Fator = 1 ; Fator <=NumMaxDeCasas ; Fator++ )
 	{
 		LinhaDoProximo = LinhaCorrente + Fator * CoefVertical;
@@ -348,6 +356,7 @@ REC_tpCondRet AdicionaProximosContinuos ( GER_tppPeca pPeca , GRA_tppGrafo pGraf
 ***********************************************************************/
 REC_tpCondRet AdicionaProximo ( GRA_tppGrafo pGrafo, char ColunaCorrente, int LinhaCorrente , char ColunaProximo, int LinhaProximo, char TipoDaCasa, GER_tpCorPeca CorPecaCorrente ){
 
+	/* Declara e inicializa variáveis locais */
 	int IdCorrente				= -1;
 	int IdProximo				= -1;
 	GRA_tpCondRet CondRetGRA	= GRA_CondRetOK;
@@ -356,6 +365,7 @@ REC_tpCondRet AdicionaProximo ( GRA_tppGrafo pGrafo, char ColunaCorrente, int Li
 	GER_tpTipoPeca TipoDaPeca	= GER_TipoVazia;	
 	GER_tpCorPeca CorDaProxPeca	= GER_CorSemCor ;
 
+	/* Verifica se a posição das peças é válida */
 	if (( LinhaCorrente < 1 )||
 		( LinhaProximo < 1 )||
 		( LinhaCorrente > GER_ObterUltimaLinhaTabuleiro() )||
@@ -368,12 +378,14 @@ REC_tpCondRet AdicionaProximo ( GRA_tppGrafo pGrafo, char ColunaCorrente, int Li
 		return REC_CondRetPosicaoInvalida;
 	}
 
+	/* Obtém o sucessor */
 	CondRetGER = GER_ObterPecaDoTabuleiro ( &pPeca , ColunaProximo , LinhaProximo );
 	if ( CondRetGER != GER_CondRetOK )
 	{
 		return REC_CondRetPosicaoInvalida ;
 	} 
 
+	/* Obtém o tipo do sucessor e verifica se é válido */
 	TipoDaPeca = GER_ObterTipo ( pPeca );
 	if (( TipoDaPeca == GER_TipoVazia )&&
 		( TipoDaCasa == 'C' ))
@@ -386,15 +398,18 @@ REC_tpCondRet AdicionaProximo ( GRA_tppGrafo pGrafo, char ColunaCorrente, int Li
 		return REC_CondRetPosicaoInvalida;
 	}
 
+	/* Obtém a cor do sucessor */
 	CorDaProxPeca = GER_ObterCor ( pPeca );
 	if ( CorPecaCorrente == CorDaProxPeca )
 	{
 		return REC_CondRetPosicaoInvalida ;
 	}
 
+	/* Gera os identificadores para as peças */
 	IdCorrente = CodificaPosicao ( (char)ColunaCorrente , LinhaCorrente );
 	IdProximo = CodificaPosicao ( (char)ColunaProximo , LinhaProximo );
 
+	/* Insere a aresta entre as peças */
 	CondRetGRA = GRA_InserirAresta ( pGrafo , IdCorrente , IdProximo );
 	if ( CondRetGRA != GRA_CondRetOK )
 	{

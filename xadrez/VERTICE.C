@@ -1,11 +1,8 @@
 /***************************************************************************
-*  $MCI Módulo de implementação: Módulo vértice de um grafo
+*  $MCI Módulo de implementação: Módulo vértice
 *
 *  Arquivo gerado:              VERTICE.C
 *  Letras identificadoras:      VER
-*
-*  Nome da base de software:    Exemplo de teste automatizado
-*  Arquivo da base de software: D:\AUTOTEST\PROJETOS\SIMPLES.BSW
 *
 *  Projeto: Disciplina INF 1301
 *  Gestor:  DI/PUC-Rio
@@ -13,7 +10,8 @@
 *
 *  $HA Histórico de evolução:
 *     Versão  Autor    Data     Observações
-*       1.00   cev   25/09/2009 Início do desenvolvimento
+*       0	   cev   12/09/2009 Início do desenvolvimento
+*       1	   cev   19/10/2009 Entrega do trabalho
 *
 ***************************************************************************/
 
@@ -29,8 +27,9 @@
 *
 *
 *  $ED Descrição do tipo
-*     O vértice é uma estrutura que armazena um valor de qualquer tipo.
-*     ...
+*     O vértice é uma estrutura que armazena uma referência para um valor
+*	  de qualquer tipo. Ele também armazena uma lista de sucessores, uma
+*	  lista de antecessores e um identificador.
 *
 ***********************************************************************/
 
@@ -40,10 +39,10 @@
 			   /* Informação do Vértice */
 		 
          LIS_tppLista Sucessores ;
-               /* Ponteiro para a lista de vértices que são atingidos*/
+               /* Ponteiro para a lista de próximos vértices */
 
          LIS_tppLista Antecessores ;
-               /* Ponteiro para a lista de vértices que atingem*/
+               /* Ponteiro para a lista de vértices anteriores */
 
 		 int IdVertice;
 			  /* Identificador do vértice */
@@ -69,17 +68,20 @@
 
    VER_tpCondRet VER_CriarVertice ( VER_tppVertice* ppVertice, void * Valor, int IdVertice ){
 
+	  /* Verifica se existe valor armazenado no ponteiro */
 	  if ( *ppVertice != NULL )
       {
          VER_DestruirVertice( ppVertice ) ;
       } /* if */
 	 
+	  /* Aloca a memória para o vértice */
       (*ppVertice) = ( VER_tppVertice ) malloc( sizeof( VER_tpVertice )) ;
       if ( *ppVertice == NULL )
       {
          return VER_CondRetFaltouMemoria ;
       } /* if */
 	 
+	  /* Preenche os atributos */
       (*ppVertice)->Valor = Valor;
 	  (*ppVertice)->Sucessores = LIS_CriarLista( NULL );
 	  (*ppVertice)->Antecessores = LIS_CriarLista( NULL );
@@ -96,16 +98,19 @@
 
    VER_tpCondRet VER_ObterValor ( VER_tppVertice pVertice, void ** ppValor ) {
 
+	   /* Verifica se o vértice existe */
 		if ( pVertice == NULL )
 		{
 			return VER_CondRetVerticeNaoExiste ;
 		} /* if */
 
+		/* Verifica se o vértice está vazio */
 		if ( pVertice->Valor == NULL )
 		{
 			return VER_CondRetVerticeVazio ;
 		} /* if */
 		
+		/* Faz a atribuição */
 		else {
 			*ppValor = pVertice->Valor;
 		} /* else */
@@ -121,11 +126,13 @@
 
    VER_tpCondRet VER_AlterarValor ( VER_tppVertice pVertice, void * ValorNovo ){
 
+	   /* Verifica se o vértice existe */
 		if ( pVertice == NULL )
 		{
 			return VER_CondRetVerticeNaoExiste ;
 		} /* if */
 
+		/* Faz a atribuição */
 		pVertice->Valor = ValorNovo ;
 
    	  return VER_CondRetOK ;
@@ -139,11 +146,13 @@
 
 	void VER_DestruirVertice ( VER_tppVertice* ppVertice ){
 
+		/* Verifica se o vértice existe */
 		if ( *ppVertice == NULL )
 		{
 			return;
 		} /* if */
 
+		/* Limpa a lista de antecessores */
 		if( ((*ppVertice)->Antecessores) != NULL )
 		{
 			((*ppVertice)->Antecessores) = NULL;
@@ -414,7 +423,6 @@
 			pVertice = LIS_ObterValor( ListaSucessores ) ;
 
 		   if ( VER_ObterId( pVertice, &IdVertice ) == VER_CondRetVerticeNaoExiste ){
-			   printf("\n");
 			   return ;
 
 		   } else {
@@ -514,7 +522,6 @@
 			pVertice = LIS_ObterValor( ListaAntecessores ) ;
 
 		   if ( VER_ObterId( pVertice, &IdVertice ) == VER_CondRetVerticeNaoExiste ){
-			   printf("\n");
 			   return ;
 
 		   } else {

@@ -387,7 +387,7 @@ CondRetLista = LIS_ExcluirElemento( pGrafo->ListaVertices ) ;
 			    
 			   printf("Vertice: %d Sucessores: ", IdVertice);
 			   VER_ExibirSucessores(pVertice);
-			   printf("\n\n");
+			   printf("\n");
 			    printf("Vertice: %d Antecessores: ", IdVertice);
 			   VER_ExibirAntecessores(pVertice);
 			   printf("\n\n");
