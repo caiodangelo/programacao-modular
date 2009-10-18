@@ -391,7 +391,7 @@ GER_tpCondRet GER_ObterRei ( GER_tpCorPeca Cor , char * pColuna , int * pLinha )
 
 	for ( linha = 1 ; linha <= GER_ObterUltimaLinhaTabuleiro () ; linha++ )
 	{
-		for ( coluna = 'A' ; linha <= GER_ObterUltimaColunaTabuleiro () ; coluna++ )
+		for ( coluna = 'A' ; coluna <= GER_ObterUltimaColunaTabuleiro () ; coluna++ )
 		{
 			CondRet = GER_ObterPecaDoTabuleiro ( &pPeca , (char)coluna , linha ) ;
 			if ( CondRet != GER_CondRetOK )
@@ -406,8 +406,8 @@ GER_tpCondRet GER_ObterRei ( GER_tpCorPeca Cor , char * pColuna , int * pLinha )
 				* pColuna = (char)coluna;
 				return GER_CondRetOK ;
 			} /* if */
+			} /* for */
 		} /* for */
-	} /* for */
 
 	return GER_CondRetPecaNaoExiste ;
 
