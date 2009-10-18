@@ -13,12 +13,17 @@
 *
 *  $HA Histórico de evolução:
 *     Versão  Autor    Data     Observações
-*       1.00   cev   19/09/2009 Início do desenvolvimento
+*       0	   cev   12/09/2009 Início do desenvolvimento
+*       1	   cev   19/10/2009 Entrega do trabalho
 *
 *  $ED Descrição do módulo
 *     Este módulo implementa um conjunto simples de funções para criar e
 *     explorar grafos.
-*	...
+*	  Sendo um grafo um conjunto de vértices, a noção completa de grafo
+*	  é obtida com a utilização conjunta dos dois módulos.
+*	  Os grafos criados e manipulados serão genéricos pois a estrutura 
+*	  dos vértices propicia isso.
+*	  
 *
 /***********************************************************************
 *
@@ -89,8 +94,6 @@
 /***** Declarações importadas pelo módulo *****/
 
 	typedef struct VER_tgVertice * VER_tppVertice ;
-
-	typedef struct VER_tgVertice VER_tpVertice ;
 
 /***********************************************************************
 *  $FC Função: GRA Criar grafo

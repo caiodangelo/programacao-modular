@@ -165,14 +165,23 @@
 			  
 			   pVerticeSucessorCorrente = LIS_ObterValor( ListaSucessores ) ;
 
-				CondRetVertice = VER_RemoverSucessor ( pVertice,	
+			   if( pVerticeSucessorCorrente == NULL )
+			   {
+				   //Não faz nada porque o vértice não tem mais sucessores
+
+			   }
+			   else
+			   {
+				   CondRetVertice = VER_RemoverSucessor ( pVertice,	
 													  pVerticeSucessorCorrente );
 				
-				if (CondRetVertice != VER_CondRetOK){
+					if (CondRetVertice != VER_CondRetOK)
+					{
+						printf("Erro ao excluir sucessores\n");
+						return GRA_CondRetVerticeNaoExiste;
+					}/* if */
 
-					return GRA_CondRetVerticeNaoExiste;
-				}/* if */
-
+			   }/* else */
 		   }while(  (LIS_AvancarElementoCorrente( ListaSucessores, 1 ))
 				 != (LIS_CondRetFimLista||LIS_CondRetListaVazia) ); /* do while */
 
@@ -187,13 +196,22 @@
 		   do{
 				pVerticeAntecessorCorrente = LIS_ObterValor( ListaAntecessores ) ;
 
-				CondRetVertice = VER_RemoverSucessor ( pVerticeAntecessorCorrente,	
+				if( pVerticeAntecessorCorrente == NULL )
+				{
+					//Não faz nada porque o vértice não tem mais antecessores
+
+				}
+				else
+				{
+					CondRetVertice = VER_RemoverSucessor ( pVerticeAntecessorCorrente,	
 													  pVertice );
 				
-				if (CondRetVertice != VER_CondRetOK){
-					return GRA_CondRetVerticeNaoExiste;
-				}/* if */
-
+					if (CondRetVertice != VER_CondRetOK)
+					{
+						printf("Erro ao excluir antecessores\n");
+						return GRA_CondRetVerticeNaoExiste;
+					}/* if */
+				}/*else */
 		   }while(  (LIS_AvancarElementoCorrente( ListaAntecessores, 1 ))
 				 != (LIS_CondRetFimLista||LIS_CondRetListaVazia) ); /* do while */
 

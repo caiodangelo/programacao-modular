@@ -42,17 +42,6 @@
 =exibirgra 0
 == Verificar remover aresta
 =removerare 2 1 0
-//== Verificar remover aresta
-//=removerare 4 5 0
-//== Verificar exibir grafo
-//=exibirgra 0
-//== Verificar ir vértice com id
-//=irverticecomid 2 0
-//== Verificar excluir vértice
-//=excluir 0
-//=recuperar
-//== Verificar exibir grafo
-//=exibirgra 0
 
 == Verificar ir vértice com id
 =irverticecomid 4 0
@@ -72,6 +61,20 @@
 =desmarcarorigem 1 0
 == Verificar desmarcar origem inexistente
 =desmarcarorigem 2 8
+
+== Verificar ir vértice com id
+=irverticecomid 1 0
+== Verificar excluir vértice
+=excluir 0
+== Verificar exibir grafo
+=exibirgra 0
+
+== Verificar ir vértice com id
+=irverticecomid 6 0
+== Verificar excluir vértice
+=excluir 0
+== Verificar exibir grafo
+=exibirgra 0
 
 //== Verificar avançar sucessor
 //=avancarsucessor 1 0

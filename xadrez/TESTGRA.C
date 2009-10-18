@@ -123,14 +123,7 @@
 	  int IdEsperado		= -9;
 
       TST_tpCondRet Ret ;
-
-	  /*int i;
-
-	  for(i=0;i<10;i++){
-		  printf("ID do vertice: %d |--| Valor do vertice: %d\n\n",vtIdVertice[i],vtValorVertice[i]);
-
-	  }*/
-
+	  
       /* Testar GRA Criar grafo */
 
          if ( strcmp( ComandoTeste , CRIAR_GRA_CMD ) == 0 )
@@ -182,8 +175,6 @@
 			vtIdVertice[IdVertice] = IdVertice;
 			
             CondRetObtido = GRA_InserirVertice( pGrafo, &vtValorVertice[IdVertice], vtIdVertice[IdVertice] );	
-
-				printf("ponteiro pro grafo: %p\n\n",pGrafo);
 			
             return TST_CompararInt( CondRetEsperada , CondRetObtido ,
                                     "Retorno errado ao inserir vértice." );
