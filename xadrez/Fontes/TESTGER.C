@@ -61,6 +61,8 @@
 
 #include    "GERENCIADOR.H"
 
+#define		DISPOSICAO				"..\\Definicao\\DISPOSICAO.TXT"
+
 /* Tabela dos nomes dos comandos de teste específicos */
 
 #define     INICIALIZAR_TAB_CMD     "=inicializar"
@@ -256,7 +258,7 @@ GER_tppPeca pPeca = NULL;
 				 return TST_CondRetParm ;
 			 } /* if */
 
-			 CondRetObtida = GER_PreencherTabuleiro ( "DISPOSICAO.TXT" );
+			 CondRetObtida = GER_PreencherTabuleiro ( DISPOSICAO );
 
 			return TST_CompararInt ( CondRetEsperada , CondRetObtida ,
 									  "Retorno não esperado ao preencher tabuleiro." );
