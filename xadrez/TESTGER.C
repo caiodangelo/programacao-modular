@@ -1,10 +1,11 @@
 /***************************************************************************
-*  $MCI Módulo de implementação: Módulo de teste específico do módulo grafo
+*  $MCI Módulo de implementação: Módulo de teste específico do módulo geren-
+*									ciador de xadrez
 *
 *  Arquivo gerado:              TESTGER.C
 *  Letras identificadoras:      TGER
 *
-*  Projeto: Disciplinas INF 1628 / 1301
+*  Projeto: INF 1301 - Programação Modular
 *  Gestor:  DI/PUC-Rio
 *  Autores: cev - Caio D'Angelo, Eduardo Velloso e Vitor Barbarisi
 *
@@ -15,15 +16,18 @@
 *
 *  $ED Descrição do módulo
 *     Este módulo contém as funções específicas para o teste do
-*     módulo vértice. 
+*     módulo gerenciado de xadrez. 
 *
 *  $EIU Interface com o usuário pessoa
 *     Comandos de teste específicos para testar o módulo vértice:
 *
-*     "=criar <Int> <String>"		- chama a função VER_CriarVertice( vtpVertice[<Int>], <String> )
+*     "=inicializar <CondRetEsp>"			- chama a função GER_InicializarTabuleiro ( )
 *
-*     "=alterar <Int> <String>"
-*									- chama a função VER_AlterarValor( vtpVertice[<Int>], <String> )
+*     "=criarpeca <Tipo> <CondRetEsp>"		- chama a função GER_CriarPeca ( )
+*
+*	  "=obtertipo <TipoEsp> <CondRetEsp>"	- chama a função GER_ObterTipo ( )
+*
+*	  "=obtertipo <TipoEsp> <CondRetEsp>"	- chama a função GER_ObterTipo ( )
 *
 *     "=destruir <Int>"				- chama a função VER_DestruirVertice( vtpVertice[<Int>] )
 *
