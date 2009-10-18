@@ -309,7 +309,8 @@ GRA_tpCondRet GRA_RemoverAresta( GRA_tppGrafo pGrafo, int idVerticeOrigem,
 *				   referenciará o ponteiro para a estrutura do valor.
 *
 *  $FV Valor retornado
-*	  GRA_CondRetIndiceInvalido - indice passado não é válido
+*	  GRA_CondRetIndiceInvalido - indice passado não é válido						
+*	  GRA_CondRetGrafoInexistente - indice passado não é válido
 *     OK
 *
 ***********************************************************************/
@@ -340,25 +341,6 @@ GRA_tpCondRet GRA_RemoverAresta( GRA_tppGrafo pGrafo, int idVerticeOrigem,
 
 	 GRA_tpCondRet GRA_AvancarSucessor( GRA_tppGrafo pGrafo, int IdVertice );
 
-
-/***********************************************************************
-*
-*  $FC Função: GRA Obtem Vértice Com ID
-*
-*  $ED Descrição da função
-*     Obtém o vértice a partir do índice dado.
-*
-*  $EP Parâmetros
-*     $P pGrafo - ponteiro para a cabeça do grafo.
-*     $P IdVertice - indice do vértice a ser marcado como origem.
-*
-*  $FV Valor retornado
-*     Retorna o endereço do vértice (tipo VER_tppVertice) caso este seja encontrado
-*	  ou NULL caso não seja encontrado nenhum vértice com o índice passado.
-*
-***********************************************************************/
-
-	 VER_tppVertice GRA_ObtemVerticeComId( GRA_tppGrafo pGrafo, int IdVertice );
 
 /***********************************************************************
 *
