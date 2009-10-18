@@ -344,7 +344,7 @@ GER_tppPeca pPeca = NULL;
 
 	/* Testar GER Obter rei */
 
-         else if ( strcmp( ComandoTeste , OBTER_COD_COR_CMD ) == 0 )
+         else if ( strcmp( ComandoTeste , OBTER_REI_CMD ) == 0 )
          {
 			 NumLidos = LER_LerParametros ( "ici" , 
 											&CorPeca, &ColunaEsperada , &ValorEsperado ) ;
