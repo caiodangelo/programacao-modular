@@ -1,0 +1,7 @@
+/OUT:..\Produto\TesteReconhecedor.exe
+/INCREMENTAL:NO
+/MACHINE:IX86
+gerenciador.obj  reconhecedor.obj  grafo.obj  vertice.obj  lista.obj  
+testrec.obj  
+ArcaboucoTeste.lib
+

@@ -1,0 +1,6 @@
+/OUT:..\Produto\TesteGerenciador.exe
+/INCREMENTAL:NO
+/MACHINE:IX86
+vertice.obj  gerenciador.obj  grafo.obj  lista.obj  testger.obj  
+ArcaboucoTeste.lib
+

@@ -1,0 +1,26 @@
+# Composicao do programa relativo ao teste do módulo vértice
+
+[Diretorios]
+
+Nome        =  TesteVertice
+PathDefault =  ..\Fontes
+err         =  ..\Produto
+obj         =  ..\Objetos
+c           =  ..\Fontes
+h           =  ..\Fontes
+
+[Modulos]
+Vertice
+Lista
+TestVer
+
+
+[BuildInicio]
+/OUT:..\Produto\TesteVertice.exe
+/INCREMENTAL:NO
+/MACHINE:IX86
+
+[BuildFim]
+ArcaboucoTeste.lib
+
+[Fim]

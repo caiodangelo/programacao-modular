@@ -1,0 +1,6 @@
+/OUT:..\Produto\TesteVertice.exe
+/INCREMENTAL:NO
+/MACHINE:IX86
+vertice.obj  lista.obj  testver.obj  
+ArcaboucoTeste.lib
+

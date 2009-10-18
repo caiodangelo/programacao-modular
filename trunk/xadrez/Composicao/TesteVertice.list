@@ -1,0 +1,155 @@
+GERADOR DE SCRIPT DE DIRETIVAS PARA MAKE
+   LES / Informática / PUC-Rio    Versão 6.00 (c) 2005
+
+Composição do construto: CompVer.comp
+
+   Nome do Construto:           TesteVertice
+   Diretório base:              C:\Dudu\Programacao Modular\trabalho\xadrez\composicao
+
+   Arquivo composição:          CompVer.comp
+   Arquivo plataforma:          gmake.parm
+
+   Arquivo diretivas MAKE:      TesteVertice.make
+   Arquivo diretivas LINK:      TesteVertice.build
+   Arquivo listagem:            TesteVertice.list
+
+Módulos do construto: CompVer.comp
+
+   vertice.c
+   lista.c
+   testver.c
+
+Estatísticas do construto
+
+   Estatísticas do arquivo: generico.h
+      Total linhas:             713
+      Linhas de código:          59
+      Linhas de comentário:     572
+      Linhas em branco:          82
+   Arquivos de inclusão de que necessita
+      tst_espc.h
+   Arquivos em que é incluído
+      testver.c
+
+   Estatísticas do arquivo: lerparm.h
+      Total linhas:             291
+      Linhas de código:          36
+      Linhas de comentário:     188
+      Linhas em branco:          67
+   Arquivos em que é incluído
+      testver.c
+
+   Estatísticas do arquivo: lista.c
+      Total linhas:             560
+      Linhas de código:         288
+      Linhas de comentário:     136
+      Linhas em branco:         154
+   Arquivos de inclusão de que necessita
+      lista.h
+
+   Estatísticas do arquivo: lista.h
+      Total linhas:             346
+      Linhas de código:          35
+      Linhas de comentário:     262
+      Linhas em branco:          49
+   Arquivos em que é incluído
+      lista.c
+      vertice.c
+
+   Estatísticas do arquivo: testver.c
+      Total linhas:             259
+      Linhas de código:         130
+      Linhas de comentário:      77
+      Linhas em branco:          60
+   Arquivos de inclusão de que necessita
+      generico.h
+      lerparm.h
+      tst_espc.h
+      vertice.h
+
+   Estatísticas do arquivo: tst_espc.h
+      Total linhas:             228
+      Linhas de código:          23
+      Linhas de comentário:     185
+      Linhas em branco:          20
+   Arquivos em que é incluído
+      generico.h
+      testver.c
+
+   Estatísticas do arquivo: vertice.c
+      Total linhas:             556
+      Linhas de código:         267
+      Linhas de comentário:     126
+      Linhas em branco:         179
+   Arquivos de inclusão de que necessita
+      lista.h
+      vertice.h
+
+   Estatísticas do arquivo: vertice.h
+      Total linhas:             293
+      Linhas de código:          22
+      Linhas de comentário:     222
+      Linhas em branco:          49
+   Arquivos em que é incluído
+      testver.c
+      vertice.c
+
+Totais por tipo de arquivo
+
+  Tipo: h        Path: ..\Fontes
+         Total linhas do tipo:      1871
+         Linhas de código:           175
+         Linhas de comentário:      1429
+         Linhas em branco:           267
+         Arquivos deste tipo:          5
+
+  Tipo: obj      Path: ..\Objetos
+         Total linhas do tipo:         0
+         Linhas de código:             0
+         Linhas de comentário:         0
+         Linhas em branco:             0
+         Arquivos deste tipo:          0
+
+  Tipo: err      Path: ..\Produto
+         Total linhas do tipo:         0
+         Linhas de código:             0
+         Linhas de comentário:         0
+         Linhas em branco:             0
+         Arquivos deste tipo:          0
+
+  Tipo: DEFAULT  Path: ..\Fontes
+         Total linhas do tipo:         0
+         Linhas de código:             0
+         Linhas de comentário:         0
+         Linhas em branco:             0
+         Arquivos deste tipo:          0
+
+  Tipo: espstr   Path: ..\Fontes
+         Total linhas do tipo:         0
+         Linhas de código:             0
+         Linhas de comentário:         0
+         Linhas em branco:             0
+         Arquivos deste tipo:          0
+
+  Tipo: lista    Path: ..\Fontes
+         Total linhas do tipo:         0
+         Linhas de código:             0
+         Linhas de comentário:         0
+         Linhas em branco:             0
+         Arquivos deste tipo:          0
+
+  Tipo: c        Path: ..\Fontes
+         Total linhas do tipo:      1375
+         Linhas de código:           685
+         Linhas de comentário:       339
+         Linhas em branco:           393
+         Arquivos deste tipo:          3
+
+Totais para todo o construto TesteVertice
+
+   Total linhas:              3246
+   Linhas de código:           860
+   Linhas de comentário:      1768
+   Linhas em branco:           660
+   Arquivos processados:         8
+

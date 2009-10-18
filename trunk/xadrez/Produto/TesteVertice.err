@@ -1,0 +1,11 @@
+vertice.c
+lista.c
+testver.c
+Microsoft (R) Incremental Linker Version 9.00.21022.08
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/OUT:..\Produto\TesteVertice.exe 
+/INCREMENTAL:NO 
+/MACHINE:IX86 
+vertice.obj lista.obj testver.obj 
+ArcaboucoTeste.lib 

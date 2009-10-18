@@ -1,0 +1,27 @@
+# Composicao do programa relativo ao teste do módulo grafo
+
+[Diretorios]
+
+Nome        =  TesteGrafo
+PathDefault =  ..\Fontes
+err         =  ..\Produto
+obj         =  ..\Objetos
+c           =  ..\Fontes
+h           =  ..\Fontes
+
+[Modulos]
+Vertice
+Grafo
+Lista
+TestGra
+
+
+[BuildInicio]
+/OUT:..\Produto\TesteGrafo.exe
+/INCREMENTAL:NO
+/MACHINE:IX86
+
+[BuildFim]
+ArcaboucoTeste.lib
+
+[Fim]

@@ -1,0 +1,43 @@
+gerenciador.c
+testger.c
+Microsoft (R) Incremental Linker Version 9.00.21022.08
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/OUT:..\Produto\TesteGerenciador.exe 
+/INCREMENTAL:NO 
+/MACHINE:IX86 
+vertice.obj gerenciador.obj grafo.obj lista.obj testger.obj 
+ArcaboucoTeste.lib 
+grafo.c
+testgra.c
+Microsoft (R) Incremental Linker Version 9.00.21022.08
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/OUT:..\Produto\TesteGrafo.exe 
+/INCREMENTAL:NO 
+/MACHINE:IX86 
+vertice.obj grafo.obj lista.obj testgra.obj 
+ArcaboucoTeste.lib 
+reconhecedor.c
+testrec.c
+Microsoft (R) Incremental Linker Version 9.00.21022.08
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/OUT:..\Produto\TesteReconhecedor.exe 
+/INCREMENTAL:NO 
+/MACHINE:IX86 
+gerenciador.obj reconhecedor.obj grafo.obj vertice.obj lista.obj 
+testrec.obj 
+ArcaboucoTeste.lib 
+vertice.c
+lista.c
+testver.c
+Microsoft (R) Incremental Linker Version 9.00.21022.08
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/OUT:..\Produto\TesteVertice.exe 
+/INCREMENTAL:NO 
+/MACHINE:IX86 
+vertice.obj lista.obj testver.obj 
+ArcaboucoTeste.lib 
+

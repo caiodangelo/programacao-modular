@@ -1,0 +1,10 @@
+grafo.c
+testgra.c
+Microsoft (R) Incremental Linker Version 9.00.21022.08
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/OUT:..\Produto\TesteGrafo.exe 
+/INCREMENTAL:NO 
+/MACHINE:IX86 
+vertice.obj grafo.obj lista.obj testgra.obj 
+ArcaboucoTeste.lib 

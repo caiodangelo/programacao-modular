@@ -1,0 +1,21 @@
+
+!!! Inicio dos testes
+!!!      Construto sob teste: ..\produto\testereconhecedor
+!!!      Script de teste:     ..\scripts\testereconhecedor.script
+
+!!!    0  Linha:     1  // Script:    Testereconhecedor.script 
+!!!    0  Linha:     2  // Autores:   Caio, Eduardo e Vitor 
+!!!    0  Linha:     3  // Data:      12/out/2009 
+!!!    0  Linha:     4  // Propósito: Testar o módulo RECONHECEDOR 
+    6  ==Verificar montar grafo
+!!!    0  Linha:    10  //fim 
+
+!!! Número de linhas lidas:          11
+!!! Número de casos de teste:         1
+!!! Número comandos corretos:         3
+!!! Número de falhas encontradas:     0
+
+!!! Não foram encontrados problemas
+
+
+!!! Numero de espacos ainda alocados: 0
