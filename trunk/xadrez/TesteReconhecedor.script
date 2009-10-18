@@ -4,6 +4,8 @@
 // Propósito: Testar o módulo RECONHECEDOR
 
 ==Verificar montar grafo
-=adicionarmov 0
+=adicionarpecas 0
+=gerarmov 0
+=exibir 
 //fim
 

@@ -201,7 +201,7 @@ GER_tpCondRet GER_InicializarTabuleiro ( void ){
 
 /***************************************************************************
 *
-*  Função: GER  &Destruir Tabuleiro
+*  Função: GER  &Limpar Tabuleiro
 *  ****/
 void GER_LimparTabuleiro ( void ){
 	

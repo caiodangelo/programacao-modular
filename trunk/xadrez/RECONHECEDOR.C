@@ -91,7 +91,7 @@ REC_tpCondRet REC_AdicionarPecasAoGrafo ( GRA_tppGrafo * ppGrafo ){
 *  ****/
 REC_tpCondRet REC_GeraMovimentacoes ( GRA_tppGrafo * ppGrafo ){
 	FILE * ArquivoDeRegras;
-	GRA_tppGrafo pGrafo = *ppGrafo;
+	GRA_tppGrafo pGrafo = * ppGrafo;
 	int linha;
 	int coluna;
 	GER_tpCondRet CondRetGer;
@@ -99,8 +99,7 @@ REC_tpCondRet REC_GeraMovimentacoes ( GRA_tppGrafo * ppGrafo ){
 	char movimentos[TAM_MOVIMENTO];
 	GER_tpTipoPeca TipoPeca;
 
-	/* Cria o grafo e adiciona as peças a ele */
-	REC_AdicionarPecasAoGrafo ( &pGrafo ) ;
+	/* Verifica se o grafo está criado */
 	if ( pGrafo == NULL )
 	{
 		return REC_CondRetNaoCriouGrafo ;
