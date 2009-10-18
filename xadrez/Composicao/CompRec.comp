@@ -1,0 +1,29 @@
+# Composicao do programa relativo ao teste do módulo reconhecedor
+
+[Diretorios]
+
+Nome        =  TesteReconhecedor
+PathDefault =  ..\Fontes
+err         =  ..\Produto
+obj         =  ..\Objetos
+c           =  ..\Fontes
+h           =  ..\Fontes
+
+[Modulos]
+Gerenciador
+Reconhecedor
+Grafo
+Vertice
+Lista
+TestRec
+
+
+[BuildInicio]
+/OUT:..\Produto\TesteReconhecedor.exe
+/INCREMENTAL:NO
+/MACHINE:IX86
+
+[BuildFim]
+ArcaboucoTeste.lib
+
+[Fim]

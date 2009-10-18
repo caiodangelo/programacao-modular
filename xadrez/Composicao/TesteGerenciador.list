@@ -1,0 +1,195 @@
+GERADOR DE SCRIPT DE DIRETIVAS PARA MAKE
+   LES / Informática / PUC-Rio    Versão 6.00 (c) 2005
+
+Composição do construto: CompGer.comp
+
+   Nome do Construto:           TesteGerenciador
+   Diretório base:              C:\Dudu\Programacao Modular\trabalho\xadrez\composicao
+
+   Arquivo composição:          CompGer.comp
+   Arquivo plataforma:          gmake.parm
+
+   Arquivo diretivas MAKE:      TesteGerenciador.make
+   Arquivo diretivas LINK:      TesteGerenciador.build
+   Arquivo listagem:            TesteGerenciador.list
+
+Módulos do construto: CompGer.comp
+
+   vertice.c
+   gerenciador.c
+   grafo.c
+   lista.c
+   testger.c
+
+Estatísticas do construto
+
+   Estatísticas do arquivo: generico.h
+      Total linhas:             713
+      Linhas de código:          59
+      Linhas de comentário:     572
+      Linhas em branco:          82
+   Arquivos de inclusão de que necessita
+      tst_espc.h
+   Arquivos em que é incluído
+      testger.c
+
+   Estatísticas do arquivo: gerenciador.c
+      Total linhas:             526
+      Linhas de código:         269
+      Linhas de comentário:     168
+      Linhas em branco:         109
+   Arquivos de inclusão de que necessita
+      gerenciador.h
+      vertice.h
+
+   Estatísticas do arquivo: gerenciador.h
+      Total linhas:             372
+      Linhas de código:          42
+      Linhas de comentário:     272
+      Linhas em branco:          58
+   Arquivos em que é incluído
+      gerenciador.c
+      testger.c
+
+   Estatísticas do arquivo: grafo.c
+      Total linhas:             756
+      Linhas de código:         405
+      Linhas de comentário:     142
+      Linhas em branco:         233
+   Arquivos de inclusão de que necessita
+      grafo.h
+      lista.h
+      vertice.h
+
+   Estatísticas do arquivo: grafo.h
+      Total linhas:             441
+      Linhas de código:          37
+      Linhas de comentário:     336
+      Linhas em branco:          68
+   Arquivos em que é incluído
+      grafo.c
+
+   Estatísticas do arquivo: lerparm.h
+      Total linhas:             291
+      Linhas de código:          36
+      Linhas de comentário:     188
+      Linhas em branco:          67
+   Arquivos em que é incluído
+      testger.c
+
+   Estatísticas do arquivo: lista.c
+      Total linhas:             560
+      Linhas de código:         288
+      Linhas de comentário:     136
+      Linhas em branco:         154
+   Arquivos de inclusão de que necessita
+      lista.h
+
+   Estatísticas do arquivo: lista.h
+      Total linhas:             346
+      Linhas de código:          35
+      Linhas de comentário:     262
+      Linhas em branco:          49
+   Arquivos em que é incluído
+      grafo.c
+      lista.c
+      vertice.c
+
+   Estatísticas do arquivo: testger.c
+      Total linhas:             380
+      Linhas de código:         203
+      Linhas de comentário:     103
+      Linhas em branco:          89
+   Arquivos de inclusão de que necessita
+      generico.h
+      gerenciador.h
+      lerparm.h
+      tst_espc.h
+
+   Estatísticas do arquivo: tst_espc.h
+      Total linhas:             228
+      Linhas de código:          23
+      Linhas de comentário:     185
+      Linhas em branco:          20
+   Arquivos em que é incluído
+      generico.h
+      testger.c
+
+   Estatísticas do arquivo: vertice.c
+      Total linhas:             556
+      Linhas de código:         267
+      Linhas de comentário:     126
+      Linhas em branco:         179
+   Arquivos de inclusão de que necessita
+      lista.h
+      vertice.h
+
+   Estatísticas do arquivo: vertice.h
+      Total linhas:             293
+      Linhas de código:          22
+      Linhas de comentário:     222
+      Linhas em branco:          49
+   Arquivos em que é incluído
+      gerenciador.c
+      grafo.c
+      vertice.c
+
+Totais por tipo de arquivo
+
+  Tipo: h        Path: ..\Fontes
+         Total linhas do tipo:      2684
+         Linhas de código:           254
+         Linhas de comentário:      2037
+         Linhas em branco:           393
+         Arquivos deste tipo:          7
+
+  Tipo: obj      Path: ..\Objetos
+         Total linhas do tipo:         0
+         Linhas de código:             0
+         Linhas de comentário:         0
+         Linhas em branco:             0
+         Arquivos deste tipo:          0
+
+  Tipo: err      Path: ..\Produto
+         Total linhas do tipo:         0
+         Linhas de código:             0
+         Linhas de comentário:         0
+         Linhas em branco:             0
+         Arquivos deste tipo:          0
+
+  Tipo: DEFAULT  Path: ..\Fontes
+         Total linhas do tipo:         0
+         Linhas de código:             0
+         Linhas de comentário:         0
+         Linhas em branco:             0
+         Arquivos deste tipo:          0
+
+  Tipo: espstr   Path: ..\Fontes
+         Total linhas do tipo:         0
+         Linhas de código:             0
+         Linhas de comentário:         0
+         Linhas em branco:             0
+         Arquivos deste tipo:          0
+
+  Tipo: lista    Path: ..\Fontes
+         Total linhas do tipo:         0
+         Linhas de código:             0
+         Linhas de comentário:         0
+         Linhas em branco:             0
+         Arquivos deste tipo:          0
+
+  Tipo: c        Path: ..\Fontes
+         Total linhas do tipo:      2778
+         Linhas de código:          1432
+         Linhas de comentário:       675
+         Linhas em branco:           764
+         Arquivos deste tipo:          5
+
+Totais para todo o construto TesteGerenciador
+
+   Total linhas:              5462
+   Linhas de código:          1686
+   Linhas de comentário:      2712
+   Linhas em branco:          1157
+   Arquivos processados:        12
+

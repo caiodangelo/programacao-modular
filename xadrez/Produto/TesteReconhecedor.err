@@ -1,0 +1,11 @@
+reconhecedor.c
+testrec.c
+Microsoft (R) Incremental Linker Version 9.00.21022.08
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/OUT:..\Produto\TesteReconhecedor.exe 
+/INCREMENTAL:NO 
+/MACHINE:IX86 
+gerenciador.obj reconhecedor.obj grafo.obj vertice.obj lista.obj 
+testrec.obj 
+ArcaboucoTeste.lib 

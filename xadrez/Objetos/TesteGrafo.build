@@ -1,0 +1,6 @@
+/OUT:..\Produto\TesteGrafo.exe
+/INCREMENTAL:NO
+/MACHINE:IX86
+vertice.obj  grafo.obj  lista.obj  testgra.obj  
+ArcaboucoTeste.lib
+
