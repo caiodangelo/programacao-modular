@@ -145,8 +145,6 @@ typedef enum {
 *  $EP Parâmetros
 *     $P pVertice - ponteiro que referencia o vértice.
 *
-*  $FV Valor retornado
-*
 ***********************************************************************/
 
 	void VER_DestruirVertice ( VER_tppVertice* ppVertice );

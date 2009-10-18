@@ -1,11 +1,8 @@
 /***************************************************************************
-*  $MCI Módulo de implementação: Módulo de teste específico
+*  $MCI Módulo de implementação: Módulo de teste específico do módulo grafo
 *
 *  Arquivo gerado:              TESTGER.C
 *  Letras identificadoras:      TGER
-*
-*  Nome da base de software:    Exemplo de teste automatizado
-*  Arquivo da base de software: D:\AUTOTEST\PROJETOS\SIMPLES.BSW
 *
 *  Projeto: Disciplinas INF 1628 / 1301
 *  Gestor:  DI/PUC-Rio
@@ -13,7 +10,8 @@
 *
 *  $HA Histórico de evolução:
 *     Versão  Autor    Data     Observações
-*       1.00   cev   19/09/2009 Início do desenvolvimento
+*     0       cev   12/set/2009 Início desenvolvimento
+*	  1		  cev	19/out/2009 Entrega do trabalho
 *
 *  $ED Descrição do módulo
 *     Este módulo contém as funções específicas para o teste do
