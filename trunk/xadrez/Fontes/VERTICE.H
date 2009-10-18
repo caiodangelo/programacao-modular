@@ -51,6 +51,9 @@ typedef enum {
 		VER_CondRetVerticeNaoEhAntecessor = 6 ,
 				/* Vértice destino não é antecessor do vértice origem */
 
+		 VER_CondRetErroEstrutural = 7 ,
+               /* Faltou memória ao alocar dados */
+
 
 } VER_tpCondRet;
 
@@ -144,6 +147,8 @@ typedef enum {
 *
 *  $EP Parâmetros
 *     $P pVertice - ponteiro que referencia o vértice.
+*	  Se o ponteiro passado for nulo a função retorna sem executar
+*	  o procedimento de destruição
 *
 ***********************************************************************/
 
