@@ -22,6 +22,9 @@
 *	  buleiro construído pelo módulo GERENCIADOR e do arquivo de regras
 *	  de movimentação para montar um grafo contendo todas as possibili-
 *	  dades de movimentação de todas as peças.
+*	  A versão corrente ainda não implementa o reconhecimento do xeque
+*	  mate, mas ela gera o grafo com todos os movimentos possíveis para
+*	  todas as peças do tabuleiro.
 *
 *
 /***********************************************************************

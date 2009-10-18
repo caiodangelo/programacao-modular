@@ -16,7 +16,7 @@
 *
 *  $ED Descrição do módulo
 *     Este módulo contém as funções específicas para o teste do
-*     módulo gerenciado de xadrez. 
+*     módulo gerenciador de xadrez. 
 *
 *  $EIU Interface com o usuário pessoa
 *     Comandos de teste específicos para testar o módulo vértice:
@@ -27,13 +27,27 @@
 *
 *	  "=obtertipo <TipoEsp> <CondRetEsp>"	- chama a função GER_ObterTipo ( )
 *
-*	  "=obtertipo <TipoEsp> <CondRetEsp>"	- chama a função GER_ObterTipo ( )
+*	  "=obtercor <TipoEsp> <CondRetEsp>"	- chama a função GER_ObterCor ( )
 *
-*     "=destruir <Int>"				- chama a função VER_DestruirVertice( vtpVertice[<Int>] )
+*	  "=atribuirpeca <TipoPeca> <CorPeca> <CondRetEsp>" - chama a função GER_AtribuirPeca ( )
 *
-*     "=obter <Int> <String>"		- chama a função VER_ObterValor( vtpVertice[<Int>] ) e compara
-*										o valor retornado com o valor <String>
+*	  "=obterultlin <Lin> <CondRetEsp>"		- chama a função GER_ObterUltimaLinhaTabuleiro ( )
 *
+*	  "=obterultcol <Col> <CondRetEsp>"		- chama a função GER_ObterUltimaColunaTabuleiro ( )
+*
+*	  "=preenchertab <CondRetEsp>"			- chama a função GER_PreencherTabuleiro ( )
+*
+*	  "=obterpecatab <Col> <Lin> <CondRetEsp>"	- chama a função GER_ObterPecaDoTabuleiro ( )
+*
+*	  "=destruirpeca"						- chama a função GER_DestruirPeca ( )
+*
+*	  "=limpartabuleiro"					- chama a função GER_LimparTabuleiro ( )
+*
+*	  "=obtercodtipo <CharTipo> <IntTipo>"	- chama a função GER_ObterCodigoDoTipo ( )
+*
+*	  "=obtercodcor <CharCor> <IntCor>" 	- chama a função GER_ObterCodigoDaCor ( )
+*
+*	  "=obterrei <CorRei> <ColEsp> <LinEsp> - chama a função GER_ObterRei ( )
 *
 ***************************************************************************/
 
@@ -58,6 +72,11 @@
 #define		OBTER_ULT_COL_CMD		"=obterultcol"
 #define		PREENCHER_TAB_CMD		"=preenchertab"
 #define		OBTER_PECA_TAB_CMD		"=obterpecatab"
+#define		DESTRUIR_PECA_CMD		"=destruirpeca"
+#define		LIMPAR_TAB_CMD			"=limpartab"
+#define		OBTER_COD_TIPO_CMD		"=obtercodtipo"
+#define		OBTER_COD_COR_CMD		"=obtercodcor"
+#define		OBTER_REI_CMD			"=obterrei"
 
 /*****  Código das funções exportadas pelo módulo  *****/
 
@@ -96,6 +115,8 @@ GER_tppPeca pPeca = NULL;
 	  char ColunaEsperada	= '!';
 	  char ColunaObtida		= '@';
 	  char Coluna			= '#';
+	  char CharTipo			= '(' ;
+	  char CharCor			= ')' ;
 	  int Linha				= -5;
 	  TST_tpCondRet Ret ;
 
@@ -119,7 +140,7 @@ GER_tppPeca pPeca = NULL;
 
       /* Testar GER Criar peça */
 
-         if ( strcmp( ComandoTeste , CRIAR_PECA_CMD ) == 0 )
+         else if ( strcmp( ComandoTeste , CRIAR_PECA_CMD ) == 0 )
          {
 			 NumLidos = LER_LerParametros ( "ii" , 
 											&TipoPeca, &CorPeca ) ;
@@ -136,7 +157,7 @@ GER_tppPeca pPeca = NULL;
 
       /* Testar GER Obter tipo da peça */
 
-         if ( strcmp( ComandoTeste , OBTER_TIPO_CMD ) == 0 )
+         else if ( strcmp( ComandoTeste , OBTER_TIPO_CMD ) == 0 )
          {
 			 NumLidos = LER_LerParametros ( "ii" , 
 											&ValorEsperado, &CondRetEsperada ) ;
@@ -154,7 +175,7 @@ GER_tppPeca pPeca = NULL;
 
 	/* Testar GER Obter cor da peça */
 
-         if ( strcmp( ComandoTeste , OBTER_COR_CMD ) == 0 )
+         else if ( strcmp( ComandoTeste , OBTER_COR_CMD ) == 0 )
          {
 			 NumLidos = LER_LerParametros ( "ii" , 
 											&ValorEsperado, &CondRetEsperada ) ;
@@ -172,7 +193,7 @@ GER_tppPeca pPeca = NULL;
 
 	/* Testar GER Atribuir peça */
 
-         if ( strcmp( ComandoTeste , ATRIBUIR_PECA_CMD ) == 0 )
+         else if ( strcmp( ComandoTeste , ATRIBUIR_PECA_CMD ) == 0 )
          {
 			 NumLidos = LER_LerParametros ( "iii" , 
 											&TipoPeca, &CorPeca, &CondRetEsperada ) ;
@@ -190,7 +211,7 @@ GER_tppPeca pPeca = NULL;
 
 	/* Testar GER Obter última linha do tabuleiro */
 
-         if ( strcmp( ComandoTeste , OBTER_ULT_LIN_CMD ) == 0 )
+         else if ( strcmp( ComandoTeste , OBTER_ULT_LIN_CMD ) == 0 )
          {
 			 NumLidos = LER_LerParametros ( "ii" , 
 											&ValorEsperado, &CondRetEsperada ) ;
@@ -208,7 +229,7 @@ GER_tppPeca pPeca = NULL;
 
 	/* Testar GER Obter última coluna do tabuleiro */
 
-         if ( strcmp( ComandoTeste , OBTER_ULT_COL_CMD ) == 0 )
+         else if ( strcmp( ComandoTeste , OBTER_ULT_COL_CMD ) == 0 )
          {
 			 NumLidos = LER_LerParametros ( "ci" , 
 											&ColunaEsperada, &CondRetEsperada ) ;
@@ -226,7 +247,7 @@ GER_tppPeca pPeca = NULL;
 
       /* Testar GER Preencher tabuleiro */
 
-         if ( strcmp( ComandoTeste , PREENCHER_TAB_CMD ) == 0 )
+         else if ( strcmp( ComandoTeste , PREENCHER_TAB_CMD ) == 0 )
          {
 			 NumLidos = LER_LerParametros ( "i" , 
 											&CondRetEsperada ) ;
@@ -244,7 +265,7 @@ GER_tppPeca pPeca = NULL;
 
 	/* Testar GER Obter peça do tabuleiro */
 
-         if ( strcmp( ComandoTeste , OBTER_PECA_TAB_CMD ) == 0 )
+         else if ( strcmp( ComandoTeste , OBTER_PECA_TAB_CMD ) == 0 )
          {
 			 NumLidos = LER_LerParametros ( "cii" , 
 											&Coluna, &Linha, &CondRetEsperada ) ;
@@ -256,10 +277,97 @@ GER_tppPeca pPeca = NULL;
 			 CondRetObtida = GER_ObterPecaDoTabuleiro ( &pPeca , Coluna , Linha );
 
   			 Ret = TST_CompararInt ( CondRetEsperada , CondRetObtida ,
-									  "Retorno nao esperado ao preencher tabuleiro." );
+									  "Retorno nao esperado ao obter peça do tabuleiro." );
 
-			return Ret;
+			return Ret ;
          } /* fim ativa: Testar GER Obter peça do tabuleiro */
+
+	/* Testar GER Destruir peça */
+
+         else if ( strcmp( ComandoTeste , DESTRUIR_PECA_CMD ) == 0 )
+         {
+
+			 GER_DestruirPeca ( &pPeca );
+
+			 return TST_CondRetOK ;
+
+         } /* fim ativa: Testar GER Destruir peça */
+
+	/* Testar GER Limpar tabuleiro */
+
+         else if ( strcmp( ComandoTeste , LIMPAR_TAB_CMD ) == 0 )
+         {
+
+			 GER_LimparTabuleiro ( );
+
+			 return TST_CondRetOK ;
+
+         } /* fim ativa: Testar GER Limpar tabuleiro */
+
+	/* Testar GER Obter código do tipo */
+
+         else if ( strcmp( ComandoTeste , OBTER_COD_TIPO_CMD ) == 0 )
+         {
+			 NumLidos = LER_LerParametros ( "ci" , 
+											&CharTipo, &ValorEsperado ) ;
+			 if ( NumLidos != 2 )
+			 {
+				 return TST_CondRetParm ;
+			 } /* if */
+
+			 ValorObtido = GER_ObterCodigoDoTipo ( CharTipo );
+
+  			 Ret = TST_CompararInt ( ValorEsperado , ValorObtido ,
+									  "Retorno errado ao obter código do tipo." );
+
+			return Ret ;
+         } /* fim ativa: Testar GER Obter código do tipo */
+
+	/* Testar GER Obter código da cor */
+
+         else if ( strcmp( ComandoTeste , OBTER_COD_COR_CMD ) == 0 )
+         {
+			 NumLidos = LER_LerParametros ( "ci" , 
+											&CharCor, &ValorEsperado ) ;
+			 if ( NumLidos != 2 )
+			 {
+				 return TST_CondRetParm ;
+			 } /* if */
+
+			 ValorObtido = GER_ObterCodigoDaCor ( CharCor );
+
+  			 Ret = TST_CompararInt ( ValorEsperado , ValorObtido ,
+									  "Retorno errado ao obter código da cor." );
+
+			return Ret ;
+         } /* fim ativa: Testar GER Obter código da cor */
+
+	/* Testar GER Obter rei */
+
+         else if ( strcmp( ComandoTeste , OBTER_COD_COR_CMD ) == 0 )
+         {
+			 NumLidos = LER_LerParametros ( "ici" , 
+											&CorPeca, &ColunaEsperada , &ValorEsperado ) ;
+			 if ( NumLidos != 3 )
+			 {
+				 return TST_CondRetParm ;
+			 } /* if */
+
+			 ValorObtido = GER_ObterRei ( CorPeca , &Coluna , &Linha );
+
+  			 Ret = TST_CompararChar ( ColunaEsperada , Coluna ,
+									  "Retorno errado ao obter coluna do rei." );
+			 if ( Ret != TST_CondRetOK )
+			 {
+				 return Ret;
+			 }
+
+			 Ret = TST_CompararInt ( ValorEsperado , Linha ,
+									"Retorno errado ao obter linha do rei." );
+
+			return Ret ;
+         } /* fim ativa: Testar GER Obter rei */
+
       return TST_CondRetNaoConhec ;
 
    } /* Fim função: TGER Efetuar operações de teste específicas para o gerenciador de xadrez */

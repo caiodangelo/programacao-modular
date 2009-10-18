@@ -1,42 +1,30 @@
 /***************************************************************************
-*  $MCI Módulo de implementação: Módulo de teste específico
+*  $MCI Módulo de implementação: Módulo de teste específico do reconhecedor de xeque mate
 *
-*  Arquivo gerado:              TESTVER.C
-*  Letras identificadoras:      TVER
+*  Arquivo gerado:              TESTREC.C
+*  Letras identificadoras:      TREC
 *
-*  Nome da base de software:    Exemplo de teste automatizado
-*  Arquivo da base de software: D:\AUTOTEST\PROJETOS\SIMPLES.BSW
-*
-*  Projeto: Disciplinas INF 1628 / 1301
+*  Projeto: Disciplina INF 1301
 *  Gestor:  DI/PUC-Rio
 *  Autores: cev - Caio D'Angelo, Eduardo Velloso e Vitor Barbarisi
 *
 *  $HA Histórico de evolução:
 *     Versão  Autor    Data     Observações
-*       1.00   cev   19/09/2009 Início do desenvolvimento
+*     0       cev   12/set/2009 Início desenvolvimento
+*	  1		  cev	19/out/2009 Entrega do trabalho
 *
 *  $ED Descrição do módulo
 *     Este módulo contém as funções específicas para o teste do
-*     módulo vértice. 
+*     módulo reconhecedor de xeque mate.
 *
 *  $EIU Interface com o usuário pessoa
-*     Comandos de teste específicos para testar o módulo vértice:
+*     Comandos de teste específicos para testar o módulo reconhecedor:
 *
-*     "=criar <Int> <String>"		- chama a função VER_CriarVertice( vtpVertice[<Int>], <String> )
+*     "=adicionarpecas <CondRetEsp>		- chama a função REC_AdicionarPecasAoGrafo ( )
 *
-*     "=alterar <Int> <String>"
-*									- chama a função VER_AlterarValor( vtpVertice[<Int>], <String> )
+*	  "=gerarmov <CondRetEsp>			- chama a função REC_GeraMovimentacoes ( )
 *
-*     "=destruir <Int>"				- chama a função VER_DestruirVertice( vtpVertice[<Int>] )
-*
-*     "=obter <Int> <String>"		- chama a função VER_ObterValor( vtpVertice[<Int>] ) e compara
-*										o valor retornado com o valor <String>
-*
-*	  "=adicionarsuc <Int> <Int>"	- chama a função VER_AdicionarSucessor( vtpVertice[<Int>], vtpVertice[<Int>] )
-*
-*
-*	  "=removersuc <Int> <Int>"		- chama a função VER_RemoverSucessor( vtpVertice[<Int>], vtpVertice[<Int>] )
-*
+*	  "=exibir"							- chama a função GRA_ExibirGrafo ( )
 *
 ***************************************************************************/
 
@@ -56,9 +44,9 @@
 
 /* Tabela dos nomes dos comandos de teste específicos */
 
-#define		MONTAR_GRAFO_CMD	"=montargrafo"
-#define		ADICIONAR_MOV_CMD	"=adicionarmov"
-#define		ADICIONAR_REG_CMD	"=adicionarreg"
+#define		ADICIONAR_PECAS_CMD	"=adicionarpecas"
+#define		GERAR_MOV_CMD		"=gerarmov"
+#define		EXIBIR_CMD	"=exibir"
 
 /*****  Código das funções exportadas pelo módulo  *****/
 
@@ -94,7 +82,7 @@ GRA_tppGrafo pGrafo;
 
       /* Testar REC Montar Grafo */
 
-         if ( strcmp( ComandoTeste , MONTAR_GRAFO_CMD ) == 0 )
+         if ( strcmp( ComandoTeste , ADICIONAR_PECAS_CMD ) == 0 )
          {
 			 NumLidos = LER_LerParametros ( "i" , 
 											&CondRetEsperada ) ;
@@ -108,14 +96,14 @@ GRA_tppGrafo pGrafo;
 			 CondRetGER = GER_InicializarTabuleiro ( );
 			 if ( CondRetGER != GER_CondRetOK )
 			 {
-				 // retorna erro
+				 return TST_CondRetErro ;
 			 }
 
 			 /* Preenche o tabuleiro */
 			 CondRetGER = GER_PreencherTabuleiro ( ARQ_DISPOSICAO );
 			 if ( CondRetGER != GER_CondRetOK )
 			 {
-				 // retorna erro
+				 return TST_CondRetErro ;
 			 }
 
 			 /* Adiciona as peças ao grafo */
@@ -128,14 +116,12 @@ GRA_tppGrafo pGrafo;
 				 return Ret ;
 			 }
 
-			 GRA_ExibirGrafo ( pGrafo );
-
 			 return Ret;
          } /* fim ativa: Testar REC Montar Grafo */
 
-		 /* Testar REC Montar Grafo */
+		 /* Testar REC Gerar movimentação */
 
-         else if ( strcmp( ComandoTeste , ADICIONAR_MOV_CMD ) == 0 )
+         else if ( strcmp( ComandoTeste , GERAR_MOV_CMD ) == 0 )
          {
 			 NumLidos = LER_LerParametros ( "i" , 
 											&CondRetEsperada ) ;
@@ -143,20 +129,6 @@ GRA_tppGrafo pGrafo;
 			 {
 				 return TST_CondRetParm ;
 			 } /* if */
-
-			 /* Inicializa o tabuleiro */
-			 CondRetGER = GER_InicializarTabuleiro ( );
-			 if ( CondRetGER != GER_CondRetOK )
-			 {
-				 // retorna erro
-			 }
-
-			 /* Preenche o tabuleiro */
-			 CondRetGER = GER_PreencherTabuleiro ( ARQ_DISPOSICAO );
-			 if ( CondRetGER != GER_CondRetOK )
-			 {
-				 // retorna erro
-			 }
 
 			 /* Adiciona as movimentações das peças */
 			 CondRetObtida = REC_GeraMovimentacoes ( &pGrafo );
@@ -169,9 +141,18 @@ GRA_tppGrafo pGrafo;
 				 return Ret ;
 			 }
 
-			GRA_ExibirGrafo(pGrafo);
 			 return Ret;
          } /* fim ativa: Testar REC Adicionar Movimentos */
+
+	/* Testar REC Exibir Grafo de Movimentação */
+
+         else if ( strcmp( ComandoTeste , EXIBIR_CMD ) == 0 )
+         {
+
+			GRA_ExibirGrafo(pGrafo);
+
+			 return TST_CondRetOK;
+         } /* fim ativa: Testar REC Exibir Grafo de Movimentação */
 
       return TST_CondRetNaoConhec ;
 
