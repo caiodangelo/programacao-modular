@@ -56,7 +56,7 @@
 
 /***** Protótipos das funções encapsuladas no módulo *****/
 
-  VER_tppVertice GRA_ObtemVerticeComId ( GRA_tppGrafo pGrafo, int IdVertice );
+  VER_tppVertice ObtemVerticeComId ( GRA_tppGrafo pGrafo, int IdVertice );
 
 
 /*****  Código das funções exportadas pelo módulo  *****/
@@ -107,7 +107,7 @@
 	   } /* if */
 
 	   /* Checa se o id já existe */
-	   if ( GRA_ObtemVerticeComId ( pGrafo, IdVertice ) != NULL )
+	   if ( ObtemVerticeComId ( pGrafo, IdVertice ) != NULL )
 	   {
 		   return GRA_CondRetIdJaExiste;
 	   }
@@ -156,7 +156,7 @@
 		   return GRA_CondRetGrafoVazio;
 	   }
 	
-	   /* Percorre a lista de sucessores do vértice e os remove*/
+	   /* Percorre a lista de sucessores do vértice e os remove da lista*/
 	   ListaSucessores = VER_ObterListaSucessores( pVertice );
 
 	   if (ListaSucessores != NULL){
@@ -165,13 +165,7 @@
 			  
 			   pVerticeSucessorCorrente = LIS_ObterValor( ListaSucessores ) ;
 
-			   if( pVerticeSucessorCorrente == NULL )
-			   {
-				   //Não faz nada porque o vértice não tem mais sucessores
-
-			   }
-			   else
-			   {
+			   if( pVerticeSucessorCorrente != NULL ){
 				   CondRetVertice = VER_RemoverSucessor ( pVertice,	
 													  pVerticeSucessorCorrente );
 				
@@ -196,13 +190,7 @@
 		   do{
 				pVerticeAntecessorCorrente = LIS_ObterValor( ListaAntecessores ) ;
 
-				if( pVerticeAntecessorCorrente == NULL )
-				{
-					//Não faz nada porque o vértice não tem mais antecessores
-
-				}
-				else
-				{
+				if( pVerticeAntecessorCorrente != NULL ){
 					CondRetVertice = VER_RemoverSucessor ( pVerticeAntecessorCorrente,	
 													  pVertice );
 				
@@ -217,15 +205,16 @@
 
 	   }/* if */
 
-	  /* Destrói o vértice */	
+	  /* Remove da lista de vértices e destrói*/	
 
 	   IrInicioLista ( pGrafo->ListaVertices );
 
 		 CondRetLista = LIS_ProcurarValor( pGrafo->ListaVertices ,
                                     pVertice        ) ;
-CondRetLista = LIS_ExcluirElemento( pGrafo->ListaVertices ) ;
-
-		 VER_DestruirVertice ( &pVertice );
+		 CondRetLista = LIS_ExcluirElemento( pGrafo->ListaVertices ) ;
+	  
+		
+	  /* Remover vértice da lista de origens */
 
 		return GRA_CondRetOK;
 
@@ -247,7 +236,7 @@ CondRetLista = LIS_ExcluirElemento( pGrafo->ListaVertices ) ;
 			return GRA_CondRetGrafoInexistente;
 		}/* if */
 
-		pVertice = GRA_ObtemVerticeComId( pGrafo, IdVertice ) ;
+		pVertice = ObtemVerticeComId( pGrafo, IdVertice ) ;
 
 		if ( pVertice == NULL){
 			return GRA_CondRetIndiceInvalido;  /*Conferir essa CONDRET */
@@ -279,7 +268,7 @@ CondRetLista = LIS_ExcluirElemento( pGrafo->ListaVertices ) ;
 		}/* if */
 
 			
-		pVertice = GRA_ObtemVerticeComId( pGrafo, IdVertice ) ;
+		pVertice = ObtemVerticeComId( pGrafo, IdVertice ) ;
 
 		if ( pVertice == NULL){
 			return GRA_CondRetVerticeNaoEhOrigem ;
@@ -317,8 +306,8 @@ CondRetLista = LIS_ExcluirElemento( pGrafo->ListaVertices ) ;
 			return GRA_CondRetGrafoInexistente;
 		}/* if */
 	
-		pVerticeOrigem = GRA_ObtemVerticeComId( pGrafo, idVerticeOrigem ) ;
-		pVerticeDestino = GRA_ObtemVerticeComId( pGrafo, idVerticeDestino ) ;
+		pVerticeOrigem = ObtemVerticeComId( pGrafo, idVerticeOrigem ) ;
+		pVerticeDestino = ObtemVerticeComId( pGrafo, idVerticeDestino ) ;
 
 		if ( (pVerticeOrigem == NULL) || (pVerticeDestino == NULL) ){
 			return GRA_CondRetVerticeNaoExiste;
@@ -356,8 +345,8 @@ CondRetLista = LIS_ExcluirElemento( pGrafo->ListaVertices ) ;
 			return GRA_CondRetGrafoInexistente;
 		}/* if */
 		
-		pVerticeOrigem = GRA_ObtemVerticeComId( pGrafo, idVerticeOrigem ) ;
-		pVerticeDestino = GRA_ObtemVerticeComId( pGrafo, idVerticeDestino ) ;
+		pVerticeOrigem = ObtemVerticeComId( pGrafo, idVerticeOrigem ) ;
+		pVerticeDestino = ObtemVerticeComId( pGrafo, idVerticeDestino ) ;
 
 		if ( pVerticeOrigem == NULL || pVerticeDestino == NULL ){
 			return GRA_CondRetVerticeNaoExiste;
@@ -393,7 +382,7 @@ CondRetLista = LIS_ExcluirElemento( pGrafo->ListaVertices ) ;
 		}/* if */
 
 	   IrInicioLista( pGrafo->ListaVertices ) ;
-	  
+  
 	   do{
 		   pVertice = LIS_ObterValor( pGrafo->ListaVertices ) ;
 
@@ -415,6 +404,8 @@ CondRetLista = LIS_ExcluirElemento( pGrafo->ListaVertices ) ;
 
 	   }while( LIS_AvancarElementoCorrente( pGrafo->ListaVertices, 1 )
 		     != LIS_CondRetFimLista ); /* do while */
+
+	   printf("<--->\n");
 
 	 return GRA_CondRetOK;
 
@@ -520,62 +511,39 @@ CondRetLista = LIS_ExcluirElemento( pGrafo->ListaVertices ) ;
 
  GRA_tpCondRet GRA_ObterValorComId( GRA_tppGrafo pGrafo , int IdVertice , void** ppValor ){
 
-	  LIS_tpCondRet CondRetLista;
-	  LIS_tppLista ListaVertices = pGrafo->ListaVertices;
-	  VER_tppVertice  pVertice;
-	  VER_tpCondRet CondRetVertice;
-	  GRA_tpCondRet CondRetGrafo = 0;
-	  int IdVerticeTemp = -1;
-	  int controle = 0;
+	   int IdAuxiliar;
+	   VER_tpCondRet CondRetVertice;
+	   VER_tppVertice pVertice;
 
-	  if( ListaVertices != NULL )
-	  {
-		   IrInicioLista ( ListaVertices );
+	   if( pGrafo == NULL ){
+		   return GRA_CondRetGrafoInexistente;
+	   } /* if */
 
-	  } /* if */	 
+	   IrInicioLista( pGrafo->ListaVertices ) ;
+	   
+	   do{      
+		   pVertice = LIS_ObterValor( pGrafo->ListaVertices ) ;
+			   
+		   if ( (VER_ObterId( pVertice, &IdAuxiliar )) == VER_CondRetVerticeNaoExiste				   ){
+			   return GRA_CondRetIndiceInvalido;
 
-	   while( ( ListaVertices != NULL ) && ( controle == 0 ) )
-	   {   
-
-		    pVertice = LIS_ObterValor( ListaVertices );
-
-			if((VER_ObterId ( pVertice, &IdVerticeTemp )) == VER_CondRetOK )
-			{
-				if( IdVerticeTemp == IdVertice )
-				{
-
-					CondRetVertice = VER_ObterValor ( pVertice, ppValor );
-					if( CondRetVertice == VER_CondRetOK )
-					{
-						CondRetGrafo = GRA_CondRetOK ;
-
+		   } else {
+			   							   
+			   if ( IdVertice == IdAuxiliar){
+				   	
+				    CondRetVertice = VER_ObterValor ( pVertice, ppValor );
+					if( CondRetVertice == VER_CondRetVerticeVazio ) {
+							return GRA_CondRetVerticeVazio;
 					}/* if */
-					else if( CondRetVertice == VER_CondRetVerticeVazio )
-					{
-						CondRetGrafo = GRA_CondRetVerticeVazio ;
 
-					}/* else if */
-					controle = 1;
+			   } /* if */ 
 
-				}/* if */
+		   }/* if */
 
-			}/* if */
-					   
-		   CondRetLista = LIS_AvancarElementoCorrente( ListaVertices ,
-                                              1 ) ;
-		   
-	   } /* while */
+	   }while( LIS_AvancarElementoCorrente( pGrafo->ListaVertices, 1 )
+		     != LIS_CondRetFimLista ); /* do while */
 
-	   if( controle == 1){
-		   return CondRetGrafo ;
-
-	   }
-	   else
-	   {
-		   CondRetGrafo = GRA_CondRetIndiceInvalido;
-		   return CondRetGrafo ;
-
-	   }	   
+	  return GRA_CondRetOK;
 
 } /* Fim função: GRA Obter Valor Com Id */
 
@@ -587,7 +555,7 @@ CondRetLista = LIS_ExcluirElemento( pGrafo->ListaVertices ) ;
 
   GRA_tpCondRet GRA_IrVerticeComId( GRA_tppGrafo pGrafo , int IdVertice){
 
-		VER_tppVertice pVertice = GRA_ObtemVerticeComId( pGrafo, IdVertice);
+		VER_tppVertice pVertice = ObtemVerticeComId( pGrafo, IdVertice);
 	
 		if ( pVertice == NULL){
 			return GRA_CondRetIndiceInvalido;
@@ -613,7 +581,7 @@ CondRetLista = LIS_ExcluirElemento( pGrafo->ListaVertices ) ;
 		  LIS_tppLista ListaSucessores;
 		  	    
 		  VER_tppVertice pVerticeSucessor;
-		  VER_tppVertice pVertice = GRA_ObtemVerticeComId( pGrafo, IdVertice);
+		  VER_tppVertice pVertice = ObtemVerticeComId( pGrafo, IdVertice);
 
 		  if ( pVertice == NULL ){
 			  return GRA_CondRetIndiceInvalido ;
@@ -668,7 +636,7 @@ CondRetLista = LIS_ExcluirElemento( pGrafo->ListaVertices ) ;
 		  LIS_tppLista ListaAntecessores;
 
 		  VER_tppVertice pVerticeAntecessor;
-		  VER_tppVertice pVertice = GRA_ObtemVerticeComId( pGrafo, IdVertice);
+		  VER_tppVertice pVertice = ObtemVerticeComId( pGrafo, IdVertice);
 
 		  if ( pVertice == NULL ){
 			  return GRA_CondRetIndiceInvalido ;
@@ -712,12 +680,24 @@ CondRetLista = LIS_ExcluirElemento( pGrafo->ListaVertices ) ;
 
  /*****  Código das funções encapsuladas no módulo  *****/
 
-/***************************************************************************
+ /***********************************************************************
 *
-*  Função: GRA ObtemVerticeComId
-*  ****/
+*  $FC Função: Obtem Vértice Com ID
+*
+*  $ED Descrição da função
+*     Obtém o vértice a partir do índice dado.
+*
+*  $EP Parâmetros
+*     $P pGrafo - ponteiro para a cabeça do grafo.
+*     $P IdVertice - indice do vértice a ser marcado como origem.
+*
+*  $FV Valor retornado
+*     Retorna o endereço do vértice (tipo VER_tppVertice) caso este seja encontrado
+*	  ou NULL caso não seja encontrado nenhum vértice com o índice passado.
+*
+***********************************************************************/
 
-   VER_tppVertice GRA_ObtemVerticeComId ( GRA_tppGrafo pGrafo, int IdVertice ){
+   VER_tppVertice ObtemVerticeComId ( GRA_tppGrafo pGrafo, int IdVertice ){
 
 	   int IdAuxiliar;
 	   VER_tppVertice pVertice;
@@ -748,7 +728,7 @@ CondRetLista = LIS_ExcluirElemento( pGrafo->ListaVertices ) ;
 
 	  return NULL;
 
-} /* Fim função: GRA GRA_ObtemVerticeComId */
+} /* Fim função: ObtemVerticeComId */
 
 
 

@@ -147,25 +147,18 @@
 	void VER_DestruirVertice ( VER_tppVertice* ppVertice ){
 
 		/* Verifica se o vértice existe */
-		if ( *ppVertice == NULL )
-		{
+		if ( *ppVertice == NULL ){
 			return;
 		} /* if */
 
 		/* Limpa a lista de antecessores */
-		if( ((*ppVertice)->Antecessores) != NULL )
-		{
-			((*ppVertice)->Antecessores) = NULL;
-			
-		}/* if */
+        LIS_DestruirLista( (*ppVertice)->Antecessores );
+	    ((*ppVertice)->Antecessores) = NULL;
 
 		/* Limpa a lista de sucessores */
-		if( ((*ppVertice)->Sucessores) != NULL )
-		{
-			((*ppVertice)->Sucessores) = NULL;
-			
-		}/* if */		
-
+		((*ppVertice)->Sucessores) = NULL;
+		LIS_DestruirLista( (*ppVertice)->Sucessores );
+		
 		/* Libera o espaço alocado pelo vértice */
 		free( *ppVertice );
 		*ppVertice = NULL;
@@ -252,7 +245,7 @@
 		/* Verifica se a lista de sucessores da origem existe */
 		if((pVerticeOrigem->Sucessores)==NULL)
 		{
-			return VER_CondRetVerticeNaoEhSucessor;
+			return VER_CondRetErroEstrutural;
 			
 		}/* if */
 
@@ -328,7 +321,7 @@
 		ListaSucessores = VER_ObterListaSucessores ( pVertice);
 
 		if ( ListaSucessores == NULL ){
-			printf ( "Lista de sucessores vazia");
+			printf ( "Erro estrutural");
 			return ;
 		}/* if */
 
@@ -337,6 +330,10 @@
 		do{
 		   
 			pVertice = LIS_ObterValor( ListaSucessores ) ;
+
+			if ( pVertice == NULL ){
+				printf(" Nao ha sucessores.");
+			}/* if */
 
 		   if ( VER_ObterId( pVertice, &IdVertice ) == VER_CondRetVerticeNaoExiste ){
 			   return ;
@@ -421,13 +418,12 @@
 		if( pVertice == NULL )
 		{
 			return;
-
 		}/* if */
 
 		ListaAntecessores = VER_ObterListaAntecessores ( pVertice);
 
 		if ( ListaAntecessores == NULL ){
-			printf ( "Lista de antecessores vazia");
+			printf ( "Erro estrutural.");
 			return ;
 		}/* if */
 
@@ -436,6 +432,10 @@
 		do{
 		   
 			pVertice = LIS_ObterValor( ListaAntecessores ) ;
+
+			if ( pVertice == NULL ){
+				printf(" Nao ha antecessores.");
+			}/* if */
 
 		   if ( VER_ObterId( pVertice, &IdVertice ) == VER_CondRetVerticeNaoExiste ){
 			   return ;
@@ -516,7 +516,7 @@
 
 		if((pVerticeOrigem->Antecessores)==NULL)
 		{
-			return VER_CondRetVerticeNaoEhAntecessor;
+			return VER_CondRetErroEstrutural;
 			
 
 		}/* if */
