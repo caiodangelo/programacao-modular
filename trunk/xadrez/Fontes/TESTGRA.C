@@ -357,7 +357,7 @@
 
          if ( strcmp( ComandoTeste , OBTER_SUCESSOR_CMD ) == 0 )
          {
-            NumLidos = LER_LerParametros( "ii" , &IdVertice , &IdEsperado ,
+            NumLidos = LER_LerParametros( "iii" , &IdVertice , &IdEsperado ,
                                &CondRetEsperada ) ;
             if ( NumLidos != 3 )
             {
@@ -384,7 +384,7 @@
 
          if ( strcmp( ComandoTeste , OBTER_ANTECESSOR_CMD ) == 0 )
          {
-            NumLidos = LER_LerParametros( "ii" , &IdVertice , &IdEsperado ,
+            NumLidos = LER_LerParametros( "iii" , &IdVertice , &IdEsperado ,
                                &CondRetEsperada ) ;
             if ( NumLidos != 3 )
             {
