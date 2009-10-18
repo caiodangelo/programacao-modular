@@ -1,0 +1,24 @@
+# Composicao do programa relativo à entrega do trabalho 2
+
+[Diretorios]
+
+Nome        =  Trabalho
+PathDefault =  .
+err         =  .
+
+[Modulos]
+Vertice
+Grafo
+Lista
+TestGra
+
+
+[BuildInicio]
+/OUT:Trabalho.exe
+/INCREMENTAL:NO
+/MACHINE:IX86
+
+[BuildFim]
+ArcaboucoTeste.lib
+
+[Fim]
