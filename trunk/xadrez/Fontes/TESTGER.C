@@ -61,10 +61,6 @@
 
 #include    "GERENCIADOR.H"
 
-/* Arquivo de disposição das peças */
-
-#define		DISPOSICAO				"..\\Definicao\\DISPOSICAO.TXT"
-
 /* Tabela dos nomes dos comandos de teste específicos */
 
 #define     INICIALIZAR_TAB_CMD     "=inicializar"
@@ -260,7 +256,7 @@ GER_tppPeca pPeca = NULL;
 				 return TST_CondRetParm ;
 			 } /* if */
 
-			 CondRetObtida = GER_PreencherTabuleiro ( DISPOSICAO );
+			 CondRetObtida = GER_PreencherTabuleiro ( "DISPOSICAO.TXT" );
 
 			return TST_CompararInt ( CondRetEsperada , CondRetObtida ,
 									  "Retorno não esperado ao preencher tabuleiro." );
@@ -348,16 +344,24 @@ GER_tppPeca pPeca = NULL;
 
 	/* Testar GER Obter rei */
 
-         else if ( strcmp( ComandoTeste , OBTER_COD_COR_CMD ) == 0 )
+         else if ( strcmp( ComandoTeste , OBTER_REI_CMD ) == 0 )
          {
-			 NumLidos = LER_LerParametros ( "ici" , 
-											&CorPeca, &ColunaEsperada , &ValorEsperado ) ;
-			 if ( NumLidos != 3 )
+			 NumLidos = LER_LerParametros ( "icii" , 
+											&CorPeca, &ColunaEsperada , &ValorEsperado, &CondRetEsperada ) ;
+			 if ( NumLidos != 4 )
 			 {
 				 return TST_CondRetParm ;
 			 } /* if */
 
 			 ValorObtido = GER_ObterRei ( CorPeca , &Coluna , &Linha );
+
+			Ret = TST_CompararInt ( CondRetEsperada , ValorObtido ,
+									  "Erro ao obter posição do rei." );
+
+			if ( Ret != TST_CondRetOK )
+			 {
+				 return Ret;
+			 }
 
   			 Ret = TST_CompararChar ( ColunaEsperada , Coluna ,
 									  "Retorno errado ao obter coluna do rei." );
