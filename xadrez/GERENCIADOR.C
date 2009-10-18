@@ -4,9 +4,6 @@
 *  Arquivo gerado:              GERENCIADOR.C
 *  Letras identificadoras:      GER
 *
-*  Nome da base de software:    Arcabouço para a automação de testes de programas redigidos em C
-*  Arquivo da base de software: D:\AUTOTEST\PROJETOS\LISTA.BSW
-*
 *  Projeto: INF 1301 Programação Modular
 *  Gestor:  DI/PUC-Rio
 *  Autores: cev - Caio D'Angelo , Eduardo Velloso e Vitor Barbarisi
