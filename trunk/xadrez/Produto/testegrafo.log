@@ -1,0 +1,64 @@
+
+!!! Inicio dos testes
+!!!      Construto sob teste: ..\produto\testegrafo
+!!!      Script de teste:     ..\scripts\testegrafo.script
+
+!!!    0  Linha:     1  // Script:    Testegrafo.script 
+!!!    0  Linha:     2  // Autores:   Caio, Eduardo e Vitor 
+!!!    0  Linha:     3  // Data:      12/out/2009 
+!!!    0  Linha:     4  // Propósito: Testar o módulo GRAFO 
+    6  == Verificar criar grafo
+    8  == Verificar inserir vértice
+   10  == Verificar inserir vértice
+   12  == Verificar inserir vértice
+   14  == Verificar inserir vértice
+   17  == Verificar inserir vértice
+   19  == Verificar inserir vértice
+   21  == Verificar inserir vértice
+   23  == Verificar inserir vértice
+   26  == Verificar inserir aresta
+   28  == Verificar inserir aresta
+   30  == Verificar inserir aresta
+   32  == Verificar inserir aresta
+   34  == Verificar inserir aresta
+   36  == Verificar inserir aresta
+   38  == Verificar inserir aresta
+   41  == Verificar exibir grafo
+   43  == Verificar remover aresta
+   46  == Verificar ir vértice com id
+   48  == Verificar excluir vértice
+!!!    0  Linha:    50  //=recuperar 
+   51  == Verificar exibir grafo
+   53  == Verificar obter valor com id
+   55  == Verificar obter valor com id, tentando obter valor errado
+>>>    1  Linha:    56  Valor do vértice está errado. Deveria ser: 10  É: 6
+<<<    0  Linha:    57  Falha esperada foi recuperada. 
+   58  == Verificar marcar origem
+   60  == Verificar desmarcar origem
+   62  == Verificar desmarcar origem inexistente
+   65  == Verificar ir vértice com id
+   67  == Verificar excluir vértice
+   69  == Verificar exibir grafo
+   72  == Verificar ir vértice com id
+   74  == Verificar excluir vértice
+   76  == Verificar exibir grafo
+!!!    0  Linha:    79  //== Verificar avançar sucessor 
+!!!    0  Linha:    80  //=avancarsucessor 1 0 
+!!!    0  Linha:    81  //== Verificar avançar sucessor de vertice sem sucessor 
+!!!    0  Linha:    82  //=avancarsucessor 2 12 
+!!!    0  Linha:    84  //obterant 
+!!!    0  Linha:    86  //obtersuc 
+   88  == Verificar Destruir grafo
+   91  == Tentar inserir vértice em grafo inexistente
+   93  == Tentar exibir grafo
+!!!    0  Linha:    96  //fim 
+
+!!! Número de linhas lidas:          97
+!!! Número de casos de teste:        35
+!!! Número comandos corretos:        34
+!!! Número de falhas encontradas:     0
+
+!!! Não foram encontrados problemas
+
+
+!!! Numero de espacos ainda alocados: 0
