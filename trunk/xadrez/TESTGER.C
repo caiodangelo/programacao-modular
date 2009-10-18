@@ -346,14 +346,22 @@ GER_tppPeca pPeca = NULL;
 
          else if ( strcmp( ComandoTeste , OBTER_REI_CMD ) == 0 )
          {
-			 NumLidos = LER_LerParametros ( "ici" , 
-											&CorPeca, &ColunaEsperada , &ValorEsperado ) ;
-			 if ( NumLidos != 3 )
+			 NumLidos = LER_LerParametros ( "icii" , 
+											&CorPeca, &ColunaEsperada , &ValorEsperado, &CondRetEsperada ) ;
+			 if ( NumLidos != 4 )
 			 {
 				 return TST_CondRetParm ;
 			 } /* if */
 
 			 ValorObtido = GER_ObterRei ( CorPeca , &Coluna , &Linha );
+
+			Ret = TST_CompararInt ( CondRetEsperada , ValorObtido ,
+									  "Erro ao obter posição do rei." );
+
+			if ( Ret != TST_CondRetOK )
+			 {
+				 return Ret;
+			 }
 
   			 Ret = TST_CompararChar ( ColunaEsperada , Coluna ,
 									  "Retorno errado ao obter coluna do rei." );

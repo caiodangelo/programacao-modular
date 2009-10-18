@@ -24,7 +24,7 @@
 *	rei ). Também existe a "peça" correspondente a casa vazia do tabuleiro. Des-
 *	sa forma, cada casa do tabuleiro possui uma "peça" correspondente, mesmo que
 *	a casa esteja vazia.
-*	Este módulo oferece as funcionalidades paraa, a partir de um arquivo com a
+*	Este módulo oferece as funcionalidades para, a partir de um arquivo com a
 *	disposição das peças, montar um tabuleiro com cada peça em sua posição cor-
 *	reta. Ele não oferece suporte à movimentação de peças. 
 *	Em um dado momento, só pode haver um único tabuleiro de xadrez.
@@ -164,7 +164,7 @@ typedef struct GER_tgPeca * GER_tppPeca;
 *  $FC Função: GER  &Atribuir Peça
 *
 *  $ED Descrição da função
-*     Altera os atributos das peça.
+*     Altera os atributos das peças.
 *
 *  $EP Parâmetros
 *	  pPeca	- referência para a peça a ser alterada
