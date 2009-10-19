@@ -5,55 +5,60 @@
 
 == Verificar criar grafo
 =criargra 0
-== Verificar inserir vértice
-=inserirver 5 1 0
-== Verificar inserir vértice
-=inserirver 6 2 0
-== Verificar inserir vértice
-=inserirver 7 3 0
-== Verificar inserir vértice
-=inserirver 8 4 0
+== Verificar inserção de vértices
+=inserirver 10 1 0
+=inserirver 20 2 0
+=inserirver 30 3 0
+=inserirver 40 4 0
+=inserirver 50 5 0
+=inserirver 60 6 0
+=inserirver 70 7 0
+=inserirver 80 8 0
 
-== Verificar inserir vértice
-=inserirver 9 5 0
-== Verificar inserir vértice
-=inserirver 10 6 0
-== Verificar inserir vértice
-=inserirver 11 7 0
-== Verificar inserir vértice
-=inserirver 12 8 0
-
-== Verificar inserir aresta
+== Verificar inserção arestas
 =inserirare 2 1 0
-== Verificar inserir aresta
 =inserirare 1 2 0
-== Verificar inserir aresta
 =inserirare 1 3 0
-== Verificar inserir aresta
 =inserirare 1 4 0
-== Verificar inserir aresta
 =inserirare 1 5 0
-== Verificar inserir aresta
 =inserirare 6 7 0
-== Verificar inserir aresta
 =inserirare 4 5 0
+== Verificar criação de laços
+=inserirare 4 4 0
+
+== Verificar remover aresta
+=removerare 2 1 0
+=removerare 4 4 0
+== Verificar remover aresta que não existe
+=removerare 4 6 7
 
 == Verificar exibir grafo
 =exibirgra 0
-== Verificar remover aresta
-=removerare 2 1 0
+
+== Verificar obter sucessor
+=obtersuc 4 5 0
+== Verificar obter quando nao tem sucessores
+=obtersuc 7 0 12
+=recuperar
+
+== Verificar obter antecessor
+=obterant 7 6 0
+== Verificar obter quando nao tem antecessores
+=obterant 6 0 14
+=recuperar
 
 == Verificar ir vértice com id
 =irverticecomid 4 0
 == Verificar excluir vértice
 =excluir 0
+
 == Verificar exibir grafo
 =exibirgra 0
 == Verificar obter valor com id
-=obtervalorcomid 1 5 0
-== Verificar obter valor com id, tentando obter valor errado
-=obtervalorcomid 2 10 0
-=recuperar
+=obtervalorcomid 1 10 0
+//== Verificar obter valor com id inválido
+//=obtervalorcomid 32 333 9
+
 == Verificar marcar origem
 =marcarorigem 1 0
 == Verificar desmarcar origem
@@ -68,29 +73,13 @@
 == Verificar exibir grafo
 =exibirgra 0
 
-== Verificar ir vértice com id
-=irverticecomid 6 0
-== Verificar excluir vértice
-=excluir 0
-== Verificar exibir grafo
-=exibirgra 0
 
-//== Verificar avançar sucessor
-//=avancarsucessor 1 0
-//== Verificar avançar sucessor de vertice sem sucessor 
-//=avancarsucessor 2 12
+== Verificar Destruir grafo
+=destruirgra 0
 
-//obterant
-
-//obtersuc
-
-//== Verificar Destruir grafo
-//=destruirgra 0
-
-//== Tentar inserir vértice em grafo inexistente
-//=inserirver 12 8 2
-//== Tentar exibir grafo
-//=exibirgra 2
+== Tentar inserir vértice em grafo inexistente
+=inserirver 12 8 2
+== Tentar exibir grafo
+=exibirgra 2
 
 //fim
-
