@@ -63,7 +63,7 @@ trum, etc.
 COMPILAÇÃO
 --------------------
 
-Para gerar as bibliotecas, compilar os fonte e executar os testes, basta
+Para gerar as bibliotecas, compilar os fontes e executar os testes, basta
 executar o batch Tudo.bat encontrado no diretório "Batches". Este batch
 limpa os arquivos gerados por execuções anteriores, cria a biblioteca, com-
 pila os códigos-fonte e executa os testes.
@@ -73,8 +73,23 @@ pila os códigos-fonte e executa os testes.
 TESTES
 --------------------
 
-// Descrever os scripts
-// Descrever como proceder para testar
+Foram implementados 4 módulos específicos de teste (um para cada módulo desenvolvido).
+Tais módulos testam todas as funções exportadas dos módulos e com condições de retorno
+bem especificadas. Algumas funções com retorno void não foram diretamente testadas mas
+por serem invocadas por outras funções foi possível detectar e corrigir os problemas
+nelas à partir do teste das funções que as invocaram.
+
+Foram criados e fornecidos 4 scripts específicos de testes (um para cada módulo desenvolvido).
+Tais scripts executam todas as funções de teste implementadas, buscando ainda gerar
+casos que testem as mais variadas condições de retorno especificadas nas interfaces 
+dos módulos. Para alterar os scripts de teste basta acessar o script específico dentro 
+da pasta "Scripts". Após realizar as alterações que achar necessárias basta executar o
+batch Tudo.bat que encontra-se no diretório "Batches".
+
+Vale ressaltar ainda que uma breve explicação de cada comando de script de testes se 
+encontra no respectivo módulo de teste. Tais arquivos se encontram no diretório Fontes 
+sob a alcunha TESTxxx onde xxx corresponde ao prefixo do módulo implementado (VER-vértice, 
+GRA-grafo, REC-reconhecedor e GER-gerenciador). 
 
 -----------------------
 ESTRUTURA DE DIRETÓRIOS
