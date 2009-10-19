@@ -15,7 +15,8 @@ Possíveis tarefas:
  * diagnosticar e corrigir os problemas encontrados
 
 
-Trabalho 1
+= Trabalho 01 =
+
 || *Data* || *Horas* || *Tipo de Tarefa* || *Descrição da Tarefa* ||
 ||25/08/2009||01:00||Estudar ||Estudar a especificação do trabalho e a instalação do arcabouço||
 ||26/08/2009||02:00||Especificar Módulo||Reunião com o grupo todo para separação das tarefas||
@@ -32,16 +33,16 @@ Trabalho 1
 
 
 
+= Trabalho 02 =
 
-Trabalho 2
-Data 	Horas 	Tipo de Tarefa 	Descrição da Tarefa 
-18/09/2009	01:00	Estudar	Reunião com o grupo todo para estudar o projeto
-18/09/2009	01:00	Especificar Módulos	Reunião com o grupo todo para especificação e separação das tarefas 
-20/09/2009	01:00	Codificar módulo	Início da codificação do Módulo Vértice
-22/09/2009	01:00	Codificar módulo	Codificação do Módulo Vértice
-23/09/2009	02:00	Codificar módulo	Codificação do Módulo Vértice
-12/10/2009	12:00	Revisar Especificações, Codificar Módulo, Redigir Script de Teste, Realizar os Testes, Diagnosticar e Corrigir Problemas Encontrados	Módulo Grafo e seu módulo de teste específico
-15/10/2009	06:00	Codificar Módulo, Redigir Script de Teste, Realizar os Testes, Diagnosticar e Corrigir Problemas Encontrados	Módulo Vértice, Módulo Grafo e seus módulos de teste específicos
-16/10/2009	04:00	Codificar Módulo, Redigir Script de Teste, Realizar os Testes, Diagnosticar e Corrigir Problemas Encontrados	Módulo Grafo e seu módulo de teste específico
-18/10/2009	05:00	Redigir Script de Teste, Realizar os Testes, Diagnosticar e Corrigir Problemas Encontrados	Módulo Grafo
-19/10/2009	01:00	Documentar	Revisar documentação e redigir relatório
+|| *Data* || *Horas* || *Tipo de Tarefa* || *Descrição da Tarefa* ||
+||18/09/2009||01:00||Estudar||Reunião com o grupo todo para estudar o projeto||
+||18/09/2009||01:00||Especificar Módulos||Reunião com o grupo todo para especificação e separação das tarefas ||
+||22/09/2009||01:00||Codificar módulo||Codificação do Módulo Vértice||
+||23/09/2009||02:00||Codificar módulo||Codificação do Módulo Vértice||
+||12/10/2009||12:00||Revisar Especificações, Codificar Módulo, Redigir Script de Teste, Realizar os Testes, Diagnosticar e Corrigir Problemas Encontrados||Módulo Grafo e seu módulo de teste específico||
+||15/10/2009||06:00||Codificar Módulo, Redigir Script de Teste, Realizar os Testes, Diagnosticar e Corrigir Problemas Encontrados||Módulo Vértice, Módulo Grafo e seus módulos de teste específicos||
+||16/10/2009||04:00||Codificar Módulo, Redigir Script de Teste, Realizar os Testes, Diagnosticar e Corrigir Problemas Encontrados||Módulo Grafo e seu módulo de teste específico||
+||18/10/2009||05:00||Redigir Script de Teste, Realizar os Testes, Diagnosticar e Corrigir Problemas Encontrados||Módulo Vértice e Grafo||
+||19/10/2009||01:00||Diagnosticar e Corrigir Erros||
+||19/10/2009||01:00||Documentar||Revisar documentação e relatório||
