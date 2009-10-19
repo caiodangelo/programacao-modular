@@ -28,6 +28,7 @@ COMPILAÇÃO
 TESTES
 ESTRUTURA DE DIRETÓRIOS
 COMO OBTER AJUDA
+REPOSITÓRIO
 REGRAS DE SINTAXE DOS ARQUIVOS DE DISPOSIÇÃO DE PEÇAS NO TABULEIRO
 REGRAS DE SINTAXE DOS ARQUIVOS DE REGRAS DE MOVIMENTAÇÃO DISCRETA
 REGRAS DE SINTAXE DOS ARQUIVOS DE REGRAS DE MOVIMENTAÇÃO CONTÍNUA
@@ -88,6 +89,14 @@ A seguir, encontra-se uma descrição dos diretórios do trabalho
 -Objetos - arquivos *.obj, *.lib e *.build
 -Produto - arquivos executáveis, de log de teste e de log de compilação
 -Scripts - scripts de teste
+
+
+-----------
+REPOSITÓRIO
+-----------
+
+Neste trabalho, utilizamos um serviço de repositório online. O projeto pode ser
+visitado na URL: http://code.google.com/p/programacao-modular/
 
 -----------------
 COMO OBTER AJUDA

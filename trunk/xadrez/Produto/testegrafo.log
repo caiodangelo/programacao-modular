@@ -27,35 +27,37 @@
    43  == Verificar remover aresta
    46  == Verificar ir vértice com id
    48  == Verificar excluir vértice
-!!!    0  Linha:    50  //=recuperar 
-   51  == Verificar exibir grafo
-   53  == Verificar obter valor com id
-   55  == Verificar obter valor com id, tentando obter valor errado
->>>    1  Linha:    56  Valor do vértice está errado. Deveria ser: 10  É: 6
-<<<    0  Linha:    57  Falha esperada foi recuperada. 
-   58  == Verificar marcar origem
-   60  == Verificar desmarcar origem
-   62  == Verificar desmarcar origem inexistente
-   65  == Verificar ir vértice com id
-   67  == Verificar excluir vértice
-   69  == Verificar exibir grafo
-   72  == Verificar ir vértice com id
-   74  == Verificar excluir vértice
-   76  == Verificar exibir grafo
-!!!    0  Linha:    79  //== Verificar avançar sucessor 
-!!!    0  Linha:    80  //=avancarsucessor 1 0 
-!!!    0  Linha:    81  //== Verificar avançar sucessor de vertice sem sucessor 
-!!!    0  Linha:    82  //=avancarsucessor 2 12 
-!!!    0  Linha:    84  //obterant 
-!!!    0  Linha:    86  //obtersuc 
-   88  == Verificar Destruir grafo
-   91  == Tentar inserir vértice em grafo inexistente
-   93  == Tentar exibir grafo
-!!!    0  Linha:    96  //fim 
+   50  == Verificar exibir grafo
+   52  == Verificar obter valor com id
+   54  == Verificar obter valor com id, tentando obter valor errado
+>>>    1  Linha:    55  Valor do vértice está errado. Deveria ser: 10  É: 6
+<<<    0  Linha:    56  Falha esperada foi recuperada. 
+   57  == Verificar marcar origem
+   59  == Verificar desmarcar origem
+   61  == Verificar desmarcar origem inexistente
+   64  == Verificar ir vértice com id
+   66  == Verificar excluir vértice
+   68  == Verificar exibir grafo
+   71  == Verificar ir vértice com id
+   73  == Verificar excluir vértice
+   75  == Verificar exibir grafo
+!!!    0  Linha:    78  //== Verificar avançar sucessor 
+!!!    0  Linha:    79  //=avancarsucessor 1 0 
+!!!    0  Linha:    80  //== Verificar avançar sucessor de vertice sem sucessor 
+!!!    0  Linha:    81  //=avancarsucessor 2 12 
+!!!    0  Linha:    83  //obterant 
+!!!    0  Linha:    85  //obtersuc 
+!!!    0  Linha:    87  //== Verificar Destruir grafo 
+!!!    0  Linha:    88  //=destruirgra 0 
+!!!    0  Linha:    90  //== Tentar inserir vértice em grafo inexistente 
+!!!    0  Linha:    91  //=inserirver 12 8 2 
+!!!    0  Linha:    92  //== Tentar exibir grafo 
+!!!    0  Linha:    93  //=exibirgra 2 
+!!!    0  Linha:    95  //fim 
 
-!!! Número de linhas lidas:          97
-!!! Número de casos de teste:        35
-!!! Número comandos corretos:        34
+!!! Número de linhas lidas:          96
+!!! Número de casos de teste:        32
+!!! Número comandos corretos:        31
 !!! Número de falhas encontradas:     0
 
 !!! Não foram encontrados problemas

@@ -145,20 +145,18 @@
 *  ****/
 
 	void VER_DestruirVertice ( VER_tppVertice* ppVertice ){
-
+	  
 		/* Verifica se o vértice existe */
 		if ( *ppVertice == NULL ){
 			return;
 		} /* if */
 
 		/* Limpa a lista de antecessores */
-        LIS_DestruirLista( (*ppVertice)->Antecessores );
 	    ((*ppVertice)->Antecessores) = NULL;
 
-		/* Limpa a lista de sucessores */
+		/* Limpa a lista de sucessores */		
 		((*ppVertice)->Sucessores) = NULL;
-		LIS_DestruirLista( (*ppVertice)->Sucessores );
-		
+
 		/* Libera o espaço alocado pelo vértice */
 		free( *ppVertice );
 		*ppVertice = NULL;

@@ -53,20 +53,20 @@ Estatísticas do construto
       reconhecedor.c
 
    Estatísticas do arquivo: grafo.c
-      Total linhas:             756
-      Linhas de código:         405
-      Linhas de comentário:     142
-      Linhas em branco:         233
+      Total linhas:             737
+      Linhas de código:         381
+      Linhas de comentário:     150
+      Linhas em branco:         229
    Arquivos de inclusão de que necessita
       grafo.h
       lista.h
       vertice.h
 
    Estatísticas do arquivo: grafo.h
-      Total linhas:             441
-      Linhas de código:          37
-      Linhas de comentário:     336
-      Linhas em branco:          68
+      Total linhas:             423
+      Linhas de código:          36
+      Linhas de comentário:     321
+      Linhas em branco:          66
    Arquivos em que é incluído
       grafo.c
       reconhecedor.c
@@ -108,9 +108,9 @@ Estatísticas do construto
       reconhecedor.h
 
    Estatísticas do arquivo: reconhecedor.h
-      Total linhas:             134
+      Total linhas:             131
       Linhas de código:          19
-      Linhas de comentário:      90
+      Linhas de comentário:      87
       Linhas em branco:          25
    Arquivos em que é incluído
       reconhecedor.c
@@ -138,18 +138,18 @@ Estatísticas do construto
 
    Estatísticas do arquivo: vertice.c
       Total linhas:             556
-      Linhas de código:         267
+      Linhas de código:         268
       Linhas de comentário:     126
-      Linhas em branco:         179
+      Linhas em branco:         178
    Arquivos de inclusão de que necessita
       lista.h
       vertice.h
 
    Estatísticas do arquivo: vertice.h
-      Total linhas:             293
-      Linhas de código:          22
-      Linhas de comentário:     222
-      Linhas em branco:          49
+      Total linhas:             298
+      Linhas de código:          23
+      Linhas de comentário:     225
+      Linhas em branco:          50
    Arquivos em que é incluído
       gerenciador.c
       grafo.c
@@ -158,10 +158,10 @@ Estatísticas do construto
 Totais por tipo de arquivo
 
   Tipo: h        Path: ..\Fontes
-         Total linhas do tipo:      2818
+         Total linhas do tipo:      2802
          Linhas de código:           273
-         Linhas de comentário:      2127
-         Linhas em branco:           418
+         Linhas de comentário:      2112
+         Linhas em branco:           417
          Arquivos deste tipo:          8
 
   Tipo: obj      Path: ..\Objetos
@@ -200,17 +200,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:      3003
-         Linhas de código:          1537
-         Linhas de comentário:       779
-         Linhas em branco:           774
+         Total linhas do tipo:      2984
+         Linhas de código:          1514
+         Linhas de comentário:       787
+         Linhas em branco:           769
          Arquivos deste tipo:          6
 
 Totais para todo o construto TesteReconhecedor
 
-   Total linhas:              5821
-   Linhas de código:          1810
-   Linhas de comentário:      2906
-   Linhas em branco:          1192
+   Total linhas:              5786
+   Linhas de código:          1787
+   Linhas de comentário:      2899
+   Linhas em branco:          1186
    Arquivos processados:        14
 
