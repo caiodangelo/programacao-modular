@@ -4,9 +4,6 @@
 *  Arquivo gerado:              RECONHECEDOR.H
 *  Letras identificadoras:      REC
 *
-*  Nome da base de software:    Exemplo de teste automatizado
-*  Arquivo da base de software: D:\AUTOTEST\PROJETOS\SIMPLES.BSW
-*
 *  Projeto: Disciplina INF 1301
 *  Gestor:  DI/PUC-Rio
 *  Autores: cev - Caio D'Angelo, Eduardo Velloso e Vitor Barbarisi

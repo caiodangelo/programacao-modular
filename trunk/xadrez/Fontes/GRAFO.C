@@ -4,16 +4,14 @@
 *  Arquivo gerado:              GRAFO.C
 *  Letras identificadoras:      GRA
 *
-*  Nome da base de software:    Exemplo de teste automatizado
-*  Arquivo da base de software: D:\AUTOTEST\PROJETOS\SIMPLES.BSW
-*
 *  Projeto: Disciplina INF 1301
 *  Gestor:  DI/PUC-Rio
 *  Autores: cev - Caio D'Angelo, Eduardo Velloso e Vitor Barbarisi
 *
 *  $HA Histórico de evolução:
 *     Versão  Autor    Data     Observações
-*       1.00   cev   19/09/2009 Início do desenvolvimento
+*     0       cev   12/set/2009 Início desenvolvimento
+*	  1		  cev	19/out/2009 Entrega do trabalho
 *
 ***************************************************************************/
 
