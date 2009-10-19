@@ -5,23 +5,57 @@
 
 ==Verificar inicialização do tabuleiro
 =inicializar 0
+==Verificar criação de peça
 =criarpeca 0 0
+==Verificar obter tipo da peça
 =obtertipo 0 0
+==Verificar obter cor da peça
 =obtercor 0 0
+==Verificar atribuir peça
 =atribuirpeca 3 1 0
+==Verificar obter tipo da peça
 =obtertipo 3 0
+==Verificar obter cor da peça
 =obtercor 1 0
+==Verificar obter ultima linha do tabuleiro
 =obterultlin 8 0
+==Verificar obter ultima coluna do tabuleiro
 =obterultcol 'H' 0
+==Verificar preencher tabuleiro
 =preenchertab 0
+==Verificar obter peça do tabuleiro
 =obterpecatab 'A' 7 0
+==Verificar obter cor da peça
 =obtercor 0 0
+==Verificar obter tipo da peça
 =obtertipo 0 0
+==Verificar obter peça do tabuleiro
 =obterpecatab 'C' 2 0
+==Verificar obter cor da peça
 =obtercor 1 0
+==Verificar obter tipo da peça
 =obtertipo 0 0
+==Verificar obter peça do tabuleiro
 =obterpecatab 'F' 8 0
+==Verificar obter cor da peça
 =obtercor 0 0
+==Verificar obter tipo da peça
 =obtertipo 3 0
+==Verificar atribuir peça
+=atribuirpeca 6 2 0
+==Verificar obter posição do rei
+=obterrei 0 'E' 3 0
+
+==Verificar obter tipo da peça que foi alterada
+=obtertipo 6 0
+==Verificar obter cor da peça que foi alterada
+=obtercor 2 0
+==Verificar obter código do tipo da peça
+=obtercodtipo 'V' 6
+==Verificar obter código da cor da peça
+=obtercodcor 'B' 0
+
+
+
 //fim
 
