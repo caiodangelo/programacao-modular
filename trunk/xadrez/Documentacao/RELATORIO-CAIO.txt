@@ -1,0 +1,19 @@
+Data		Horas	Tipo de Tarefa		Descrição da Tarefa
+18/09/2009	01:00	Estudar			Reunião com o grupo todo para estudar o projeto
+18/09/2009	01:00	Especificar Módulos	Reunião com o grupo todo para especificação e separação das tarefas
+20/09/2009	01:00	Codificar módulo	Início da codificação do Módulo Grafo
+22/09/2009	01:00	Codificar módulo	Codificação do Módulo grafo
+23/09/2009	02:00	Codificar módulo	Codificação do Módulo grafo
+12/10/2009	12:00	Revisar Especificações, 
+Codificar Módulo, Redigir Script de Teste, 
+Realizar os Testes, Diagnosticar e Corrigir 
+Problemas Encontrados				Módulo Vértice e seu módulo de teste específico
+15/10/2009	11:00	Codificar Módulo, 
+Redigir Script de Teste, Realizar os Testes, 
+Diagnosticar e Corrigir Problemas Encontrados	Módulo Vértice, Módulo Grafo e seus módulos de teste específicos
+16/10/2009	10:00	Codificar Módulo, 
+Redigir Script de Teste, Realizar os Testes, 
+Diagnosticar e Corrigir Problemas Encontrados	Módulo Grafo e seu módulo de teste específico
+18/10/2009	05:00	Redigir Script de Teste, 
+Realizar os Testes, Diagnosticar e Corrigir 
+Problemas Encontrados				Módulo Gerenciador e Módulo Reconhecedor
