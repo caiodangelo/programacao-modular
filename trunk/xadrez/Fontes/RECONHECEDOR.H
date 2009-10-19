@@ -72,6 +72,9 @@ typedef enum{
 	REC_CondRetNaoEstaEmXequeMate = 13 ,
 		/* Rei não está em Xeque Mate */
 
+	REC_CondRetChegouEmPeca = 14 ,
+		/* Sucessor contém peça */
+
 }REC_tpCondRet;
 
 /***** Declarações importadas pelo módulo *****/

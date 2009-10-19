@@ -225,7 +225,10 @@ REC_tpCondRet AdicionaProximosDiscretos ( GER_tppPeca pPeca , GRA_tppGrafo pGraf
 	ColunaDoProximo = ( char )( ColunaCorrente + NumCasasNaHorizontal ) ;
 
 	CondRetREC = AdicionaProximo ( pGrafo , (char)ColunaCorrente , LinhaCorrente , (char)ColunaDoProximo , LinhaDoProximo, (char)TipoDaCasa, CorDaPeca );
-
+	if (CondRetREC == REC_CondRetChegouEmPeca )
+	{
+		return REC_CondRetOK ;
+	}
 	return CondRetREC;
 }/* Fim da Função: REC -Adiciona Próximas Peças ( Movimentação Discreta ) */
 
@@ -351,6 +354,7 @@ REC_tpCondRet AdicionaProximosContinuos ( GER_tppPeca pPeca , GRA_tppGrafo pGraf
 *	  REC_CondRetErroNaStringDeMovimento - string de movimentação com sintaxe incorreta
 *	  REC_CondRetPosicaoInvalida - peça referida pela string de movimento está numa posição inválida
 *	  REC_CondRetNaoInseriuPeca - erro ao inserir a peça
+*	  REC_CondRetChegouEmPeca - sucessor contem peça
 *
 ***********************************************************************/
 REC_tpCondRet AdicionaProximo ( GRA_tppGrafo pGrafo, char ColunaCorrente, int LinhaCorrente , char ColunaProximo, int LinhaProximo, char TipoDaCasa, GER_tpCorPeca CorPecaCorrente ){
@@ -413,6 +417,11 @@ REC_tpCondRet AdicionaProximo ( GRA_tppGrafo pGrafo, char ColunaCorrente, int Li
 	if ( CondRetGRA != GRA_CondRetOK )
 	{
 		return REC_CondRetNaoAdicionouProx;
+	}
+
+	if ( TipoDaPeca != GER_TipoVazia )
+	{
+		return REC_CondRetChegouEmPeca ;
 	}
 
 	return REC_CondRetOK;
