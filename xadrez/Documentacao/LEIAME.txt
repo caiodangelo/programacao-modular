@@ -89,7 +89,11 @@ batch Tudo.bat que encontra-se no diretório "Batches".
 Vale ressaltar ainda que uma breve explicação de cada comando de script de testes se 
 encontra no respectivo módulo de teste. Tais arquivos se encontram no diretório Fontes 
 sob a alcunha TESTxxx onde xxx corresponde ao prefixo do módulo implementado (VER-vértice, 
-GRA-grafo, REC-reconhecedor e GER-gerenciador). 
+GRA-grafo, REC-reconhecedor e GER-gerenciador).
+
+É importante observar também que, para melhor testar o módulo reconhecedor é interessante
+manipular os arquivos de disposição de peças no tabuleiro e de regras de definição.
+Há tópicos abaixo que esclarecem como manipular esses arquivos de forma correta. 
 
 -----------------------
 ESTRUTURA DE DIRETÓRIOS
