@@ -26,6 +26,7 @@ REQUISITOS ADICIONAIS
 INSTALAÇÃO
 COMPILAÇÃO
 TESTES
+ESTRUTURA DE DIRETÓRIOS
 COMO OBTER AJUDA
 REGRAS DE SINTAXE DOS ARQUIVOS DE DISPOSIÇÃO DE PEÇAS NO TABULEIRO
 REGRAS DE SINTAXE DOS ARQUIVOS DE REGRAS DE MOVIMENTAÇÃO DISCRETA
@@ -51,13 +52,20 @@ comando for aberta
 INSTALAÇÃO
 -----------
 
-// Aqui vocês descrevem como proceder ao receber o arquivo (.zip).
+O trabalho se encontra no arquivo INF1301-Trab02-CEV.zip . Para instalar
+os módulos, é necessário extrair toda a pasta xadrez para o diretório on-
+de o arqcabouço está instalado. Sendo assim, a pasta xadrez ficará loca-
+lizada no mesmo diretório que as pastas arcabouc, documentos, ferramnt,ins-
+trum, etc.
 
 --------------------
 COMPILAÇÃO
 --------------------
 
-// Aqui vocês descrevem como compilar os fontes.
+Para gerar as bibliotecas, compilar os fonte e executar os testes, basta
+executar o batch Tudo.bat encontrado no diretório "Batches". Este batch
+limpa os arquivos gerados por execuções anteriores, cria a biblioteca, com-
+pila os códigos-fonte e executa os testes.
 
 
 --------------------
@@ -66,6 +74,20 @@ TESTES
 
 // Descrever os scripts
 // Descrever como proceder para testar
+
+-----------------------
+ESTRUTURA DE DIRETÓRIOS
+-----------------------
+
+A seguir, encontra-se uma descrição dos diretórios do trabalho
+-Batches - contém procedimentos para geração de bibliotecas, compilação e teste.
+-Composição - contém os arquivos com as diretivas de geração de scripts de make
+-Definicao - contém os arquivos de disposição de peças no tabuleiro e de regras
+	de movimentação das peças
+-Fontes - código dos módulos e interfaces
+-Objetos - arquivos *.obj, *.lib e *.build
+-Produto - arquivos executáveis, de log de teste e de log de compilação
+-Scripts - scripts de teste
 
 -----------------
 COMO OBTER AJUDA
