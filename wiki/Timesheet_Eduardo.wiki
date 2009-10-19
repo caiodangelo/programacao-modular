@@ -34,4 +34,7 @@ Possíveis tarefas:
 ||23/09/2009||02:00||Codificar os módulos||Inicio da codificação do módulo reconhecedor||
 ||12/10/2009||12:00||Revisar Especificações, Codificar Módulo, Redigir Script de Teste, Realizar os Testes, Diagnosticar e Corrigir Problemas Encontrados||Módulos Vértice, Grafo e seus módulos de teste específicos||
 ||13/10/2009||02:00||Revisar Código do Módulo||Tentar corrigir os problemas no teste do módulo de teste de vértices||
-||12/10/2009||12:00||Revisar Especificações, Codificar Módulo, Redigir Script de Teste, Realizar os Testes, Diagnosticar e Corrigir Problemas Encontrados||Módulos Gerenciador,  Reconhecedor e seus módulos de teste específicos||
+||15/10/2009||12:00||Revisar Especificações, Codificar Módulo, Redigir Script de Teste, Realizar os Testes, Diagnosticar e Corrigir Problemas Encontrados||Módulos Gerenciador,  Reconhecedor e seus módulos de teste específicos||
+||16/10/2009||10:00||Redigir Script de Teste, Realizar os Testes, Diagnosticar e Corrigir Problemas Encontrados||Módulos Gerenciador,  Reconhecedor e seus módulos de teste específicos||
+||18/10/2009||05:00||Redigir Script de Teste, Realizar os Testes, Diagnosticar e Corrigir Problemas Encontrados||Módulos Gerenciador,  Reconhecedor e seus módulos de teste específicos||
+||19/10/2009||04:00||Documentar||Revisar documentação e redigir relatório||
