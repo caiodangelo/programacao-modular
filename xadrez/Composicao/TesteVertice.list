@@ -78,18 +78,18 @@ Estatísticas do construto
 
    Estatísticas do arquivo: vertice.c
       Total linhas:             556
-      Linhas de código:         267
+      Linhas de código:         268
       Linhas de comentário:     126
-      Linhas em branco:         179
+      Linhas em branco:         178
    Arquivos de inclusão de que necessita
       lista.h
       vertice.h
 
    Estatísticas do arquivo: vertice.h
-      Total linhas:             293
-      Linhas de código:          22
-      Linhas de comentário:     222
-      Linhas em branco:          49
+      Total linhas:             298
+      Linhas de código:          23
+      Linhas de comentário:     225
+      Linhas em branco:          50
    Arquivos em que é incluído
       testver.c
       vertice.c
@@ -97,10 +97,10 @@ Estatísticas do construto
 Totais por tipo de arquivo
 
   Tipo: h        Path: ..\Fontes
-         Total linhas do tipo:      1871
-         Linhas de código:           175
-         Linhas de comentário:      1429
-         Linhas em branco:           267
+         Total linhas do tipo:      1876
+         Linhas de código:           176
+         Linhas de comentário:      1432
+         Linhas em branco:           268
          Arquivos deste tipo:          5
 
   Tipo: obj      Path: ..\Objetos
@@ -140,16 +140,16 @@ Totais por tipo de arquivo
 
   Tipo: c        Path: ..\Fontes
          Total linhas do tipo:      1375
-         Linhas de código:           685
+         Linhas de código:           686
          Linhas de comentário:       339
-         Linhas em branco:           393
+         Linhas em branco:           392
          Arquivos deste tipo:          3
 
 Totais para todo o construto TesteVertice
 
-   Total linhas:              3246
-   Linhas de código:           860
-   Linhas de comentário:      1768
+   Total linhas:              3251
+   Linhas de código:           862
+   Linhas de comentário:      1771
    Linhas em branco:           660
    Arquivos processados:         8
 

@@ -52,20 +52,20 @@ Estatísticas do construto
       testger.c
 
    Estatísticas do arquivo: grafo.c
-      Total linhas:             756
-      Linhas de código:         405
-      Linhas de comentário:     142
-      Linhas em branco:         233
+      Total linhas:             737
+      Linhas de código:         381
+      Linhas de comentário:     150
+      Linhas em branco:         229
    Arquivos de inclusão de que necessita
       grafo.h
       lista.h
       vertice.h
 
    Estatísticas do arquivo: grafo.h
-      Total linhas:             441
-      Linhas de código:          37
-      Linhas de comentário:     336
-      Linhas em branco:          68
+      Total linhas:             423
+      Linhas de código:          36
+      Linhas de comentário:     321
+      Linhas em branco:          66
    Arquivos em que é incluído
       grafo.c
 
@@ -117,18 +117,18 @@ Estatísticas do construto
 
    Estatísticas do arquivo: vertice.c
       Total linhas:             556
-      Linhas de código:         267
+      Linhas de código:         268
       Linhas de comentário:     126
-      Linhas em branco:         179
+      Linhas em branco:         178
    Arquivos de inclusão de que necessita
       lista.h
       vertice.h
 
    Estatísticas do arquivo: vertice.h
-      Total linhas:             293
-      Linhas de código:          22
-      Linhas de comentário:     222
-      Linhas em branco:          49
+      Total linhas:             298
+      Linhas de código:          23
+      Linhas de comentário:     225
+      Linhas em branco:          50
    Arquivos em que é incluído
       gerenciador.c
       grafo.c
@@ -137,10 +137,10 @@ Estatísticas do construto
 Totais por tipo de arquivo
 
   Tipo: h        Path: ..\Fontes
-         Total linhas do tipo:      2684
+         Total linhas do tipo:      2671
          Linhas de código:           254
-         Linhas de comentário:      2037
-         Linhas em branco:           393
+         Linhas de comentário:      2025
+         Linhas em branco:           392
          Arquivos deste tipo:          7
 
   Tipo: obj      Path: ..\Objetos
@@ -179,17 +179,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:      2784
-         Linhas de código:          1438
-         Linhas de comentário:       674
-         Linhas em branco:           765
+         Total linhas do tipo:      2765
+         Linhas de código:          1415
+         Linhas de comentário:       682
+         Linhas em branco:           760
          Arquivos deste tipo:          5
 
 Totais para todo o construto TesteGerenciador
 
-   Total linhas:              5468
-   Linhas de código:          1692
-   Linhas de comentário:      2711
-   Linhas em branco:          1158
+   Total linhas:              5436
+   Linhas de código:          1669
+   Linhas de comentário:      2707
+   Linhas em branco:          1152
    Arquivos processados:        12
 

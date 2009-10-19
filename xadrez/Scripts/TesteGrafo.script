@@ -47,7 +47,6 @@
 =irverticecomid 4 0
 == Verificar excluir vértice
 =excluir 0
-//=recuperar
 == Verificar exibir grafo
 =exibirgra 0
 == Verificar obter valor com id
@@ -85,13 +84,13 @@
 
 //obtersuc
 
-== Verificar Destruir grafo
-=destruirgra 0
+//== Verificar Destruir grafo
+//=destruirgra 0
 
-== Tentar inserir vértice em grafo inexistente
-=inserirver 12 8 2
-== Tentar exibir grafo
-=exibirgra 2
+//== Tentar inserir vértice em grafo inexistente
+//=inserirver 12 8 2
+//== Tentar exibir grafo
+//=exibirgra 2
 
 //fim
 

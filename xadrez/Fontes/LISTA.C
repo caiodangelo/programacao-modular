@@ -147,8 +147,10 @@
       #endif
 
       pElem = pLista->pOrigemLista ;
+
       while ( pElem != NULL )
       {
+		  
          pProx = pElem->pProx ;
          LiberarElemento( pLista , pElem ) ;
          pElem = pProx ;
@@ -497,7 +499,6 @@
    void LiberarElemento( LIS_tppLista   pLista ,
                          tpElemLista  * pElem   )
    {
-
       if ( ( pLista->ExcluirValor != NULL )
         && ( pElem->pValor != NULL        ))
       {

@@ -209,9 +209,12 @@
 
 		 CondRetLista = LIS_ProcurarValor( pGrafo->ListaVertices ,
                                     pVertice        ) ;
+		 
 		 CondRetLista = LIS_ExcluirElemento( pGrafo->ListaVertices ) ;
-	  
-		
+
+		 IrInicioLista ( pGrafo->ListaVertices ) ;
+
+		 pGrafo->VerticeCorrente = LIS_ObterValor ( pGrafo->ListaVertices ) ;
 	  /* Remover vértice da lista de origens */
 
 		return GRA_CondRetOK;
