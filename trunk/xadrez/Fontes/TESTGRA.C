@@ -22,23 +22,33 @@
 *  $EIU Interface com o usuário pessoa
 *     Comandos de teste específicos para testar o módulo grafo:
 *
-*     "=criargra <Int>"				- chama a função GRA_CriarGrafo
+*     "=criargra <Int>"						- chama a função GRA_CriarGrafo
 *
-*     "=destruirgra <Int>"				- chama a função GRA_DestruirGrafo
+*     "=destruirgra <Int>"					- chama a função GRA_DestruirGrafo
 *
-*     "=inserirver <Int>"			- chama a função GRA_InserirVertice
+*     "=inserirver <Int><Int><Int>"			- chama a função GRA_InserirVertice
 *
-*	  "=excluirver <Int>"			- chama a função GRA_ExcluirVertice
+*	  "=excluir <Int>"						- chama a função GRA_ExcluirVertice
 *
-*	  "=inserirare <Int>"			- chama a função GRA_InserirAresta
+*	  "=inserirare <Int><Int><Int>"			- chama a função GRA_InserirAresta
 *
-*	  "=removerare <Int>"			- chama a função GRA_RemoverAresta
+*	  "=removerare <Int><Int><Int>"			- chama a função GRA_RemoverAresta
 *
-*	  "=exibirgra <Int>"			- chama a função GRA_ExibirGrafo
+*	  "=exibirgra <Int>"					- chama a função GRA_ExibirGrafo
 *
-*	  "=marcarorigem <Int>"			- chama a função GRA_MarcarComoOrigem
+*	  "=marcarorigem <Int><Int>"			- chama a função GRA_MarcarComoOrigem
 *
-*	  "=desmarcarorigem <Int>"		- chama a função GRA_DesmarcarComoOrigem
+*	  "=desmarcarorigem <Int><Int>"			- chama a função GRA_DesmarcarComoOrigem
+*
+*	  "=obtervalorcomid <Int><Int><Int>"	- chama a função GRA_ObterValorComId
+*
+*	  "=irverticecomid <Int><Int>"			- chama a função GRA_IrVerticeComId
+*
+*	  "=avancarsucessor <Int><Int>"			- chama a função GRA_AvancarSucessor
+*
+*	  "=obterant <Int><Int><Int>"			- chama a função GRA_ObterAntecessor
+*
+*	  "=obtersuc <Int><Int><Int>"			- chama a função GRA_ObterSucessor
 *
 *
 ***************************************************************************/
