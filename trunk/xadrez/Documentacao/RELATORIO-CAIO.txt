@@ -17,3 +17,5 @@ Diagnosticar e Corrigir Problemas Encontrados	Módulo Grafo e seu módulo de teste
 18/10/2009	05:00	Redigir Script de Teste, 
 Realizar os Testes, Diagnosticar e Corrigir 
 Problemas Encontrados				Módulo Gerenciador e Módulo Reconhecedor
+19/10/2009	02:00	Realizar testes e
+preparar arquivos para envio			Módulo Reconhecedor e Trabalho Completo
