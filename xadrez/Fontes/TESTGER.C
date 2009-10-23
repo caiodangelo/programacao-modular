@@ -79,6 +79,7 @@
 #define		OBTER_COD_TIPO_CMD		"=obtercodtipo"
 #define		OBTER_COD_COR_CMD		"=obtercodcor"
 #define		OBTER_REI_CMD			"=obterrei"
+#define		GERAR_DISP_CMD			"=gerardisposicao"
 
 /*****  Código das funções exportadas pelo módulo  *****/
 
@@ -377,6 +378,25 @@ GER_tppPeca pPeca = NULL;
 
 			return Ret ;
          } /* fim ativa: Testar GER Obter rei */
+
+	/* Testar GER Gerar Arquivo de Disposição */
+
+         else if ( strcmp( ComandoTeste , GERAR_DISP_CMD ) == 0 )
+         {
+			 NumLidos = LER_LerParametros ( "i" , 
+											&CondRetEsperada ) ;
+			 if ( NumLidos != 1 )
+			 {
+				 return TST_CondRetParm ;
+			 } /* if */
+
+			 CondRetObtida = GER_GerarArquivoDeDisposicao ( "DISPOSICAO_.TXT" );
+
+  			 Ret = TST_CompararInt ( CondRetEsperada , CondRetObtida ,
+									  "Retorno errado ao gerar arquivo de disposição." );
+
+			return Ret ;
+         } /* fim ativa: Gerar Arquivo de Disposição */
 
       return TST_CondRetNaoConhec ;
 

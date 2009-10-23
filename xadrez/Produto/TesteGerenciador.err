@@ -1,4 +1,5 @@
 gerenciador.c
+..\Fontes\gerenciador.c(420) : warning C4100: 'NomeArquivo' : unreferenced formal parameter
 testger.c
 Microsoft (R) Incremental Linker Version 9.00.21022.08
 Copyright (C) Microsoft Corporation.  All rights reserved.

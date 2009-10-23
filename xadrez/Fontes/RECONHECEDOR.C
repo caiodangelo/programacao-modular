@@ -170,6 +170,26 @@ REC_tpCondRet REC_GeraMovimentacoes ( GRA_tppGrafo * ppGrafo ){
 	return REC_CondRetOK;
 } /* Fim da Função: REC  &Gera Movimentações */
 
+/***************************************************************************
+*
+*  Função: REC  &Gera Movimentações
+*  ****/
+REC_tpCondRet REC_ReconhecerXequeMate ( GRA_tppGrafo pGrafo, char Cor ){
+	
+	/* Para todas as peças da cor */
+		/* Escolhe um movimento possível */
+		/* Gera novo arquivo de disposição */
+		/* Gera o tabuleiro deste arquivo */
+		/* Gera grafo do tabuleiro */
+		/* Se rei da cor não possui antecessores da outra cor */
+			/* Retorna que não está em xeque mate */
+		/* Se possui */
+			/* Volta ao início */
+
+	/* Retorna que está em xeque mate */
+	return -1;
+
+}/* Fim da Função: REC &Reconhecer Xeque Mate */
 
 /*****  Código das funções encapsuladas no módulo  *****/
 

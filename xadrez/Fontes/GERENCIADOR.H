@@ -67,6 +67,9 @@ typedef struct GER_tgPeca * GER_tppPeca;
 		 GER_CondRetCorInvalida = 6,
 				/* Cor da Peça é inválida */
 
+		 GER_CondRetErroAoAbrirArq = 7,
+				/* Não conseguiu abrir arquivo corretamente */
+
    } GER_tpCondRet ;
 
 /***********************************************************************
@@ -360,11 +363,30 @@ typedef struct GER_tgPeca * GER_tppPeca;
 *
 *  $FV Valor retornado
 *	  GER_CondRetOK - encontrou sem problemas
-*	  GER_CondtRetPecaNaoExiste - a peça não foi encontrada  
+*	  GER_CondRetPecaNaoExiste - a peça não foi encontrada  
 *
 ***********************************************************************/
 
    GER_tpCondRet GER_ObterRei ( GER_tpCorPeca Cor , char * pColuna , int * pLinha ) ;
+
+/***********************************************************************
+*
+*  $FC Função: GER  &Gerar Arquivo de Disposição
+*
+*  $ED Descrição da função
+*     Gera um arquivo com a disposição das peças no tabuleiro corrente
+*
+*  $EP Parâmetros
+*	  NomeArquivo - Nome do arquivo a ser gerado
+*
+*  $FV Valor retornado
+*	  GER_CondRetOK - encontrou sem problemas
+*	  GER_CondRetPecaNaoExiste - erro ao obter peça
+*	  GER_CondRetErroAoAbrirArq - problema ao abrir o arquivo
+*
+***********************************************************************/
+
+   GER_tpCondRet GER_GerarArquivoDeDisposicao ( char * NomeArquivo ) ;
 
 /********** Fim do módulo de definição: GER  Gerenciador de xadrez **********/
 

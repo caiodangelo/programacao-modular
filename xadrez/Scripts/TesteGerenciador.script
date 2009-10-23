@@ -44,7 +44,7 @@
 ==Verificar atribuir peça
 =atribuirpeca 6 2 0
 ==Verificar obter posição do rei
-=obterrei 0 'E' 3 0
+=obterrei 0 'E' 8 0
 
 ==Verificar obter tipo da peça que foi alterada
 =obtertipo 6 0
