@@ -47,6 +47,7 @@
 #define		ADICIONAR_PECAS_CMD		"=adicionarpecas"
 #define		GERAR_MOV_CMD			"=gerarmov"
 #define		EXIBIR_CMD				"=exibir"
+#define		RECONHECER_XEQUE_CMD	"=reconhecerxeque"
 
 /*****  Código das funções exportadas pelo módulo  *****/
 
@@ -78,6 +79,8 @@ GRA_tppGrafo pGrafo;
 	  GER_tpCondRet CondRetGER		= GER_CondRetOK ;
                                       /* inicializa para qualquer coisa */
 	  int NumLidos = -1;
+	  char CorDada = '!';
+
 	  TST_tpCondRet Ret ;
 
       /* Testar REC Montar Grafo */
@@ -119,7 +122,7 @@ GRA_tppGrafo pGrafo;
 			 return Ret;
          } /* fim ativa: Testar REC Montar Grafo */
 
-		 /* Testar REC Gerar movimentação */
+	/* Testar REC Gerar movimentação */
 
          else if ( strcmp( ComandoTeste , GERAR_MOV_CMD ) == 0 )
          {
@@ -153,6 +156,31 @@ GRA_tppGrafo pGrafo;
 
 			 return TST_CondRetOK;
          } /* fim ativa: Testar REC Exibir Grafo de Movimentação */
+
+	/* Testar REC Reconhecer Xeque Mate */
+
+         else if ( strcmp( ComandoTeste , RECONHECER_XEQUE_CMD ) == 0 )
+         {
+			 NumLidos = LER_LerParametros ( "ci" , 
+											&CorDada , &CondRetEsperada ) ;
+			 if ( NumLidos != 2 )
+			 {
+				 return TST_CondRetParm ;
+			 } /* if */
+
+			 /* Adiciona as movimentações das peças */
+			 CondRetObtida = REC_ReconhecerXequeMate ( pGrafo, CorDada );
+
+			 
+			 Ret = TST_CompararInt ( CondRetEsperada , CondRetObtida , 
+									  "Retorno errado ao reconhecer xeque mate. " );
+			 if ( Ret != TST_CondRetOK )
+			 {
+				 return Ret ;
+			 }
+
+			 return Ret;
+         } /* fim ativa: Testar REC Reconhecer Xeque Mate */
 
       return TST_CondRetNaoConhec ;
 

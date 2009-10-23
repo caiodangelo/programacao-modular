@@ -87,6 +87,7 @@ typedef struct GER_tgPeca * GER_tppPeca;
 
 typedef struct GRA_tgGrafo * GRA_tppGrafo;
 
+
 /***********************************************************************
 *
 *  $FC Função: REC &Adicionar Peças ao Grafo
@@ -130,5 +131,27 @@ typedef struct GRA_tgGrafo * GRA_tppGrafo;
 ***********************************************************************/
    
    REC_tpCondRet REC_GeraMovimentacoes ( GRA_tppGrafo * ppGrafo );
+
+/***********************************************************************
+*
+*  $FC Função: REC &Reconhecer Xeque Mate
+*
+*  $ED Descrição da função
+*     A partir do grafo de movimentações, reconhece se o rei de uma deter-
+*	  minada cor está em xeque mate.
+*
+*  $EP Parâmetros
+*     ppGrafo - referência para o grafo de movimentações
+*	  CorRei - cor do rei que pode estar em xeque
+*
+*  $FV Valor retornado
+*	  REC_CondRetNaoEstaEmXequeMate - rei na cor fonecida não está em xeque mate
+*	  REC_CondRetXequeMate - rei da cor fornecida está em xeque mate
+*	  
+*
+***********************************************************************/
+   
+   REC_tpCondRet REC_ReconhecerXequeMate ( GRA_tppGrafo pGrafo, char Cor );
+
    
 /********** Fim do módulo de definição: Módulo grafo **********/

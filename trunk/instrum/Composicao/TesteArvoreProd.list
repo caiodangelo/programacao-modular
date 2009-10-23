@@ -4,7 +4,7 @@ GERADOR DE SCRIPT DE DIRETIVAS PARA MAKE
 Composição do construto: TesteArvoreProd.comp
 
    Nome do Construto:           TesteArvoreProd
-   Diretório base:              D:\AutoTest\instrum\composicao
+   Diretório base:              C:\Dudu\Programacao Modular\trabalho\instrum\composicao
 
    Arquivo composição:          TesteArvoreProd.comp
    Arquivo plataforma:          gmake.parm
