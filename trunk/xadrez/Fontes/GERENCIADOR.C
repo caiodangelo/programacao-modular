@@ -284,11 +284,13 @@ GER_tpCondRet GER_ObterPecaDoTabuleiro ( GER_tppPeca * ppPeca, char coluna, int 
 
 	/* Verifica se a linha é válida */
 	if((ixLinha<0)||(ixLinha>=N_LINHAS)){
+		printf("linha errada %c%d\n", coluna, linha);
 		return GER_CondRetPecaNaoExiste;
 	} /* if */
 
 	/* Verifica se a coluna é válida */
 	else if((ixColuna<0)||(ixColuna>=N_COLUNAS)){
+		printf("coluna errada %c%d\n", coluna, linha);
 		return GER_CondRetPecaNaoExiste;
 	} /* else if */
 
@@ -417,19 +419,14 @@ GER_tpCondRet GER_ObterRei ( GER_tpCorPeca Cor , char * pColuna , int * pLinha )
 *
 *  Função: GER  &Mover Peca
 *  ****/
-GER_tpCondRet GER_MoverPeca ( char ColunaOrigem , int LinhaOrigem , char ColunaDestino , int LinhaDestino ) {
+GER_tpCondRet GER_MoverPeca ( GER_tppPeca pPecaOrigem , GER_tppPeca pPecaDestino ) {
 	
-	GER_tppPeca pPecaOrigem ;
-	GER_tppPeca pPecaDestino ;
 	GER_tpTipoPeca Tipo ;
 	GER_tpCorPeca Cor ;
 	GER_tpCondRet CondRet ;
 
-	if ( GER_ObterPecaDoTabuleiro ( &pPecaOrigem , ColunaOrigem , LinhaOrigem )!= GER_CondRetOK )
-	{
-		return GER_CondRetPecaNaoExiste ;
-	}
-	if ( GER_ObterPecaDoTabuleiro ( &pPecaDestino , ColunaDestino , LinhaDestino )!= GER_CondRetOK )
+	if (( pPecaOrigem == NULL )
+		||( pPecaDestino == NULL ))
 	{
 		return GER_CondRetPecaNaoExiste ;
 	}

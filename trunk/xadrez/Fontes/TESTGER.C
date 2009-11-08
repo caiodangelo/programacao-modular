@@ -126,6 +126,8 @@ GER_tppPeca pPeca = NULL;
 	  int LinhaOrigem		= -1 ;
 	  int LinhaDestino		= -2 ;
 	  TST_tpCondRet Ret ;
+	  GER_tppPeca pPecaOrigem = NULL ;
+	  GER_tppPeca pPecaDestino = NULL ;
 
       /* Testar GER Inicializar tabuleiro */
 
@@ -394,7 +396,11 @@ GER_tppPeca pPeca = NULL;
 				 return TST_CondRetParm ;
 			 } /* if */
 
-			 CondRetObtida = GER_MoverPeca ( ColunaOrigem , LinhaOrigem , ColunaDestino , LinhaDestino ) ;
+			 CondRetObtida = GER_ObterPecaDoTabuleiro ( &pPecaOrigem , ColunaOrigem , LinhaOrigem ) ;
+
+			 CondRetObtida = GER_ObterPecaDoTabuleiro ( &pPecaDestino , ColunaDestino , LinhaDestino ) ;
+
+			 CondRetObtida = GER_MoverPeca ( pPecaOrigem , pPecaDestino ) ;
 
 			 Ret = TST_CompararInt ( CondRetEsperada , CondRetObtida ,
 									  "Retorno errado ao mover peca." );
