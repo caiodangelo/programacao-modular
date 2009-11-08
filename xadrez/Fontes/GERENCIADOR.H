@@ -369,6 +369,26 @@ typedef struct GER_tgPeca * GER_tppPeca;
 
    GER_tpCondRet GER_ObterRei ( GER_tpCorPeca Cor , char * pColuna , int * pLinha ) ;
 
+/***********************************************************************
+*
+*  $FC Função: GER  &Mover Peca
+*
+*  $ED Descrição da função
+*     Move uma peça no tabuleiro
+*
+*  $EP Parâmetros
+*	  ColunaOrigem - letra da coluna de origem
+*	  LinhaOrigem - linha da origem
+*	  ColunaDestino - letra da coluna de destino
+*	  LinhaDestino - linha de destino
+*
+*  $FV Valor retornado
+*	  GER_CondRetOK - moveu sem problemas
+*
+***********************************************************************/
+
+	GER_tpCondRet GER_MoverPeca ( char ColunaOrigem , int LinhaOrigem , char ColunaDestino , int LinhaDestino ) ;
+
 /********** Fim do módulo de definição: GER  Gerenciador de xadrez **********/
 
 #else

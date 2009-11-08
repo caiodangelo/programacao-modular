@@ -32,11 +32,15 @@
    51  ==Verificar obter cor da peça que foi alterada
    53  ==Verificar obter código do tipo da peça
    55  ==Verificar obter código da cor da peça
-!!!    0  Linha:    58  //fim 
+   58  ==Verificar mover peca
+   70  ==Verificar mover peca de volta
+   82  ==Verificar mover peca de fora do tabuleiro
+   91  ==Verificar mover peça para fora do tabuleiro
+!!!    0  Linha:   100  //fim 
 
-!!! Número de linhas lidas:          59
-!!! Número de casos de teste:        25
-!!! Número comandos corretos:        25
+!!! Número de linhas lidas:         101
+!!! Número de casos de teste:        29
+!!! Número comandos corretos:        59
 !!! Número de falhas encontradas:     0
 
 !!! Não foram encontrados problemas
