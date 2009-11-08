@@ -56,8 +56,6 @@
 =exibirgra 0
 == Verificar obter valor com id
 =obtervalorcomid 1 10 0
-//== Verificar obter valor com id inválido
-//=obtervalorcomid 32 333 9
 
 == Verificar marcar origem
 =marcarorigem 1 0
