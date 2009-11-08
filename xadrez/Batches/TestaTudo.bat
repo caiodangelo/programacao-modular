@@ -6,7 +6,7 @@ REM..\produto\testevertice		/s..\scripts\testevertice	/l..\produto\testevertice	
 
 REM..\produto\testegrafo		/s..\scripts\testegrafo		/l..\produto\testegrafo		/a..\scripts\estatisticas	
 
-REM..\produto\testegerenciador	/s..\scripts\testegerenciador	/l..\produto\testegerenciador	/a..\scripts\estatisticas	
+..\produto\testegerenciador	/s..\scripts\testegerenciador	/l..\produto\testegerenciador	/a..\scripts\estatisticas	
 
 ..\produto\testereconhecedor	/s..\scripts\testereconhecedor	/l..\produto\testereconhecedor	/a..\scripts\estatisticas	
 

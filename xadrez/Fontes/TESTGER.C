@@ -49,6 +49,8 @@
 *
 *	  "=obterrei <CorRei> <ColEsp> <LinEsp> - chama a função GER_ObterRei ( )
 *
+*	  "=gerardisposicao <CondRetEsp>		- chama a função GER_GerarArquivoDeDisposicao ( )
+*
 ***************************************************************************/
 
 #include    <string.h>
@@ -390,7 +392,7 @@ GER_tppPeca pPeca = NULL;
 				 return TST_CondRetParm ;
 			 } /* if */
 
-			 CondRetObtida = GER_GerarArquivoDeDisposicao ( "DISPOSICAO_.TXT" );
+			 CondRetObtida = GER_GerarArquivoDeDisposicao ( "..\\Produto\\DISPOSICAO_.TXT" );
 
   			 Ret = TST_CompararInt ( CondRetEsperada , CondRetObtida ,
 									  "Retorno errado ao gerar arquivo de disposição." );
