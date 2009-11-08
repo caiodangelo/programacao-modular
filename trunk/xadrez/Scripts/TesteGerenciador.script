@@ -80,20 +80,20 @@
 =obtertipo 0 0
 
 ==Verificar mover peca de fora do tabuleiro
-=obterpecatab 'A' 3 0
+=obterpecatab 'B' 3 0
 =obtercor 2 0
 =obtertipo	6 0
-=moverpeca 'P' 2 'A' 3 4
-=obterpecatab 'A' 3 0
+=moverpeca 'P' 2 'B' 3 4
+=obterpecatab 'B' 2 0
 =obtercor 2 0
 =obtertipo	6 0
 
 ==Verificar mover peça para fora do tabuleiro
-=obterpecatab 'A' 2 0
+=obterpecatab 'C' 2 0
 =obtercor 1 0
 =obtertipo 0 0
-=moverpeca 'A' 2 'P' 3 4
-=obterpecatab 'A' 2 0
+=moverpeca 'C' 2 'P' 3 4
+=obterpecatab 'C' 2 0
 =obtercor 1 0
 =obtertipo	0 0
 
