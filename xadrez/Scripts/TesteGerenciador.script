@@ -55,8 +55,5 @@
 ==Verificar obter código da cor da peça
 =obtercodcor 'B' 0
 
-==Testar gerar arquivo de disposição
-=gerardisposicao 0
-
 //fim
 

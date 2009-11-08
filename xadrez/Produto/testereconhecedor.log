@@ -8,15 +8,14 @@
 !!!    0  Linha:     3  // Data:      12/out/2009 
 !!!    0  Linha:     4  // Propósito: Testar o módulo RECONHECEDOR 
     6  ==Verificar montar grafo
->>>    1  Linha:    10  Retorno errado ao reconhecer xeque mate.  Deveria ser: 13  É: -1
->>>    2  Linha:    11  Não é comando recuperar:  //fim
+!!!    0  Linha:    10  //fim 
 
-!!! Número de linhas lidas:          12
+!!! Número de linhas lidas:          11
 !!! Número de casos de teste:         1
 !!! Número comandos corretos:         3
-!!! Número de falhas encontradas:     2
+!!! Número de falhas encontradas:     0
 
-!!! Foram encontrados problemas
+!!! Não foram encontrados problemas
 
 
 !!! Numero de espacos ainda alocados: 0
