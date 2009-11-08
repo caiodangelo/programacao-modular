@@ -1,0 +1,29 @@
+# Composicao do programa relativo ao teste do módulo movimentador
+
+[Diretorios]
+
+Nome        =  TesteMovimentador
+PathDefault =  ..\Fontes
+err         =  ..\Produto
+obj         =  ..\Objetos
+c           =  ..\Fontes
+h           =  ..\Fontes
+
+[Modulos]
+Gerenciador
+Movimentador
+Grafo
+Vertice
+Lista
+TestMov
+
+
+[BuildInicio]
+/OUT:..\Produto\TesteMovimentador.exe
+/INCREMENTAL:NO
+/MACHINE:IX86
+
+[BuildFim]
+ArcaboucoTeste.lib
+
+[Fim]
