@@ -26,6 +26,8 @@
 *
 *	  "=exibir"							- chama a função GRA_ExibirGrafo ( )
 *
+*	  "=reconhecerxeque <Cor> <CondRetEsp>"	- chama a função REC_ReconhecerXequeMate ( )
+*
 ***************************************************************************/
 
 #include    <string.h>

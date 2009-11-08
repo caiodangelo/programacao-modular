@@ -35,10 +35,10 @@ Estatísticas do construto
       testrec.c
 
    Estatísticas do arquivo: gerenciador.c
-      Total linhas:             547
-      Linhas de código:         272
+      Total linhas:             572
+      Linhas de código:         293
       Linhas de comentário:     183
-      Linhas em branco:         113
+      Linhas em branco:         117
    Arquivos de inclusão de que necessita
       gerenciador.h
       vertice.h
@@ -117,9 +117,9 @@ Estatísticas do construto
       testrec.c
 
    Estatísticas do arquivo: testrec.c
-      Total linhas:             190
+      Total linhas:             192
       Linhas de código:          90
-      Linhas de comentário:      63
+      Linhas de comentário:      65
       Linhas em branco:          42
    Arquivos de inclusão de que necessita
       generico.h
@@ -200,17 +200,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:      3061
-         Linhas de código:          1544
-         Linhas de comentário:       821
-         Linhas em branco:           785
+         Total linhas do tipo:      3088
+         Linhas de código:          1565
+         Linhas de comentário:       823
+         Linhas em branco:           789
          Arquivos deste tipo:          6
 
 Totais para todo o construto TesteReconhecedor
 
-   Total linhas:              5911
-   Linhas de código:          1821
-   Linhas de comentário:      2969
-   Linhas em branco:          1210
+   Total linhas:              5938
+   Linhas de código:          1842
+   Linhas de comentário:      2971
+   Linhas em branco:          1214
    Arquivos processados:        14
 

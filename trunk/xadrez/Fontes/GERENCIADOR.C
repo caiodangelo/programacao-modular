@@ -419,18 +419,48 @@ GER_tpCondRet GER_ObterRei ( GER_tpCorPeca Cor , char * pColuna , int * pLinha )
 *  ****/
 GER_tpCondRet GER_GerarArquivoDeDisposicao ( char * NomeArquivo ){
 	
+	int linha ;
+	char coluna ;
+	GER_tppPeca pPeca ;
+	GER_tpCondRet CondRet ;
+	char  linhaDisp [7];
 	/* Abre o arquivo de nome NomeArquivo */
+	FILE * pArquivo = fopen ( NomeArquivo, "w" );
 	/* Se nao conseguiu abrir, retorna ErroAoAbrirArq */
+	if ( pArquivo == NULL )
+	{
+		return GER_CondRetErroAoAbrirArq ;
+	}
+
 	/* Limpa o arquivo */
+
 	/* Para todas as peças do tabuleiro */
-		/* Se for vazia, não faz nada */
-		/* Monta a string com Tipo, Cor, Coluna e Linha da peça atual */
+	for ( linha = 1 ; linha < GER_ObterUltimaLinhaTabuleiro() ; linha++ )
+	{
+		for ( coluna = 'A' ; coluna < GER_ObterUltimaColunaTabuleiro() ; coluna++ )
+		{		
+			CondRet = GER_ObterPecaDoTabuleiro ( &pPeca , (char)coluna , linha ) ;
+			if ( CondRet == GER_CondRetPecaNaoExiste )
+			{
+				return GER_CondRetPecaNaoExiste;
+			}
+
+			/* Se for vazia, não faz nada */
+			if ( pPeca->Tipo == GER_TipoVazia )
+			{
+				continue ;
+			}
+			/* Monta a string com Tipo, Cor, Coluna e Linha da peça atual */
+
 		/* Se houve problema em obter algum dos dados, retorna PecaNaoExiste */
 		/* Imprime a string no arquivo */
+		}
+	}
 	/* Fecha o arquivo */
+	fclose( pArquivo );
 	/* Retorna OK */
 
-	return -1;
+	return GER_CondRetOK;
 
 }/* Fim da Função: GER &Gera arquivo de disposição */
 
@@ -544,4 +574,21 @@ GER_tpCondRet ValidaLinha ( char * disposicao ){
 	return GER_CondRetOK;
 } /* Fim função: GER  -Validar Linha */
 
-/********** Fim do módulo de implementação: LIS  Lista duplamente encadeada **********/
+/***********************************************************************
+*
+*  $FC Função: GER  -Gerar Linha de Disposição
+*
+*  $ED Descrição da função
+*     Gera a linha de disposição de uma peça no tabuleiro
+*
+*  $EP Parâmetros
+*	  disposicao - linha do arquivo de disposição
+*
+*  $FV Valor retornado
+*	  GER_CondRetOK - linha é válida
+*	  GER_CondRetArqDispInvalido - linha é inválida
+*
+***********************************************************************/
+
+
+/********** Fim do módulo de implementação: GER Gerenciador de Xadrez **********/
