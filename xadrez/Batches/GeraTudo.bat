@@ -10,6 +10,6 @@ cd ..\..\ferramnt
 gmake  /b..\xadrez\composicao  /cCompVer.comp
 gmake  /b..\xadrez\composicao  /cCompGra.comp
 gmake  /b..\xadrez\composicao  /cCompGer.comp
-gmake  /b..\xadrez\composicao  /cCompRec.comp
+gmake  /b..\xadrez\composicao  /cCompMov.comp
 
 popd
