@@ -157,7 +157,7 @@ typedef struct GRA_tgGrafo * GRA_tppGrafo;
 *
 ***********************************************************************/
    
-   MOV_tpCondRet MOV_ReconhecerXequeMate ( char Cor );
+   MOV_tpCondRet MOV_ReconhecerXequeMate ( char cCor, GRA_tppGrafo pGrafo);
 
 /***********************************************************************
 *

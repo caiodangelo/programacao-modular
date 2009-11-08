@@ -51,7 +51,7 @@
 #define		ADICIONAR_PECAS_CMD		"=adicionarpecas"
 #define		GERAR_MOV_CMD			"=gerarmov"
 #define		EXIBIR_CMD				"=exibir"
-#define		RECONHECER_XEQUE_CMD	"=reconhecerxeque"
+#define		RECONHECER_XEQUE_MATE_CMD	"=reconhecerxequemate"
 #define		MOVER_PECA_CMD			"=moverpeca"
 #define		JOGAR_XADREZ_CMD		"=jogarxadrez"
 
@@ -167,9 +167,9 @@ GRA_tppGrafo pGrafo;
 			 return TST_CondRetOK;
          } /* fim ativa: Testar MOV Exibir Grafo de Movimentação */
 
-	/* Testar MOV Reconhecer Xeque Mate */
+	/* Testar REC Reconhecer Xeque Mate */
 
-         else if ( strcmp( ComandoTeste , RECONHECER_XEQUE_CMD ) == 0 )
+         else if ( strcmp( ComandoTeste , RECONHECER_XEQUE_MATE_CMD ) == 0 )
          {
 			 NumLidos = LER_LerParametros ( "ci" , 
 											&CorDada , &CondRetEsperada ) ;
@@ -179,7 +179,7 @@ GRA_tppGrafo pGrafo;
 			 } /* if */
 
 			 /* Adiciona as movimentações das peças */
-			 CondRetObtida = MOV_ReconhecerXequeMate ( CorDada );
+			 CondRetObtida = MOV_ReconhecerXequeMate ( CorDada, pGrafo);
 
 			 
 			 Ret = TST_CompararInt ( CondRetEsperada , CondRetObtida , 
@@ -187,10 +187,10 @@ GRA_tppGrafo pGrafo;
 			 if ( Ret != TST_CondRetOK )
 			 {
 				 return Ret ;
-			 }
+			 } /* if */
 
 			 return Ret;
-         } /* fim ativa: Testar MOV Reconhecer Xeque Mate */
+         } /* fim ativa: Testar REC Reconhecer Xeque Mate */
 
 	 /* Testar MOV Mover Peça */
 
