@@ -2,9 +2,9 @@ REM executa os testes relativos aos módulos vértice, grafo, gerenciador e reconh
 
 if exist ..\scripts\estatisticas.estat  del ..\scripts\estatisticas.estat
 
-REM..\produto\testevertice		/s..\scripts\testevertice	/l..\produto\testevertice	/a..\scripts\estatisticas	
+..\produto\testevertice		/s..\scripts\testevertice	/l..\produto\testevertice	/a..\scripts\estatisticas	
 
-REM..\produto\testegrafo		/s..\scripts\testegrafo		/l..\produto\testegrafo		/a..\scripts\estatisticas	
+..\produto\testegrafo		/s..\scripts\testegrafo		/l..\produto\testegrafo		/a..\scripts\estatisticas	
 
 ..\produto\testegerenciador	/s..\scripts\testegerenciador	/l..\produto\testegerenciador	/a..\scripts\estatisticas	
 

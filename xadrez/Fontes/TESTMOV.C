@@ -28,6 +28,8 @@
 *
 *	  "=reconhecerxeque <Cor> <CondRetEsp>"	- chama a função MOV_ReconhecerXequeMate ( )
 *
+*	  "=moverpeca <Col><Lin><Col><Lin><CondRetEsp>	- chama a função MOV_MoverPeca ( )
+*
 ***************************************************************************/
 
 #include    <string.h>
@@ -50,6 +52,8 @@
 #define		GERAR_MOV_CMD			"=gerarmov"
 #define		EXIBIR_CMD				"=exibir"
 #define		RECONHECER_XEQUE_CMD	"=reconhecerxeque"
+#define		MOVER_PECA_CMD			"=moverpeca"
+#define		JOGAR_XADREZ_CMD		"=jogarxadrez"
 
 /*****  Código das funções exportadas pelo módulo  *****/
 
@@ -79,13 +83,17 @@ GRA_tppGrafo pGrafo;
       MOV_tpCondRet CondRetObtida   = MOV_CondRetOK ;
       MOV_tpCondRet CondRetEsperada = MOV_CondRetFaltouMemoria ;
 	  GER_tpCondRet CondRetGER		= GER_CondRetOK ;
+	  char ColunaOrigem				= '!' ;
+	  char ColunaDestino			= '@' ;
+	  int LinhaOrigem				= -1 ;
+	  int LinhaDestino				= -2 ;
                                       /* inicializa para qualquer coisa */
 	  int NumLidos = -1;
 	  char CorDada = '!';
 
 	  TST_tpCondRet Ret ;
 
-      /* Testar REC Montar Grafo */
+      /* Testar MOV Montar Grafo */
 
          if ( strcmp( ComandoTeste , ADICIONAR_PECAS_CMD ) == 0 )
          {
@@ -122,9 +130,9 @@ GRA_tppGrafo pGrafo;
 			 }
 
 			 return Ret;
-         } /* fim ativa: Testar REC Montar Grafo */
+         } /* fim ativa: Testar MOV Montar Grafo */
 
-	/* Testar REC Gerar movimentação */
+	/* Testar MOV Gerar movimentação */
 
          else if ( strcmp( ComandoTeste , GERAR_MOV_CMD ) == 0 )
          {
@@ -147,9 +155,9 @@ GRA_tppGrafo pGrafo;
 			 }
 
 			 return Ret;
-         } /* fim ativa: Testar REC Adicionar Movimentos */
+         } /* fim ativa: Testar MOV Adicionar Movimentos */
 
-	/* Testar REC Exibir Grafo de Movimentação */
+	/* Testar MOV Exibir Grafo de Movimentação */
 
          else if ( strcmp( ComandoTeste , EXIBIR_CMD ) == 0 )
          {
@@ -157,9 +165,9 @@ GRA_tppGrafo pGrafo;
 			GRA_ExibirGrafo(pGrafo);
 
 			 return TST_CondRetOK;
-         } /* fim ativa: Testar REC Exibir Grafo de Movimentação */
+         } /* fim ativa: Testar MOV Exibir Grafo de Movimentação */
 
-	/* Testar REC Reconhecer Xeque Mate */
+	/* Testar MOV Reconhecer Xeque Mate */
 
          else if ( strcmp( ComandoTeste , RECONHECER_XEQUE_CMD ) == 0 )
          {
@@ -182,7 +190,43 @@ GRA_tppGrafo pGrafo;
 			 }
 
 			 return Ret;
-         } /* fim ativa: Testar REC Reconhecer Xeque Mate */
+         } /* fim ativa: Testar MOV Reconhecer Xeque Mate */
+
+	 /* Testar MOV Mover Peça */
+
+         else if ( strcmp( ComandoTeste , MOVER_PECA_CMD ) == 0 )
+         {
+			 NumLidos = LER_LerParametros ( "cicii" , 
+											&ColunaOrigem , &LinhaOrigem , &ColunaDestino , &LinhaDestino , &CondRetEsperada ) ;
+			 if ( NumLidos != 5 )
+			 {
+				 return TST_CondRetParm ;
+			 } /* if */
+
+			 CondRetObtida = MOV_MoverPeca ( ColunaOrigem , LinhaOrigem , ColunaDestino , LinhaDestino , pGrafo ) ;
+			 Ret = TST_CompararInt ( CondRetEsperada , CondRetObtida , 
+									  "Retorno errado ao mover peca " );
+
+			 return Ret;
+         } /* fim ativa: Testar MOV Mover Peça */
+
+	 /* Testar MOV Jogar Xadrez */
+
+         else if ( strcmp( ComandoTeste , JOGAR_XADREZ_CMD ) == 0 )
+         {
+			 NumLidos = LER_LerParametros ( "i" , 
+											&CondRetEsperada ) ;
+			 if ( NumLidos != 1 )
+			 {
+				 return TST_CondRetParm ;
+			 } /* if */
+
+			 CondRetObtida = MOV_JogarXadrez(  ) ;
+			 Ret = TST_CompararInt ( CondRetEsperada , CondRetObtida , 
+									  "Retorno errado ao mover peca " );
+
+			 return Ret;
+         } /* fim ativa: Testar JogarXadrez */
 
       return TST_CondRetNaoConhec ;
 

@@ -192,6 +192,79 @@ MOV_tpCondRet MOV_ReconhecerXequeMate ( char Cor ){
 
 }/* Fim da Função: MOV &Reconhecer Xeque Mate */
 
+/***************************************************************************
+*
+*  Função: MOV  &Mover Peça
+*  ****/
+MOV_tpCondRet MOV_MoverPeca ( char ColunaOrigem , int LinhaOrigem , char ColunaDestino , int LinhaDestino , GRA_tppGrafo pGrafo ){
+	
+	GER_tppPeca pPecaOrigem ;
+	GER_tppPeca pPecaDestino ;
+	int idOrigem = -1 ;
+	int idDestino = -2 ;
+	int idTemp = -3 ;
+	int idPrimeiro = -4 ;
+	GER_tpCondRet CondRetGER = GER_CondRetOK ;
+	GRA_tpCondRet CondRetGRA = GRA_CondRetOK ;
+
+	CondRetGER = GER_ObterPecaDoTabuleiro ( &pPecaOrigem , ColunaOrigem , LinhaOrigem ) ;
+	if ( CondRetGER != GER_CondRetOK )
+	{
+		return MOV_CondRetPecaNaoExiste ;
+	}
+
+	
+
+	idOrigem = CodificaPosicao ( ColunaOrigem , LinhaOrigem ) ;
+	idDestino = CodificaPosicao ( ColunaDestino , LinhaDestino ) ;
+
+	CondRetGRA = GRA_ObterSucessor ( pGrafo , idOrigem , &idPrimeiro ) ;
+	if ( CondRetGRA == GRA_CondRetNaoHaSucessores )
+	{
+		return MOV_CondRetMovimentoInvalido ;
+	}
+
+	idTemp = idPrimeiro ;
+	do
+	{
+		if ( idTemp == idDestino )
+		{
+			CondRetGER = GER_ObterPecaDoTabuleiro ( &pPecaDestino , ColunaDestino , LinhaDestino ) ;
+			if ( CondRetGER != GER_CondRetOK )
+			{
+				return MOV_CondRetPecaNaoExiste ;
+			}
+
+			CondRetGER = GER_MoverPeca ( pPecaOrigem , pPecaDestino );
+			if ( CondRetGER != GER_CondRetOK )
+			{
+				return MOV_CondRetMovimentoInvalido ;
+			}
+			
+			return MOV_CondRetOK ;
+		}
+
+		CondRetGRA = GRA_ObterSucessor ( pGrafo , idOrigem , &idTemp ) ;
+		if ( CondRetGRA == GRA_CondRetNaoHaSucessores )
+		{
+			return MOV_CondRetMovimentoInvalido ;
+		}
+	}while ( idTemp != idPrimeiro );
+
+	return MOV_CondRetMovimentoInvalido;
+
+
+}/* Fim da Função: MOV &Mover Peça */
+
+/***************************************************************************
+*
+*  Função: MOV  &Mover Peça
+*  ****/
+
+MOV_tpCondRet MOV_JogarXadrez ( void ){
+	return -100;
+}/* Fim da Função: MOV &Mover Peça */
+
 /*****  Código das funções encapsuladas no módulo  *****/
 
 /***********************************************************************

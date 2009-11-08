@@ -8,56 +8,40 @@
 !!!    0  Linha:     3  // Data:      12/out/2009 
 !!!    0  Linha:     4  // Propósito: Testar o módulo GRAFO 
     6  == Verificar criar grafo
-    8  == Verificar inserir vértice
-   10  == Verificar inserir vértice
-   12  == Verificar inserir vértice
-   14  == Verificar inserir vértice
-   17  == Verificar inserir vértice
-   19  == Verificar inserir vértice
-   21  == Verificar inserir vértice
-   23  == Verificar inserir vértice
-   26  == Verificar inserir aresta
-   28  == Verificar inserir aresta
-   30  == Verificar inserir aresta
-   32  == Verificar inserir aresta
-   34  == Verificar inserir aresta
-   36  == Verificar inserir aresta
-   38  == Verificar inserir aresta
-   41  == Verificar exibir grafo
-   43  == Verificar remover aresta
-   46  == Verificar ir vértice com id
-   48  == Verificar excluir vértice
-   50  == Verificar exibir grafo
-   52  == Verificar obter valor com id
-   54  == Verificar obter valor com id, tentando obter valor errado
->>>    1  Linha:    55  Valor do vértice está errado. Deveria ser: 10  É: 6
-<<<    0  Linha:    56  Falha esperada foi recuperada. 
-   57  == Verificar marcar origem
-   59  == Verificar desmarcar origem
-   61  == Verificar desmarcar origem inexistente
-   64  == Verificar ir vértice com id
-   66  == Verificar excluir vértice
-   68  == Verificar exibir grafo
-   71  == Verificar ir vértice com id
-   73  == Verificar excluir vértice
-   75  == Verificar exibir grafo
-!!!    0  Linha:    78  //== Verificar avançar sucessor 
-!!!    0  Linha:    79  //=avancarsucessor 1 0 
-!!!    0  Linha:    80  //== Verificar avançar sucessor de vertice sem sucessor 
-!!!    0  Linha:    81  //=avancarsucessor 2 12 
-!!!    0  Linha:    83  //obterant 
-!!!    0  Linha:    85  //obtersuc 
-!!!    0  Linha:    87  //== Verificar Destruir grafo 
-!!!    0  Linha:    88  //=destruirgra 0 
-!!!    0  Linha:    90  //== Tentar inserir vértice em grafo inexistente 
-!!!    0  Linha:    91  //=inserirver 12 8 2 
-!!!    0  Linha:    92  //== Tentar exibir grafo 
-!!!    0  Linha:    93  //=exibirgra 2 
-!!!    0  Linha:    95  //fim 
+    8  == Verificar inserção de vértices
+   18  == Verificar inserção arestas
+   26  == Verificar criação de laços
+   29  == Verificar remover aresta
+   32  == Verificar remover aresta que não existe
+   35  == Verificar exibir grafo
+   38  == Verificar obter sucessor
+   40  == Verificar obter quando nao tem sucessores
+>>>    1  Linha:    41  Id do vértice está errado. Deveria ser: 0  É: -8
+<<<    0  Linha:    42  Falha esperada foi recuperada. 
+   44  == Verificar obter antecessor
+   46  == Verificar obter quando nao tem antecessores
+>>>    1  Linha:    47  Id do vértice está errado. Deveria ser: 0  É: -8
+<<<    0  Linha:    48  Falha esperada foi recuperada. 
+   50  == Verificar ir vértice com id
+   52  == Verificar excluir vértice
+   55  == Verificar exibir grafo
+   57  == Verificar obter valor com id
+!!!    0  Linha:    59  //== Verificar obter valor com id inválido 
+!!!    0  Linha:    60  //=obtervalorcomid 32 333 9 
+   62  == Verificar marcar origem
+   64  == Verificar desmarcar origem
+   66  == Verificar desmarcar origem inexistente
+   69  == Verificar ir vértice com id
+   71  == Verificar excluir vértice
+   73  == Verificar exibir grafo
+   77  == Verificar Destruir grafo
+   80  == Tentar inserir vértice em grafo inexistente
+   82  == Tentar exibir grafo
+!!!    0  Linha:    85  //fim 
 
-!!! Número de linhas lidas:          96
-!!! Número de casos de teste:        32
-!!! Número comandos corretos:        31
+!!! Número de linhas lidas:          85
+!!! Número de casos de teste:        24
+!!! Número comandos corretos:        36
 !!! Número de falhas encontradas:     0
 
 !!! Não foram encontrados problemas
