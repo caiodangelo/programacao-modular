@@ -377,17 +377,15 @@ typedef struct GER_tgPeca * GER_tppPeca;
 *     Move uma peça no tabuleiro
 *
 *  $EP Parâmetros
-*	  ColunaOrigem - letra da coluna de origem
-*	  LinhaOrigem - linha da origem
-*	  ColunaDestino - letra da coluna de destino
-*	  LinhaDestino - linha de destino
+*	  pPecaOrigem - ponteiro para a casa onde está a peça
+*	  pPecaDestino - ponteiro para a casa para onde vai a peça
 *
 *  $FV Valor retornado
 *	  GER_CondRetOK - moveu sem problemas
 *
 ***********************************************************************/
 
-	GER_tpCondRet GER_MoverPeca ( char ColunaOrigem , int LinhaOrigem , char ColunaDestino , int LinhaDestino ) ;
+	GER_tpCondRet GER_MoverPeca ( GER_tppPeca pPecaOrigem , GER_tppPeca pPecaDestino ) ;
 
 /********** Fim do módulo de definição: GER  Gerenciador de xadrez **********/
 
