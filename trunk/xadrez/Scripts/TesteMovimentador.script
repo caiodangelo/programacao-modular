@@ -8,8 +8,8 @@
 =gerarmov 0
 =exibir
 
-==Verificar mover peca
-=moverpeca 'A' 2 'A' 3 0
-=moverpeca 'B' 2 'B' 6 16
+==Verificar reconhecer xeque mate
+=reconhecerxequemate 'P' 13
+=reconhecerxequemate 'B' 12
 //fim
 
