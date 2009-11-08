@@ -24,6 +24,8 @@
 #define REGRASD "..\\Definicao\\REGRASD.TXT"
 #define REGRASC "..\\Definicao\\REGRASC.TXT"
 #define INX_TIPO 0
+#define FALSO 0
+#define VERDADEIRO 1
 
 /***** Protótipos das funções encapsuladas no módulo *****/
 
@@ -34,6 +36,8 @@ MOV_tpCondRet AdicionaProximo ( GRA_tppGrafo pGrafo,  char ColunaCorrente, int L
 MOV_tpCondRet AdicionaProximosDiscretos ( GER_tppPeca pPeca , GRA_tppGrafo pGrafo , char * Movimento , char ColunaCorrente , int LinhaCorrente );
 
 MOV_tpCondRet AdicionaProximosContinuos ( GER_tppPeca pPeca , GRA_tppGrafo pGrafo , char * Movimentos, char Coluna, int Linha );
+
+int ReconheceXeque ( char cCor, GRA_tppGrafo pGrafo);
 
 /*****  Código das funções exportadas pelo módulo  *****/
 
@@ -174,21 +178,101 @@ MOV_tpCondRet MOV_GeraMovimentacoes ( GRA_tppGrafo * ppGrafo ){
 *
 *  Função: MOV  &Reconhecer Xeque Mate
 *  ****/
-MOV_tpCondRet MOV_ReconhecerXequeMate ( char Cor ){
-	
-	Cor = 1;
-	/* Para todas as peças da cor */
-		/* Escolhe um movimento possível */
-		/* Gera novo arquivo de disposição */
-		/* Gera o tabuleiro deste arquivo */
-		/* Gera grafo do tabuleiro */
-		/* Se rei da cor não possui antecessores da outra cor */
-			/* Retorna que não está em xeque mate */
-		/* Se possui */
-			/* Volta ao início */
+MOV_tpCondRet MOV_ReconhecerXequeMate ( char cCor , GRA_tppGrafo pGrafo ){
 
-	/* Retorna que está em xeque mate */
-	return -1;
+	int linha, idAtual, idSucessor, primeiroSucessor;
+	char coluna;
+	GER_tpCondRet CondRetGerenciador;
+	GER_tppPeca pPeca;
+	GER_tppPeca pPecaOrigem, pPecaDestino;
+	GER_tpCorPeca corPeca, cor;
+	GRA_tpCondRet CondRetGrafo;
+	GRA_tppGrafo pGrafoLocal;
+	MOV_tpCondRet CondRetMovimentador;
+
+	cor = GER_ObterCodigoDaCor ( cCor );
+
+	/* Verifica se o Rei está em xeque */
+	if((ReconheceXeque( cCor , pGrafo )) == FALSO)
+	{
+		return MOV_CondRetNaoEstaEmXequeMate;
+	}
+
+	/* Percorre o tabuleiro */
+	for ( linha = 1 ; linha <= GER_ObterUltimaLinhaTabuleiro () ; linha++ ){
+		for ( coluna = 'A' ; coluna <= GER_ObterUltimaColunaTabuleiro () ; (char)(coluna++) ){
+
+			/* Obém peça do tabuleiro */
+			CondRetGerenciador = GER_ObterPecaDoTabuleiro ( &pPeca, coluna, linha );
+
+			if(CondRetGerenciador != GER_CondRetOK ){
+				/* tratar erro */
+
+			}
+			
+			/* Obtém cor da peça */
+			corPeca = GER_ObterCor ( pPeca ) ;
+
+			/* Verifica se cor obtida é igual à cor do Rei */
+			if( corPeca == cor ){
+
+				/* Codifica posição da peça */
+				idAtual = CodificaPosicao ( coluna , linha );
+
+				/* Procura a peça no grafo */
+				CondRetGrafo = GRA_IrVerticeComId( pGrafo , idAtual);
+
+				if( CondRetGrafo != GRA_CondRetOK ){
+					/* tratar erro */
+
+				}
+
+				/* Obtém próximo sucessor = */
+				CondRetGrafo = GRA_ObterSucessor ( pGrafo , idAtual , 
+									  &primeiroSucessor );
+
+				if( CondRetGrafo == GRA_CondRetNaoHaSucessores){
+					/* Peça não tem movimentos possíveis */
+
+				}
+				else{
+
+					do{
+
+						idSucessor = primeiroSucessor;
+
+						/* Obtém valor da peça */
+						CondRetGrafo = GRA_ObterValorComId( pGrafo , idAtual , &pPecaOrigem );
+						CondRetGrafo = GRA_ObterValorComId( pGrafo , idSucessor , &pPecaDestino );
+
+						/* Gera movimentação */
+						CondRetGerenciador = GER_MoverPeca ( pPecaOrigem , pPecaDestino );
+
+						/* Cria o grafo à partir do tabuleiro */
+						CondRetMovimentador = MOV_AdicionarPecasAoGrafo ( &pGrafoLocal );
+						CondRetMovimentador = MOV_GeraMovimentacoes ( &pGrafoLocal );
+
+						/* Verifica se o rei continua em xeque */
+						if((ReconheceXeque( cCor , pGrafoLocal )) == FALSO)
+						{
+							return MOV_CondRetNaoEstaEmXequeMate;
+						}
+
+						/* Destruir o grafo criado */
+						CondRetGrafo = GRA_DestruirGrafo( &pGrafoLocal );
+
+						/* Obtém o próximo Sucessor */
+						CondRetGrafo = GRA_ObterSucessor ( pGrafo , idAtual , 
+									  &idSucessor );
+
+					}
+					while( idSucessor != primeiroSucessor );/* do while */
+				}/* else */
+			}/* if */			
+		}/* for */
+	}/* for */
+
+	return MOV_CondRetXequeMate;
 
 }/* Fim da Função: MOV &Reconhecer Xeque Mate */
 
@@ -544,3 +628,92 @@ int CodificaPosicao ( char Coluna , int Linha ){
 
 	return ( ( NumeroDaLinha * NumeroDeColunas ) + NumeroDaColuna );
 } /* Fim da Função: MOV Codifica Posição */
+
+/***********************************************************************
+*
+*  $FC Função: Reconhece Xeque
+*
+*  $ED Descrição da função
+*     Vê se o Rei está em xeque.
+*
+*  $EP Parâmetros
+*     $P cCor - cor do Rei.
+*     $P pGrafo - ponteiro para o Grafo montado a partir do tabuleiro.
+*
+*  $FV Valor retornado
+*     Retorna VERDADEIRO se o rei estiver em Xeque
+*	  ou FALSO se o rei não estiver em Xeque.
+*		
+*		Em caso de cCor inválida ou pGrafo inexistente, retorna FALSO. 
+*
+***********************************************************************/
+
+int ReconheceXeque ( char cCor, GRA_tppGrafo pGrafo){
+	
+	char Coluna;
+	int Linha;
+	int IdAntecessor;
+	
+	int IdPrimeiroAntecessor;
+	int IdRei;
+	
+	GER_tpCondRet CondRetGerenciador;
+	GRA_tpCondRet CondRetGrafo;
+
+	GER_tppPeca pPeca;
+	GER_tpCorPeca CorAntecessor;
+	GER_tpCorPeca CorRei = GER_ObterCodigoDaCor ( cCor );
+
+
+	if ( CorRei == GER_CorSemCor || pGrafo == NULL){	
+		return FALSO;
+	} /* if */
+
+	CondRetGerenciador = GER_ObterRei ( CorRei, &Coluna, &Linha );
+
+	if ( CondRetGerenciador == GER_CondRetPecaNaoExiste){
+		return FALSO;
+	} /* if */
+
+	IdRei = CodificaPosicao ( Coluna , Linha );
+
+	CondRetGrafo = GRA_ObterAntecessor ( pGrafo, IdRei, &IdAntecessor );
+
+	if ( CondRetGrafo == GRA_CondRetNaoHaAntecessores || CondRetGrafo == GRA_CondRetIndiceInvalido ){
+		return FALSO;
+	}/* if */
+
+	IdPrimeiroAntecessor = IdAntecessor;	
+	
+	do{
+		
+		CondRetGrafo = GRA_ObterValorComId ( pGrafo, IdAntecessor, &pPeca);
+
+		if ( CondRetGrafo == GRA_CondRetIndiceInvalido || CondRetGrafo == GRA_CondRetGrafoInexistente ){
+			return FALSO;
+		} /* if */
+		
+		CorAntecessor = GER_ObterCor( pPeca );
+
+		if ( CorAntecessor == GER_CorSemCor ){
+			return FALSO;
+		} /* if */
+
+		if ( CorAntecessor != CorRei ){ /* O REI ESTÁ EM XEQUE */
+
+			return VERDADEIRO;
+
+		} /* if */
+		
+		CondRetGrafo = GRA_ObterAntecessor ( pGrafo, IdRei, &IdAntecessor );
+
+
+		if ( CondRetGrafo == GRA_CondRetNaoHaAntecessores || CondRetGrafo == GRA_CondRetIndiceInvalido ){
+			return FALSO;
+		} /* if */
+
+	}while ( IdAntecessor != IdPrimeiroAntecessor);
+	
+	return FALSO;
+
+} /* Fim da Função: Reconhece Xeque */
