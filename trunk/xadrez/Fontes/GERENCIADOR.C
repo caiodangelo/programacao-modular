@@ -413,56 +413,6 @@ GER_tpCondRet GER_ObterRei ( GER_tpCorPeca Cor , char * pColuna , int * pLinha )
 
 } /* Fim função: GER  &Obter Rei */
 
-/***************************************************************************
-*
-*  Função: GER  &Gera Arquivo de Disposição
-*  ****/
-GER_tpCondRet GER_GerarArquivoDeDisposicao ( char * NomeArquivo ){
-	
-	int linha ;
-	char coluna ;
-	GER_tppPeca pPeca ;
-	GER_tpCondRet CondRet ;
-	char  linhaDisp [7];
-	/* Abre o arquivo de nome NomeArquivo */
-	FILE * pArquivo = fopen ( NomeArquivo, "w" );
-	/* Se nao conseguiu abrir, retorna ErroAoAbrirArq */
-	if ( pArquivo == NULL )
-	{
-		return GER_CondRetErroAoAbrirArq ;
-	}
-
-	/* Limpa o arquivo */
-
-	/* Para todas as peças do tabuleiro */
-	for ( linha = 1 ; linha < GER_ObterUltimaLinhaTabuleiro() ; linha++ )
-	{
-		for ( coluna = 'A' ; coluna < GER_ObterUltimaColunaTabuleiro() ; coluna++ )
-		{		
-			CondRet = GER_ObterPecaDoTabuleiro ( &pPeca , (char)coluna , linha ) ;
-			if ( CondRet == GER_CondRetPecaNaoExiste )
-			{
-				return GER_CondRetPecaNaoExiste;
-			}
-
-			/* Se for vazia, não faz nada */
-			if ( pPeca->Tipo == GER_TipoVazia )
-			{
-				continue ;
-			}
-			/* Monta a string com Tipo, Cor, Coluna e Linha da peça atual */
-
-		/* Se houve problema em obter algum dos dados, retorna PecaNaoExiste */
-		/* Imprime a string no arquivo */
-		}
-	}
-	/* Fecha o arquivo */
-	fclose( pArquivo );
-	/* Retorna OK */
-
-	return GER_CondRetOK;
-
-}/* Fim da Função: GER &Gera arquivo de disposição */
 
 /*****  Código das funções encapsuladas no módulo  *****/
 

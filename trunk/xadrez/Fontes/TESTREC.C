@@ -171,7 +171,7 @@ GRA_tppGrafo pGrafo;
 			 } /* if */
 
 			 /* Adiciona as movimentações das peças */
-			 CondRetObtida = REC_ReconhecerXequeMate ( pGrafo, CorDada );
+			 CondRetObtida = REC_ReconhecerXequeMate ( CorDada );
 
 			 
 			 Ret = TST_CompararInt ( CondRetEsperada , CondRetObtida , 

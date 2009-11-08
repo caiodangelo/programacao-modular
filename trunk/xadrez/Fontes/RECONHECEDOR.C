@@ -172,9 +172,9 @@ REC_tpCondRet REC_GeraMovimentacoes ( GRA_tppGrafo * ppGrafo ){
 
 /***************************************************************************
 *
-*  Função: REC  &Gera Movimentações
+*  Função: REC  &Reconhecer Xeque Mate
 *  ****/
-REC_tpCondRet REC_ReconhecerXequeMate ( GRA_tppGrafo pGrafo, char Cor ){
+REC_tpCondRet REC_ReconhecerXequeMate ( char Cor ){
 	
 	/* Para todas as peças da cor */
 		/* Escolhe um movimento possível */

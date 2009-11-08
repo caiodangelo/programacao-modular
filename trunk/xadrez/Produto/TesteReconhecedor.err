@@ -1,6 +1,5 @@
 reconhecedor.c
 ..\Fontes\reconhecedor.c(177) : warning C4100: 'Cor' : unreferenced formal parameter
-..\Fontes\reconhecedor.c(177) : warning C4100: 'pGrafo' : unreferenced formal parameter
 testrec.c
 Microsoft (R) Incremental Linker Version 9.00.21022.08
 Copyright (C) Microsoft Corporation.  All rights reserved.

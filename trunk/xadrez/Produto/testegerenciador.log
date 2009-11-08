@@ -8,11 +8,35 @@
 !!!    0  Linha:     3  // Data:      12/out/2009 
 !!!    0  Linha:     4  // Propósito: Testar o módulo GERENCIADOR 
     6  ==Verificar inicialização do tabuleiro
-!!!    0  Linha:    26  //fim 
+    8  ==Verificar criação de peça
+   10  ==Verificar obter tipo da peça
+   12  ==Verificar obter cor da peça
+   14  ==Verificar atribuir peça
+   16  ==Verificar obter tipo da peça
+   18  ==Verificar obter cor da peça
+   20  ==Verificar obter ultima linha do tabuleiro
+   22  ==Verificar obter ultima coluna do tabuleiro
+   24  ==Verificar preencher tabuleiro
+   26  ==Verificar obter peça do tabuleiro
+   28  ==Verificar obter cor da peça
+   30  ==Verificar obter tipo da peça
+   32  ==Verificar obter peça do tabuleiro
+   34  ==Verificar obter cor da peça
+   36  ==Verificar obter tipo da peça
+   38  ==Verificar obter peça do tabuleiro
+   40  ==Verificar obter cor da peça
+   42  ==Verificar obter tipo da peça
+   44  ==Verificar atribuir peça
+   46  ==Verificar obter posição do rei
+   49  ==Verificar obter tipo da peça que foi alterada
+   51  ==Verificar obter cor da peça que foi alterada
+   53  ==Verificar obter código do tipo da peça
+   55  ==Verificar obter código da cor da peça
+!!!    0  Linha:    58  //fim 
 
-!!! Número de linhas lidas:          27
-!!! Número de casos de teste:         1
-!!! Número comandos corretos:        19
+!!! Número de linhas lidas:          59
+!!! Número de casos de teste:        25
+!!! Número comandos corretos:        25
 !!! Número de falhas encontradas:     0
 
 !!! Não foram encontrados problemas

@@ -1,5 +1,4 @@
 gerenciador.c
-..\Fontes\gerenciador.c(426) : warning C4101: 'linhaDisp' : unreferenced local variable
 testger.c
 Microsoft (R) Incremental Linker Version 9.00.21022.08
 Copyright (C) Microsoft Corporation.  All rights reserved.

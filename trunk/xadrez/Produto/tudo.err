@@ -1,5 +1,4 @@
 gerenciador.c
-..\Fontes\gerenciador.c(426) : warning C4101: 'linhaDisp' : unreferenced local variable
 testger.c
 Microsoft (R) Incremental Linker Version 9.00.21022.08
 Copyright (C) Microsoft Corporation.  All rights reserved.
@@ -21,7 +20,6 @@ vertice.obj grafo.obj lista.obj testgra.obj
 ArcaboucoTeste.lib 
 reconhecedor.c
 ..\Fontes\reconhecedor.c(177) : warning C4100: 'Cor' : unreferenced formal parameter
-..\Fontes\reconhecedor.c(177) : warning C4100: 'pGrafo' : unreferenced formal parameter
 testrec.c
 Microsoft (R) Incremental Linker Version 9.00.21022.08
 Copyright (C) Microsoft Corporation.  All rights reserved.

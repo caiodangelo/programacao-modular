@@ -151,7 +151,7 @@ typedef struct GRA_tgGrafo * GRA_tppGrafo;
 *
 ***********************************************************************/
    
-   REC_tpCondRet REC_ReconhecerXequeMate ( GRA_tppGrafo pGrafo, char Cor );
+   REC_tpCondRet REC_ReconhecerXequeMate ( char Cor );
 
    
 /********** Fim do módulo de definição: Módulo grafo **********/
