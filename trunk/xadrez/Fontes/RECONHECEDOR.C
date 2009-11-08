@@ -462,6 +462,7 @@ REC_tpCondRet AdicionaProximo ( GRA_tppGrafo pGrafo, char ColunaCorrente, int Li
 *     Retorna um identificador único para a peça no grafo.
 *
 ***********************************************************************/
+
 int CodificaPosicao ( char Coluna , int Linha ){
 	
 	int NumeroDaLinha = Linha -1;

@@ -35,19 +35,19 @@ Estatísticas do construto
       testrec.c
 
    Estatísticas do arquivo: gerenciador.c
-      Total linhas:             544
-      Linhas de código:         269
-      Linhas de comentário:     183
-      Linhas em branco:         112
+      Total linhas:             567
+      Linhas de código:         297
+      Linhas de comentário:     174
+      Linhas em branco:         117
    Arquivos de inclusão de que necessita
       gerenciador.h
       vertice.h
 
    Estatísticas do arquivo: gerenciador.h
-      Total linhas:             375
-      Linhas de código:          43
-      Linhas de comentário:     273
-      Linhas em branco:          59
+      Total linhas:             395
+      Linhas de código:          44
+      Linhas de comentário:     290
+      Linhas em branco:          61
    Arquivos em que é incluído
       gerenciador.c
       reconhecedor.c
@@ -98,10 +98,10 @@ Estatísticas do construto
       vertice.c
 
    Estatísticas do arquivo: reconhecedor.c
-      Total linhas:             472
+      Total linhas:             473
       Linhas de código:         248
       Linhas de comentário:     163
-      Linhas em branco:          67
+      Linhas em branco:          68
    Arquivos de inclusão de que necessita
       gerenciador.h
       grafo.h
@@ -158,10 +158,10 @@ Estatísticas do construto
 Totais por tipo de arquivo
 
   Tipo: h        Path: ..\Fontes
-         Total linhas do tipo:      2831
-         Linhas de código:           276
-         Linhas de comentário:      2132
-         Linhas em branco:           423
+         Total linhas do tipo:      2851
+         Linhas de código:           277
+         Linhas de comentário:      2149
+         Linhas em branco:           425
          Arquivos deste tipo:          8
 
   Tipo: obj      Path: ..\Objetos
@@ -200,17 +200,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:      3060
-         Linhas de código:          1541
-         Linhas de comentário:       823
-         Linhas em branco:           784
+         Total linhas do tipo:      3084
+         Linhas de código:          1569
+         Linhas de comentário:       814
+         Linhas em branco:           790
          Arquivos deste tipo:          6
 
 Totais para todo o construto TesteReconhecedor
 
-   Total linhas:              5891
-   Linhas de código:          1817
-   Linhas de comentário:      2955
-   Linhas em branco:          1207
+   Total linhas:              5935
+   Linhas de código:          1846
+   Linhas de comentário:      2963
+   Linhas em branco:          1215
    Arquivos processados:        14
 

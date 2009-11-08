@@ -413,6 +413,47 @@ GER_tpCondRet GER_ObterRei ( GER_tpCorPeca Cor , char * pColuna , int * pLinha )
 
 } /* Fim função: GER  &Obter Rei */
 
+/***************************************************************************
+*
+*  Função: GER  &Mover Peca
+*  ****/
+GER_tpCondRet GER_MoverPeca ( char ColunaOrigem , int LinhaOrigem , char ColunaDestino , int LinhaDestino ) {
+	
+	GER_tppPeca pPecaOrigem ;
+	GER_tppPeca pPecaDestino ;
+	GER_tpTipoPeca Tipo ;
+	GER_tpCorPeca Cor ;
+	GER_tpCondRet CondRet ;
+
+	if ( GER_ObterPecaDoTabuleiro ( &pPecaOrigem , ColunaOrigem , LinhaOrigem )!= GER_CondRetOK )
+	{
+		return GER_CondRetPecaNaoExiste ;
+	}
+	if ( GER_ObterPecaDoTabuleiro ( &pPecaDestino , ColunaDestino , LinhaDestino )!= GER_CondRetOK )
+	{
+		return GER_CondRetPecaNaoExiste ;
+	}
+
+	Tipo = GER_ObterTipo ( pPecaOrigem ) ;
+	
+	Cor = GER_ObterCor ( pPecaOrigem ) ;
+
+
+	CondRet = GER_AtribuirPeca ( pPecaDestino , Tipo , Cor ) ;
+	if ( CondRet != GER_CondRetOK )
+	{
+		return CondRet ;
+	}
+
+	CondRet = GER_AtribuirPeca ( pPecaOrigem , GER_TipoVazia , GER_CorSemCor ) ;
+	if ( CondRet != GER_CondRetOK )
+	{
+		return CondRet ;
+	}
+
+	return GER_CondRetOK ;
+
+} /* Fim função: GER &Mover Peca
 
 /*****  Código das funções encapsuladas no módulo  *****/
 
@@ -523,22 +564,5 @@ GER_tpCondRet ValidaLinha ( char * disposicao ){
 	
 	return GER_CondRetOK;
 } /* Fim função: GER  -Validar Linha */
-
-/***********************************************************************
-*
-*  $FC Função: GER  -Gerar Linha de Disposição
-*
-*  $ED Descrição da função
-*     Gera a linha de disposição de uma peça no tabuleiro
-*
-*  $EP Parâmetros
-*	  disposicao - linha do arquivo de disposição
-*
-*  $FV Valor retornado
-*	  GER_CondRetOK - linha é válida
-*	  GER_CondRetArqDispInvalido - linha é inválida
-*
-***********************************************************************/
-
 
 /********** Fim do módulo de implementação: GER Gerenciador de Xadrez **********/

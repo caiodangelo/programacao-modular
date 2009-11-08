@@ -79,6 +79,7 @@
 #define		OBTER_COD_TIPO_CMD		"=obtercodtipo"
 #define		OBTER_COD_COR_CMD		"=obtercodcor"
 #define		OBTER_REI_CMD			"=obterrei"
+#define		MOVER_PECA_CMD			"=moverpeca"
 
 /*****  Código das funções exportadas pelo módulo  *****/
 
@@ -120,6 +121,10 @@ GER_tppPeca pPeca = NULL;
 	  char CharTipo			= '(' ;
 	  char CharCor			= ')' ;
 	  int Linha				= -5;
+	  char ColunaOrigem		= '!' ;
+	  char ColunaDestino	= '@' ;
+	  int LinhaOrigem		= -1 ;
+	  int LinhaDestino		= -2 ;
 	  TST_tpCondRet Ret ;
 
       /* Testar GER Inicializar tabuleiro */
@@ -377,6 +382,25 @@ GER_tppPeca pPeca = NULL;
 
 			return Ret ;
          } /* fim ativa: Testar GER Obter rei */
+
+	/* Testar GER Mover Peca */
+
+         else if ( strcmp( ComandoTeste , MOVER_PECA_CMD ) == 0 )
+         {
+			 NumLidos = LER_LerParametros ( "cicii" , 
+											&ColunaOrigem, &LinhaOrigem , &ColunaDestino , &LinhaDestino , &CondRetEsperada ) ;
+			 if ( NumLidos != 5 )
+			 {
+				 return TST_CondRetParm ;
+			 } /* if */
+
+			 CondRetObtida = GER_MoverPeca ( ColunaOrigem , LinhaOrigem , ColunaDestino , LinhaDestino ) ;
+
+			 Ret = TST_CompararInt ( CondRetEsperada , CondRetObtida ,
+									  "Retorno errado ao mover peca." );
+
+			 return Ret ;
+         } /* fim ativa: Testar GER Mover Peca */
 
       return TST_CondRetNaoConhec ;
 
