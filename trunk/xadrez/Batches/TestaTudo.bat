@@ -8,6 +8,6 @@ REM..\produto\testegrafo		/s..\scripts\testegrafo		/l..\produto\testegrafo		/a..
 
 ..\produto\testegerenciador	/s..\scripts\testegerenciador	/l..\produto\testegerenciador	/a..\scripts\estatisticas	
 
-..\produto\testereconhecedor	/s..\scripts\testereconhecedor	/l..\produto\testereconhecedor	/a..\scripts\estatisticas	
+..\produto\testemovimentador	/s..\scripts\testemovimentador	/l..\produto\testemovimentador	/a..\scripts\estatisticas	
 
 ..\..\ferramnt\exbestat /e..\scripts\estatisticas

@@ -12,7 +12,7 @@ nmake /F..\composicao\TesteGrafo.make "PRD="
 
 nmake /F..\composicao\TesteGerenciador.make "PRD="
 
-nmake /F..\composicao\TesteReconhecedor.make "PRD="
+nmake /F..\composicao\TesteMovimentador.make "PRD="
 
 copy ..\produto\*.err ..\produto\tudo.err
 
