@@ -56,12 +56,15 @@ MOV_tpCondRet MOV_AdicionarPecasAoGrafo ( GRA_tppGrafo * ppGrafo ){
 	GRA_tpCondRet CondRetGRA;
 	GER_tppPeca pPeca;
 	int id;
-	
+	printf("Entrou na Adicionar Pecas ao Grafo \n");
+
 	/* Cria o grafo */
 	CondRetGRA = GRA_CriarGrafo ( ppGrafo );
+	printf("Passou pela GRA_CriarGrafo \n");
 	if ( CondRetGRA != GRA_CondRetOK ){
 		return MOV_CondRetNaoCriouGrafo;
 	}
+	printf("Criou o grafo dentro da Adicionar Pecas ao Grafo \n");
 
 	/* Percorre o tabuleiro */
 	for ( linha = 1 ; linha <= GER_ObterUltimaLinhaTabuleiro () ; linha++ ){
@@ -187,8 +190,10 @@ MOV_tpCondRet MOV_ReconhecerXequeMate ( char cCor , GRA_tppGrafo pGrafo ){
 	GER_tppPeca pPecaOrigem, pPecaDestino;
 	GER_tpCorPeca corPeca, cor;
 	GRA_tpCondRet CondRetGrafo;
-	GRA_tppGrafo pGrafoLocal;
+	GRA_tppGrafo pGrafoLocal = NULL;
 	MOV_tpCondRet CondRetMovimentador;
+
+	GER_tpTipoPeca tipoPeca;
 
 	cor = GER_ObterCodigoDaCor ( cCor );
 
@@ -212,22 +217,26 @@ MOV_tpCondRet MOV_ReconhecerXequeMate ( char cCor , GRA_tppGrafo pGrafo ){
 			
 			/* Obtém cor da peça */
 			corPeca = GER_ObterCor ( pPeca ) ;
+			tipoPeca = GER_ObterTipo ( pPeca ) ;
+			printf("Tipo da peca: %d - Cor: %d \n",tipoPeca,corPeca);
 
 			/* Verifica se cor obtida é igual à cor do Rei */
 			if( corPeca == cor ){
 
 				/* Codifica posição da peça */
 				idAtual = CodificaPosicao ( coluna , linha );
+				printf("Id da peca: %d \n",idAtual);
 
 				/* Procura a peça no grafo */
 				CondRetGrafo = GRA_IrVerticeComId( pGrafo , idAtual);
 
 				if( CondRetGrafo != GRA_CondRetOK ){
 					/* tratar erro */
+					printf("ERRO \n");
 
 				}
 
-				/* Obtém próximo sucessor = */
+				/* Obtém primeiro sucessor = */
 				CondRetGrafo = GRA_ObterSucessor ( pGrafo , idAtual , 
 									  &primeiroSucessor );
 
@@ -237,20 +246,27 @@ MOV_tpCondRet MOV_ReconhecerXequeMate ( char cCor , GRA_tppGrafo pGrafo ){
 				}
 				else{
 
+					/*  */
+					idSucessor = primeiroSucessor;
+
 					do{
 
-						idSucessor = primeiroSucessor;
+						printf("idSucessor ao entrar no loop: %d \n",idSucessor);
 
 						/* Obtém valor da peça */
 						CondRetGrafo = GRA_ObterValorComId( pGrafo , idAtual , &pPecaOrigem );
 						CondRetGrafo = GRA_ObterValorComId( pGrafo , idSucessor , &pPecaDestino );
+						printf("Obteve pecas corretamente \n");
 
 						/* Gera movimentação */
 						CondRetGerenciador = GER_MoverPeca ( pPecaOrigem , pPecaDestino );
+						printf("Gerou movimentacao virtual \n");
 
 						/* Cria o grafo à partir do tabuleiro */
-						CondRetMovimentador = MOV_AdicionarPecasAoGrafo ( &pGrafoLocal );
+						CondRetMovimentador = MOV_AdicionarPecasAoGrafo ( &pGrafoLocal );						
+						printf("Criou o grafo local\n");
 						CondRetMovimentador = MOV_GeraMovimentacoes ( &pGrafoLocal );
+						printf("Gerou movimentacoes possiveis \n");
 
 						/* Verifica se o rei continua em xeque */
 						if((ReconheceXeque( cCor , pGrafoLocal )) == FALSO)
@@ -259,11 +275,17 @@ MOV_tpCondRet MOV_ReconhecerXequeMate ( char cCor , GRA_tppGrafo pGrafo ){
 						}
 
 						/* Destruir o grafo criado */
-						CondRetGrafo = GRA_DestruirGrafo( &pGrafoLocal );
+						//CondRetGrafo = GRA_DestruirGrafo( &pGrafoLocal );
+						//printf("Destruiu o grafo local\n");
+						pGrafoLocal = NULL;//hack enquanto a destruir grafo não funciona
+
+						/* Desfaz movimentação */
+						CondRetGerenciador = GER_MoverPeca ( pPecaDestino , pPecaOrigem );
 
 						/* Obtém o próximo Sucessor */
 						CondRetGrafo = GRA_ObterSucessor ( pGrafo , idAtual , 
 									  &idSucessor );
+						printf("idSucessor ao sair do loop: %d \n",idSucessor);
 
 					}
 					while( idSucessor != primeiroSucessor );/* do while */
@@ -275,79 +297,6 @@ MOV_tpCondRet MOV_ReconhecerXequeMate ( char cCor , GRA_tppGrafo pGrafo ){
 	return MOV_CondRetXequeMate;
 
 }/* Fim da Função: MOV &Reconhecer Xeque Mate */
-
-/***************************************************************************
-*
-*  Função: MOV  &Mover Peça
-*  ****/
-MOV_tpCondRet MOV_MoverPeca ( char ColunaOrigem , int LinhaOrigem , char ColunaDestino , int LinhaDestino , GRA_tppGrafo pGrafo ){
-	
-	GER_tppPeca pPecaOrigem ;
-	GER_tppPeca pPecaDestino ;
-	int idOrigem = -1 ;
-	int idDestino = -2 ;
-	int idTemp = -3 ;
-	int idPrimeiro = -4 ;
-	GER_tpCondRet CondRetGER = GER_CondRetOK ;
-	GRA_tpCondRet CondRetGRA = GRA_CondRetOK ;
-
-	CondRetGER = GER_ObterPecaDoTabuleiro ( &pPecaOrigem , ColunaOrigem , LinhaOrigem ) ;
-	if ( CondRetGER != GER_CondRetOK )
-	{
-		return MOV_CondRetPecaNaoExiste ;
-	}
-
-	
-
-	idOrigem = CodificaPosicao ( ColunaOrigem , LinhaOrigem ) ;
-	idDestino = CodificaPosicao ( ColunaDestino , LinhaDestino ) ;
-
-	CondRetGRA = GRA_ObterSucessor ( pGrafo , idOrigem , &idPrimeiro ) ;
-	if ( CondRetGRA == GRA_CondRetNaoHaSucessores )
-	{
-		return MOV_CondRetMovimentoInvalido ;
-	}
-
-	idTemp = idPrimeiro ;
-	do
-	{
-		if ( idTemp == idDestino )
-		{
-			CondRetGER = GER_ObterPecaDoTabuleiro ( &pPecaDestino , ColunaDestino , LinhaDestino ) ;
-			if ( CondRetGER != GER_CondRetOK )
-			{
-				return MOV_CondRetPecaNaoExiste ;
-			}
-
-			CondRetGER = GER_MoverPeca ( pPecaOrigem , pPecaDestino );
-			if ( CondRetGER != GER_CondRetOK )
-			{
-				return MOV_CondRetMovimentoInvalido ;
-			}
-			
-			return MOV_CondRetOK ;
-		}
-
-		CondRetGRA = GRA_ObterSucessor ( pGrafo , idOrigem , &idTemp ) ;
-		if ( CondRetGRA == GRA_CondRetNaoHaSucessores )
-		{
-			return MOV_CondRetMovimentoInvalido ;
-		}
-	}while ( idTemp != idPrimeiro );
-
-	return MOV_CondRetMovimentoInvalido;
-
-
-}/* Fim da Função: MOV &Mover Peça */
-
-/***************************************************************************
-*
-*  Função: MOV  &Mover Peça
-*  ****/
-
-MOV_tpCondRet MOV_JogarXadrez ( void ){
-	return -100;
-}/* Fim da Função: MOV &Mover Peça */
 
 /*****  Código das funções encapsuladas no módulo  *****/
 
@@ -629,7 +578,7 @@ int CodificaPosicao ( char Coluna , int Linha ){
 	return ( ( NumeroDaLinha * NumeroDeColunas ) + NumeroDaColuna );
 } /* Fim da Função: MOV Codifica Posição */
 
-/***********************************************************************
+ /***********************************************************************
 *
 *  $FC Função: Reconhece Xeque
 *
@@ -716,4 +665,4 @@ int ReconheceXeque ( char cCor, GRA_tppGrafo pGrafo){
 	
 	return FALSO;
 
-} /* Fim da Função: Reconhece Xeque */
+}
