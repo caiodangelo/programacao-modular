@@ -10,6 +10,12 @@
 
 ==Verificar reconhecer xeque mate
 =reconhecerxequemate 'P' 13
-//=reconhecerxequemate 'B' 12
+//=recuperar
+=reconhecerxequemate 'P' 12
+=recuperar
+=reconhecerxequemate 'B' 13
+//=recuperar
+=reconhecerxequemate 'B' 12
+=recuperar
 //fim
 
