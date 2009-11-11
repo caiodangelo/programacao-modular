@@ -311,7 +311,7 @@ GRA_tpCondRet GRA_RemoverAresta( GRA_tppGrafo pGrafo, int idVerticeOrigem,
 *  $FV Valor retornado
 *	  GRA_CondRetIndiceInvalido - indice passado não é válido						
 *	  GRA_CondRetGrafoInexistente - indice passado não é válido
-*     OK
+*     GRA_CondRetOK - valor retornado por referência
 *
 ***********************************************************************/
 	 
@@ -354,8 +354,8 @@ GRA_tpCondRet GRA_RemoverAresta( GRA_tppGrafo pGrafo, int idVerticeOrigem,
 *     $P IdVertice - indice do vértice a ser setado como corrente.
 *
 *  $FV Valor retornado
-	  GRA_CondRetIdInvalido - id passado é inválido
-	  GRA_CondRetOK
+*	  GRA_CondRetIdInvalido - id passado é inválido
+*	  GRA_CondRetOK
 *
 ***********************************************************************/
 
