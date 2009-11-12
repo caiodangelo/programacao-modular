@@ -370,7 +370,7 @@
 			return NULL;
 		}/* if */
 
-		IrInicioLista ( pVertice->Sucessores );
+		//IrInicioLista ( pVertice->Sucessores );
 
 		Sucessores = pVertice->Sucessores;
 
