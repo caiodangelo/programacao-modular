@@ -40,3 +40,9 @@ Possíveis tarefas:
 ||15/10/2009||11:00||Codificar Módulo, Redigir Script de Teste, Realizar os Testes, Diagnosticar e Corrigir Problemas Encontrados||Módulo Vértice, Módulo Grafo e seus módulos de teste específicos||
 ||16/10/2009||10:00||Codificar Módulo, Redigir Script de Teste, Realizar os Testes, Diagnosticar e Corrigir Problemas Encontrados||Módulo Grafo e seu módulo de teste específico||
 ||18/10/2009||05:00||Redigir Script de Teste, Realizar os Testes, Diagnosticar e Corrigir Problemas Encontrados||Módulo Gerenciador e Módulo Reconhecedor||
+
+= Trabalho 3 =
+
+|| *Data* || *Horas* || *Tipo de Tarefa* || *Descrição da Tarefa* ||
+||08/11/2009||06:00||Especificar e Codificar Módulos||Especificação do módulo Movimentador e Codificação de novas funções||
+||11/11/2009||03:00||Codificar Módulo, Redigir Script de Teste, Realizar os Testes, Diagnosticar e Corrigir Problemas Encontrados||Módulos Movimentador, Grafo e Vértice ||
