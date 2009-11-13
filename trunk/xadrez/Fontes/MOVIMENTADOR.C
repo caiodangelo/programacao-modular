@@ -234,69 +234,84 @@ MOV_tpCondRet MOV_ReconhecerXequeMate ( char cCor , GRA_tppGrafo pGrafo ){
 					/* tratar erro */
 					printf("ERRO \n");
 
+/***************************************************************************
+*
+*  Função: MOV  &Jogar xadrez
+*  ****/
+
+MOV_tpCondRet MOV_JogarXadrez ( void ){
+	
+	GER_tpCorPeca CorDaVez = GER_CorBranca ;
+	int continua = 1;
+	int ErroNaJogada = 0 ;
+	char ColunaOrigem = '!' ;
+	char ColunaDestino = '@' ;
+	int LinhaOrigem = -1 ;
+	int LinhaDestino = -2 ;
+	MOV_tpCondRet CondRet = MOV_CondRetOK ;
+	int NumLidos = -1 ;
+	GRA_tppGrafo pGrafo = NULL ;
+
+	CondRet = MOV_AdicionarPecasAoGrafo ( &pGrafo ) ;
+	if( CondRet != MOV_CondRetOK )
+	{
+		return CondRet ;
+	}
+
+	CondRet = MOV_GeraMovimentacoes ( &pGrafo ) ;
+	if( CondRet != MOV_CondRetOK )
+	{
+		return CondRet ;
+	}
+
+	while( continua )
+	{
+		if ( CorDaVez == GER_CorBranca )
+		{
+			printf("Vez do jogador BRANCO. Entre com a jogada:\n");
+		}
+		else
+		{
+			printf("Vez do jogador PRETO. Entre com a jogada:\n");
+		}
+		do
+		{
+			ErroNaJogada = 0 ;
+			NumLidos = scanf("%c%i %c%i" , &ColunaOrigem , &LinhaOrigem , &ColunaDestino , &LinhaDestino ) ;
+			if ( NumLidos != 4 )
+			{
+				if ( ( NumLidos == 1 ) && ( ColunaOrigem == 'S' ) )
+				{
+					printf("Obrigado por SE DIVERTIR!!!");
+					return MOV_CondRetOK ;
 				}
-
-				/* Obtém primeiro sucessor = */
-				CondRetGrafo = GRA_ObterSucessor ( pGrafo , idAtual , 
-									  &primeiroSucessor );
-
-				if( CondRetGrafo == GRA_CondRetNaoHaSucessores){
-					/* Peça não tem movimentos possíveis */
-
+				ErroNaJogada = 1 ;
+				printf("erro na jogada: %d\n", NumLidos );
+			}
+	
+			//CondRet = MOV_MoverPeca ( ColunaOrigem , LinhaOrigem , ColunaDestino , LinhaDestino , pGrafo ) ;
+			//if( CondRet != MOV_CondRetOK )
+			//{
+			//	ErroNaJogada = 1 ;
+			//}
+			//else
+			//{
+				if ( CorDaVez == GER_CorBranca )
+				{
+					CorDaVez = GER_CorPreta ;
 				}
-				else{
+				else
+				{
+					CorDaVez = GER_CorBranca ;
+				}
+			//}
+				
+		}while( ErroNaJogada );
 
-					/*  */
-					idSucessor = primeiroSucessor;
-
-					do{
-
-						printf("idSucessor ao entrar no loop: %d \n",idSucessor);
-
-						/* Obtém valor da peça */
-						CondRetGrafo = GRA_ObterValorComId( pGrafo , idAtual , &pPecaOrigem );
-						CondRetGrafo = GRA_ObterValorComId( pGrafo , idSucessor , &pPecaDestino );
-						printf("Obteve pecas corretamente \n");
-
-						/* Gera movimentação */
-						CondRetGerenciador = GER_MoverPeca ( pPecaOrigem , pPecaDestino );
-						printf("Gerou movimentacao virtual \n");
-
-						/* Cria o grafo à partir do tabuleiro */
-						CondRetMovimentador = MOV_AdicionarPecasAoGrafo ( &pGrafoLocal );						
-						printf("Criou o grafo local\n");
-						CondRetMovimentador = MOV_GeraMovimentacoes ( &pGrafoLocal );
-						printf("Gerou movimentacoes possiveis \n");
-
-						/* Verifica se o rei continua em xeque */
-						if((ReconheceXeque( cCor , pGrafoLocal )) == FALSO)
-						{
-							return MOV_CondRetNaoEstaEmXequeMate;
-						}
-
-						/* Destruir o grafo criado */
-						//CondRetGrafo = GRA_DestruirGrafo( &pGrafoLocal );
-						//printf("Destruiu o grafo local\n");
-						pGrafoLocal = NULL;//hack enquanto a destruir grafo não funciona
-
-						/* Desfaz movimentação */
-						CondRetGerenciador = GER_MoverPeca ( pPecaDestino , pPecaOrigem );
-
-						/* Obtém o próximo Sucessor */
-						CondRetGrafo = GRA_ObterSucessor ( pGrafo , idAtual , 
-									  &idSucessor );
-						printf("idSucessor ao sair do loop: %d \n",idSucessor);
-
-					}
-					while( idSucessor != primeiroSucessor );/* do while */
-				}/* else */
-			}/* if */			
-		}/* for */
-	}/* for */
-
-	return MOV_CondRetXequeMate;
-
-}/* Fim da Função: MOV &Reconhecer Xeque Mate */
+	}
+	
+	return MOV_CondRetOK;
+}/* Fim da Função: MOV &Jogar xadrez */
 
 /*****  Código das funções encapsuladas no módulo  *****/
 

@@ -223,7 +223,7 @@ GRA_tppGrafo pGrafo;
 
 			 CondRetObtida = MOV_JogarXadrez(  ) ;
 			 Ret = TST_CompararInt ( CondRetEsperada , CondRetObtida , 
-									  "Retorno errado ao mover peca " );
+									  "Retorno errado ao jogar xadrez " );
 
 			 return Ret;
          } /* fim ativa: Testar JogarXadrez */
