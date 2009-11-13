@@ -234,6 +234,70 @@ MOV_tpCondRet MOV_ReconhecerXequeMate ( char cCor , GRA_tppGrafo pGrafo ){
 					/* tratar erro */
 					printf("ERRO \n");
 
+				}
+
+				/* Obtém primeiro sucessor = */
+				CondRetGrafo = GRA_ObterSucessor ( pGrafo , idAtual , 
+									  &primeiroSucessor );
+
+				if( CondRetGrafo == GRA_CondRetNaoHaSucessores){
+					/* Peça não tem movimentos possíveis */
+
+				}
+				else{
+
+					/*  */
+					idSucessor = primeiroSucessor;
+
+					do{
+
+						printf("idSucessor ao entrar no loop: %d \n",idSucessor);
+
+						/* Obtém valor da peça */
+						CondRetGrafo = GRA_ObterValorComId( pGrafo , idAtual , &pPecaOrigem );
+						CondRetGrafo = GRA_ObterValorComId( pGrafo , idSucessor , &pPecaDestino );
+						printf("Obteve pecas corretamente \n");
+
+						/* Gera movimentação */
+						CondRetGerenciador = GER_MoverPeca ( pPecaOrigem , pPecaDestino );
+						printf("Gerou movimentacao virtual \n");
+
+						/* Cria o grafo à partir do tabuleiro */
+						CondRetMovimentador = MOV_AdicionarPecasAoGrafo ( &pGrafoLocal );						
+						printf("Criou o grafo local\n");
+						CondRetMovimentador = MOV_GeraMovimentacoes ( &pGrafoLocal );
+						printf("Gerou movimentacoes possiveis \n");
+
+						/* Verifica se o rei continua em xeque */
+						if((ReconheceXeque( cCor , pGrafoLocal )) == FALSO)
+						{
+							return MOV_CondRetNaoEstaEmXequeMate;
+						}
+
+						/* Destruir o grafo criado */
+						//CondRetGrafo = GRA_DestruirGrafo( &pGrafoLocal );
+						//printf("Destruiu o grafo local\n");
+						pGrafoLocal = NULL;//hack enquanto a destruir grafo não funciona
+
+						/* Desfaz movimentação */
+						CondRetGerenciador = GER_MoverPeca ( pPecaDestino , pPecaOrigem );
+
+						/* Obtém o próximo Sucessor */
+						CondRetGrafo = GRA_ObterSucessor ( pGrafo , idAtual , 
+									  &idSucessor );
+						printf("idSucessor ao sair do loop: %d \n",idSucessor);
+
+					}
+					while( idSucessor != primeiroSucessor );/* do while */
+				}/* else */
+			}/* if */			
+		}/* for */
+	}/* for */
+
+	return MOV_CondRetXequeMate;
+
+}/* Fim da função Recohecer Xeque Mate */
+
 /***************************************************************************
 *
 *  Função: MOV  &Jogar xadrez
