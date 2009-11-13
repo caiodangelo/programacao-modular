@@ -84,7 +84,7 @@
 =obtercor 2 0
 =obtertipo	6 0
 =moverpeca 'P' 2 'B' 3 4
-=obterpecatab 'B' 2 0
+=obterpecatab 'B' 3 0
 =obtercor 2 0
 =obtertipo	6 0
 
