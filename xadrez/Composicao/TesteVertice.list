@@ -57,10 +57,10 @@ Estatísticas do construto
       vertice.c
 
    Estatísticas do arquivo: testver.c
-      Total linhas:             259
-      Linhas de código:         130
+      Total linhas:             260
+      Linhas de código:         133
       Linhas de comentário:      77
-      Linhas em branco:          60
+      Linhas em branco:          58
    Arquivos de inclusão de que necessita
       generico.h
       lerparm.h
@@ -77,10 +77,10 @@ Estatísticas do construto
       testver.c
 
    Estatísticas do arquivo: vertice.c
-      Total linhas:             554
+      Total linhas:             553
       Linhas de código:         266
       Linhas de comentário:     126
-      Linhas em branco:         178
+      Linhas em branco:         177
    Arquivos de inclusão de que necessita
       lista.h
       vertice.h
@@ -140,16 +140,16 @@ Totais por tipo de arquivo
 
   Tipo: c        Path: ..\Fontes
          Total linhas do tipo:      1374
-         Linhas de código:           684
+         Linhas de código:           687
          Linhas de comentário:       339
-         Linhas em branco:           393
+         Linhas em branco:           390
          Arquivos deste tipo:          3
 
 Totais para todo o construto TesteVertice
 
    Total linhas:              3250
-   Linhas de código:           860
+   Linhas de código:           863
    Linhas de comentário:      1771
-   Linhas em branco:           661
+   Linhas em branco:           658
    Arquivos processados:         8
 

@@ -71,7 +71,7 @@
 	  /* Verifica se existe valor armazenado no ponteiro */
 	  if ( *ppVertice != NULL )
       {
-         VER_DestruirVertice( ppVertice ) ;
+         VER_DestruirVertice( *ppVertice ) ;
       } /* if */
 	 
 	  /* Aloca a memória para o vértice */
@@ -144,22 +144,21 @@
 *  Função: VER &Destruir vértice
 *  ****/
 
-	void VER_DestruirVertice ( VER_tppVertice* ppVertice ){
-	  
+	void VER_DestruirVertice ( void * pVerticeVoid ){
+		
+		VER_tppVertice pVertice = ( VER_tppVertice ) pVerticeVoid ;
+
 		/* Verifica se o vértice existe */
-		if ( *ppVertice == NULL ){
+		if ( pVertice == NULL ){
 			return;
 		} /* if */
 
-		/* Limpa a lista de antecessores */
-	    ((*ppVertice)->Antecessores) = NULL;
-
-		/* Limpa a lista de sucessores */		
-		((*ppVertice)->Sucessores) = NULL;
+		/* Libera o espaço alocado pelas listas */
+		LIS_DestruirLista( pVertice->Sucessores );
+		LIS_DestruirLista( pVertice->Antecessores );
 
 		/* Libera o espaço alocado pelo vértice */
-		free( *ppVertice );
-		*ppVertice = NULL;
+		free( pVertice );
 		
 		return ;
 
@@ -294,7 +293,7 @@
 		{
 			return VER_CondRetVerticeNaoExiste;
 		} /* if */
-
+printf("OLA");
 		*pIdVertice = pVertice->IdVertice;
 		
 		return VER_CondRetOK;

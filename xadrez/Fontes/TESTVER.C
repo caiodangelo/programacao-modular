@@ -135,7 +135,7 @@ static VER_tppVertice vtpVertice[10] = {NULL, NULL, NULL, NULL, NULL, NULL, NULL
 			 {
 				 return TST_CondRetParm ;
 			 } /* if */
-
+printf("%d\n",vtpVertice[ixVertice]);
 			 CondRetObtida = VER_ObterId ( vtpVertice[ixVertice] , &IdObtido );
 
 			 Ret = TST_CompararInt ( CondRetEsperada , CondRetObtida , 
@@ -163,8 +163,9 @@ static VER_tppVertice vtpVertice[10] = {NULL, NULL, NULL, NULL, NULL, NULL, NULL
 				 return TST_CondRetParm ;
 			 } /* if */
 
-			 VER_DestruirVertice ( &vtpVertice[ixVertice] );
-
+			 VER_DestruirVertice ( vtpVertice[ixVertice] );
+			 vtpVertice[ixVertice] = NULL ;
+printf("%d\n",vtpVertice[ixVertice]);
 			 return TST_CondRetOK ;
 
          } /* fim ativa: Testar VER Destruir vértice */

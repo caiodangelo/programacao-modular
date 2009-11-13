@@ -55,11 +55,9 @@
 
 == Verificar adicionar sucessor
 =criar 1 4 1 0
-=obterval 1 4 0
-=adicionarsuc 0 1 0
 
-== Verificar remover sucessor
-=removersuc 0 1 0
+
+
 
 //fim
 

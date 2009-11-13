@@ -17,5 +17,8 @@
 //=recuperar
 =reconhecerxequemate 'B' 12
 =recuperar
+
+==Verificar jogar xadrez
+=jogarxadrez 0
 //fim
 

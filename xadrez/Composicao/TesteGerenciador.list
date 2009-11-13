@@ -116,10 +116,10 @@ Estatísticas do construto
       testger.c
 
    Estatísticas do arquivo: vertice.c
-      Total linhas:             554
+      Total linhas:             553
       Linhas de código:         266
       Linhas de comentário:     126
-      Linhas em branco:         178
+      Linhas em branco:         177
    Arquivos de inclusão de que necessita
       lista.h
       vertice.h
@@ -179,17 +179,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:      2833
+         Total linhas do tipo:      2832
          Linhas de código:          1459
          Linhas de comentário:       690
-         Linhas em branco:           778
+         Linhas em branco:           777
          Arquivos deste tipo:          5
 
 Totais para todo o construto TesteGerenciador
 
-   Total linhas:              5525
+   Total linhas:              5524
    Linhas de código:          1715
    Linhas de comentário:      2731
-   Linhas em branco:          1173
+   Linhas em branco:          1172
    Arquivos processados:        12
 

@@ -276,7 +276,7 @@ MOV_tpCondRet MOV_ReconhecerXequeMate ( char cCor , GRA_tppGrafo pGrafo ){
                                                 }
 
                                                 /* Destruir o grafo criado */
-                                                //CondRetGrafo = GRA_DestruirGrafo( &pGrafoLocal );
+                                                CondRetGrafo = GRA_DestruirGrafo( &pGrafoLocal );
                                                 //printf("Destruiu o grafo local\n");
                                                 pGrafoLocal = NULL;//hack enquanto a destruir grafo não funciona
 

@@ -27,19 +27,12 @@
    36  == Verificar alterar valor de vértice que não existe
    38  == Verificar adicionar sucessor a vértice inexistente
    40  == Verificar remover sucessor de vértice inexistente
-   43  == Verificar destruir vértice
->>>    1  Linha:    45  Id do vértice está errado. Deveria ser: 5  É: -2
-<<<    0  Linha:    46  Falha esperada foi recuperada. 
->>>    1  Linha:    47  Valor do vértice está errado. Deveria ser: 5  É: -7
-<<<    0  Linha:    48  Falha esperada foi recuperada. 
-   50  == Verificar alterar valor do vértice
-   56  == Verificar adicionar sucessor
-   61  == Verificar remover sucessor
-!!!    0  Linha:    64  //fim 
+   45  == Verificar adicionar sucessor
+!!!    0  Linha:    51  //fim 
 
-!!! Número de linhas lidas:          65
-!!! Número de casos de teste:        20
-!!! Número comandos corretos:        24
+!!! Número de linhas lidas:          52
+!!! Número de casos de teste:        17
+!!! Número comandos corretos:        16
 !!! Número de falhas encontradas:     0
 
 !!! Não foram encontrados problemas
