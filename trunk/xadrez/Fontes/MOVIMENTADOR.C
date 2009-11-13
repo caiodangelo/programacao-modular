@@ -183,120 +183,185 @@ MOV_tpCondRet MOV_GeraMovimentacoes ( GRA_tppGrafo * ppGrafo ){
 *  ****/
 MOV_tpCondRet MOV_ReconhecerXequeMate ( char cCor , GRA_tppGrafo pGrafo ){
 
-	int linha, idAtual, idSucessor, primeiroSucessor;
-	char coluna;
-	GER_tpCondRet CondRetGerenciador;
-	GER_tppPeca pPeca;
-	GER_tppPeca pPecaOrigem, pPecaDestino;
-	GER_tpCorPeca corPeca, cor;
-	GRA_tpCondRet CondRetGrafo;
-	GRA_tppGrafo pGrafoLocal = NULL;
-	MOV_tpCondRet CondRetMovimentador;
+        int linha, idAtual, idSucessor, primeiroSucessor;
+        char coluna;
+        GER_tpCondRet CondRetGerenciador;
+        GER_tppPeca pPeca;
+        GER_tppPeca pPecaOrigem, pPecaDestino;
+        GER_tpCorPeca corPeca, cor;
+        GRA_tpCondRet CondRetGrafo;
+        GRA_tppGrafo pGrafoLocal = NULL;
+        MOV_tpCondRet CondRetMovimentador;
 
-	GER_tpTipoPeca tipoPeca;
+        GER_tpTipoPeca tipoPeca;
 
-	cor = GER_ObterCodigoDaCor ( cCor );
+        cor = GER_ObterCodigoDaCor ( cCor );
 
-	/* Verifica se o Rei está em xeque */
-	if((ReconheceXeque( cCor , pGrafo )) == FALSO)
-	{
-		return MOV_CondRetNaoEstaEmXequeMate;
-	}
+        /* Verifica se o Rei está em xeque */
+        if((ReconheceXeque( cCor , pGrafo )) == FALSO)
+        {
+                return MOV_CondRetNaoEstaEmXequeMate;
+        }
 
-	/* Percorre o tabuleiro */
-	for ( linha = 1 ; linha <= GER_ObterUltimaLinhaTabuleiro () ; linha++ ){
-		for ( coluna = 'A' ; coluna <= GER_ObterUltimaColunaTabuleiro () ; (char)(coluna++) ){
 
-			/* Obém peça do tabuleiro */
-			CondRetGerenciador = GER_ObterPecaDoTabuleiro ( &pPeca, coluna, linha );
+        /* Percorre o tabuleiro */
+        for ( linha = 1 ; linha <= GER_ObterUltimaLinhaTabuleiro () ; linha++ ){
+                for ( coluna = 'A' ; coluna <= GER_ObterUltimaColunaTabuleiro () ; (char)(coluna++) ){
 
-			if(CondRetGerenciador != GER_CondRetOK ){
-				/* tratar erro */
+                        /* Obém peça do tabuleiro */
+                        CondRetGerenciador = GER_ObterPecaDoTabuleiro ( &pPeca, coluna, linha );
 
-			}
-			
-			/* Obtém cor da peça */
-			corPeca = GER_ObterCor ( pPeca ) ;
-			tipoPeca = GER_ObterTipo ( pPeca ) ;
-			printf("Tipo da peca: %d - Cor: %d \n",tipoPeca,corPeca);
+                        if(CondRetGerenciador != GER_CondRetOK ){
+                                /* tratar erro */
 
-			/* Verifica se cor obtida é igual à cor do Rei */
-			if( corPeca == cor ){
+                        }
+                       
+                        /* Obtém cor da peça */
+                        corPeca = GER_ObterCor ( pPeca ) ;
+                        tipoPeca = GER_ObterTipo ( pPeca ) ;
+                        printf("Tipo da peca: %d - Cor: %d \n",tipoPeca,corPeca);
 
-				/* Codifica posição da peça */
-				idAtual = CodificaPosicao ( coluna , linha );
-				printf("Id da peca: %d \n",idAtual);
+                        /* Verifica se cor obtida é igual à cor do Rei */
+                        if( corPeca == cor ){
 
-				/* Procura a peça no grafo */
-				CondRetGrafo = GRA_IrVerticeComId( pGrafo , idAtual);
+                                /* Codifica posição da peça */
+                                idAtual = CodificaPosicao ( coluna , linha );
+                                printf("Id da peca: %d \n",idAtual);
 
-				if( CondRetGrafo != GRA_CondRetOK ){
-					/* tratar erro */
-					printf("ERRO \n");
+                                /* Procura a peça no grafo */
+                                CondRetGrafo = GRA_IrVerticeComId( pGrafo , idAtual);
 
-				}
+                                if( CondRetGrafo != GRA_CondRetOK ){
+                                        /* tratar erro */
+                                        printf("ERRO \n");
 
-				/* Obtém primeiro sucessor = */
-				CondRetGrafo = GRA_ObterSucessor ( pGrafo , idAtual , 
-									  &primeiroSucessor );
+                                }
 
-				if( CondRetGrafo == GRA_CondRetNaoHaSucessores){
-					/* Peça não tem movimentos possíveis */
+                                /* Obtém primeiro sucessor = */
+                                CondRetGrafo = GRA_ObterSucessor ( pGrafo , idAtual ,
+                                                                          &primeiroSucessor );
 
-				}
-				else{
+                                if( CondRetGrafo == GRA_CondRetNaoHaSucessores){
+                                        /* Peça não tem movimentos possíveis */
 
-					/*  */
-					idSucessor = primeiroSucessor;
+                                }
+                                else{
 
-					do{
+                                        /*  */
+                                        idSucessor = primeiroSucessor;
 
-						printf("idSucessor ao entrar no loop: %d \n",idSucessor);
+                                        do{
 
-						/* Obtém valor da peça */
-						CondRetGrafo = GRA_ObterValorComId( pGrafo , idAtual , &pPecaOrigem );
-						CondRetGrafo = GRA_ObterValorComId( pGrafo , idSucessor , &pPecaDestino );
-						printf("Obteve pecas corretamente \n");
+                                                printf("idSucessor ao entrar no loop: %d \n",idSucessor);
 
-						/* Gera movimentação */
-						CondRetGerenciador = GER_MoverPeca ( pPecaOrigem , pPecaDestino );
-						printf("Gerou movimentacao virtual \n");
+                                                /* Obtém valor da peça */
+                                                CondRetGrafo = GRA_ObterValorComId( pGrafo , idAtual , &pPecaOrigem );
+                                                CondRetGrafo = GRA_ObterValorComId( pGrafo , idSucessor , &pPecaDestino );
+                                                printf("Obteve pecas corretamente \n");
 
-						/* Cria o grafo à partir do tabuleiro */
-						CondRetMovimentador = MOV_AdicionarPecasAoGrafo ( &pGrafoLocal );						
-						printf("Criou o grafo local\n");
-						CondRetMovimentador = MOV_GeraMovimentacoes ( &pGrafoLocal );
-						printf("Gerou movimentacoes possiveis \n");
+                                                /* Gera movimentação */
+                                                CondRetGerenciador = GER_MoverPeca ( pPecaOrigem , pPecaDestino );
+                                                printf("Gerou movimentacao virtual \n");
 
-						/* Verifica se o rei continua em xeque */
-						if((ReconheceXeque( cCor , pGrafoLocal )) == FALSO)
-						{
-							return MOV_CondRetNaoEstaEmXequeMate;
-						}
+                                                /* Cria o grafo à partir do tabuleiro */
+                                                CondRetMovimentador = MOV_AdicionarPecasAoGrafo ( &pGrafoLocal );                                              
+                                                printf("Criou o grafo local\n");
+                                                CondRetMovimentador = MOV_GeraMovimentacoes ( &pGrafoLocal );
+                                                printf("Gerou movimentacoes possiveis \n");
 
-						/* Destruir o grafo criado */
-						//CondRetGrafo = GRA_DestruirGrafo( &pGrafoLocal );
-						//printf("Destruiu o grafo local\n");
-						pGrafoLocal = NULL;//hack enquanto a destruir grafo não funciona
+                                                /* Verifica se o rei continua em xeque */
+                                                if((ReconheceXeque( cCor , pGrafoLocal )) == FALSO)
+                                                {
+                                                        return MOV_CondRetNaoEstaEmXequeMate;
+                                                }
 
-						/* Desfaz movimentação */
-						CondRetGerenciador = GER_MoverPeca ( pPecaDestino , pPecaOrigem );
+                                                /* Destruir o grafo criado */
+                                                //CondRetGrafo = GRA_DestruirGrafo( &pGrafoLocal );
+                                                //printf("Destruiu o grafo local\n");
+                                                pGrafoLocal = NULL;//hack enquanto a destruir grafo não funciona
 
-						/* Obtém o próximo Sucessor */
-						CondRetGrafo = GRA_ObterSucessor ( pGrafo , idAtual , 
-									  &idSucessor );
-						printf("idSucessor ao sair do loop: %d \n",idSucessor);
+                                                /* Desfaz movimentação */
+                                                CondRetGerenciador = GER_MoverPeca ( pPecaDestino , pPecaOrigem );
 
-					}
-					while( idSucessor != primeiroSucessor );/* do while */
-				}/* else */
-			}/* if */			
-		}/* for */
-	}/* for */
+                                                /* Obtém o próximo Sucessor */
+                                                CondRetGrafo = GRA_ObterSucessor ( pGrafo , idAtual ,
+                                                                          &idSucessor );
+                                                printf("idSucessor ao sair do loop: %d \n",idSucessor);
 
-	return MOV_CondRetXequeMate;
+                                        }
+                                        while( idSucessor != primeiroSucessor );/* do while */
+                                }/* else */
+                        }/* if */                      
+                }/* for */
+        }/* for */
+
+        return MOV_CondRetXequeMate;
 
 }/* Fim da função Recohecer Xeque Mate */
+/***************************************************************************
+*
+*  Função: MOV  &Mover Peça
+*  ****/
+MOV_tpCondRet MOV_MoverPeca ( char ColunaOrigem , int LinhaOrigem , char ColunaDestino , int LinhaDestino , GRA_tppGrafo pGrafo ){
+       
+        GER_tppPeca pPecaOrigem ;
+        GER_tppPeca pPecaDestino ;
+        int idOrigem = -1 ;
+        int idDestino = -2 ;
+        int idTemp = -3 ;
+        int idPrimeiro = -4 ;
+        GER_tpCondRet CondRetGER = GER_CondRetOK ;
+        GRA_tpCondRet CondRetGRA = GRA_CondRetOK ;
+
+
+        CondRetGER = GER_ObterPecaDoTabuleiro ( &pPecaOrigem , ColunaOrigem , LinhaOrigem ) ;
+        if ( CondRetGER != GER_CondRetOK )
+        {
+                return MOV_CondRetPecaNaoExiste ;
+        }
+
+       
+
+        idOrigem = CodificaPosicao ( ColunaOrigem , LinhaOrigem ) ;
+        idDestino = CodificaPosicao ( ColunaDestino , LinhaDestino ) ;
+
+        CondRetGRA = GRA_ObterSucessor ( pGrafo , idOrigem , &idPrimeiro ) ;
+        if ( CondRetGRA == GRA_CondRetNaoHaSucessores )
+        {
+                return MOV_CondRetMovimentoInvalido ;
+        }
+
+        idTemp = idPrimeiro ;
+        do
+        {
+                if ( idTemp == idDestino )
+                {
+                        CondRetGER = GER_ObterPecaDoTabuleiro ( &pPecaDestino , ColunaDestino , LinhaDestino ) ;
+                        if ( CondRetGER != GER_CondRetOK )
+                        {
+                                return MOV_CondRetPecaNaoExiste ;
+                        }
+
+                        CondRetGER = GER_MoverPeca ( pPecaOrigem , pPecaDestino );
+                        if ( CondRetGER != GER_CondRetOK )
+                        {
+                                return MOV_CondRetMovimentoInvalido ;
+                        }
+                       
+                        return MOV_CondRetOK ;
+                }
+
+                CondRetGRA = GRA_ObterSucessor ( pGrafo , idOrigem , &idTemp ) ;
+                if ( CondRetGRA == GRA_CondRetNaoHaSucessores )
+                {
+                        return MOV_CondRetMovimentoInvalido ;
+                }
+        }while ( idTemp != idPrimeiro );
+
+        return MOV_CondRetMovimentoInvalido;
+
+
+}/* Fim da Função: MOV &Mover Peça */
 
 /***************************************************************************
 *
