@@ -11,5 +11,6 @@ gmake  /b..\xadrez\composicao  /cCompVer.comp
 gmake  /b..\xadrez\composicao  /cCompGra.comp
 gmake  /b..\xadrez\composicao  /cCompGer.comp
 gmake  /b..\xadrez\composicao  /cCompMov.comp
+gmake  /b..\xadrez\composicao  /cCompPar.comp
 
 popd
