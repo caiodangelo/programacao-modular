@@ -56,15 +56,12 @@ MOV_tpCondRet MOV_AdicionarPecasAoGrafo ( GRA_tppGrafo * ppGrafo ){
 	GRA_tpCondRet CondRetGRA;
 	GER_tppPeca pPeca;
 	int id;
-	printf("Entrou na Adicionar Pecas ao Grafo \n");
 
 	/* Cria o grafo */
 	CondRetGRA = GRA_CriarGrafo ( ppGrafo );
-	printf("Passou pela GRA_CriarGrafo \n");
 	if ( CondRetGRA != GRA_CondRetOK ){
 		return MOV_CondRetNaoCriouGrafo;
 	}
-	printf("Criou o grafo dentro da Adicionar Pecas ao Grafo \n");
 
 	/* Percorre o tabuleiro */
 	for ( linha = 1 ; linha <= GER_ObterUltimaLinhaTabuleiro () ; linha++ ){
@@ -219,14 +216,12 @@ MOV_tpCondRet MOV_ReconhecerXequeMate ( char cCor , GRA_tppGrafo pGrafo ){
                         /* Obtém cor da peça */
                         corPeca = GER_ObterCor ( pPeca ) ;
                         tipoPeca = GER_ObterTipo ( pPeca ) ;
-                        printf("Tipo da peca: %d - Cor: %d \n",tipoPeca,corPeca);
 
                         /* Verifica se cor obtida é igual à cor do Rei */
                         if( corPeca == cor ){
 
                                 /* Codifica posição da peça */
                                 idAtual = CodificaPosicao ( coluna , linha );
-                                printf("Id da peca: %d \n",idAtual);
 
                                 /* Procura a peça no grafo */
                                 CondRetGrafo = GRA_IrVerticeComId( pGrafo , idAtual);
@@ -252,22 +247,16 @@ MOV_tpCondRet MOV_ReconhecerXequeMate ( char cCor , GRA_tppGrafo pGrafo ){
 
                                         do{
 
-                                                printf("idSucessor ao entrar no loop: %d \n",idSucessor);
-
                                                 /* Obtém valor da peça */
                                                 CondRetGrafo = GRA_ObterValorComId( pGrafo , idAtual , &pPecaOrigem );
                                                 CondRetGrafo = GRA_ObterValorComId( pGrafo , idSucessor , &pPecaDestino );
-                                                printf("Obteve pecas corretamente \n");
 
                                                 /* Gera movimentação */
                                                 CondRetGerenciador = GER_MoverPeca ( pPecaOrigem , pPecaDestino );
-                                                printf("Gerou movimentacao virtual \n");
 
                                                 /* Cria o grafo à partir do tabuleiro */
-                                                CondRetMovimentador = MOV_AdicionarPecasAoGrafo ( &pGrafoLocal );                                              
-                                                printf("Criou o grafo local\n");
+                                                CondRetMovimentador = MOV_AdicionarPecasAoGrafo ( &pGrafoLocal ); 
                                                 CondRetMovimentador = MOV_GeraMovimentacoes ( &pGrafoLocal );
-                                                printf("Gerou movimentacoes possiveis \n");
 
                                                 /* Verifica se o rei continua em xeque */
                                                 if((ReconheceXeque( cCor , pGrafoLocal )) == FALSO)
@@ -277,8 +266,6 @@ MOV_tpCondRet MOV_ReconhecerXequeMate ( char cCor , GRA_tppGrafo pGrafo ){
 
                                                 /* Destruir o grafo criado */
                                                 CondRetGrafo = GRA_DestruirGrafo( &pGrafoLocal );
-                                                //printf("Destruiu o grafo local\n");
-                                                pGrafoLocal = NULL;//hack enquanto a destruir grafo não funciona
 
                                                 /* Desfaz movimentação */
                                                 CondRetGerenciador = GER_MoverPeca ( pPecaDestino , pPecaOrigem );
@@ -286,7 +273,6 @@ MOV_tpCondRet MOV_ReconhecerXequeMate ( char cCor , GRA_tppGrafo pGrafo ){
                                                 /* Obtém o próximo Sucessor */
                                                 CondRetGrafo = GRA_ObterSucessor ( pGrafo , idAtual ,
                                                                           &idSucessor );
-                                                printf("idSucessor ao sair do loop: %d \n",idSucessor);
 
                                         }
                                         while( idSucessor != primeiroSucessor );/* do while */

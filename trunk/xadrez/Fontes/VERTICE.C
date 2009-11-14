@@ -293,7 +293,6 @@
 		{
 			return VER_CondRetVerticeNaoExiste;
 		} /* if */
-printf("OLA");
 		*pIdVertice = pVertice->IdVertice;
 		
 		return VER_CondRetOK;
