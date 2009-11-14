@@ -1,0 +1,30 @@
+# Composicao do programa relativo ao teste do módulo partida
+
+[Diretorios]
+
+Nome        =  TestePartida
+PathDefault =  ..\Fontes
+err         =  ..\Produto
+obj         =  ..\Objetos
+c           =  ..\Fontes
+h           =  ..\Fontes
+
+[Modulos]
+Gerenciador
+Movimentador
+Grafo
+Vertice
+Lista
+TestMov
+Partida
+
+
+[BuildInicio]
+/OUT:..\Produto\TestePartida.exe
+/INCREMENTAL:NO
+/MACHINE:IX86
+
+[BuildFim]
+ArcaboucoTeste.lib
+
+[Fim]
