@@ -14,6 +14,8 @@ nmake /F..\composicao\TesteGerenciador.make "PRD="
 
 nmake /F..\composicao\TesteMovimentador.make "PRD="
 
+nmake /F..\composicao\TestePartida.make "PRD="
+
 copy ..\produto\*.err ..\produto\tudo.err
 
 notepad ..\produto\tudo.err
