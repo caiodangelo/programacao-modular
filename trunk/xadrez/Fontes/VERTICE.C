@@ -394,8 +394,6 @@
 			return NULL;
 		}/* if */
 
-		IrInicioLista ( pVertice->Antecessores );
-
 		Antecessores = pVertice->Antecessores;
 
 		return Antecessores;
