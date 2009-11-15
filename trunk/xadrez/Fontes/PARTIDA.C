@@ -64,6 +64,7 @@ void PAR_IniciarPartida(){
 	int LinhaDestino			= -2 ;
 	int NumLidos				= -1 ;
 	char cCor					= 'B' ;
+	GER_tppPeca pPeca			= NULL ;
 
 	printf ("\n Bem-Vindo ao Jogo de Xadrez do grupo CEV!! \n\n  " ) ;
 	while ( InicioOK == FALSO )
@@ -139,20 +140,24 @@ void PAR_IniciarPartida(){
 			} /* switch */
 
 			gets ( sEntrada ) ;
-			if ( strcmp ( sEntrada , "SALVAR" ) == 0 )
+			if (( strcmp ( sEntrada , "SALVAR" ) == 0 )
+				||( strcmp ( sEntrada , "salvar" ) == 0 ) )
 			{
 				if ( GER_SalvarTabuleiro ( "..\\Definicao\\DISPOSICAO.TXT" ) == GER_CondRetOK )
 				{
 					printf ( "Jogo Salvo\n" ) ;
-					continue ;
+					printf ( "Entre com a jogada:\n");
+					gets ( sEntrada ) ;
 				} /* if */
 				else
 				{
 					printf ( "Erro ao salvar o arquivo" ) ;
-					continue ;
+					printf ( "Entre com a jogada:\n");
+					gets ( sEntrada ) ;
 				}
 			} /* if */
-			else if ( strcmp ( sEntrada , "SAIR" ) == 0 )
+			if (( strcmp ( sEntrada , "SAIR" ) == 0 )
+					||( strcmp ( sEntrada , "sair" ) == 0 ) )
 			{
 				printf ( "Obrigado por SE DIVERTIR!!!\n" );
 				return ;
@@ -176,14 +181,39 @@ void PAR_IniciarPartida(){
 			} /* if */
 			else
 			{
-				CondRetMOV = MOV_MoverPeca ( ColunaOrigem , LinhaOrigem , ColunaDestino , LinhaDestino , pGrafo ) ;
-				if ( CondRetMOV != MOV_CondRetOK )
+				CondRetGER = GER_ObterPecaDoTabuleiro ( &pPeca , ColunaOrigem , LinhaOrigem ) ;
+				if ( CondRetGER != GER_CondRetOK )
 				{
-					printf ( "Movimento invalido.\n" );
-					printf ( "Tente novamente\n" ) ;
+					printf ( "Erro ao obter peca a mover" );
 
 					MovimentoOK = FALSO ;
+					continue ;
 				} /* if */
+				if ( GER_ObterCor ( pPeca ) != GER_ObterCorDaVez ( ) )
+				{
+					if ( GER_ObterCor ( pPeca ) == GER_CorSemCor )
+					{
+						printf ( "Ah... Esta casa esta vazia... Tente novamente!\n" );
+						MovimentoOK = FALSO ;
+					} /* if */
+					else
+					{
+						printf ( "Nao eh a sua vez!\n" );
+						MovimentoOK = FALSO ;
+					}
+				} /* if */
+				
+				else
+				{
+					CondRetMOV = MOV_MoverPeca ( ColunaOrigem , LinhaOrigem , ColunaDestino , LinhaDestino , pGrafo ) ;
+					if ( CondRetMOV != MOV_CondRetOK )
+					{
+						printf ( "Movimento invalido.\n" );
+						printf ( "Tente novamente\n" ) ;
+
+						MovimentoOK = FALSO ;
+					} /* if */
+				} /* else */
 			} /* else */
 		} /* do */
 		while ( MovimentoOK == FALSO ) ;	
@@ -225,6 +255,7 @@ void PAR_IniciarPartida(){
 
 		/* Destruir o grafo criado */
 		GRA_DestruirGrafo( &pGrafo );
+
 	} /* while */
 	
 	GER_LimparTabuleiro ( ) ;

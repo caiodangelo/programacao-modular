@@ -30,12 +30,6 @@ gerenciador.obj movimentador.obj grafo.obj vertice.obj lista.obj
 testmov.obj 
 ArcaboucoTeste.lib 
 testpar.c
-..\Fontes\testpar.c(73) : warning C4189: 'LinhaOrigem' : local variable is initialized but not referenced
-..\Fontes\testpar.c(74) : warning C4189: 'LinhaDestino' : local variable is initialized but not referenced
-..\Fontes\testpar.c(70) : warning C4189: 'CondRetGER' : local variable is initialized but not referenced
-..\Fontes\testpar.c(71) : warning C4189: 'ColunaOrigem' : local variable is initialized but not referenced
-..\Fontes\testpar.c(77) : warning C4189: 'CorDada' : local variable is initialized but not referenced
-..\Fontes\testpar.c(72) : warning C4189: 'ColunaDestino' : local variable is initialized but not referenced
 partida.c
 Microsoft (R) Incremental Linker Version 9.00.21022.08
 Copyright (C) Microsoft Corporation.  All rights reserved.
