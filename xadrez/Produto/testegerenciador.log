@@ -35,17 +35,17 @@
    58  ==Verificar mover peca
    70  ==Verificar mover peca de volta
    82  ==Verificar mover peca de fora do tabuleiro
->>>    1  Linha:    88  Tipo da peça está errado. Deveria ser: 2  É: 1
->>>    2  Linha:    89  Não é comando recuperar:  =obtertipo	6 0
    91  ==Verificar mover peça para fora do tabuleiro
-!!!    2  Linha:   100  //fim 
+!!!    0  Linha:   100  //==Verificar salvar tabuleiro 
+!!!    0  Linha:   101  //=salvar "SAVE.TXT" 0 
+!!!    0  Linha:   103  //fim 
 
-!!! Número de linhas lidas:         101
+!!! Número de linhas lidas:         104
 !!! Número de casos de teste:        29
-!!! Número comandos corretos:        57
-!!! Número de falhas encontradas:     2
+!!! Número comandos corretos:        59
+!!! Número de falhas encontradas:     0
 
-!!! Foram encontrados problemas
+!!! Não foram encontrados problemas
 
 
 !!! Numero de espacos ainda alocados: 0

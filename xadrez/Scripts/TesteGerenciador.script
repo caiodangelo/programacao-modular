@@ -97,5 +97,8 @@
 =obtercor 1 0
 =obtertipo	0 0
 
+//==Verificar salvar tabuleiro
+//=salvar "SAVE.TXT" 0
+
 //fim
 

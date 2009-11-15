@@ -77,8 +77,8 @@ Estatísticas do construto
       testver.c
 
    Estatísticas do arquivo: vertice.c
-      Total linhas:             553
-      Linhas de código:         266
+      Total linhas:             552
+      Linhas de código:         265
       Linhas de comentário:     126
       Linhas em branco:         177
    Arquivos de inclusão de que necessita
@@ -139,16 +139,16 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:      1374
-         Linhas de código:           687
+         Total linhas do tipo:      1373
+         Linhas de código:           686
          Linhas de comentário:       339
          Linhas em branco:           390
          Arquivos deste tipo:          3
 
 Totais para todo o construto TesteVertice
 
-   Total linhas:              3250
-   Linhas de código:           863
+   Total linhas:              3249
+   Linhas de código:           862
    Linhas de comentário:      1771
    Linhas em branco:           658
    Arquivos processados:         8
