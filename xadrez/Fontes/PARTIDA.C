@@ -70,7 +70,12 @@ void PAR_IniciarPartida(){
 			{
 				ComandoJogar = FALSO ;
 				printf("Obrigado por SE DIVERTIR!!!") ;
-			} 
+			}/* else if */
+			else{
+				ComandoJogar = FALSO;
+				printf("Comando invalido. Saindo do jogo...");
+
+				}/* else */
 		}		
 		}
 
