@@ -497,9 +497,11 @@ void GER_ImprimirTabuleiro ( void ) {
 	GER_tppPeca	pPeca		= NULL ;
 	GER_tpCondRet CondRet	= GER_CondRetOK ;
 
-	printf ( "-------------------------\n" ) ;
+	printf ( "\n----------------------------\n" ) ;
+	printf ( "   | A| B| C| D| E| F| G| H|\n" ) ;
+	printf ( "----------------------------\n" ) ;
 	for ( linha = 1 ; linha <= GER_ObterUltimaLinhaTabuleiro( ) ; linha++ ){
-		printf("|");
+		printf( "|%d |",linha );
 		for ( coluna = 'A' ; coluna <= GER_ObterUltimaColunaTabuleiro( ) ; (char)(coluna++)){
 		
 			CondRet = GER_ObterPecaDoTabuleiro ( &pPeca , coluna , linha ) ;
@@ -552,7 +554,7 @@ void GER_ImprimirTabuleiro ( void ) {
 					break;
 			}		
 		}
-		printf( "\n-------------------------\n" ) ;
+		printf( "\n----------------------------\n" ) ;
 	}
 
 } /* Fim função: GER &Imprimir Tabuleiro */

@@ -34,8 +34,8 @@ Estatísticas do construto
       testger.c
 
    Estatísticas do arquivo: gerenciador.c
-      Total linhas:             743
-      Linhas de código:         430
+      Total linhas:             745
+      Linhas de código:         432
       Linhas de comentário:     195
       Linhas em branco:         143
    Arquivos de inclusão de que necessita
@@ -179,16 +179,16 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:      3045
-         Linhas de código:          1615
+         Total linhas do tipo:      3047
+         Linhas de código:          1617
          Linhas de comentário:       719
          Linhas em branco:           811
          Arquivos deste tipo:          5
 
 Totais para todo o construto TesteGerenciador
 
-   Total linhas:              5798
-   Linhas de código:          1876
+   Total linhas:              5800
+   Linhas de código:          1878
    Linhas de comentário:      2807
    Linhas em branco:          1215
    Arquivos processados:        12
