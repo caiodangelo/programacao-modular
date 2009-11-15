@@ -1,22 +1,71 @@
-// Script:    Testereconhecedor.script
+// Script:    Testemovimentador.script
 // Autores:   Caio, Eduardo e Vitor
 // Data:      12/out/2009
 // Propósito: Testar o módulo MOVIMENTADOR
 
 ==Verificar montar grafo
 =adicionarpecas 0
+=montartabuleiro
 =gerarmov 0
+
 =exibir
+=imprimir
+
+==Verificar movimentação das peças
+=moverpeca 'E' 7 'E' 6 0
+=gerarmov 0
+
+=exibir
+=imprimir
+
+=moverpeca 'E' 2 'E' 3 0
+=adicionarpecas 0
+=gerarmov 0
+
+
+=moverpeca 'E' 6 'E' 5 0
+=adicionarpecas 0
+=gerarmov 0
+
+
+=moverpeca 'E' 3 'E' 4 0
+=adicionarpecas 0
+=gerarmov 0
+
+=moverpeca 'F' 8 'C' 5 0
+=adicionarpecas 0
+=gerarmov 0
+
+=moverpeca 'B' 1 'A' 3 0
+=adicionarpecas 0
+=gerarmov 0
+
+=moverpeca 'D' 8 'F' 6 0
+=adicionarpecas 0
+=gerarmov 0
+
+=moverpeca 'A' 3 'B' 5 0
+=adicionarpecas 0
+=gerarmov 0
+
+
+==Verificar reconhecer xeque mate nao estando.
+=reconhecerxequemate 'P' 13
+
+==Poe o rei em xeque mate
+=moverpeca 'F' 6 'F' 2 0
+=adicionarpecas 0
+=gerarmov 0
+
+
+=exibir
+=imprimir
+
+==verificar movimento invalido
+=moverpeca 'A' 8 'A' 7 16
 
 ==Verificar reconhecer xeque mate
-=reconhecerxequemate 'P' 13
-//=recuperar
 =reconhecerxequemate 'P' 12
-=recuperar
-=reconhecerxequemate 'B' 13
-//=recuperar
-=reconhecerxequemate 'B' 12
-=recuperar
 
 //fim
 
