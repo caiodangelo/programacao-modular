@@ -67,14 +67,9 @@
 
       MOV_tpCondRet CondRetObtida   = MOV_CondRetOK ;
       MOV_tpCondRet CondRetEsperada = MOV_CondRetFaltouMemoria ;
-	  GER_tpCondRet CondRetGER		= GER_CondRetOK ;
-	  char ColunaOrigem				= '!' ;
-	  char ColunaDestino			= '@' ;
-	  int LinhaOrigem				= -1 ;
-	  int LinhaDestino				= -2 ;
+	  
                                       /* inicializa para qualquer coisa */
 	  int NumLidos = -1;
-	  char CorDada = '!';
 
 	  TST_tpCondRet Ret ;
 
