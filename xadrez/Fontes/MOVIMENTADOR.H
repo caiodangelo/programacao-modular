@@ -147,8 +147,8 @@ typedef struct GRA_tgGrafo * GRA_tppGrafo;
 *	  minada cor está em xeque mate.
 *
 *  $EP Parâmetros
-*     ppGrafo - referência para o grafo de movimentações
-*	  CorRei - cor do rei que pode estar em xeque
+*     pGrafo - ponteiro para o grafo de movimentações
+*	  cCor - letra da cor do rei em possível xeque
 *
 *  $FV Valor retornado
 *	  MOV_CondRetNaoEstaEmXequeMate - rei na cor fonecida não está em xeque mate
@@ -171,6 +171,7 @@ typedef struct GRA_tgGrafo * GRA_tppGrafo;
 *	  LinhaOrigem - linha da casa onde está a peça
 *	  ColunaDestino - coluna da casa para onde a peça vai
 *	  LinhaDestino - linha da casa para onde a peça vai
+*	  pGrafo - ponteiro para o grafo de movimentos
 *
 *  $FV Valor retornado
 *	  MOV_CondRetOK - moveu corretamente
@@ -179,22 +180,5 @@ typedef struct GRA_tgGrafo * GRA_tppGrafo;
 ***********************************************************************/
    
    MOV_tpCondRet MOV_MoverPeca ( char ColunaOrigem , int LinhaOrigem , char ColunaDestino , int LinhaDestino , GRA_tppGrafo pGrafo );
-
-/***********************************************************************
-*
-*  $FC Função: MOV &Jogar xadrez
-*
-*  $ED Descrição da função
-*     Inicia uma partida de xadrez
-*
-*  $EP Parâmetros
-*     
-*
-*  $FV Valor retornado
-*	  MOV_CondRetOK - moveu corretamente
-*
-***********************************************************************/
-
-   MOV_tpCondRet MOV_JogarXadrez ( void ) ;
    
 /********** Fim do módulo de definição: Módulo grafo **********/

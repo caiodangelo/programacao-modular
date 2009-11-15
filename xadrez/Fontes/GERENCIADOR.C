@@ -298,13 +298,11 @@ GER_tpCondRet GER_ObterPecaDoTabuleiro ( GER_tppPeca * ppPeca, char coluna, int 
 
 	/* Verifica se a linha é válida */
 	if((ixLinha<0)||(ixLinha>=N_LINHAS)){
-		printf("linha errada %c%d\n", coluna, linha);
 		return GER_CondRetPecaNaoExiste;
 	} /* if */
 
 	/* Verifica se a coluna é válida */
 	else if((ixColuna<0)||(ixColuna>=N_COLUNAS)){
-		printf("coluna errada %c%d\n", coluna, linha);
 		return GER_CondRetPecaNaoExiste;
 	} /* else if */
 
@@ -507,7 +505,7 @@ void GER_ImprimirTabuleiro ( void ) {
 			CondRet = GER_ObterPecaDoTabuleiro ( &pPeca , coluna , linha ) ;
 			if ( CondRet != GER_CondRetOK )
 			{
-				return CondRet ;
+				return ;
 			}
 
 			switch ( GER_ObterTipo ( pPeca ) )

@@ -30,6 +30,8 @@
 *
 *	  "=moverpeca <Col><Lin><Col><Lin><CondRetEsp>	- chama a função MOV_MoverPeca ( )
 *
+*	  "=imprimir"						- chama a funcao GER_ImprimirTabuleiro ( )
+*
 ***************************************************************************/
 
 #include    <string.h>
@@ -44,7 +46,7 @@
 #include	"GERENCIADOR.H"
 #include	"GRAFO.H"
 
-#define		DISPOSICAO				"..\\Definicao\\DISPOSICAO.TXT"
+#define		DISPOSICAO				"..\\Definicao\\DEFAULT.TXT"
 
 /* Tabela dos nomes dos comandos de teste específicos */
 
@@ -53,7 +55,7 @@
 #define		EXIBIR_CMD				"=exibir"
 #define		RECONHECER_XEQUE_MATE_CMD	"=reconhecerxequemate"
 #define		MOVER_PECA_CMD			"=moverpeca"
-#define		JOGAR_XADREZ_CMD		"=jogarxadrez"
+#define		IMPRIMIR_TAB_CMD		"=imprimir"
 
 /*****  Código das funções exportadas pelo módulo  *****/
 
@@ -210,23 +212,15 @@ GRA_tppGrafo pGrafo;
 			 return Ret;
          } /* fim ativa: Testar MOV Mover Peça */
 
-	 /* Testar MOV Jogar Xadrez */
+	/* Testar GER Imprimir Tabuleiro */
 
-         else if ( strcmp( ComandoTeste , JOGAR_XADREZ_CMD ) == 0 )
+         else if ( strcmp( ComandoTeste , IMPRIMIR_TAB_CMD ) == 0 )
          {
-			 NumLidos = LER_LerParametros ( "i" , 
-											&CondRetEsperada ) ;
-			 if ( NumLidos != 1 )
-			 {
-				 return TST_CondRetParm ;
-			 } /* if */
 
-			 CondRetObtida = MOV_JogarXadrez(  ) ;
-			 Ret = TST_CompararInt ( CondRetEsperada , CondRetObtida , 
-									  "Retorno errado ao jogar xadrez " );
+			 GER_ImprimirTabuleiro (  ) ;
 
-			 return Ret;
-         } /* fim ativa: Testar JogarXadrez */
+			 return TST_CondRetOK ;
+         } /* fim ativa: Testar GER Imprimir tabuleiro */
 
       return TST_CondRetNaoConhec ;
 

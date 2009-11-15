@@ -3,7 +3,7 @@
 ------------------------------------------------------------------
 
 Este documento fornece informações complementares ou posteriores para 
-o trabalho 2 de INF1301 - Programação Modular e sua instalação.
+o trabalho 3 de INF1301 - Programação Modular e sua instalação.
 
 
 -------------------------
@@ -53,7 +53,7 @@ comando for aberta
 INSTALAÇÃO
 -----------
 
-O trabalho se encontra no arquivo INF1301-Trab02-CEV.zip . Para instalar
+O trabalho se encontra no arquivo INF1301-Trab03-CEV.zip . Para instalar
 os módulos, é necessário extrair toda a pasta xadrez para o diretório on-
 de o arqcabouço está instalado. Sendo assim, a pasta xadrez ficará loca-
 lizada no mesmo diretório que as pastas arcabouc, documentos, ferramnt,ins-
@@ -73,13 +73,13 @@ pila os códigos-fonte e executa os testes.
 TESTES
 --------------------
 
-Foram implementados 4 módulos específicos de teste (um para cada módulo desenvolvido).
+Foram implementados 5 módulos específicos de teste (um para cada módulo desenvolvido).
 Tais módulos testam todas as funções exportadas dos módulos e com condições de retorno
 bem especificadas. Algumas funções com retorno void não foram diretamente testadas mas
 por serem invocadas por outras funções foi possível detectar e corrigir os problemas
 nelas à partir do teste das funções que as invocaram.
 
-Foram criados e fornecidos 4 scripts específicos de testes (um para cada módulo desenvolvido).
+Foram criados e fornecidos 5 scripts específicos de testes (um para cada módulo desenvolvido).
 Tais scripts executam todas as funções de teste implementadas, buscando ainda gerar
 casos que testem as mais variadas condições de retorno especificadas nas interfaces 
 dos módulos. Para alterar os scripts de teste basta acessar o script específico dentro 
@@ -89,7 +89,7 @@ batch Tudo.bat que encontra-se no diretório "Batches".
 Vale ressaltar ainda que uma breve explicação de cada comando de script de testes se 
 encontra no respectivo módulo de teste. Tais arquivos se encontram no diretório Fontes 
 sob a alcunha TESTxxx onde xxx corresponde ao prefixo do módulo implementado (VER-vértice, 
-GRA-grafo, REC-reconhecedor e GER-gerenciador).
+GRA-grafo, REC-reconhecedor, GER-gerenciador, PAR-partida).
 
 É importante observar também que, para melhor testar o módulo reconhecedor é interessante
 manipular os arquivos de disposição de peças no tabuleiro e de regras de definição.
@@ -183,8 +183,12 @@ REGRAS DE SINTAXE DOS ARQUIVOS DE REGRAS DE MOVIMENTAÇÃO DISCRETA
 -----------------------------------------------------------------
 REGRAS DE SINTAXE DOS ARQUIVOS DE REGRAS DE MOVIMENTAÇÃO CONTÍNUA
 ----------------------------------------------------------------- 
+	
+	A primeira linha do arquivo conterá uma letra que indica a cor das peças do próximo jogador.
+		B - branca
+		P - preta
 
-	Cada linha especificará as regras de movimentação de apenas uma peça do jogo.
+	Cada próxima linha especificará as regras de movimentação de apenas uma peça do jogo.
 	No entanto, mais de uma linha poderá especificar a movimentaçao de uma mesma peça.
 	
 	Movimentação Contínua (Coordenadas Polares)
