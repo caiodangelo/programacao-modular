@@ -23,6 +23,7 @@
 =obterultcol 'H' 0
 ==Verificar preencher tabuleiro
 =preenchertab 0
+=imprimir
 ==Verificar obter peça do tabuleiro
 =obterpecatab 'A' 7 0
 ==Verificar obter cor da peça
@@ -97,8 +98,11 @@
 =obtercor 1 0
 =obtertipo	0 0
 
-//==Verificar salvar tabuleiro
-//=salvar "SAVE.TXT" 0
+==Verificar salvar tabuleiro
+=salvar "C:\\SAVE.TXT" 0
+
+==Verificar imprimir tabuleiro
+=imprimir
 
 //fim
 

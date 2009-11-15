@@ -34,19 +34,19 @@ Estatísticas do construto
       testger.c
 
    Estatísticas do arquivo: gerenciador.c
-      Total linhas:             619
-      Linhas de código:         320
-      Linhas de comentário:     190
-      Linhas em branco:         133
+      Total linhas:             745
+      Linhas de código:         432
+      Linhas de comentário:     195
+      Linhas em branco:         143
    Arquivos de inclusão de que necessita
       gerenciador.h
       vertice.h
 
    Estatísticas do arquivo: gerenciador.h
-      Total linhas:             436
-      Linhas de código:          47
-      Linhas de comentário:     322
-      Linhas em branco:          67
+      Total linhas:             450
+      Linhas de código:          49
+      Linhas de comentário:     331
+      Linhas em branco:          70
    Arquivos em que é incluído
       gerenciador.c
       testger.c
@@ -96,10 +96,10 @@ Estatísticas do construto
       vertice.c
 
    Estatísticas do arquivo: testger.c
-      Total linhas:             439
-      Linhas de código:         246
-      Linhas de comentário:     108
-      Linhas em branco:         102
+      Total linhas:             452
+      Linhas de código:         252
+      Linhas de comentário:     112
+      Linhas em branco:         106
    Arquivos de inclusão de que necessita
       generico.h
       gerenciador.h
@@ -137,10 +137,10 @@ Estatísticas do construto
 Totais por tipo de arquivo
 
   Tipo: h        Path: ..\Fontes
-         Total linhas do tipo:      2735
-         Linhas de código:           259
-         Linhas de comentário:      2075
-         Linhas em branco:           401
+         Total linhas do tipo:      2749
+         Linhas de código:           261
+         Linhas de comentário:      2084
+         Linhas em branco:           404
          Arquivos deste tipo:          7
 
   Tipo: obj      Path: ..\Objetos
@@ -179,17 +179,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:      2908
-         Linhas de código:          1499
-         Linhas de comentário:       710
-         Linhas em branco:           797
+         Total linhas do tipo:      3047
+         Linhas de código:          1617
+         Linhas de comentário:       719
+         Linhas em branco:           811
          Arquivos deste tipo:          5
 
 Totais para todo o construto TesteGerenciador
 
-   Total linhas:              5643
-   Linhas de código:          1758
-   Linhas de comentário:      2785
-   Linhas em branco:          1198
+   Total linhas:              5796
+   Linhas de código:          1878
+   Linhas de comentário:      2803
+   Linhas em branco:          1215
    Arquivos processados:        12
 

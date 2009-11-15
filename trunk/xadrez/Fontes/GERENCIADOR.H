@@ -70,6 +70,9 @@ typedef struct GER_tgPeca * GER_tppPeca;
 		 GER_CondRetErroAoAbrirArq = 7,
 				/* Não conseguiu abrir arquivo corretamente */
 
+		 GER_CondRetErroAoSalvarTabuleiro = 8,
+				/* Não conseguiu salvar o tabuleiro */
+
    } GER_tpCondRet ;
 
 /***********************************************************************
@@ -433,6 +436,17 @@ typedef struct GER_tgPeca * GER_tppPeca;
 ***********************************************************************/
 
 	GER_tpCondRet GER_SalvarTabuleiro ( char * ArquivoDisposicao );
+
+/***********************************************************************
+*
+*  $FC Função: GER  &Imprimir Tabuleiro
+*
+*  $ED Descrição da função
+*     Imprime o estado atual do tabuleiro na tela
+*
+***********************************************************************/
+
+	void GER_ImprimirTabuleiro ( void );
 
 /********** Fim do módulo de definição: GER  Gerenciador de xadrez **********/
 

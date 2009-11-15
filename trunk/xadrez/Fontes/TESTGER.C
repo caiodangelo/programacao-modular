@@ -51,6 +51,8 @@
 *
 *	  "=salvar <Arquivo> <CondRetEsp>"		- chama a função GER_SalvarArquivo ( )
 *
+*	  "=imprimir"							- chama a dunção GER_ImprimirTabuleiro ( )
+*
 ***************************************************************************/
 
 #include    <string.h>
@@ -83,6 +85,7 @@
 #define		OBTER_REI_CMD			"=obterrei"
 #define		MOVER_PECA_CMD			"=moverpeca"
 #define		SALVAR_CMD				"=salvar"
+#define		IMPRIMIR_TAB_CMD		"=imprimir"
 
 /*****  Código das funções exportadas pelo módulo  *****/
 
@@ -131,7 +134,7 @@ GER_tppPeca pPeca = NULL;
 	  TST_tpCondRet Ret ;
 	  GER_tppPeca pPecaOrigem = NULL ;
 	  GER_tppPeca pPecaDestino = NULL ;
-	  char * Arquivo		= NULL ;
+	  char Arquivo[70]  ;
 
       /* Testar GER Inicializar tabuleiro */
 
@@ -417,7 +420,7 @@ GER_tppPeca pPeca = NULL;
          else if ( strcmp( ComandoTeste , SALVAR_CMD ) == 0 )
          {
 			 NumLidos = LER_LerParametros ( "si" , 
-											Arquivo , CondRetEsperada ) ;
+											Arquivo , &CondRetEsperada ) ;
 			 if ( NumLidos != 2 )
 			 {
 				 return TST_CondRetParm ;
@@ -430,6 +433,16 @@ GER_tppPeca pPeca = NULL;
 
 			 return Ret ;
          } /* fim ativa: Testar GER Salvar tabuleiro */
+
+	/* Testar GER Imprimir Tabuleiro */
+
+         else if ( strcmp( ComandoTeste , IMPRIMIR_TAB_CMD ) == 0 )
+         {
+
+			 GER_ImprimirTabuleiro (  ) ;
+
+			 return TST_CondRetOK ;
+         } /* fim ativa: Testar GER Imprimir tabuleiro */
 
       return TST_CondRetNaoConhec ;
 

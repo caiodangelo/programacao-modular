@@ -17,32 +17,32 @@
    20  ==Verificar obter ultima linha do tabuleiro
    22  ==Verificar obter ultima coluna do tabuleiro
    24  ==Verificar preencher tabuleiro
-   26  ==Verificar obter peça do tabuleiro
-   28  ==Verificar obter cor da peça
-   30  ==Verificar obter tipo da peça
-   32  ==Verificar obter peça do tabuleiro
-   34  ==Verificar obter cor da peça
-   36  ==Verificar obter tipo da peça
-   38  ==Verificar obter peça do tabuleiro
-   40  ==Verificar obter cor da peça
-   42  ==Verificar obter tipo da peça
-   44  ==Verificar atribuir peça
-   46  ==Verificar obter posição do rei
-   49  ==Verificar obter tipo da peça que foi alterada
-   51  ==Verificar obter cor da peça que foi alterada
-   53  ==Verificar obter código do tipo da peça
-   55  ==Verificar obter código da cor da peça
-   58  ==Verificar mover peca
-   70  ==Verificar mover peca de volta
-   82  ==Verificar mover peca de fora do tabuleiro
-   91  ==Verificar mover peça para fora do tabuleiro
-!!!    0  Linha:   100  //==Verificar salvar tabuleiro 
-!!!    0  Linha:   101  //=salvar "SAVE.TXT" 0 
-!!!    0  Linha:   103  //fim 
+   27  ==Verificar obter peça do tabuleiro
+   29  ==Verificar obter cor da peça
+   31  ==Verificar obter tipo da peça
+   33  ==Verificar obter peça do tabuleiro
+   35  ==Verificar obter cor da peça
+   37  ==Verificar obter tipo da peça
+   39  ==Verificar obter peça do tabuleiro
+   41  ==Verificar obter cor da peça
+   43  ==Verificar obter tipo da peça
+   45  ==Verificar atribuir peça
+   47  ==Verificar obter posição do rei
+   50  ==Verificar obter tipo da peça que foi alterada
+   52  ==Verificar obter cor da peça que foi alterada
+   54  ==Verificar obter código do tipo da peça
+   56  ==Verificar obter código da cor da peça
+   59  ==Verificar mover peca
+   71  ==Verificar mover peca de volta
+   83  ==Verificar mover peca de fora do tabuleiro
+   92  ==Verificar mover peça para fora do tabuleiro
+  101  ==Verificar salvar tabuleiro
+  104  ==Verificar imprimir tabuleiro
+!!!    0  Linha:   107  //fim 
 
-!!! Número de linhas lidas:         104
-!!! Número de casos de teste:        29
-!!! Número comandos corretos:        59
+!!! Número de linhas lidas:         108
+!!! Número de casos de teste:        31
+!!! Número comandos corretos:        62
 !!! Número de falhas encontradas:     0
 
 !!! Não foram encontrados problemas
