@@ -32,6 +32,8 @@
 *
 *	  "=imprimir"						- chama a funcao GER_ImprimirTabuleiro ( )
 *
+*	   "=montartabuleiro"				- chama as funções que montam tabuleiro ( )
+*
 ***************************************************************************/
 
 #include    <string.h>
@@ -56,6 +58,7 @@
 #define		RECONHECER_XEQUE_MATE_CMD	"=reconhecerxequemate"
 #define		MOVER_PECA_CMD			"=moverpeca"
 #define		IMPRIMIR_TAB_CMD		"=imprimir"
+#define		MONTAR_TABULEIRO_CMD		"=montartabuleiro"
 
 /*****  Código das funções exportadas pelo módulo  *****/
 
@@ -107,19 +110,6 @@ GRA_tppGrafo pGrafo;
 			 } /* if */
 
 
-			 /* Inicializa o tabuleiro */
-			 CondRetGER = GER_InicializarTabuleiro ( );
-			 if ( CondRetGER != GER_CondRetOK )
-			 {
-				 return TST_CondRetErro ;
-			 }
-
-			 /* Preenche o tabuleiro */
-			 CondRetGER = GER_PreencherTabuleiro ( DISPOSICAO );
-			 if ( CondRetGER != GER_CondRetOK )
-			 {
-				 return TST_CondRetErro ;
-			 }
 
 			 /* Adiciona as peças ao grafo */
 			 CondRetObtida = MOV_AdicionarPecasAoGrafo ( &pGrafo );
@@ -132,8 +122,32 @@ GRA_tppGrafo pGrafo;
 			 }
 
 			 return Ret;
-         } /* fim ativa: Testar MOV Montar Grafo */
 
+         } /* fim ativa: Testar MOV Montar Grafo */
+	
+	/* Testar MOV Montar Tabuleiro */
+	
+		 if ( strcmp( ComandoTeste , MONTAR_TABULEIRO_CMD ) == 0 )
+			{
+				
+				/* Inicializa o tabuleiro */
+				CondRetGER = GER_InicializarTabuleiro ( );
+				if ( CondRetGER != GER_CondRetOK )
+				{
+					 return TST_CondRetErro ;
+				}
+
+				/* Preenche o tabuleiro */
+				CondRetGER = GER_PreencherTabuleiro ( DISPOSICAO );
+				if ( CondRetGER != GER_CondRetOK )
+				{
+					 return TST_CondRetErro ;
+				}
+
+				return TST_CondRetOK;
+			}
+	/* fim ativa: Testar MOV Montar Tabuleiro */
+	
 	/* Testar MOV Gerar movimentação */
 
          else if ( strcmp( ComandoTeste , GERAR_MOV_CMD ) == 0 )
