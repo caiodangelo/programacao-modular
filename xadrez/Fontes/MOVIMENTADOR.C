@@ -1,3 +1,4 @@
+
 /***************************************************************************
 *  $MCI Módulo de implementação: MOV Movimentador de peças de Xadrez
 *
@@ -185,12 +186,13 @@ MOV_tpCondRet MOV_ReconhecerXequeMate ( char cCor , GRA_tppGrafo pGrafo ){
         GER_tpCondRet CondRetGerenciador;
         GER_tppPeca pPeca;
         GER_tppPeca pPecaOrigem, pPecaDestino;
-        GER_tpCorPeca corPeca, cor;
+		GER_tppPeca pPecaTemp;
+        GER_tpCorPeca corPeca, cor, corPecaTemp;
         GRA_tpCondRet CondRetGrafo;
         GRA_tppGrafo pGrafoLocal = NULL;
         MOV_tpCondRet CondRetMovimentador;
 
-        GER_tpTipoPeca tipoPeca;
+        GER_tpTipoPeca tipoPeca, tipoPecaTemp;
 
         cor = GER_ObterCodigoDaCor ( cCor );
 
@@ -202,7 +204,7 @@ MOV_tpCondRet MOV_ReconhecerXequeMate ( char cCor , GRA_tppGrafo pGrafo ){
 
 
         /* Percorre o tabuleiro */
-        for ( linha = 1 ; linha <= GER_ObterUltimaLinhaTabuleiro () ; linha++ ){
+        for ( linha = 1 ; linha <= GER_ObterUltimaLinhaTabuleiro() ; linha++ ){
                 for ( coluna = 'A' ; coluna <= GER_ObterUltimaColunaTabuleiro () ; (char)(coluna++) ){
 
                         /* Obém peça do tabuleiro */
@@ -246,15 +248,18 @@ MOV_tpCondRet MOV_ReconhecerXequeMate ( char cCor , GRA_tppGrafo pGrafo ){
                                         idSucessor = primeiroSucessor;
 
                                         do{
-
-                                                /* Obtém valor da peça */
+												/* Obtém valor da peça */
                                                 CondRetGrafo = GRA_ObterValorComId( pGrafo , idAtual , &pPecaOrigem );
                                                 CondRetGrafo = GRA_ObterValorComId( pGrafo , idSucessor , &pPecaDestino );
+												pPecaTemp = pPecaDestino;
+												corPecaTemp = GER_ObterCor ( pPecaTemp ) ;
+												tipoPecaTemp = GER_ObterTipo ( pPecaTemp ) ;
+
 
                                                 /* Gera movimentação */
                                                 CondRetGerenciador = GER_MoverPeca ( pPecaOrigem , pPecaDestino );
 
-                                                /* Cria o grafo à partir do tabuleiro */
+                                                /* Cria o grafo à partir do novo tabuleiro */
                                                 CondRetMovimentador = MOV_AdicionarPecasAoGrafo ( &pGrafoLocal ); 
                                                 CondRetMovimentador = MOV_GeraMovimentacoes ( &pGrafoLocal );
 
@@ -269,6 +274,7 @@ MOV_tpCondRet MOV_ReconhecerXequeMate ( char cCor , GRA_tppGrafo pGrafo ){
 
                                                 /* Desfaz movimentação */
                                                 CondRetGerenciador = GER_MoverPeca ( pPecaDestino , pPecaOrigem );
+												GER_AtribuirPeca ( pPecaTemp, tipoPecaTemp, corPecaTemp );
 
                                                 /* Obtém o próximo Sucessor */
                                                 CondRetGrafo = GRA_ObterSucessor ( pGrafo , idAtual ,
