@@ -53,6 +53,8 @@ typedef struct GER_tgPeca{
 GER_tppPeca Tabuleiro[N_LINHAS][N_COLUNAS];
 	/* Tabuleiro de Peças */
 
+GER_tpCorPeca CorDaVez = GER_CorBranca ;
+
 /***** Protótipos das funções encapsuladas no módulo *****/
 
 
@@ -231,6 +233,7 @@ GER_tpCondRet GER_PreencherTabuleiro ( char * ArquivoDisposicao ){
 	GER_tpPeca * pPeca		= NULL;
 	GER_tpTipoPeca Tipo		= GER_TipoVazia;
 	GER_tpCorPeca Cor		= GER_CorSemCor;
+	char cCor = 'B';
 	char disposicao[TAM_DISPOSICAO];
 
 	/* Abre o arquivo e verifica se abriu corretamente */
@@ -238,6 +241,17 @@ GER_tpCondRet GER_PreencherTabuleiro ( char * ArquivoDisposicao ){
 	if ( arquivo == NULL ){
 		return GER_CondRetArqInexistente;
 	} /* if */
+
+	fgets ( disposicao , TAM_DISPOSICAO , arquivo ) ;
+	sscanf ( disposicao , "%c" , &cCor ) ;
+	if ( cCor == 'P' )
+	{
+		CorDaVez = GER_CorPreta ;
+	}
+	else
+	{
+		CorDaVez = GER_CorBranca ;
+	}
 
 	while ( fgets ( disposicao , TAM_DISPOSICAO , arquivo )){
 		
@@ -450,7 +464,47 @@ GER_tpCondRet GER_MoverPeca ( GER_tppPeca pPecaOrigem , GER_tppPeca pPecaDestino
 
 	return GER_CondRetOK ;
 
-} /* Fim função: GER &Mover Peca
+} /* Fim função: GER &Mover Peca */
+
+/***************************************************************************
+*
+*  Função: GER  &Alterar Cor da Vez
+*  ****/
+
+void GER_AlterarCorDaVez ( void ){
+
+	CorDaVez = !CorDaVez ;
+
+} /* Fim função: GER &Alterar Cor da Vez */
+
+/***************************************************************************
+*
+*  Função: GER  &Obter Cor da Vez
+*  ****/
+
+GER_tpCorPeca GER_ObterCorDaVez ( void ){
+
+	return CorDaVez ;
+
+} /* Fim função: GER &Obter Cor da Vez */
+
+/***************************************************************************
+*
+*  Função: GER  &Salvar Tabuleiro
+*  ****/
+GER_tpCondRet GER_SalvarTabuleiro ( char * ArquivoDisposicao ){
+	
+	/* Inicializa variáveis locais */
+	FILE * arquivo			= NULL;
+
+	/* Abre o arquivo e verifica se abriu corretamente */
+	arquivo = fopen ( ArquivoDisposicao , "w" );
+	if ( arquivo == NULL ){
+		return GER_CondRetArqInexistente;
+	} /* if */
+
+	return GER_CondRetOK ;
+}/* Fim função: GER  &Salvar Tabuleiro */
 
 /*****  Código das funções encapsuladas no módulo  *****/
 

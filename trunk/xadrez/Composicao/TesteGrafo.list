@@ -99,8 +99,8 @@ Estatísticas do construto
       testgra.c
 
    Estatísticas do arquivo: vertice.c
-      Total linhas:             553
-      Linhas de código:         266
+      Total linhas:             552
+      Linhas de código:         265
       Linhas de comentário:     126
       Linhas em branco:         177
    Arquivos de inclusão de que necessita
@@ -162,16 +162,16 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:      2276
-         Linhas de código:          1168
+         Total linhas do tipo:      2275
+         Linhas de código:          1167
          Linhas de comentário:       519
          Linhas em branco:           661
          Arquivos deste tipo:          4
 
 Totais para todo o construto TesteGrafo
 
-   Total linhas:              4575
-   Linhas de código:          1380
+   Total linhas:              4574
+   Linhas de código:          1379
    Linhas de comentário:      2272
    Linhas em branco:           995
    Arquivos processados:        10

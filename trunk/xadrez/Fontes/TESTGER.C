@@ -47,7 +47,9 @@
 *
 *	  "=obtercodcor <CharCor> <IntCor>" 	- chama a função GER_ObterCodigoDaCor ( )
 *
-*	  "=obterrei <CorRei> <ColEsp> <LinEsp> - chama a função GER_ObterRei ( )
+*	  "=obterrei <CorRei> <ColEsp> <LinEsp>"- chama a função GER_ObterRei ( )
+*
+*	  "=salvar <Arquivo> <CondRetEsp>"		- chama a função GER_SalvarArquivo ( )
 *
 ***************************************************************************/
 
@@ -61,7 +63,7 @@
 
 #include    "GERENCIADOR.H"
 
-#define		DISPOSICAO				"..\\Definicao\\DISPOSICAO.TXT"
+#define		DISPOSICAO				"..\\Definicao\\DISPOSICAO3.TXT"
 
 /* Tabela dos nomes dos comandos de teste específicos */
 
@@ -80,6 +82,7 @@
 #define		OBTER_COD_COR_CMD		"=obtercodcor"
 #define		OBTER_REI_CMD			"=obterrei"
 #define		MOVER_PECA_CMD			"=moverpeca"
+#define		SALVAR_CMD				"=salvar"
 
 /*****  Código das funções exportadas pelo módulo  *****/
 
@@ -128,6 +131,7 @@ GER_tppPeca pPeca = NULL;
 	  TST_tpCondRet Ret ;
 	  GER_tppPeca pPecaOrigem = NULL ;
 	  GER_tppPeca pPecaDestino = NULL ;
+	  char * Arquivo		= NULL ;
 
       /* Testar GER Inicializar tabuleiro */
 
@@ -407,6 +411,25 @@ GER_tppPeca pPeca = NULL;
 
 			 return Ret ;
          } /* fim ativa: Testar GER Mover Peca */
+
+	 /* Testar GER Salvar Tabuleiro */
+
+         else if ( strcmp( ComandoTeste , SALVAR_CMD ) == 0 )
+         {
+			 NumLidos = LER_LerParametros ( "si" , 
+											Arquivo , CondRetEsperada ) ;
+			 if ( NumLidos != 2 )
+			 {
+				 return TST_CondRetParm ;
+			 } /* if */
+
+			 CondRetObtida = GER_SalvarTabuleiro ( Arquivo ) ;
+
+			 Ret = TST_CompararInt ( CondRetEsperada , CondRetObtida ,
+									  "Retorno errado ao mover peca." );
+
+			 return Ret ;
+         } /* fim ativa: Testar GER Salvar tabuleiro */
 
       return TST_CondRetNaoConhec ;
 

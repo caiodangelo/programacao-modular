@@ -387,6 +387,49 @@ typedef struct GER_tgPeca * GER_tppPeca;
 
 	GER_tpCondRet GER_MoverPeca ( GER_tppPeca pPecaOrigem , GER_tppPeca pPecaDestino ) ;
 
+/***********************************************************************
+*
+*  $FC Função: GER  &Alterar Cor da Vez
+*
+*  $ED Descrição da função
+*     Passa a vez para o outro jogador.
+*
+***********************************************************************/
+
+	void GER_AlterarCorDaVez ( void ) ;
+
+/***********************************************************************
+*
+*  $FC Função: GER  &Obter Cor da Vez
+*
+*  $ED Descrição da função
+*     Obtém a cor do jogador da vez.
+*
+*  $FV Valor retornado
+*	  GER_CorBranca ou GER_CorPreta
+*
+***********************************************************************/
+
+	GER_tpCorPeca GER_ObterCorDaVez ( void ) ;
+
+/***********************************************************************
+*
+*  $FC Função: GER  &Salvar Tabuleiro
+*
+*  $ED Descrição da função
+*     Salva o estado atual do jogo em um arquivo de disposição
+*
+*  $EP Parâmetros
+*	  ArquivoDisposicao - nome do arquivo onde o estado será salvo
+*
+*  $FV Valor retornado
+*	  GER_CondRetOK
+*	  GER_Arquivo
+*
+***********************************************************************/
+
+	GER_tpCondRet GER_SalvarTabuleiro ( char * ArquivoDisposicao );
+
 /********** Fim do módulo de definição: GER  Gerenciador de xadrez **********/
 
 #else
