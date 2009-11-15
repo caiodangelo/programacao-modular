@@ -56,7 +56,7 @@ void PAR_IniciarPartida(){
 	char cEntrada				= '!';
 		
 	while( ComandoJogar == VERDADEIRO ){
-		printf("E hora da diversao!");
+		printf("E hora da diversao!\n");
 		IniciarPartida();
 		printf("Deseja jogar uma nova partida?(S para sim e N para nao)\n");
 		gets ( sEntrada ) ;
