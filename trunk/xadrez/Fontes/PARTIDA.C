@@ -29,6 +29,8 @@
 #define ANTIGA 1
 #define INVALIDO 0
 #define OK 1
+#define VERDADEIRO 1
+#define FALSO 0
 
 
 
@@ -47,195 +49,190 @@ GRA_tppGrafo pGrafo;
 
 void PAR_IniciarPartida(){
 
-	char resposta, cCor;
-	int Validade = INVALIDO;
-	int ControleJogo = 1;
-	GER_tpCondRet CondRetGerenciador;
-	GRA_tpCondRet CondRetGrafo;
-	GER_tpCorPeca Cor;
-	char * Disposicao;
+	int InicioOK				= FALSO ;
+	int ContinuaPartida			= VERDADEIRO ;
+	int MovimentoOK				= VERDADEIRO ;
+	char sEntrada[50] ;
+	char cEntrada				= '!';
+	char * Disposicao			= "";
+	GER_tpCondRet CondRetGER	= GER_CondRetOK ;
+	MOV_tpCondRet CondRetMOV	= MOV_CondRetOK ;
+	GER_tpCorPeca CorDaVez		= GER_CorBranca ;
+	char ColunaOrigem			= '!' ;
+	char ColunaDestino			= '@' ;
+	int LinhaOrigem				= -1 ;
+	int LinhaDestino			= -2 ;
+	int NumLidos				= -1 ;
+	char cCor					= 'B' ;
 
-	int ErroNaJogada = 0 ;
-	char ColunaOrigem = '!' ;
-	char ColunaDestino = '@' ;
-	int LinhaOrigem = -1 ;
-	int LinhaDestino = -2 ;
-	MOV_tpCondRet CondRetMovimentador;
-	int NumLidos = -1 ;
+	printf ("\n Bem-Vindo ao Jogo de Xadrez do grupo CEV!! \n\n  " ) ;
+	while ( InicioOK == FALSO )
+	{
+		printf ( "Para iniciar nova partida, digite |N|\nPara continuar uma partida antiga, digite |A|\n Para sair digite |S|\n" );
+		gets ( sEntrada ) ;
+		if ( sscanf ( sEntrada , "%c" , &cEntrada ) == 1 )
+		{
+			if ( cEntrada == 'N' )
+			{
+				InicioOK = VERDADEIRO ;
+				Disposicao = "..\\Definicao\\DEFAULT.TXT" ;
+			} /* if */
+			else if ( cEntrada == 'A' )
+			{
+				InicioOK = VERDADEIRO ;
+				Disposicao = "..\\Definicao\\DISPOSICAO.TXT" ;
+			} /* if */
+			else if ( cEntrada == 'S' )
+			{
+				return ;
+			} /* if */
+		} /* if */			
+	} /* while */
+	
+	CondRetGER = GER_InicializarTabuleiro ( ) ;
+	if ( CondRetGER != GER_CondRetOK )
+	{
+		printf ( "Erro ao inicializar o tabuleiro\n" ) ;
+		return ;
+	} /* if */
 
-	while ( Validade != OK){
+	CondRetGER = GER_PreencherTabuleiro ( Disposicao ) ;
+	if ( CondRetGER != GER_CondRetOK )
+	{
+		printf ( "Erro ao preencher o tabuleiro\n" ) ;
+		return ;
+	} /* if */
 
-		printf("\n Bem-Vindo ao Jogo de Xadrez do grupo CEV!! \n\n Para iniciar nova partida, digite |N|\n Para continuar uma partida antiga, digite |A|\n");
+	while ( ContinuaPartida == VERDADEIRO )
+	{
+		GER_ImprimirTabuleiro ( ) ;
 
-		scanf("%c", &resposta);
+		CondRetMOV = MOV_AdicionarPecasAoGrafo ( &pGrafo ) ;
+		if ( CondRetMOV != MOV_CondRetOK )
+		{
+			printf ( "Erro ao adicionar peças ao grafo\n" ) ;
+		} /* if */
 
-		if( resposta == 'N' ){
-			Validade = OK;
-			Disposicao = "..\\Definicao\\DEFAULT.TXT";
-		}/*if*/
-		if ( resposta == 'A' ){
-			Validade = OK;
-			Disposicao = "..\\Definicao\\DISPOSICAO.TXT";
-		}/*if*/
-	}/* while*/
+		CondRetMOV = MOV_GeraMovimentacoes ( &pGrafo ) ;
+		if ( CondRetMOV != MOV_CondRetOK )
+		{
+			printf ( "Erro ao gerar movimentacoes possíveis no grafo\n" ) ;
+		} /* if */
 
-	CondRetGerenciador = GER_InicializarTabuleiro ();
+		CorDaVez = GER_ObterCorDaVez ( ) ;
 
-	if( CondRetGerenciador != GER_CondRetOK ){
-		printf("Erro ao inicializar tabuleiro\n");
-		return;
+		
+		do
+		{
+			MovimentoOK = VERDADEIRO ;
+			switch ( CorDaVez )
+			{
+				case GER_CorBranca :
+					printf ( "Vez das Brancas. Entre com a jogada:\n");
+					break ;
+				case GER_CorPreta :
+					printf ( "Vez das Pretas. Entre com a jogada:\n");
+					break ;
+				default :
+					printf ( "Erro ao obter a cor da vez.\n" ) ;
+					return ;
+			} /* switch */
 
-		}/* if */
-
-	CondRetGerenciador = GER_PreencherTabuleiro ( Disposicao );
-
-	if( CondRetGerenciador != GER_CondRetOK ){
-		printf("Erro ao preencher tabuleiro\n");
-		return;
-
-		}/* if */	
-
-	while( ControleJogo == 1 ){
-
-	GER_ImprimirTabuleiro();
-
-	/* Cria o grafo à partir do tabuleiro */
-	CondRetMovimentador = MOV_AdicionarPecasAoGrafo ( &pGrafo ); 
-	CondRetMovimentador = MOV_GeraMovimentacoes ( &pGrafo );
-
-	Cor = GER_ObterCorDaVez();
-
-	if( Cor == GER_CorBranca ){
-
-		printf("Vez das Brancas. Entre com a jogada:\n");
-
-		}
-	else if( Cor == GER_CorPreta ){
-
-		printf("Vez das Pretas. Entre com a jogada:\n");
-
-		}/* else if */
-	else{
-		printf("Erro ao obter cor da peca\n");
-		return;
-
-		}/* else */
-
-		ErroNaJogada = 0 ;
-			NumLidos = scanf("%c%d %c%d" , &ColunaOrigem , &LinhaOrigem , &ColunaDestino , &LinhaDestino ) ;
-			if ( NumLidos != 5 )
+			gets ( sEntrada ) ;
+			if ( strcmp ( sEntrada , "SALVAR" ) == 0 )
+			{
+				if ( GER_SalvarTabuleiro ( "..\\Definicao\\DISPOSICAO.TXT" ) == GER_CondRetOK )
+				{
+					printf ( "Jogo Salvo\n" ) ;
+					continue ;
+				} /* if */
+				else
+				{
+					printf ( "Erro ao salvar o arquivo" ) ;
+					continue ;
+				}
+			} /* if */
+			else if ( strcmp ( sEntrada , "SAIR" ) == 0 )
+			{
+				printf ( "Obrigado por SE DIVERTIR!!!\n" );
+				return ;
+			} /* else if */
+			
+			NumLidos = sscanf ( sEntrada , "%c%d %c%d" , 
+				&ColunaOrigem , &LinhaOrigem , &ColunaDestino , &LinhaDestino );
+			if ( NumLidos != 4 )
 			{
 				if ( ( NumLidos == 1 ) && ( ColunaOrigem == 'S' ) )
 				{
-					Disposicao = "..\\Definicao\\DISPOSICAO.TXT";
-					CondRetGerenciador = GER_SalvarTabuleiro ( Disposicao );
-					if( CondRetGerenciador != GER_CondRetOK ){
-						printf("Erro ao salvar tabuleiro\n");
+					printf ( "Obrigado por SE DIVERTIR!!!\n" ) ;
+					return ;
+				} /* if */
+				else {
+					printf ( "Erro de sintaxe.\n" );
+					printf ( "Utilize o formato <ColOrigem><LinOrigem> <ColDestino><LinDestino>\n" ) ;
 
-						}
-					printf("Obrigado por SE DIVERTIR!!!");
-					ControleJogo = 0;
-					return;
-
-				}/* if */
-
-			}/* if */
-
-			printf("1- LinhaOrigem: %d - ColunaOrigem: %c - LinhaDestino: %d - ColunaDestino: %c\n",LinhaOrigem,ColunaOrigem,LinhaDestino,ColunaDestino);
-
-			CondRetMovimentador = MOV_MoverPeca ( ColunaOrigem , LinhaOrigem , ColunaDestino , 
-																	LinhaDestino , pGrafo );
-
-			printf("CondRetMovimentador: %d\n",CondRetMovimentador);
-
-			if( CondRetMovimentador != MOV_CondRetOK ){
-
-				while( CondRetMovimentador != MOV_CondRetOK ){
-					printf("Movimento invalido, insira um movimento valido:\n");
-								printf("3- LinhaOrigem: %d - ColunaOrigem: %c - LinhaDestino: %d - ColunaDestino: %c\n",LinhaOrigem,ColunaOrigem,LinhaDestino,ColunaDestino);
-
-					NumLidos = scanf("%c%d %c%d" , &ColunaOrigem , &LinhaOrigem , &ColunaDestino , &LinhaDestino );
-								printf("4- LinhaOrigem: %d - ColunaOrigem: %c - LinhaDestino: %d - ColunaDestino: %c\n",LinhaOrigem,ColunaOrigem,LinhaDestino,ColunaDestino);
-
-					if ( NumLidos != 5 )
-					{
-						if ( ( NumLidos == 1 ) && ( ColunaOrigem == 'S' ) )
-						{
-							Disposicao = "..\\Definicao\\DISPOSICAO.TXT";
-							CondRetGerenciador = GER_SalvarTabuleiro ( Disposicao );
-							if( CondRetGerenciador != GER_CondRetOK ){
-								printf("Erro ao salvar tabuleiro\n");
-
-								}
-							printf("Obrigado por SE DIVERTIR!!!");
-							ControleJogo = 0;
-							return;
-
-						}/* if */
-
-					}/* if */
-
-					CondRetMovimentador = MOV_MoverPeca ( ColunaOrigem , LinhaOrigem , ColunaDestino , 
-																			LinhaDestino , pGrafo );
-
-					}/* while */
-
-				printf("2- LinhaOrigem: %d - ColunaOrigem: %c - LinhaDestino: %d - ColunaDestino: %c\n",LinhaOrigem,ColunaOrigem,LinhaDestino,ColunaDestino);
-
-
-				}/* if */
-
-			/* Destruir o grafo criado */
-			CondRetGrafo = GRA_DestruirGrafo( &pGrafo );
-
-			/* Cria o grafo à partir do tabuleiro */
-			CondRetMovimentador = MOV_AdicionarPecasAoGrafo ( &pGrafo ); 
-			CondRetMovimentador = MOV_GeraMovimentacoes ( &pGrafo );
-
-			GER_AlterarCorDaVez();
-
-			Cor = GER_ObterCorDaVez();
-
-			switch ( Cor )
+					MovimentoOK = FALSO ;
+				} /* else */				
+			} /* if */
+			else
 			{
-				case GER_CorBranca:
-					cCor = 'B';
-					break;
-				case GER_CorPreta:
-					cCor = 'P';
-					break;
-				case GER_CorSemCor:
-					continue ;
-				default:
-					continue;
-			}
+				CondRetMOV = MOV_MoverPeca ( ColunaOrigem , LinhaOrigem , ColunaDestino , LinhaDestino , pGrafo ) ;
+				if ( CondRetMOV != MOV_CondRetOK )
+				{
+					printf ( "Movimento invalido.\n" );
+					printf ( "Tente novamente\n" ) ;
 
-			/* Verifica se está em xeque-mate */
-			CondRetMovimentador = MOV_ReconhecerXequeMate ( cCor, pGrafo);
+					MovimentoOK = FALSO ;
+				} /* if */
+			} /* else */
+		} /* do */
+		while ( MovimentoOK == FALSO ) ;	
+		
+		/* Destruir o grafo criado */
+		GRA_DestruirGrafo( &pGrafo );
 
-			if( CondRetMovimentador == MOV_CondRetXequeMate ){
-				ControleJogo = 0;
-				printf("Xeque-mate\n");
-				GER_ImprimirTabuleiro();
-				printf("Obrigado por SE DIVERTIR!!!");
+		/* Cria o grafo à partir do tabuleiro */
+		CondRetMOV = MOV_AdicionarPecasAoGrafo ( &pGrafo ); 
+		CondRetMOV = MOV_GeraMovimentacoes ( &pGrafo );
 
-				}/* if */
+		GER_AlterarCorDaVez();
 
-			/* Destruir o grafo criado */
-			CondRetGrafo = GRA_DestruirGrafo( &pGrafo );
+		CorDaVez = GER_ObterCorDaVez();
 
-		}/* while */
+		switch ( CorDaVez )
+		{
+			case GER_CorBranca:
+				cCor = 'B';
+				break;
+			case GER_CorPreta:
+				cCor = 'P';
+				break;
+			case GER_CorSemCor:
+				break ;
+			default:
+				break;
+		}
+
+		/* Verifica se está em xeque-mate */
+		CondRetMOV = MOV_ReconhecerXequeMate ( cCor, pGrafo );
+
+		if( CondRetMOV == MOV_CondRetXequeMate )
+		{
+			ContinuaPartida = FALSO ;
+			printf("Xeque-mate\n") ;
+			printf("Obrigado por SE DIVERTIR!!!") ;
+		}/* if */
+
+		/* Destruir o grafo criado */
+		GRA_DestruirGrafo( &pGrafo );
+	} /* while */
 	
+	GER_LimparTabuleiro ( ) ;
 
-	//constroi grafo à partir do tabuleiro
+	return;
 
-	//obtem vez
-
-	//chama jogar xadrez
-
-		return;
-
-	}/*
+} /* Fim função: &Iniciar Partida */
+/*
 PAR_tpCondRet JogaXadrez(){
 	//print vez
 
