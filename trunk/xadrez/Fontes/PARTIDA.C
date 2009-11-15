@@ -36,6 +36,8 @@
 
 /***** Protótipos das funções encapsuladas no módulo *****/
 
+void IniciarPartida();
+
 /*****  Código das funções exportadas pelo módulo  *****/
 
 /*****  Dados encapsulados no módulo  *****/
@@ -44,10 +46,44 @@ GRA_tppGrafo pGrafo;
 
 /***************************************************************************
 *
-*  Função: PAR  &Adicionar Pecas Ao Grafo
+*  Função: PAR  &Iniciar Partida
 *  ****/
 
 void PAR_IniciarPartida(){
+
+	int ComandoJogar			= VERDADEIRO ;
+	char sEntrada[50] ;
+	char cEntrada				= '!';
+		
+	while( ComandoJogar == VERDADEIRO ){
+		printf("E hora da diversao!");
+		IniciarPartida();
+		printf("Deseja jogar uma nova partida?(S para sim e N para nao)\n");
+		gets ( sEntrada ) ;
+		if ( sscanf ( sEntrada , "%c" , &cEntrada ) == 1 )
+		{
+			if ( cEntrada == 'S' )
+			{
+				ComandoJogar = VERDADEIRO ;
+			} /* if */
+			else if ( cEntrada == 'N' )
+			{
+				ComandoJogar = FALSO ;
+				printf("Obrigado por SE DIVERTIR!!!") ;
+			} 
+		}		
+		}
+
+	return;
+
+	}/* Fim função: PAR &Iniciar Partida */
+
+/***************************************************************************
+*
+*  Função: &Iniciar Partida
+*  ****/
+
+void IniciarPartida(){
 
 	int InicioOK				= FALSO ;
 	int ContinuaPartida			= VERDADEIRO ;
@@ -264,7 +300,6 @@ void PAR_IniciarPartida(){
 				default:
 					break;
 			}
-			printf("Obrigado por SE DIVERTIR!!!") ;
 		}/* if */
 
 		/* Destruir o grafo criado */
@@ -277,22 +312,3 @@ void PAR_IniciarPartida(){
 	return;
 
 } /* Fim função: &Iniciar Partida */
-/*
-PAR_tpCondRet JogaXadrez(){
-	//print vez
-
-	//chama realizar movimento while ...
-
-	//alterar vez
-
-	//Verificar Xeque-mate, se estiver jogo acabou - sugere nova partida
-
-	//Senão continua no loop
-
-	}
-PAR_tpCondRet RealizaMovimento(){
-	//obtem vez
-	//se for salvar salva
-	//captura movimento, verifica cor e vez, verifica validade/ realiza movimento
-
-	}*/
