@@ -50,13 +50,14 @@ void PAR_IniciarPartida(){
 
 		scanf("%c", &resposta);
 
-		if( (int)resposta == (int)"N" ){
+		if( resposta == 'N' ){
 			Validade = OK;
 		}/*if*/
-		if ( (int)resposta == (int)"A" ){
+		if ( resposta == 'A' ){
 			Validade = OK;
 		}/*if*/
-	}
+	}/* while*/
+	printf("Capturado\n");
 
 
 	//constroi tabuleiro e grafo à partir do tipo
