@@ -249,7 +249,21 @@ void PAR_IniciarPartida(){
 		if( CondRetMOV == MOV_CondRetXequeMate )
 		{
 			ContinuaPartida = FALSO ;
+			GER_ImprimirTabuleiro ( );
 			printf("Xeque-mate\n") ;
+			switch ( CorDaVez )
+			{
+				case GER_CorBranca:
+					printf("Pretas venceram!\n");
+					break;
+				case GER_CorPreta:
+					printf("Brancas venceram!\n");
+					break;
+				case GER_CorSemCor:
+					break ;
+				default:
+					break;
+			}
 			printf("Obrigado por SE DIVERTIR!!!") ;
 		}/* if */
 
