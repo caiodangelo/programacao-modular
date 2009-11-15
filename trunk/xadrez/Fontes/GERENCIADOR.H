@@ -408,6 +408,10 @@ typedef struct GER_tgPeca * GER_tppPeca;
 *  $FV Valor retornado
 *	  GER_CorBranca ou GER_CorPreta
 *
+*  $ED Descrição do módulo
+*	  Só pode ser chamada após a GER_PreencherTabuleiro já tiver sido
+*	  executada
+*
 ***********************************************************************/
 
 	GER_tpCorPeca GER_ObterCorDaVez ( void ) ;
