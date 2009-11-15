@@ -38,3 +38,10 @@ Possíveis tarefas:
 ||16/10/2009||10:00||Redigir Script de Teste, Realizar os Testes, Diagnosticar e Corrigir Problemas Encontrados||Módulos Gerenciador,  Reconhecedor e seus módulos de teste específicos||
 ||18/10/2009||05:00||Redigir Script de Teste, Realizar os Testes, Diagnosticar e Corrigir Problemas Encontrados||Módulos Gerenciador,  Reconhecedor e seus módulos de teste específicos||
 ||19/10/2009||04:00||Documentar||Revisar documentação e redigir relatório||
+
+
+= Trabalho 03 =
+
+|| *Data* || *Horas* || *Tipo de Tarefa* || *Descrição da Tarefa* ||
+||08/11/2009||06:00||Especificar Módulos, Especificar Funções, Codificar Módulos, Redigir Scripts de Teste, Realizar os Testes||Novas funções dos módulos movimentador e gerenciador ||
+||11/11/2009||03:00||Especificar Módulos, Especificar Funções, Codificar Módulos, Redigir Scripts de Teste, Realizar os Testes||Novas funções dos módulos movimentador e gerenciador ||
