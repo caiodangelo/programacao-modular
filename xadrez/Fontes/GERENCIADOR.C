@@ -490,12 +490,87 @@ GER_tpCorPeca GER_ObterCorDaVez ( void ){
 
 /***************************************************************************
 *
+*  Função: GER  &Imprimir Tabuleiro
+*  ****/
+void GER_ImprimirTabuleiro ( void ) {
+
+	char coluna				= 0 ;
+	int linha				= 0 ;
+	GER_tppPeca	pPeca		= NULL ;
+	GER_tpCondRet CondRet	= GER_CondRetOK ;
+
+	printf ( "-------------------------\n" ) ;
+	for ( linha = 1 ; linha <= GER_ObterUltimaLinhaTabuleiro( ) ; linha++ ){
+		printf("|");
+		for ( coluna = 'A' ; coluna <= GER_ObterUltimaColunaTabuleiro( ) ; (char)(coluna++)){
+		
+			CondRet = GER_ObterPecaDoTabuleiro ( &pPeca , coluna , linha ) ;
+			if ( CondRet != GER_CondRetOK )
+			{
+				return CondRet ;
+			}
+
+			switch ( GER_ObterTipo ( pPeca ) )
+			{
+				case GER_TipoPeao:
+					printf ( "P" );
+					break;
+				case GER_TipoTorre:
+					printf ( "T" );
+					break;
+				case GER_TipoCavalo:
+					printf ( "C" );
+					break;
+				case GER_TipoBispo:
+					printf ( "B" );
+					break;
+				case GER_TipoDama:
+					printf ( "D" );
+					break;
+				case GER_TipoRei:
+					printf ( "R" );
+					break;
+				case GER_TipoVazia:
+					printf ( " " );
+					break;
+				default:
+					printf ( "&" );
+					break;
+			}
+
+			switch ( GER_ObterCor ( pPeca ) )
+			{
+				case GER_CorBranca:
+					printf ( "b|" );
+					break;
+				case GER_CorPreta:
+					printf ( "p|" );
+					break;
+				case GER_CorSemCor:
+					printf ( " |" );
+					break;
+				default:
+					printf ( "&" );
+					break;
+			}		
+		}
+		printf( "\n-------------------------\n" ) ;
+	}
+
+} /* Fim função: GER &Imprimir Tabuleiro */
+
+/***************************************************************************
+*
 *  Função: GER  &Salvar Tabuleiro
 *  ****/
 GER_tpCondRet GER_SalvarTabuleiro ( char * ArquivoDisposicao ){
 	
 	/* Inicializa variáveis locais */
 	FILE * arquivo			= NULL;
+	char coluna				= 0 ;
+	int linha				= 0 ;
+	GER_tppPeca	pPeca		= NULL ;
+	GER_tpCondRet CondRet	= GER_CondRetOK ;
 
 	/* Abre o arquivo e verifica se abriu corretamente */
 	arquivo = fopen ( ArquivoDisposicao , "w" );
@@ -503,6 +578,57 @@ GER_tpCondRet GER_SalvarTabuleiro ( char * ArquivoDisposicao ){
 		return GER_CondRetArqInexistente;
 	} /* if */
 
+	for ( linha = 1 ; linha <= GER_ObterUltimaLinhaTabuleiro( ) ; linha++ ){
+		for ( coluna = 'A' ; coluna <= GER_ObterUltimaColunaTabuleiro( ) ; (char)(coluna++)){
+			CondRet = GER_ObterPecaDoTabuleiro ( &pPeca , coluna , linha ) ;
+			if ( CondRet != GER_CondRetOK )
+			{
+				return CondRet ;
+			}
+			
+			switch ( GER_ObterTipo ( pPeca ) )
+			{
+				case GER_TipoPeao:
+					fprintf ( arquivo , "P " );
+					break;
+				case GER_TipoTorre:
+					fprintf ( arquivo , "T " );
+					break;
+				case GER_TipoCavalo:
+					fprintf ( arquivo , "C " );
+					break;
+				case GER_TipoBispo:
+					fprintf ( arquivo , "B " );
+					break;
+				case GER_TipoDama:
+					fprintf ( arquivo , "D " );
+					break;
+				case GER_TipoRei:
+					fprintf ( arquivo , "R " );
+					break;
+				case GER_TipoVazia:
+					continue ;
+				default:
+					return GER_CondRetErroAoSalvarTabuleiro ;
+			}
+
+			switch ( GER_ObterCor ( pPeca ) )
+			{
+				case GER_CorBranca:
+					fprintf ( arquivo , "B %c %d\n", coluna , linha );
+					break;
+				case GER_CorPreta:
+					fprintf ( arquivo , "P %c %d\n", coluna , linha );
+					break;
+				case GER_CorSemCor:
+					continue ;
+				default:
+					return GER_CondRetErroAoSalvarTabuleiro ;
+			}
+		}
+	}
+
+	fclose ( arquivo ) ;
 	return GER_CondRetOK ;
 }/* Fim função: GER  &Salvar Tabuleiro */
 

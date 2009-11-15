@@ -1,4 +1,5 @@
 gerenciador.c
+..\Fontes\gerenciador.c(510) : warning C4098: 'GER_ImprimirTabuleiro' : 'void' function returning a value
 testger.c
 Microsoft (R) Incremental Linker Version 9.00.21022.08
 Copyright (C) Microsoft Corporation.  All rights reserved.
