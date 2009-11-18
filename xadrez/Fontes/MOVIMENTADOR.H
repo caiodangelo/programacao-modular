@@ -153,7 +153,8 @@ typedef struct GRA_tgGrafo * GRA_tppGrafo;
 *  $FV Valor retornado
 *	  MOV_CondRetNaoEstaEmXequeMate - rei na cor fonecida não está em xeque mate
 *	  MOV_CondRetXequeMate - rei da cor fornecida está em xeque mate
-*	  
+*	  MOV_CondRetPecaNaoExiste - peça presente no tabuleiro físico não
+*	  foi encontrada no grafo
 *
 ***********************************************************************/
    

@@ -1,4 +1,3 @@
-
 /***************************************************************************
 *  $MCI Módulo de implementação: MOV Movimentador de peças de Xadrez
 *
@@ -211,7 +210,8 @@ MOV_tpCondRet MOV_ReconhecerXequeMate ( char cCor , GRA_tppGrafo pGrafo ){
                         CondRetGerenciador = GER_ObterPecaDoTabuleiro ( &pPeca, coluna, linha );
 
                         if(CondRetGerenciador != GER_CondRetOK ){
-                                /* tratar erro */
+                                printf("Erro ao obter peca do tabuleiro.\n");
+								return MOV_CondRetPecaNaoExiste;
 
                         }
                        
@@ -229,8 +229,8 @@ MOV_tpCondRet MOV_ReconhecerXequeMate ( char cCor , GRA_tppGrafo pGrafo ){
                                 CondRetGrafo = GRA_IrVerticeComId( pGrafo , idAtual);
 
                                 if( CondRetGrafo != GRA_CondRetOK ){
-                                        /* tratar erro */
-                                        printf("ERRO \n");
+                                        printf("Erro ao caminhar no grafo de movimentos.\n");
+										return MOV_CondRetPecaNaoExiste;
 
                                 }
 
@@ -240,7 +240,7 @@ MOV_tpCondRet MOV_ReconhecerXequeMate ( char cCor , GRA_tppGrafo pGrafo ){
 
                                 if( CondRetGrafo == GRA_CondRetNaoHaSucessores){
                                         /* Peça não tem movimentos possíveis */
-
+										continue;
                                 }
                                 else{
 
@@ -252,8 +252,8 @@ MOV_tpCondRet MOV_ReconhecerXequeMate ( char cCor , GRA_tppGrafo pGrafo ){
                                                 CondRetGrafo = GRA_ObterValorComId( pGrafo , idAtual , &pPecaOrigem );
                                                 CondRetGrafo = GRA_ObterValorComId( pGrafo , idSucessor , &pPecaDestino );
 												pPecaTemp = pPecaDestino;
-												corPecaTemp = GER_ObterCor ( pPecaTemp ) ;
-												tipoPecaTemp = GER_ObterTipo ( pPecaTemp ) ;
+												corPecaTemp = GER_ObterCor ( pPecaTemp );
+												tipoPecaTemp = GER_ObterTipo ( pPecaTemp );
 
 
                                                 /* Gera movimentação */
@@ -266,6 +266,13 @@ MOV_tpCondRet MOV_ReconhecerXequeMate ( char cCor , GRA_tppGrafo pGrafo ){
                                                 /* Verifica se o rei continua em xeque */
                                                 if((ReconheceXeque( cCor , pGrafoLocal )) == FALSO)
                                                 {
+														/* Destruir o grafo criado */
+														CondRetGrafo = GRA_DestruirGrafo( &pGrafoLocal );
+
+														/* Desfaz movimentação */
+														CondRetGerenciador = GER_MoverPeca ( pPecaDestino , pPecaOrigem );
+														CondRetGerenciador = GER_AtribuirPeca ( pPecaTemp, tipoPecaTemp, corPecaTemp );
+
                                                         return MOV_CondRetNaoEstaEmXequeMate;
                                                 }
 
@@ -274,7 +281,7 @@ MOV_tpCondRet MOV_ReconhecerXequeMate ( char cCor , GRA_tppGrafo pGrafo ){
 
                                                 /* Desfaz movimentação */
                                                 CondRetGerenciador = GER_MoverPeca ( pPecaDestino , pPecaOrigem );
-												GER_AtribuirPeca ( pPecaTemp, tipoPecaTemp, corPecaTemp );
+												CondRetGerenciador = GER_AtribuirPeca ( pPecaTemp, tipoPecaTemp, corPecaTemp );
 
                                                 /* Obtém o próximo Sucessor */
                                                 CondRetGrafo = GRA_ObterSucessor ( pGrafo , idAtual ,
