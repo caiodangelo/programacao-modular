@@ -38,11 +38,11 @@
 
 void IniciarPartida();
 
-/*****  Código das funções exportadas pelo módulo  *****/
-
 /*****  Dados encapsulados no módulo  *****/
 
 GRA_tppGrafo pGrafo;
+
+/*****  Código das funções exportadas pelo módulo  *****/
 
 /***************************************************************************
 *
@@ -56,17 +56,17 @@ void PAR_IniciarPartida(){
 	char cEntrada				= '!';
 		
 	while( ComandoJogar == VERDADEIRO ){
-		printf("E hora da diversao!\n");
+		printf("Eh hora da diversao!\n");
 		IniciarPartida();
 		printf("Deseja jogar uma nova partida?(S para sim e N para nao)\n");
 		gets ( sEntrada ) ;
 		if ( sscanf ( sEntrada , "%c" , &cEntrada ) == 1 )
 		{
-			if ( cEntrada == 'S' )
+			if ( (cEntrada == 'S') || (cEntrada == 's') )
 			{
 				ComandoJogar = VERDADEIRO ;
 			} /* if */
-			else if ( cEntrada == 'N' )
+			else if ( (cEntrada == 'N') || (cEntrada == 'n') )
 			{
 				ComandoJogar = FALSO ;
 				printf("Obrigado por SE DIVERTIR!!!") ;
@@ -83,10 +83,24 @@ void PAR_IniciarPartida(){
 
 	}/* Fim função: PAR &Iniciar Partida */
 
-/***************************************************************************
+
+/*****  Código das funções encapsuladas no módulo  *****/
+
+/***********************************************************************
 *
-*  Função: &Iniciar Partida
-*  ****/
+*  $FC Função: -Iniciar Partida
+*
+*  $ED Descrição da função
+*     Inicializa o tabuleiro baseado na opção escolhida pelo usuário
+*	  (novo jogo ou jogo salvo). Realiza a interação com os usuários
+*	  capturando os movimentos desejados e os realizando. Permite salvar
+*	  a condição atual do jogo a qualquer instante e finaliza o jogo em
+*	  caso de ocorrência de xeque-mate. A situação atual do tabuleiro
+*	  é sempre exibida na tela após uma movimentação ou após a detecção
+*	  do fim do jogo por xeque-mate.
+*
+***********************************************************************/
+
 
 void IniciarPartida(){
 
@@ -114,17 +128,17 @@ void IniciarPartida(){
 		gets ( sEntrada ) ;
 		if ( sscanf ( sEntrada , "%c" , &cEntrada ) == 1 )
 		{
-			if ( cEntrada == 'N' )
+			if ( (cEntrada == 'N') || (cEntrada == 'n') )
 			{
 				InicioOK = VERDADEIRO ;
 				Disposicao = "..\\Definicao\\DEFAULT.TXT" ;
 			} /* if */
-			else if ( cEntrada == 'A' )
+			else if ( (cEntrada == 'A') || (cEntrada == 'a') )
 			{
 				InicioOK = VERDADEIRO ;
 				Disposicao = "..\\Definicao\\DISPOSICAO.TXT" ;
 			} /* if */
-			else if ( cEntrada == 'S' )
+			else if ( (cEntrada == 'S') || (cEntrada == 's') )
 			{
 				return ;
 			} /* if */
@@ -225,7 +239,7 @@ void IniciarPartida(){
 				CondRetGER = GER_ObterPecaDoTabuleiro ( &pPeca , ColunaOrigem , LinhaOrigem ) ;
 				if ( CondRetGER != GER_CondRetOK )
 				{
-					printf ( "Erro ao obter peca a mover" );
+					printf ( "Erro ao obter peca a mover.\n" );
 
 					MovimentoOK = FALSO ;
 					continue ;
@@ -316,4 +330,4 @@ void IniciarPartida(){
 
 	return;
 
-} /* Fim função: &Iniciar Partida */
+} /* Fim função: -Iniciar Partida */
