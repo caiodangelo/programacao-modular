@@ -236,9 +236,11 @@ void IniciarPartida(){
 			} /* if */
 			else
 			{
+				/* Tratamento para evitar case sensitive */
 				if( ColunaOrigem > 'Z' )
 					ColunaOrigem = ColunaOrigem - 32;
 
+				/* Tratamento para evitar case sensitive */
 				if( ColunaDestino > 'Z' )
 					ColunaDestino = ColunaDestino - 32;
 

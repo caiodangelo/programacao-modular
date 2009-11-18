@@ -589,8 +589,7 @@ GER_tpCondRet GER_SalvarTabuleiro ( char * ArquivoDisposicao ){
 		default:
 			fprintf ( arquivo , "B \n" );
 			break;
-		}
-	
+		}	
 
 	for ( linha = 1 ; linha <= GER_ObterUltimaLinhaTabuleiro( ) ; linha++ ){
 		for ( coluna = 'A' ; coluna <= GER_ObterUltimaColunaTabuleiro( ) ; (char)(coluna++)){
