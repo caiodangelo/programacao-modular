@@ -236,6 +236,13 @@ void IniciarPartida(){
 			} /* if */
 			else
 			{
+				if( ColunaOrigem > 'Z' )
+					ColunaOrigem = ColunaOrigem - 32;
+
+				if( ColunaDestino > 'Z' )
+					ColunaDestino = ColunaDestino - 32;
+
+
 				CondRetGER = GER_ObterPecaDoTabuleiro ( &pPeca , ColunaOrigem , LinhaOrigem ) ;
 				if ( CondRetGER != GER_CondRetOK )
 				{
