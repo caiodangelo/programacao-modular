@@ -29,15 +29,6 @@ typedef enum{
 	PAR_CondRetOK = 0,
 		/* Executou corretamente */
 
-	PAR_CondRetArquivoNaoExiste = 1,
-		/* O arquivo passado não existe no diretório especificado */
-
-	PAR_CondRetArquivoInvalido = 2,
-		/* O arquivo passado não respeita a sintaxe correta */
-
-	PAR_CondRetFaltouMemoria = 3,
-		/* Faltou memória para ser alocada */
-
 }PAR_tpCondRet;
 
 /***** Declarações importadas pelo módulo *****/
@@ -45,59 +36,14 @@ typedef enum{
 
 /***********************************************************************
 *
-*  $FC Função: PAR &
+*  $FC Função: PAR &Iniciar Partida
 *
-*  $ED Descrição da função
-*
-*  $EP Parâmetros
-*
-*  $FV Valor retornado
+*  $ED Descrição da função*
+*  Provê ao usuário as opções iniciais para iniciar uma partida ou
+*  retomar um jogo salvo.
 *
 ***********************************************************************/
 
    void PAR_IniciarPartida();
 
-/***********************************************************************
-*
-*  $FC Função: PAR &
-*
-*  $ED Descrição da função
-*
-*  $EP Parâmetros
-*
-*  $FV Valor retornado
-*
-***********************************************************************/
-   
-   //PAR_tpCondRet PAR_GeraMovimentacoes ( GRA_tppGrafo * ppGrafo );
-
-/***********************************************************************
-*
-*  $FC Função: PAR &
-*
-*  $ED Descrição da função
-*
-*  $EP Parâmetros
-*
-*  $FV Valor retornado
-*	  
-*
-***********************************************************************/
-   
-   //PAR_tpCondRet PAR_ReconhecerXequeMate ( char cCor, GRA_tppGrafo pGrafo);
-
-/***********************************************************************
-*
-*  $FC Função: PAR &
-*
-*  $ED Descrição da função
-*
-*  $EP Parâmetros
-*
-*  $FV Valor retornado
-*
-***********************************************************************/
-   
-   //PAR_tpCondRet PAR_MoverPeca ( char ColunaOrigem , int LinhaOrigem , char ColunaDestino , int LinhaDestino , GRA_tppGrafo pGrafo );
-
-/***********************************************************************/
+/********** Fim do módulo de definição: PAR Realizador de partidas de Xadrez **********/
