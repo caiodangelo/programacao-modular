@@ -578,6 +578,20 @@ GER_tpCondRet GER_SalvarTabuleiro ( char * ArquivoDisposicao ){
 		return GER_CondRetArqInexistente;
 	} /* if */
 
+	/* Imprime cor da vez */
+	switch(CorDaVez){
+		case GER_CorBranca:
+			fprintf ( arquivo , "B \n" );
+			break;
+		case GER_CorPreta:
+			fprintf ( arquivo , "P \n" );
+			break;
+		default:
+			fprintf ( arquivo , "B \n" );
+			break;
+		}
+	
+
 	for ( linha = 1 ; linha <= GER_ObterUltimaLinhaTabuleiro( ) ; linha++ ){
 		for ( coluna = 'A' ; coluna <= GER_ObterUltimaColunaTabuleiro( ) ; (char)(coluna++)){
 			CondRet = GER_ObterPecaDoTabuleiro ( &pPeca , coluna , linha ) ;
