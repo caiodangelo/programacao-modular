@@ -46,3 +46,6 @@ Possíveis tarefas:
 || *Data* || *Horas* || *Tipo de Tarefa* || *Descrição da Tarefa* ||
 ||08/11/2009||06:00||Especificar e Codificar Módulos||Especificação do módulo Movimentador e Codificação de novas funções||
 ||11/11/2009||03:00||Codificar Módulo, Redigir Script de Teste, Realizar os Testes, Diagnosticar e Corrigir Problemas Encontrados||Módulos Movimentador, Grafo e Vértice ||
+||13/11/2009||03:00||Codificar Módulo, Redigir Script de Teste, Realizar os Testes, Diagnosticar e Corrigir Problemas Encontrados||Módulos Movimentador, Grafo e Vértice ||
+||15/11/2009||08:00||Codificar Módulo, Redigir Script de Teste, Realizar os Testes, Diagnosticar e Corrigir Problemas Encontrados||Módulos Movimentador e Partida ||
+||18/11/2009||01:00|| Diagnosticar e Corrigir Problemas Encontrados||Módulos Movimentador e Partida ||
