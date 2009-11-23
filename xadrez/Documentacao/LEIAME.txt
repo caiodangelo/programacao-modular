@@ -32,6 +32,7 @@ REPOSITÓRIO
 REGRAS DE SINTAXE DOS ARQUIVOS DE DISPOSIÇÃO DE PEÇAS NO TABULEIRO
 REGRAS DE SINTAXE DOS ARQUIVOS DE REGRAS DE MOVIMENTAÇÃO DISCRETA
 REGRAS DE SINTAXE DOS ARQUIVOS DE REGRAS DE MOVIMENTAÇÃO CONTÍNUA
+COMO JOGAR
 
 ----------------------
 REQUISITOS DO SISTEMA
@@ -89,11 +90,17 @@ batch Tudo.bat que encontra-se no diretório "Batches".
 Vale ressaltar ainda que uma breve explicação de cada comando de script de testes se 
 encontra no respectivo módulo de teste. Tais arquivos se encontram no diretório Fontes 
 sob a alcunha TESTxxx onde xxx corresponde ao prefixo do módulo implementado (VER-vértice, 
-GRA-grafo, REC-reconhecedor, GER-gerenciador, PAR-partida).
+GRA-grafo, REC-movimentador, GER-gerenciador, PAR-partida).
 
-É importante observar também que, para melhor testar o módulo reconhecedor é interessante
+É importante observar também que, para melhor testar o módulo movimentador é interessante
 manipular os arquivos de disposição de peças no tabuleiro e de regras de definição.
-Há tópicos abaixo que esclarecem como manipular esses arquivos de forma correta. 
+Há tópicos abaixo que esclarecem como manipular esses arquivos de forma correta. Por essa
+razão o script de testes do movimentador parece bem simples à primeira vista, mas a complexidade
+dos testes evolui à medida que alteramos os arquivos de definição.
+
+Os arquivos fornecidos já estão configurados de modo a testar os módulos gerenciador, partida e
+movimentador e consequentemente realizar a disputa de uma partida. Para
+testar outros módulos basta tirar o trecho REM das linhas to batch TestaTudo.bat .
 
 -----------------------
 ESTRUTURA DE DIRETÓRIOS
@@ -215,3 +222,25 @@ REGRAS DE SINTAXE DOS ARQUIVOS DE REGRAS DE MOVIMENTAÇÃO CONTÍNUA
 	Casas:
 		0..9	- número máximo de casas que a peça pode andar nesta direção
 		N 	- pode andar nesta direção até encontrar uma peça ou alcançar o fim do tabuleiro
+
+-----------
+COMO JOGAR
+-----------
+
+	No início do jogo há 3 opções - começar uma nova partida, continuar uma partida antiga e sair do jogo.
+Escolha aquela de sua preferência, seguindo as instruções de entrada que aparecem no prompt. Após iniciar um
+jogo (novo ou continuação) o jogo informa de que cor é a vez e imprime o tabuleiro com o estado atual do jogo.
+Para ordenar uma movimentação basta informar a casa de origem e a casa de destino que se deseja efetuar o 
+movimento. Cada casa é representada por sua linha e coluna com um número indicando a linha e uma letra indicando
+a coluna. Tal correspondência está disponível no tabuleiro impresso na tela. 
+	Por exemplo, um comando válido de movimentação (desde que as peças e regras assim o permitam) seria A1 A3. 
+Nesse exemplo o movimento realizado seria a movimentação da peça que atualmente está na casa A1 para a casa A3. 
+O jogo verifica se o movimento é válido e em caso positivo o executa. Em caso negativo informa ao usuário a 
+situação e aguarda uma entrada válida para prosseguir.
+	Foram disponibilizados também dois comandos especiais - salvar e sair. O primeiro salva o estado atual do 
+jogo em um arquivo permitindo que seja retomado no futuro a partir daquele estado. O comando 'sair' aborta o jogo 
+atual independente do estado do jogo e sem salvar o mesmo. Portanto se for desejo do jogador retomar o jogo no 
+futuro é necessário executar o comando salvar antes de sair do jogo.
+	O jogo prossegue alternando as cores da vez a cada jogada até que o usuário saia do jogo ou então que seja
+identificada uma situação de xeque-mate. Nesse último caso o jogo termina informando o vencedor da partida e sugerindo
+ao usuário que dispute uma nova partida.
