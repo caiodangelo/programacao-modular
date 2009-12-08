@@ -843,6 +843,10 @@
 			 while ( pElem != NULL )
 			 {
 				 contador++ ;
+				 if ( contador > pLista->numElem )
+				 {
+					 break;
+				 }
 				 pElem = pElem->pProx ;
 			 }
 			 if ( TST_CompararInt( pLista->numElem , contador ,
