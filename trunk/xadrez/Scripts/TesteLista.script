@@ -34,9 +34,9 @@
 =criarlista      lista0 
 
 == Verificar contadores, 1 deles já contou
-=verificarcontagens    22
+=verificarcontagens    32
 =contagemcontador   "LIS_CriarLista"  1
-=AceitaFalhasAcumuladas 22
+=AceitaFalhasAcumuladas 32
 
 == Verificar espaços alocados
 =verificartodosespacos       1
@@ -44,6 +44,12 @@
 
 == Verificar ObterValor relativo a lista vazia
 =obtervalorelem  lista0   "???"     pNULL
+
+== Verificar AvancarElementoCorrente relativo a lista vazia
+=avancarelem     lista0   1     pNULL
+
+== Verificar Excluir elemento em lista vazia
+=excluirelem     lista0   pNULL
 
 == Inserir elemento em lista vazia
 =inselemantes    lista0   str0   OK
@@ -136,6 +142,8 @@
 
 == Terminar controlar contadores
 =pararcontagem
+
+=verificarcontagens 0
 
 == Terminar contagem
 =terminarcontadores
