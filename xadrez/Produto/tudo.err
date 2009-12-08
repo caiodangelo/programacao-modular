@@ -18,6 +18,16 @@ Copyright (C) Microsoft Corporation.  All rights reserved.
 /MACHINE:IX86 
 vertice.obj grafo.obj lista.obj testgra.obj 
 ArcaboucoTeste.lib 
+lista.c
+testlis.c
+Microsoft (R) Incremental Linker Version 9.00.21022.08
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/OUT:..\Produto\TesteLista.exe 
+/INCREMENTAL:NO 
+/MACHINE:IX86 
+lista.obj testlis.obj 
+ArcaboucoTeste.lib 
 movimentador.c
 testmov.c
 Microsoft (R) Incremental Linker Version 9.00.21022.08
@@ -41,7 +51,6 @@ gerenciador.obj movimentador.obj grafo.obj vertice.obj lista.obj
 testpar.obj partida.obj 
 ArcaboucoTeste.lib 
 vertice.c
-lista.c
 testver.c
 Microsoft (R) Incremental Linker Version 9.00.21022.08
 Copyright (C) Microsoft Corporation.  All rights reserved.

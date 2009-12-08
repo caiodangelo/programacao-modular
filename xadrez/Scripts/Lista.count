@@ -1,0 +1,28 @@
+////////////////////////////////////////////////
+//
+// Declaração de contadores para o módulo LISTA
+//
+///////////////////////////////////////////////
+
+LIS_CriarLista
+LIS_CriarLista - Erro de alocacao
+LIS_DestruirLista
+LIS_EsvaziarLista
+LIS_InserirElementoAntes
+LIS_InserirElementoAntes - Criar elemento
+LIS_InserirElementoAntes - Elemento corrente NULL
+LIS_InserirElementoAntes - Elemento no meio da lista
+LIS_InserirElementoAntes - Elemento na origem
+LIS_InserirElementoApos
+LIS_InserirElementoApos - Criar elemento
+LIS_InserirElementoApos - Elemento corrente NULL
+LIS_InserirElementoApos - Elemento no meio da lista
+LIS_InserirElementoApos - Elemento no fim
+LIS_ExcluirElemento
+LIS_ObterValor
+LIS_IrInicioLista
+LIS_IrFinalLista
+LIS_AvancarElementoCorrente
+LIS_ProcurarValor
+LIS_ProcurarValor - Lista vazia
+LIS_ProcurarValor - Nao achou

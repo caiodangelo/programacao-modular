@@ -1,23 +1,22 @@
 GERADOR DE SCRIPT DE DIRETIVAS PARA MAKE
    LES / Informática / PUC-Rio    Versão 6.00 (c) 2005
 
-Composição do construto: CompVer.comp
+Composição do construto: CompLis.comp
 
-   Nome do Construto:           TesteVertice
+   Nome do Construto:           TesteLista
    Diretório base:              C:\Dudu\Programacao Modular\trabalho\xadrez\composicao
 
-   Arquivo composição:          CompVer.comp
+   Arquivo composição:          CompLis.comp
    Arquivo plataforma:          gmake.parm
 
-   Arquivo diretivas MAKE:      TesteVertice.make
-   Arquivo diretivas LINK:      TesteVertice.build
-   Arquivo listagem:            TesteVertice.list
+   Arquivo diretivas MAKE:      TesteLista.make
+   Arquivo diretivas LINK:      TesteLista.build
+   Arquivo listagem:            TesteLista.list
 
-Módulos do construto: CompVer.comp
+Módulos do construto: CompLis.comp
 
-   vertice.c
    lista.c
-   testver.c
+   testlis.c
 
 Estatísticas do construto
 
@@ -37,7 +36,7 @@ Estatísticas do construto
    Arquivos de inclusão de que necessita
       tst_espc.h
    Arquivos em que é incluído
-      testver.c
+      testlis.c
 
    Estatísticas do arquivo: lerparm.h
       Total linhas:             291
@@ -45,7 +44,7 @@ Estatísticas do construto
       Linhas de comentário:     188
       Linhas em branco:          67
    Arquivos em que é incluído
-      testver.c
+      testlis.c
 
    Estatísticas do arquivo: lista.c
       Total linhas:             663
@@ -63,18 +62,18 @@ Estatísticas do construto
       Linhas em branco:          53
    Arquivos em que é incluído
       lista.c
-      vertice.c
+      testlis.c
 
-   Estatísticas do arquivo: testver.c
-      Total linhas:             260
-      Linhas de código:         133
-      Linhas de comentário:      77
-      Linhas em branco:          58
+   Estatísticas do arquivo: testlis.c
+      Total linhas:             426
+      Linhas de código:         231
+      Linhas de comentário:      83
+      Linhas em branco:         126
    Arquivos de inclusão de que necessita
       generico.h
       lerparm.h
+      lista.h
       tst_espc.h
-      vertice.h
 
    Estatísticas do arquivo: tst_espc.h
       Total linhas:             228
@@ -83,34 +82,16 @@ Estatísticas do construto
       Linhas em branco:          20
    Arquivos em que é incluído
       generico.h
-      testver.c
-
-   Estatísticas do arquivo: vertice.c
-      Total linhas:             550
-      Linhas de código:         264
-      Linhas de comentário:     126
-      Linhas em branco:         176
-   Arquivos de inclusão de que necessita
-      lista.h
-      vertice.h
-
-   Estatísticas do arquivo: vertice.h
-      Total linhas:             298
-      Linhas de código:          23
-      Linhas de comentário:     225
-      Linhas em branco:          50
-   Arquivos em que é incluído
-      testver.c
-      vertice.c
+      testlis.c
 
 Totais por tipo de arquivo
 
   Tipo: h        Path: ..\Fontes
-         Total linhas do tipo:      2377
-         Linhas de código:           221
-         Linhas de comentário:      1805
-         Linhas em branco:           351
-         Arquivos deste tipo:          6
+         Total linhas do tipo:      2079
+         Linhas de código:           198
+         Linhas de comentário:      1580
+         Linhas em branco:           301
+         Arquivos deste tipo:          5
 
   Tipo: obj      Path: ..\Objetos
          Total linhas do tipo:         0
@@ -148,17 +129,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:      1473
-         Linhas de código:           764
-         Linhas de comentário:       346
-         Linhas em branco:           406
-         Arquivos deste tipo:          3
+         Total linhas do tipo:      1089
+         Linhas de código:           598
+         Linhas de comentário:       226
+         Linhas em branco:           298
+         Arquivos deste tipo:          2
 
-Totais para todo o construto TesteVertice
+Totais para todo o construto TesteLista
 
-   Total linhas:              3850
-   Linhas de código:           985
-   Linhas de comentário:      2151
-   Linhas em branco:           757
-   Arquivos processados:         9
+   Total linhas:              3168
+   Linhas de código:           796
+   Linhas de comentário:      1806
+   Linhas em branco:           599
+   Arquivos processados:         7
 

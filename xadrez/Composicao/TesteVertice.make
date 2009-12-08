@@ -67,7 +67,7 @@ $(Fobj)\vertice.obj :  {$(Pc)}\vertice.c \
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c               >> $(Ferr)\$(NOME).err
 
 $(Fobj)\lista.obj :  {$(Pc)}\lista.c \
-    {$(Ph)}lista.h             
+    {$(Ph)}conta.h              {$(Ph)}lista.h             
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c               >> $(Ferr)\$(NOME).err
 
 $(Fobj)\testver.obj :  {$(Pc)}\testver.c \

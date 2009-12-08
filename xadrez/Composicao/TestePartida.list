@@ -1,23 +1,27 @@
 GERADOR DE SCRIPT DE DIRETIVAS PARA MAKE
    LES / Informática / PUC-Rio    Versão 6.00 (c) 2005
 
-Composição do construto: CompVer.comp
+Composição do construto: CompPar.comp
 
-   Nome do Construto:           TesteVertice
+   Nome do Construto:           TestePartida
    Diretório base:              C:\Dudu\Programacao Modular\trabalho\xadrez\composicao
 
-   Arquivo composição:          CompVer.comp
+   Arquivo composição:          CompPar.comp
    Arquivo plataforma:          gmake.parm
 
-   Arquivo diretivas MAKE:      TesteVertice.make
-   Arquivo diretivas LINK:      TesteVertice.build
-   Arquivo listagem:            TesteVertice.list
+   Arquivo diretivas MAKE:      TestePartida.make
+   Arquivo diretivas LINK:      TestePartida.build
+   Arquivo listagem:            TestePartida.list
 
-Módulos do construto: CompVer.comp
+Módulos do construto: CompPar.comp
 
+   gerenciador.c
+   movimentador.c
+   grafo.c
    vertice.c
    lista.c
-   testver.c
+   testpar.c
+   partida.c
 
 Estatísticas do construto
 
@@ -37,7 +41,46 @@ Estatísticas do construto
    Arquivos de inclusão de que necessita
       tst_espc.h
    Arquivos em que é incluído
-      testver.c
+      testpar.c
+
+   Estatísticas do arquivo: gerenciador.c
+      Total linhas:             758
+      Linhas de código:         443
+      Linhas de comentário:     196
+      Linhas em branco:         144
+   Arquivos de inclusão de que necessita
+      gerenciador.h
+      vertice.h
+
+   Estatísticas do arquivo: gerenciador.h
+      Total linhas:             454
+      Linhas de código:          49
+      Linhas de comentário:     335
+      Linhas em branco:          70
+   Arquivos em que é incluído
+      gerenciador.c
+      movimentador.c
+      partida.c
+
+   Estatísticas do arquivo: grafo.c
+      Total linhas:             737
+      Linhas de código:         380
+      Linhas de comentário:     150
+      Linhas em branco:         230
+   Arquivos de inclusão de que necessita
+      grafo.h
+      lista.h
+      vertice.h
+
+   Estatísticas do arquivo: grafo.h
+      Total linhas:             423
+      Linhas de código:          36
+      Linhas de comentário:     321
+      Linhas em branco:          66
+   Arquivos em que é incluído
+      grafo.c
+      movimentador.c
+      partida.c
 
    Estatísticas do arquivo: lerparm.h
       Total linhas:             291
@@ -45,7 +88,7 @@ Estatísticas do construto
       Linhas de comentário:     188
       Linhas em branco:          67
    Arquivos em que é incluído
-      testver.c
+      testpar.c
 
    Estatísticas do arquivo: lista.c
       Total linhas:             663
@@ -62,19 +105,61 @@ Estatísticas do construto
       Linhas de comentário:     263
       Linhas em branco:          53
    Arquivos em que é incluído
+      grafo.c
       lista.c
       vertice.c
 
-   Estatísticas do arquivo: testver.c
-      Total linhas:             260
-      Linhas de código:         133
-      Linhas de comentário:      77
-      Linhas em branco:          58
+   Estatísticas do arquivo: movimentador.c
+      Total linhas:             732
+      Linhas de código:         406
+      Linhas de comentário:     197
+      Linhas em branco:         138
+   Arquivos de inclusão de que necessita
+      gerenciador.h
+      grafo.h
+      movimentador.h
+
+   Estatísticas do arquivo: movimentador.h
+      Total linhas:             185
+      Linhas de código:          24
+      Linhas de comentário:     128
+      Linhas em branco:          33
+   Arquivos em que é incluído
+      movimentador.c
+      partida.c
+      testpar.c
+
+   Estatísticas do arquivo: partida.c
+      Total linhas:             342
+      Linhas de código:         246
+      Linhas de comentário:      55
+      Linhas em branco:          52
+   Arquivos de inclusão de que necessita
+      gerenciador.h
+      grafo.h
+      movimentador.h
+      partida.h
+
+   Estatísticas do arquivo: partida.h
+      Total linhas:              49
+      Linhas de código:           4
+      Linhas de comentário:      37
+      Linhas em branco:           8
+   Arquivos em que é incluído
+      partida.c
+      testpar.c
+
+   Estatísticas do arquivo: testpar.c
+      Total linhas:             107
+      Linhas de código:          36
+      Linhas de comentário:      49
+      Linhas em branco:          24
    Arquivos de inclusão de que necessita
       generico.h
       lerparm.h
+      movimentador.h
+      partida.h
       tst_espc.h
-      vertice.h
 
    Estatísticas do arquivo: tst_espc.h
       Total linhas:             228
@@ -83,7 +168,7 @@ Estatísticas do construto
       Linhas em branco:          20
    Arquivos em que é incluído
       generico.h
-      testver.c
+      testpar.c
 
    Estatísticas do arquivo: vertice.c
       Total linhas:             550
@@ -100,17 +185,18 @@ Estatísticas do construto
       Linhas de comentário:     225
       Linhas em branco:          50
    Arquivos em que é incluído
-      testver.c
+      gerenciador.c
+      grafo.c
       vertice.c
 
 Totais por tipo de arquivo
 
   Tipo: h        Path: ..\Fontes
-         Total linhas do tipo:      2377
-         Linhas de código:           221
-         Linhas de comentário:      1805
-         Linhas em branco:           351
-         Arquivos deste tipo:          6
+         Total linhas do tipo:      3488
+         Linhas de código:           334
+         Linhas de comentário:      2626
+         Linhas em branco:           528
+         Arquivos deste tipo:         10
 
   Tipo: obj      Path: ..\Objetos
          Total linhas do tipo:         0
@@ -148,17 +234,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:      1473
-         Linhas de código:           764
-         Linhas de comentário:       346
-         Linhas em branco:           406
-         Arquivos deste tipo:          3
+         Total linhas do tipo:      3889
+         Linhas de código:          2142
+         Linhas de comentário:       916
+         Linhas em branco:           936
+         Arquivos deste tipo:          7
 
-Totais para todo o construto TesteVertice
+Totais para todo o construto TestePartida
 
-   Total linhas:              3850
-   Linhas de código:           985
-   Linhas de comentário:      2151
-   Linhas em branco:           757
-   Arquivos processados:         9
+   Total linhas:              7377
+   Linhas de código:          2476
+   Linhas de comentário:      3542
+   Linhas em branco:          1464
+   Arquivos processados:        17
 
