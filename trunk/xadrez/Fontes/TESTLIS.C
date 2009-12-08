@@ -39,13 +39,18 @@ static const char ESVAZIAR_LISTA_CMD      [ ] = "=esvaziarlista"  ;
 static const char INS_ELEM_ANTES_CMD      [ ] = "=inselemantes"   ;
 static const char INS_ELEM_APOS_CMD       [ ] = "=inselemapos"    ;
 static const char OBTER_VALOR_CMD         [ ] = "=obtervalorelem" ;
+static const char PROCURAR_VALOR_CMD      [ ] = "=procurarvalor" ;
 static const char EXC_ELEM_CMD            [ ] = "=excluirelem"    ;
 static const char IR_INICIO_CMD           [ ] = "=irinicio"       ;
 static const char IR_FIM_CMD              [ ] = "=irfinal"        ;
 static const char AVANCAR_ELEM_CMD        [ ] = "=avancarelem"    ;
 static const char DETURPAR_LISTA		  [ ] = "=deturparlista"  ;
+<<<<<<< .mine
+static const char DETURPAR_LISTA		  [ ] = "=deturparlista"  ;
+=======
 static const char VER_CABECA_CMD		  [ ] = "=verificarcabeca";
 static const char VER_LISTA_CMD			  [ ] = "=verificarlista" ;
+>>>>>>> .r289
 
 
 #define TRUE  1
@@ -317,6 +322,30 @@ LIS_tppLista   vtListas[ DIM_VT_LISTA ] ;
                          "Valor do elemento errado." ) ;
 
          } /* fim ativa: Testar obter valor do elemento corrente */
+
+	/* Testar procurar valor */
+
+         else if ( strcmp( ComandoTeste , PROCURAR_VALOR_CMD ) == 0 )
+         {
+
+            numLidos = LER_LerParametros( "isi" ,
+                       &inxLista , StringDado , &ValEsp ) ;
+
+            numLidos = LER_LerParametros( "isi" ,
+                       &inxLista , StringDado , &CondRetEsp ) ;
+
+            if ( ( numLidos != 3 )
+              || ( ! ValidarInxLista( inxLista , NAO_VAZIO )) )
+            {
+               return TST_CondRetParm ;
+            } /* if */
+
+            CondRet = LIS_ProcurarValor( vtListas[ inxLista ] , StringDado ) ;
+
+            return TST_CompararInt( CondRetEsp , CondRet ,
+                     "Condicao de retorno errada ao inserir apos."                   ) ;
+
+         } /* fim ativa: Testar procurar valor */
 
       /* Testar ir para o elemento inicial */
 
