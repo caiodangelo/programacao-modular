@@ -80,7 +80,8 @@ $(Fobj)\vertice.obj :  {$(Pc)}\vertice.c \
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c               >> $(Ferr)\$(NOME).err
 
 $(Fobj)\lista.obj :  {$(Pc)}\lista.c \
-    {$(Ph)}conta.h              {$(Ph)}lista.h             
+    ..\\tabelas\\idtiposespaco.def {$(Ph)}cespdin.h            {$(Ph)}conta.h              \
+    {$(Ph)}lista.h             
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c               >> $(Ferr)\$(NOME).err
 
 $(Fobj)\testmov.obj :  {$(Pc)}\testmov.c \

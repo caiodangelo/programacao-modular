@@ -1,0 +1,7 @@
+/OUT:..\Produto\TestePartida.exe
+/INCREMENTAL:NO
+/MACHINE:IX86
+gerenciador.obj  movimentador.obj  grafo.obj  vertice.obj  lista.obj  
+testpar.obj  partida.obj  
+ArcaboucoTeste.lib
+

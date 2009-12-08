@@ -20,6 +20,22 @@ Módulos do construto: CompLis.comp
 
 Estatísticas do construto
 
+   Estatísticas do arquivo: ..\\tabelas\\idtiposespaco.def
+      Total linhas:              36
+      Linhas de código:          10
+      Linhas de comentário:      21
+      Linhas em branco:           5
+   Arquivos em que é incluído
+      lista.c
+
+   Estatísticas do arquivo: cespdin.h
+      Total linhas:             668
+      Linhas de código:          52
+      Linhas de comentário:     519
+      Linhas em branco:          97
+   Arquivos em que é incluído
+      lista.c
+
    Estatísticas do arquivo: conta.h
       Total linhas:             495
       Linhas de código:          44
@@ -47,11 +63,13 @@ Estatísticas do construto
       testlis.c
 
    Estatísticas do arquivo: lista.c
-      Total linhas:             666
-      Linhas de código:         370
+      Total linhas:             677
+      Linhas de código:         378
       Linhas de comentário:     143
-      Linhas em branco:         172
+      Linhas em branco:         175
    Arquivos de inclusão de que necessita
+      ..\\tabelas\\idtiposespaco.def
+      cespdin.h
       conta.h
       lista.h
 
@@ -87,11 +105,11 @@ Estatísticas do construto
 Totais por tipo de arquivo
 
   Tipo: h        Path: ..\Fontes
-         Total linhas do tipo:      2079
-         Linhas de código:           198
-         Linhas de comentário:      1580
-         Linhas em branco:           301
-         Arquivos deste tipo:          5
+         Total linhas do tipo:      2747
+         Linhas de código:           250
+         Linhas de comentário:      2099
+         Linhas em branco:           398
+         Arquivos deste tipo:          6
 
   Tipo: obj      Path: ..\Objetos
          Total linhas do tipo:         0
@@ -108,11 +126,11 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: DEFAULT  Path: ..\Fontes
-         Total linhas do tipo:         0
-         Linhas de código:             0
-         Linhas de comentário:         0
-         Linhas em branco:             0
-         Arquivos deste tipo:          0
+         Total linhas do tipo:        36
+         Linhas de código:            10
+         Linhas de comentário:        21
+         Linhas em branco:             5
+         Arquivos deste tipo:          1
 
   Tipo: espstr   Path: ..\Fontes
          Total linhas do tipo:         0
@@ -129,17 +147,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:      1092
-         Linhas de código:           601
+         Total linhas do tipo:      1103
+         Linhas de código:           609
          Linhas de comentário:       226
-         Linhas em branco:           298
+         Linhas em branco:           301
          Arquivos deste tipo:          2
 
 Totais para todo o construto TesteLista
 
-   Total linhas:              3171
-   Linhas de código:           799
-   Linhas de comentário:      1806
-   Linhas em branco:           599
-   Arquivos processados:         7
+   Total linhas:              3886
+   Linhas de código:           869
+   Linhas de comentário:      2346
+   Linhas em branco:           704
+   Arquivos processados:         9
 
