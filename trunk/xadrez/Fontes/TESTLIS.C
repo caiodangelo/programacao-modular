@@ -45,7 +45,6 @@ static const char IR_INICIO_CMD           [ ] = "=irinicio"       ;
 static const char IR_FIM_CMD              [ ] = "=irfinal"        ;
 static const char AVANCAR_ELEM_CMD        [ ] = "=avancarelem"    ;
 static const char DETURPAR_LISTA		  [ ] = "=deturparlista"  ;
-<<<<<<< .mine
 static const char DETURPAR_LISTA		  [ ] = "=deturparlista"  ;
 =======
 static const char VER_CABECA_CMD		  [ ] = "=verificarcabeca";
@@ -97,7 +96,6 @@ LIS_tppLista   vtListas[ DIM_VT_LISTA ] ;
 *	  =deturparlista				inxLista  LIS_tpModosDeturpacao
 *	  =verificarcabeca				inxLista
 *	  =verificarlista				inxLista
-*
 *
 ***********************************************************************/
 
