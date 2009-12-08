@@ -542,6 +542,78 @@
 
    } /* Fim função: LIS  &Procurar elemento contendo valor */
 
+/***************************************************************************
+*
+*  Função: LIS  &Deturpar Lista
+*  ****/
+
+   LIS_tpCondRet LIS_DeturparLista( LIS_tppLista pLista ,
+                                    LIS_tpModosDeturpacao modoDeturp        )
+   {
+
+   tpElemLista lixo;
+
+   
+   if( modoDeturp == DeturpaElimElemCorr ){
+	   /* Elimina o elemento corrente da lista */
+	   free(pLista->pElemCorr);
+
+	   }
+   else if( modoDeturp == DeturpaNuloPtProximo ){
+	   /* Atribui NULL ao ponteiro para o próximo nó */
+	   ((pLista->pElemCorr)->pProx) = NULL;
+
+	   }
+   else if( modoDeturp == DeturpaNuloPtAnterior ){
+	   /* Atribui NULL ao ponteiro para o nó anterior */
+	   ((pLista->pElemCorr)->pAnt) = NULL;
+
+	   }
+   else if( modoDeturp == DeturpaLixoPtProximo ){
+	   /* Atribui lixo ao ponteiro para o próximo nó */
+	   ((pLista->pElemCorr)->pProx) = &lixo;
+
+	   }
+   else if( modoDeturp == DeturpaLixoPtAnterior ){
+	   /* Atribui lixo ao ponteiro o nó anterior */
+	   ((pLista->pElemCorr)->pAnt) = &lixo;
+
+	   }
+   else if( modoDeturp == DeturpaPtConteudo ){
+	   /* Atribui NULL ao ponteiro para o conteúdo do nó */
+	   ((pLista->pElemCorr)->pValor) = NULL;
+
+	   }
+   else if( modoDeturp == DeturpaTipoPtEstrutura ){
+	   /* Altera o tipo de estrutura apontado no nó */
+
+	   }
+   else if( modoDeturp == DeturpaDesencadeia ){
+	   /* Desencadeia nó sem liberá-lo com free */
+
+	   (((pLista->pElemCorr)->pAnt)->pProx) = ((pLista->pElemCorr)->pProx);
+	   (((pLista->pElemCorr)->pProx)->pAnt) = ((pLista->pElemCorr)->pAnt);
+	   ((pLista->pElemCorr)->pProx) = NULL;
+	   ((pLista->pElemCorr)->pAnt) = NULL;
+
+	   }
+   else if( modoDeturp == DeturpaNuloPtCorrente ){
+	   /* Atribui NULL ao ponteiro corrente */
+	   (pLista->pElemCorr) = NULL;
+	   }
+   else if( modoDeturp == DeturpaNuloPtOrigem ){
+	   /*  Atribui NULL ao ponteiro de origem */
+	   (pLista->pOrigemLista) = NULL;
+	   }
+   else{
+	   return LIS_CondRetParametroInvalido;
+
+	   }
+   
+	return LIS_CondRetOK;
+
+   } /* Fim função: LIS  &Deturpar Lista */
+
 
 /*****  Código das funções encapsuladas no módulo  *****/
 
