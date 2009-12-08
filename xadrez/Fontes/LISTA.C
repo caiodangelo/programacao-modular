@@ -762,7 +762,7 @@
 
       pLista = ( LIS_tppLista ) ( pListaParm ) ;
 
-      return VerificarElemento( pLista->pElemCorr ) ;
+      return VerificarElemento( pLista->pOrigemLista ) ;
 
    } /* Fim função: LIS  &Verificar uma lista */
 
