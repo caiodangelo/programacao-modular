@@ -57,6 +57,7 @@ Estatísticas do construto
    Arquivos de inclusão de que necessita
       tst_espc.h
    Arquivos em que é incluído
+      lista.c
       testpar.c
 
    Estatísticas do arquivo: gerenciador.c
@@ -107,21 +108,23 @@ Estatísticas do construto
       testpar.c
 
    Estatísticas do arquivo: lista.c
-      Total linhas:             677
-      Linhas de código:         378
-      Linhas de comentário:     143
-      Linhas em branco:         175
+      Total linhas:             981
+      Linhas de código:         574
+      Linhas de comentário:     187
+      Linhas em branco:         243
    Arquivos de inclusão de que necessita
       ..\\tabelas\\idtiposespaco.def
       cespdin.h
       conta.h
+      generico.h
       lista.h
+      tst_espc.h
 
    Estatísticas do arquivo: lista.h
-      Total linhas:             352
-      Linhas de código:          36
-      Linhas de comentário:     263
-      Linhas em branco:          53
+      Total linhas:             461
+      Linhas de código:          54
+      Linhas de comentário:     332
+      Linhas em branco:          75
    Arquivos em que é incluído
       grafo.c
       lista.c
@@ -186,6 +189,7 @@ Estatísticas do construto
       Linhas em branco:          20
    Arquivos em que é incluído
       generico.h
+      lista.c
       testpar.c
 
    Estatísticas do arquivo: vertice.c
@@ -210,10 +214,10 @@ Estatísticas do construto
 Totais por tipo de arquivo
 
   Tipo: h        Path: ..\Fontes
-         Total linhas do tipo:      4156
-         Linhas de código:           386
-         Linhas de comentário:      3145
-         Linhas em branco:           625
+         Total linhas do tipo:      4265
+         Linhas de código:           404
+         Linhas de comentário:      3214
+         Linhas em branco:           647
          Arquivos deste tipo:         11
 
   Tipo: obj      Path: ..\Objetos
@@ -252,17 +256,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:      3903
-         Linhas de código:          2153
-         Linhas de comentário:       916
-         Linhas em branco:           939
+         Total linhas do tipo:      4207
+         Linhas de código:          2349
+         Linhas de comentário:       960
+         Linhas em branco:          1007
          Arquivos deste tipo:          7
 
 Totais para todo o construto TestePartida
 
-   Total linhas:              8095
-   Linhas de código:          2549
-   Linhas de comentário:      4082
-   Linhas em branco:          1569
+   Total linhas:              8508
+   Linhas de código:          2763
+   Linhas de comentário:      4195
+   Linhas em branco:          1659
    Arquivos processados:        19
 

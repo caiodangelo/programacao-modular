@@ -56,6 +56,7 @@ Estatísticas do construto
    Arquivos de inclusão de que necessita
       tst_espc.h
    Arquivos em que é incluído
+      lista.c
       testmov.c
 
    Estatísticas do arquivo: gerenciador.c
@@ -104,21 +105,23 @@ Estatísticas do construto
       testmov.c
 
    Estatísticas do arquivo: lista.c
-      Total linhas:             677
-      Linhas de código:         378
-      Linhas de comentário:     143
-      Linhas em branco:         175
+      Total linhas:             981
+      Linhas de código:         574
+      Linhas de comentário:     187
+      Linhas em branco:         243
    Arquivos de inclusão de que necessita
       ..\\tabelas\\idtiposespaco.def
       cespdin.h
       conta.h
+      generico.h
       lista.h
+      tst_espc.h
 
    Estatísticas do arquivo: lista.h
-      Total linhas:             352
-      Linhas de código:          36
-      Linhas de comentário:     263
-      Linhas em branco:          53
+      Total linhas:             461
+      Linhas de código:          54
+      Linhas de comentário:     332
+      Linhas em branco:          75
    Arquivos em que é incluído
       grafo.c
       lista.c
@@ -161,6 +164,7 @@ Estatísticas do construto
       Linhas em branco:          20
    Arquivos em que é incluído
       generico.h
+      lista.c
       testmov.c
 
    Estatísticas do arquivo: vertice.c
@@ -185,10 +189,10 @@ Estatísticas do construto
 Totais por tipo de arquivo
 
   Tipo: h        Path: ..\Fontes
-         Total linhas do tipo:      4107
-         Linhas de código:           382
-         Linhas de comentário:      3108
-         Linhas em branco:           617
+         Total linhas do tipo:      4216
+         Linhas de código:           400
+         Linhas de comentário:      3177
+         Linhas em branco:           639
          Arquivos deste tipo:         10
 
   Tipo: obj      Path: ..\Objetos
@@ -227,17 +231,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:      3698
-         Linhas de código:          1990
-         Linhas de comentário:       889
-         Linhas em branco:           918
+         Total linhas do tipo:      4002
+         Linhas de código:          2186
+         Linhas de comentário:       933
+         Linhas em branco:           986
          Arquivos deste tipo:          6
 
 Totais para todo o construto TesteMovimentador
 
-   Total linhas:              7841
-   Linhas de código:          2382
-   Linhas de comentário:      4018
-   Linhas em branco:          1540
+   Total linhas:              8254
+   Linhas de código:          2596
+   Linhas de comentário:      4131
+   Linhas em branco:          1630
    Arquivos processados:        17
 

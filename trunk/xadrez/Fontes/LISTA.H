@@ -106,7 +106,6 @@ typedef struct LIS_tagLista * LIS_tppLista ;
 *
 ***********************************************************************/
 
-#ifdef _DEBUG
 
    typedef enum {
 
@@ -142,7 +141,7 @@ typedef struct LIS_tagLista * LIS_tppLista ;
 
    } LIS_tpModosDeturpacao ;
 
-#endif
+
 
 
 /***********************************************************************
@@ -409,7 +408,50 @@ typedef struct LIS_tagLista * LIS_tppLista ;
    LIS_tpCondRet LIS_DeturparLista( LIS_tppLista pLista ,
                                     int acaoDeturp        ) ;
 
-  
+/***********************************************************************
+*
+*  $FC Função: LIS  &Verificar Lista
+*
+*  $ED Descrição da função
+*
+*
+*  $EP Parâmetros
+*
+*  $FV Valor retornado
+*
+***********************************************************************/  
+
+   LIS_tpCondRet LIS_VerificarLista( void * pListaParm ) ;
+
+/***********************************************************************
+*
+*  $FC Função: LIS  &Verificar Cabeça
+*
+*  $ED Descrição da função
+*
+*
+*  $EP Parâmetros
+*
+*  $FV Valor retornado
+*
+***********************************************************************/
+
+   LIS_tpCondRet LIS_VerificarCabeca( void * pCabecaParm ) ;
+
+/***********************************************************************
+*
+*  $FC Função: LIS  &Verificar Elemento
+*
+*  $ED Descrição da função
+*
+*
+*  $EP Parâmetros
+*
+*  $FV Valor retornado
+*
+***********************************************************************/
+
+   LIS_tpCondRet LIS_VerificarElemento( void * pElemParm ) ;
 
 #undef LISTA_EXT
 
