@@ -88,8 +88,11 @@ typedef struct LIS_tagLista * LIS_tppLista ;
          LIS_CondRetNaoAchou ,
                /* Não encontrou o valor procurado */
 
-         LIS_CondRetFaltouMemoria
+         LIS_CondRetFaltouMemoria,
                /* Faltou memória ao tentar criar um elemento de lista */
+
+		 LIS_CondRetErroEstrutural
+				/* Erro na estrutura da lista */
 
    } LIS_tpCondRet ;
 
@@ -337,6 +340,9 @@ typedef struct LIS_tagLista * LIS_tppLista ;
 
    LIS_tpCondRet LIS_ProcurarValor( LIS_tppLista pLista ,
                                     void * pValor        ) ;
+
+
+  
 
 #undef LISTA_EXT
 

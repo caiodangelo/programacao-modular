@@ -1,7 +1,7 @@
 ##################################################
 ###
-### Diretivas de MAKE para o construto: TesteGrafo
-### Gerado a partir de: CompGra.comp
+### Diretivas de MAKE para o construto: TesteLista
+### Gerado a partir de: CompLis.comp
 ###
 ### ----- Arquivo gerado, NÃO EDITE!!! -----
 ###
@@ -9,7 +9,7 @@
 
 ### Nomes globais
 
-NOME            = TesteGrafo
+NOME            = TesteLista
 
 
 ### Nomes de paths
@@ -51,8 +51,7 @@ INCLUDE = $(INCLUDE);$(PDEFAULT)
 ### Regras de geração
 
 all : limpa \
-   $(Fobj)\vertice.obj   $(Fobj)\grafo.obj   $(Fobj)\lista.obj \
-   $(Fobj)\testgra.obj \
+   $(Fobj)\lista.obj   $(Fobj)\testlis.obj \
    Construto
 
 ### Limpar arquivos
@@ -63,35 +62,26 @@ limpa :
 
 ### Dependências de módulos objeto a compilar
 
-$(Fobj)\vertice.obj :  {$(Pc)}\vertice.c \
-    {$(Ph)}lista.h              {$(Ph)}vertice.h           
-   cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c               >> $(Ferr)\$(NOME).err
-
-$(Fobj)\grafo.obj :  {$(Pc)}\grafo.c \
-    {$(Ph)}grafo.h              {$(Ph)}lista.h              {$(Ph)}vertice.h           
-   cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c               >> $(Ferr)\$(NOME).err
-
 $(Fobj)\lista.obj :  {$(Pc)}\lista.c \
     {$(Ph)}conta.h              {$(Ph)}lista.h             
-   cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c               >> $(Ferr)\$(NOME).err
+   cl /D_DEBUG $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c               >> $(Ferr)\$(NOME).err
 
-$(Fobj)\testgra.obj :  {$(Pc)}\testgra.c \
-    {$(Ph)}generico.h           {$(Ph)}grafo.h              {$(Ph)}lerparm.h            \
-    {$(Ph)}tst_espc.h           {$(Ph)}vertice.h           
-   cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c               >> $(Ferr)\$(NOME).err
+$(Fobj)\testlis.obj :  {$(Pc)}\testlis.c \
+    {$(Ph)}generico.h           {$(Ph)}lerparm.h            {$(Ph)}lista.h              \
+    {$(Ph)}tst_espc.h          
+   cl /D_DEBUG $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c               >> $(Ferr)\$(NOME).err
 
 
 ### Terminação
 
 Construto : \
-   $(Fobj)\vertice.obj   $(Fobj)\grafo.obj   $(Fobj)\lista.obj \
-   $(Fobj)\testgra.obj
+   $(Fobj)\lista.obj   $(Fobj)\testlis.obj
     cd $(Fobj)
     LINK $(L) @$(NOME).build >> $(Ferr)\$(NOME).err
 
 ##################################################
 ###
-### Fim de diretivas MAKE para o construto: TesteGrafo
+### Fim de diretivas MAKE para o construto: TesteLista
 ###
 ##################################################
 

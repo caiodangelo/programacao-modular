@@ -76,7 +76,7 @@ $(Fobj)\grafo.obj :  {$(Pc)}\grafo.c \
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c               >> $(Ferr)\$(NOME).err
 
 $(Fobj)\lista.obj :  {$(Pc)}\lista.c \
-    {$(Ph)}lista.h             
+    {$(Ph)}conta.h              {$(Ph)}lista.h             
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c               >> $(Ferr)\$(NOME).err
 
 $(Fobj)\testger.obj :  {$(Pc)}\testger.c \

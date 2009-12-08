@@ -1,0 +1,25 @@
+# Composicao do programa relativo ao teste do módulo vértice
+
+[Diretorios]
+
+Nome        =  TesteLista
+PathDefault =  ..\Fontes
+err         =  ..\Produto
+obj         =  ..\Objetos
+c           =  ..\Fontes
+h           =  ..\Fontes
+
+[Modulos]
+Lista	/D_DEBUG
+TestLis	/D_DEBUG
+
+
+[BuildInicio]
+/OUT:..\Produto\TesteLista.exe
+/INCREMENTAL:NO
+/MACHINE:IX86
+
+[BuildFim]
+ArcaboucoTeste.lib
+
+[Fim]
