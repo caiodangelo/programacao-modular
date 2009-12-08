@@ -46,14 +46,22 @@
 =obtervalorelem  lista0   "???"     pNULL
 
 == Verificar AvancarElementoCorrente relativo a lista vazia
-=avancarelem     lista0   1     pNULL
+=avancarelem     lista0   1     ListaVazio
 
 == Verificar Excluir elemento em lista vazia
-=excluirelem     lista0   pNULL
+=excluirelem     lista0   ListaVazia
 
 == Inserir elemento em lista vazia
 =inselemantes    lista0   str0   OK
 =obtervalorelem  lista0   str0   pNaoNULL
+
+== Inserir elemento antes do primeiro
+=inselemantes    lista0   str1   OK
+=obtervalorelem  lista0   str1   pNaoNULL
+
+== Excluir elemento inserido
+=obtervalorelem  lista0   str1   pNaoNULL
+=excluirelem     lista0             OK
 
 == Inserir elemento após primeiro
 =inselemapos     lista0   str1   OK
@@ -62,6 +70,15 @@
 == Inserir elemento antes do último
 =inselemantes    lista0   str2   OK
 =obtervalorelem  lista0   str2   pNaoNULL
+
+== Verificar Procurar Valor
+=procurarvalor	lista0	str1 OK 
+
+=Verificar percorrimento
+=irinicio lista 0
+=avancarelem     lista0   1     OK
+=obtervalorelem  lista0   str2   pNaoNULL
+
 
 == Controlar vazamento de memória
 =exibirtodosespacos            CriterioExibir
