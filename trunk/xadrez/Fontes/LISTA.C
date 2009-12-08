@@ -552,6 +552,7 @@
    {
 
    tpElemLista lixo;
+   int outroTipo;
 
    
    if( modoDeturp == DeturpaElimElemCorr ){
@@ -586,6 +587,7 @@
 	   }
    else if( modoDeturp == DeturpaTipoPtEstrutura ){
 	   /* Altera o tipo de estrutura apontado no nó */
+	   (pLista->pElemCorr) = &outroTipo;
 
 	   }
    else if( modoDeturp == DeturpaDesencadeia ){
