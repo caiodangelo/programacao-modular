@@ -46,10 +46,6 @@ static const char IR_FIM_CMD              [ ] = "=irfinal"        ;
 static const char AVANCAR_ELEM_CMD        [ ] = "=avancarelem"    ;
 static const char DETURPAR_LISTA		  [ ] = "=deturparlista"  ;
 static const char DETURPAR_LISTA		  [ ] = "=deturparlista"  ;
-=======
-static const char VER_CABECA_CMD		  [ ] = "=verificarcabeca";
-static const char VER_LISTA_CMD			  [ ] = "=verificarlista" ;
->>>>>>> .r289
 
 
 #define TRUE  1
@@ -94,8 +90,6 @@ LIS_tppLista   vtListas[ DIM_VT_LISTA ] ;
 *     =irfinal                      inxLista
 *     =avancarelem                  inxLista  numElem CondRetEsp
 *	  =deturparlista				inxLista  LIS_tpModosDeturpacao
-*	  =verificarcabeca				inxLista
-*	  =verificarlista				inxLista
 *
 ***********************************************************************/
 
@@ -422,40 +416,6 @@ LIS_tppLista   vtListas[ DIM_VT_LISTA ] ;
                       "Condicao de retorno errada ao deturpar" ) ;
 
          } /* fim ativa: LIS  &Deturpar Lista */
-
-		 /* LIS  &Verificar Cabeça */
-
-         else if ( strcmp( ComandoTeste , VER_CABECA_CMD ) == 0 )
-         {
-
-            numLidos = LER_LerParametros( "i" , &inxLista ) ;
-
-            if ( ( numLidos != 1 )
-              || ( ! ValidarInxLista( inxLista , NAO_VAZIO )) )
-            {
-               return TST_CondRetParm ;
-            } /* if */
-
-            return LIS_VerificarCabeca ( vtListas[ inxLista ] ) ;
-
-         } /* fim ativa: LIS  &Verificar Cabeça */
-
-		 /* LIS  &Verificar Lista */
-
-         else if ( strcmp( ComandoTeste , VER_LISTA_CMD ) == 0 )
-         {
-
-            numLidos = LER_LerParametros( "i" , &inxLista ) ;
-
-            if ( ( numLidos != 1 )
-              || ( ! ValidarInxLista( inxLista , NAO_VAZIO )) )
-            {
-               return TST_CondRetParm ;
-            } /* if */
-
-            return LIS_VerificarLista ( vtListas[ inxLista ] ) ;
-
-         } /* fim ativa: LIS  &Verificar Lista */
 
       return TST_CondRetNaoConhec ;
 
