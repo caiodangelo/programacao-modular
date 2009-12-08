@@ -30,9 +30,12 @@
 #include "LISTA.h"
 #undef LISTA_OWN
 
+#ifdef _DEBUG
 #include "Conta.h"
 #include "CESPDIN.H"
 #include   "..\\Tabelas\\IdTiposEspaco.def"
+#include "generico.h"
+#endif
 
 /***********************************************************************
 *
@@ -91,6 +94,8 @@
    static void LimparCabeca( LIS_tppLista pLista ) ;
 
    void LIS_CriarListaDeListas( void ) ;
+
+   LIS_tpCondRet VerificarElemento( tpElemLista * pElemento ) ;
 
 /*****  Dados encapsulados no módulo  *****/
 
@@ -736,46 +741,241 @@
 /*****  Código das funções de verificação do módulo  *****/
 
 
+#ifdef _DEBUG
+
 /***************************************************************************
 *
-*  Função: LIS  &Validar Lista
+*  Função: ARV  &Verificar uma Lista
 *  ****/
 
-   LIS_tpCondRet LIS_ValidarLista ( LIS_tppLista pLista )
+   LIS_tpCondRet LIS_VerificarLista( void * pListaParm )
    {
-	   tpElemLista * pElem = pLista->pOrigemLista ;
 
-	   while ( pElem != NULL )
-	   {
-		   if ( pElem->pProx != NULL )
-		   {
-			   if ( pElem->pProx->pAnt != pElem )
-			   {
-				   return LIS_CondRetErroEstrutural ;
-			   }
-		   }
-		   if ( pElem->pAnt != NULL )
-		   {
-			   if ( pElem->pAnt->pProx != pElem )
-			   {
-				   return LIS_CondRetErroEstrutural ;
-			   }
-		   }
-		   else
-		   {
-			   if ( pElem != pLista->pOrigemLista )
-			   {
-				   return LIS_CondRetErroEstrutural ;
-			   }
-		   }
+      LIS_tppLista pLista = NULL ;
 
-		   pElem = pElem->pProx ;
+      if ( LIS_VerificarCabeca( pListaParm ) != LIS_CondRetOK )
+      {
+         return LIS_CondRetErroEstrutural ;
+      } /* if */
 
-	   }
+      CED_MarcarEspacoAtivo( pListaParm ) ;
 
-	   return LIS_CondRetOK ;
-   }/* Fim função: LIS  -Limpar a cabeça da lista */
+      pLista = ( LIS_tppLista ) ( pListaParm ) ;
 
+      return VerificarElemento( pLista->pElemCorr ) ;
+
+   } /* Fim função: LIS  &Verificar uma lista */
+
+#endif
+
+#ifdef _DEBUG
+
+/***************************************************************************
+*
+*  Função: LIS  &Verificar cabeça
+*  ****/
+
+   LIS_tpCondRet LIS_VerificarCabeca( void * pCabecaParm )
+   {
+
+      LIS_tppLista pLista = NULL ;
+	  tpElemLista * pElem = NULL ;
+	  int contador = 0 ;
+
+      /* Verifica o tipo do espaço */
+
+         if ( pCabecaParm == NULL )
+         {
+            TST_NotificarFalha( "Tentou verificar cabeça inexistente." ) ;
+            return LIS_CondRetErroEstrutural ;
+         } /* if */
+
+         if ( ! CED_VerificarEspaco( pCabecaParm , NULL ))
+         {
+            TST_NotificarFalha( "Controle do espaço acusou erro." ) ;
+            return LIS_CondRetErroEstrutural ;
+         } /* if */
+
+         if ( TST_CompararInt( LIS_TipoEspacoCabeca ,
+              CED_ObterTipoEspaco( pCabecaParm ) ,
+              "Tipo do espaço de dados não é cabeça de lista." ) != TST_CondRetOK )
+         {
+            return LIS_CondRetErroEstrutural ;
+         } /* if */
+
+         pLista = ( LIS_tppLista )( pCabecaParm ) ;
+
+      /* Verifica origem da lista */
+
+         if ( pLista->pOrigemLista != NULL )
+         {
+            if ( TST_CompararPonteiro( pLista->pOrigemLista->pAnt , NULL ,
+                 "Origem possui anterior." ) != TST_CondRetOK )
+            {
+               return LIS_CondRetErroEstrutural ;
+            } /* if */
+         } 
+
+       /* Verifica fim da lista */
+
+         if ( pLista->pFimLista != NULL )
+         {
+            if ( TST_CompararPonteiro( pLista->pFimLista->pProx , NULL ,
+                 "Fim possui sucessor." ) != TST_CondRetOK )
+            {
+               return LIS_CondRetErroEstrutural ;
+            } /* if */
+         } 
+
+		 /* Verifica número de elementos */
+
+		 if ( pLista->pOrigemLista == NULL )
+		 {
+			 if ( TST_CompararInt( pLista->numElem , 0 ,
+                 "Lista vazia com numero de elementos diferente de zero" ) != TST_CondRetOK )
+            {
+               return LIS_CondRetErroEstrutural ;
+            } /* if */
+		 }
+		 else
+		 {
+			 pElem = pLista->pOrigemLista ;
+			 while ( pElem != NULL )
+			 {
+				 contador++ ;
+				 pElem = pElem->pProx ;
+			 }
+			 if ( TST_CompararInt( pLista->numElem , contador ,
+                 "Numero de elementos errado" ) != TST_CondRetOK )
+            {
+               return LIS_CondRetErroEstrutural ;
+            } /* if */
+		 }
+
+		 /* Verifica se elemento corrente pertence à lista */
+
+		 if ( pLista->pElemCorr != NULL )
+		 {
+			 pElem = pLista->pOrigemLista ;
+			 while ( pElem != NULL )
+			 {
+				 if ( pElem == pLista->pElemCorr )
+				 {
+					 break ;
+				 }
+				 pElem = pElem->pProx ;
+			 }
+			 if ( TST_CompararPonteiro( pLista->pElemCorr , pElem ,
+                 "Elemento corrente nao pertence a lista" ) != TST_CondRetOK )
+			 {
+				 return LIS_CondRetErroEstrutural ;
+			 } /* if */
+
+		 }
+
+
+      return LIS_CondRetOK ;
+
+   } /* Fim função: LIS  &Verificar cabeça */
+
+#endif
+
+#ifdef _DEBUG
+
+/***************************************************************************
+*
+*  Função: LIS  &Verificar um elemento
+*  ****/
+
+   LIS_tpCondRet LIS_VerificarElemento( void * pElemParm )
+   {
+
+      tpElemLista * pElemento     = NULL ;
+
+         if ( pElemParm == NULL )
+         {
+            TST_NotificarFalha( "Tentou verificar elemento inexistente." ) ;
+            return LIS_CondRetErroEstrutural ;
+
+         } /* if */
+
+         if ( ! CED_VerificarEspaco( pElemParm , NULL ))
+         {
+            TST_NotificarFalha( "Controle do espaço acusou erro." ) ;
+            return LIS_CondRetErroEstrutural ;
+         } /* if */
+
+         if ( TST_CompararInt( LIS_TipoEspacoElemento ,
+              CED_ObterTipoEspaco( pElemParm ) ,
+              "Tipo do espaço de dados não é elemento de lista." ) != TST_CondRetOK )
+         {
+            return LIS_CondRetErroEstrutural ;
+         } /* if */
+
+         pElemento     = ( tpElemLista * )( pElemParm ) ;
+
+      /* Verificar próximo */
+
+         if ( pElemento->pProx != NULL  )
+         {
+            if ( TST_CompararPonteiro( pElemento , pElemento->pProx->pAnt ,
+                 "Anterior do próximo não é o próprio." ) != TST_CondRetOK )
+            {
+               return LIS_CondRetErroEstrutural ;
+            } /* if */
+         }
+
+      /* Verificar Anterior */
+
+         if ( pElemento->pAnt != NULL )
+         {
+            if ( TST_CompararPonteiro( pElemento , pElemento->pAnt->pProx ,
+                 "Próximo do anterior não é o próprio." ) != TST_CondRetOK )
+            {
+               return LIS_CondRetErroEstrutural ;
+            } /* if */
+         } /* if */
+
+      return LIS_CondRetOK ;
+
+   } /* Fim função: LIS  &Verificar um elemento da lista */
+
+#endif
+
+/***********************************************************************
+*
+*  $FC Função: LIS  -Explorar verificando os elementos de uma lista
+*
+*  $ED Descrição da função
+*     Percorre recursivamente a lista verificando os elementos à medida que forem
+*     visitados. Caso seja encontrado alguma falha, a verificação será
+*     suspensa. Portanto, no caso de falha, é possível que nem todos
+*     os elementos da lista sejam visitados.
+*
+***********************************************************************/
+
+   LIS_tpCondRet VerificarElemento( tpElemLista * pElemento )
+   {
+
+      LIS_tpCondRet CondErro = LIS_CondRetOK ;
+
+      if ( pElemento == NULL )
+      {
+         return LIS_CondRetOK ;
+      } /* if */
+
+      CED_MarcarEspacoAtivo( pElemento ) ;
+
+      CondErro = LIS_VerificarElemento( pElemento ) ;
+
+      if ( CondErro == LIS_CondRetOK )
+      {
+         CondErro = VerificarElemento( pElemento->pProx ) ;
+      } /* if */
+
+      return CondErro ;
+
+   } /* Fim função: LIS  -Explorar verificando os nós de uma árvore */
 
 /********** Fim do módulo de implementação: LIS  Lista duplamente encadeada **********/
 

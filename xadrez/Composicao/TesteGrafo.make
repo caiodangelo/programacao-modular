@@ -73,7 +73,7 @@ $(Fobj)\grafo.obj :  {$(Pc)}\grafo.c \
 
 $(Fobj)\lista.obj :  {$(Pc)}\lista.c \
     ..\\tabelas\\idtiposespaco.def {$(Ph)}cespdin.h            {$(Ph)}conta.h              \
-    {$(Ph)}lista.h             
+    {$(Ph)}generico.h           {$(Ph)}lista.h              {$(Ph)}tst_espc.h          
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c               >> $(Ferr)\$(NOME).err
 
 $(Fobj)\testgra.obj :  {$(Pc)}\testgra.c \
