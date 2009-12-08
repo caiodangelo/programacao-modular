@@ -13,12 +13,19 @@
 =declararparm   str1    string  "qwerty"
 =declararparm   str2    string  "xxx"
 =declararparm   str3    string  "xpto"
+=declararparm   str4    string  "casa"
+=declararparm   str5    string  "parede"
+=declararparm   str6    string  "porta"
+=declararparm   str7    string  "arvore"
+=declararparm   str8    string  "muro"
+=declararparm   str9    string  "pato"
 
-=declararparm   OK             int  0
-=declararparm   ListaVazia     int  1
-=declararparm   FimLista       int  2
-=declararparm   NaoAchou       int  3
-=declararparm   FaltouMemoria  int  4
+=declararparm   OK             		int  0
+=declararparm   ListaVazia     		int  1
+=declararparm   FimLista       		int  2
+=declararparm   NaoAchou       		int  3
+=declararparm   FaltouMemoria  		int  4
+=declararparm	ParametroInvalido	int  6
 
 =declararparm   pNULL          int  0
 =declararparm   pNaoNULL       int  1
@@ -116,14 +123,22 @@
 =avancarelem     lista2   10     FimLista
 =obtervalorelem  lista2   str3   pNaoNULL
 
-
-== Deturpar a lista
+== Adicionar mais elementos à lista
 =inselemapos     lista2   str4   OK
 =inselemapos     lista2   str5   OK
 =inselemapos     lista2   str6   OK
 =inselemapos     lista2   str7   OK
 =inselemapos     lista2   str8   OK
 =inselemapos     lista2   str9   OK
+
+== Deturpar a lista
+=deturparlista	lista2	0	ParametroInvalido
+=irinicio	lista2
+=avancarelem    lista2  1	OK
+=deturparlista	lista2	2	OK
+=avancarelem	lista2	1	FimLista
+=deturparlista	lista2	3	OK
+=avancarelem	lista2	-1	FimLista
 
 
 == Destruir a lista
