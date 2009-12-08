@@ -31,6 +31,9 @@
 #undef LISTA_OWN
 
 #include "Conta.h"
+#include "CESPDIN.H"
+#include   "..\\Tabelas\\IdTiposEspaco.def"
+
 /***********************************************************************
 *
 *  $TC Tipo de dados: LIS Elemento da lista
@@ -122,6 +125,10 @@
       LimparCabeca( pLista ) ;
 
       pLista->ExcluirValor = ExcluirValor ;
+
+      #ifdef _DEBUG
+         CED_DefinirTipoEspaco( pLista , LIS_TipoEspacoCabeca ) ;
+      #endif
 
       return pLista ;
 
@@ -670,6 +677,10 @@
       pElem->pProx  = NULL  ;
 
       pLista->numElem ++ ;
+
+      #ifdef _DEBUG
+         CED_DefinirTipoEspaco( pElem , LIS_TipoEspacoElemento ) ;
+      #endif
 
       return pElem ;
 

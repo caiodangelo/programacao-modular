@@ -23,6 +23,8 @@
 =declararparm   pNULL          int  0
 =declararparm   pNaoNULL       int  1
 
+=declararparm    CriterioExibir int   1
+
 == Iniciar contagem
 =inicializarcontadores  ""
 =lercontadores          "..\\scripts\\Lista"
@@ -35,6 +37,10 @@
 =verificarcontagens    22
 =contagemcontador   "LIS_CriarLista"  1
 =AceitaFalhasAcumuladas 22
+
+== Verificar espaços alocados
+=verificartodosespacos       1
+=obternumeroespacosalocados  1
 
 == Verificar ObterValor relativo a lista vazia
 =obtervalorelem  lista0   "???"     pNULL
@@ -50,6 +56,11 @@
 == Inserir elemento antes do último
 =inselemantes    lista0   str2   OK
 =obtervalorelem  lista0   str2   pNaoNULL
+
+== Controlar vazamento de memória
+=exibirtodosespacos            CriterioExibir
+=verificartodosespacos         CriterioExibir
+=obternumeroespacosalocados    4     // cabeça + 3 elementos
 
 == Excluir elemento do meio
 =obtervalorelem  lista0   str2   pNaoNULL
@@ -119,9 +130,12 @@
 == Destruir a lista
 =destruirlista   lista2
 
+== Controlar vazamento de memória
+=obternumeroespacosalocados  0
+=verificartodosespacos       CriterioExibir
+
 == Terminar controlar contadores
 =pararcontagem
-=verificarcontagens    0
 
 == Terminar contagem
 =terminarcontadores

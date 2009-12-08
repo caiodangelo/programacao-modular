@@ -63,7 +63,8 @@ limpa :
 ### Dependências de módulos objeto a compilar
 
 $(Fobj)\lista.obj :  {$(Pc)}\lista.c \
-    {$(Ph)}conta.h              {$(Ph)}lista.h             
+    ..\\tabelas\\idtiposespaco.def {$(Ph)}cespdin.h            {$(Ph)}conta.h              \
+    {$(Ph)}lista.h             
    cl /D_DEBUG $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c               >> $(Ferr)\$(NOME).err
 
 $(Fobj)\testlis.obj :  {$(Pc)}\testlis.c \
