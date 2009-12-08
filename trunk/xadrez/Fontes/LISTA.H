@@ -91,10 +91,58 @@ typedef struct LIS_tagLista * LIS_tppLista ;
          LIS_CondRetFaltouMemoria,
                /* Faltou memória ao tentar criar um elemento de lista */
 
-		 LIS_CondRetErroEstrutural
+		 LIS_CondRetErroEstrutural,
 				/* Erro na estrutura da lista */
 
+		 LIS_CondRetParametroInvalido
+			  /* Parâmetro passado para a função não é válido */
+
    } LIS_tpCondRet ;
+
+/***********************************************************************
+*
+*  $TC Tipo de dados: ARV Modos de deturpar
+*
+*
+***********************************************************************/
+
+#ifdef _DEBUG
+
+   typedef enum {
+
+         DeturpaElimElemCorr        =  1 ,
+               /* Elimina o elemento corrente da lista */
+
+         DeturpaNuloPtProximo          =  2 ,
+               /* Atribui NULL ao ponteiro para o próximo nó */
+
+         DeturpaNuloPtAnterior      =  3 ,
+               /* Atribui NULL ao ponteiro para o nó anterior */
+
+         DeturpaLixoPtProximo          =  4 ,
+               /* Atribui lixo ao ponteiro para o próximo nó */
+
+         DeturpaLixoPtAnterior      =  5 ,
+               /* Atribui lixo ao ponteiro o nó anterior */
+
+         DeturpaPtConteudo            =  6 ,
+               /* Atribui NULL ao ponteiro para o conteúdo do nó */
+
+         DeturpaTipoPtEstrutura      =  7 ,
+               /* Altera o tipo de estrutura apontado no nó */
+
+         DeturpaDesencadeia         =  8 ,
+               /* Desencadeia nó sem liberá-lo com free */
+
+         DeturpaNuloPtCorrente         =  9 ,
+               /* Atribui NULL ao ponteiro corrente */
+
+         DeturpaNuloPtOrigem         = 10 ,
+               /*  Atribui NULL ao ponteiro de origem */  	   
+
+   } LIS_tpModosDeturpacao ;
+
+#endif
 
 
 /***********************************************************************
@@ -341,6 +389,25 @@ typedef struct LIS_tagLista * LIS_tppLista ;
    LIS_tpCondRet LIS_ProcurarValor( LIS_tppLista pLista ,
                                     void * pValor        ) ;
 
+/***********************************************************************
+*
+*  $FC Função: LIS  &Deturpar Lista
+*
+*  $ED Descrição da função
+*
+*
+*  $EP Parâmetros
+*     pLista  - ponteiro para a lista onde procura
+*     acaoDeturp  - 
+*
+*  $FV Valor retornado
+*     LIS_CondRetOK  - 
+*	  LIS_CondRetParametroInvalido - 
+*
+***********************************************************************/
+
+   LIS_tpCondRet LIS_DeturparLista( LIS_tppLista pLista ,
+                                    int acaoDeturp        ) ;
 
   
 
