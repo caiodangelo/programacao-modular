@@ -324,6 +324,9 @@
 
       if ( pLista->pElemCorr == NULL )
       {
+		  #ifdef _DEBUG
+			 CNT_CONTAR( "LIS_ExcluirElemento - Lista vazia" ) ;
+		  #endif
          return LIS_CondRetListaVazia ;
       } /* if */
 

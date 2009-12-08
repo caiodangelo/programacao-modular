@@ -68,8 +68,8 @@ Estatísticas do construto
       testgra.c
 
    Estatísticas do arquivo: lista.c
-      Total linhas:             663
-      Linhas de código:         367
+      Total linhas:             666
+      Linhas de código:         370
       Linhas de comentário:     143
       Linhas em branco:         172
    Arquivos de inclusão de que necessita
@@ -171,16 +171,16 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:      2375
-         Linhas de código:          1245
+         Total linhas do tipo:      2378
+         Linhas de código:          1248
          Linhas de comentário:       526
          Linhas em branco:           677
          Arquivos deste tipo:          4
 
 Totais para todo o construto TesteGrafo
 
-   Total linhas:              5175
-   Linhas de código:          1502
+   Total linhas:              5178
+   Linhas de código:          1505
    Linhas de comentário:      2652
    Linhas em branco:          1094
    Arquivos processados:        11

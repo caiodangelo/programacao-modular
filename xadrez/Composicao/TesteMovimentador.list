@@ -88,8 +88,8 @@ Estatísticas do construto
       testmov.c
 
    Estatísticas do arquivo: lista.c
-      Total linhas:             663
-      Linhas de código:         367
+      Total linhas:             666
+      Linhas de código:         370
       Linhas de comentário:     143
       Linhas em branco:         172
    Arquivos de inclusão de que necessita
@@ -209,16 +209,16 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:      3684
-         Linhas de código:          1979
+         Total linhas do tipo:      3687
+         Linhas de código:          1982
          Linhas de comentário:       889
          Linhas em branco:           915
          Arquivos deste tipo:          6
 
 Totais para todo o construto TesteMovimentador
 
-   Total linhas:              7123
-   Linhas de código:          2309
+   Total linhas:              7126
+   Linhas de código:          2312
    Linhas de comentário:      3478
    Linhas em branco:          1435
    Arquivos processados:        15

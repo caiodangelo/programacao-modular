@@ -47,8 +47,8 @@ Estatísticas do construto
       testlis.c
 
    Estatísticas do arquivo: lista.c
-      Total linhas:             663
-      Linhas de código:         367
+      Total linhas:             666
+      Linhas de código:         370
       Linhas de comentário:     143
       Linhas em branco:         172
    Arquivos de inclusão de que necessita
@@ -129,16 +129,16 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:      1089
-         Linhas de código:           598
+         Total linhas do tipo:      1092
+         Linhas de código:           601
          Linhas de comentário:       226
          Linhas em branco:           298
          Arquivos deste tipo:          2
 
 Totais para todo o construto TesteLista
 
-   Total linhas:              3168
-   Linhas de código:           796
+   Total linhas:              3171
+   Linhas de código:           799
    Linhas de comentário:      1806
    Linhas em branco:           599
    Arquivos processados:         7

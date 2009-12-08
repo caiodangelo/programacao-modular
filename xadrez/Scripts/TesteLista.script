@@ -32,9 +32,9 @@
 =criarlista      lista0 
 
 == Verificar contadores, 1 deles já contou
-=verificarcontagens    21
+=verificarcontagens    22
 =contagemcontador   "LIS_CriarLista"  1
-=AceitaFalhasAcumuladas 21
+=AceitaFalhasAcumuladas 22
 
 == Verificar ObterValor relativo a lista vazia
 =obtervalorelem  lista0   "???"     pNULL
