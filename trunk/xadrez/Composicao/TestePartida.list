@@ -91,8 +91,8 @@ Estatísticas do construto
       testpar.c
 
    Estatísticas do arquivo: lista.c
-      Total linhas:             663
-      Linhas de código:         367
+      Total linhas:             666
+      Linhas de código:         370
       Linhas de comentário:     143
       Linhas em branco:         172
    Arquivos de inclusão de que necessita
@@ -234,16 +234,16 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:      3889
-         Linhas de código:          2142
+         Total linhas do tipo:      3892
+         Linhas de código:          2145
          Linhas de comentário:       916
          Linhas em branco:           936
          Arquivos deste tipo:          7
 
 Totais para todo o construto TestePartida
 
-   Total linhas:              7377
-   Linhas de código:          2476
+   Total linhas:              7380
+   Linhas de código:          2479
    Linhas de comentário:      3542
    Linhas em branco:          1464
    Arquivos processados:        17

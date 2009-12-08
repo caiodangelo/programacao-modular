@@ -48,8 +48,8 @@ Estatísticas do construto
       testver.c
 
    Estatísticas do arquivo: lista.c
-      Total linhas:             663
-      Linhas de código:         367
+      Total linhas:             666
+      Linhas de código:         370
       Linhas de comentário:     143
       Linhas em branco:         172
    Arquivos de inclusão de que necessita
@@ -148,16 +148,16 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:      1473
-         Linhas de código:           764
+         Total linhas do tipo:      1476
+         Linhas de código:           767
          Linhas de comentário:       346
          Linhas em branco:           406
          Arquivos deste tipo:          3
 
 Totais para todo o construto TesteVertice
 
-   Total linhas:              3850
-   Linhas de código:           985
+   Total linhas:              3853
+   Linhas de código:           988
    Linhas de comentário:      2151
    Linhas em branco:           757
    Arquivos processados:         9
