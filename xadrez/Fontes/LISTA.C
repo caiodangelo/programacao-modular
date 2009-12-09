@@ -785,32 +785,33 @@
 *  Função: LIS  &Verificar cabeça
 *  ****/
 
-   LIS_tpCondRet LIS_VerificarCabeca( void * pCabecaParm )
+   int LIS_VerificarCabeca( void * pCabecaParm )
    {
 
       LIS_tppLista pLista = NULL ;
 	  tpElemLista * pElem = NULL ;
 	  int contador = 0 ;
+	  int numFalhas = 0;
 
       /* Verifica o tipo do espaço */
 
          if ( pCabecaParm == NULL )
          {
             TST_NotificarFalha( "Tentou verificar cabeça inexistente." ) ;
-            return LIS_CondRetErroEstrutural ;
+            numFalhas++ ;
          } /* if */
 
          if ( ! CED_VerificarEspaco( pCabecaParm , NULL ))
          {
             TST_NotificarFalha( "Controle do espaço acusou erro." ) ;
-            return LIS_CondRetErroEstrutural ;
+            numFalhas++;
          } /* if */
 
          if ( TST_CompararInt( LIS_TipoEspacoCabeca ,
               CED_ObterTipoEspaco( pCabecaParm ) ,
               "Tipo do espaço de dados não é cabeça de lista." ) != TST_CondRetOK )
          {
-            return LIS_CondRetErroEstrutural ;
+            numFalhas++;
          } /* if */
 
          pLista = ( LIS_tppLista )( pCabecaParm ) ;
@@ -822,7 +823,7 @@
             if ( TST_CompararPonteiro( pLista->pOrigemLista->pAnt , NULL ,
                  "Origem possui anterior." ) != TST_CondRetOK )
             {
-               return LIS_CondRetErroEstrutural ;
+               numFalhas++;
             } /* if */
          } 
 
@@ -833,7 +834,7 @@
             if ( TST_CompararPonteiro( pLista->pFimLista->pProx , NULL ,
                  "Fim possui sucessor." ) != TST_CondRetOK )
             {
-               return LIS_CondRetErroEstrutural ;
+               numFalhas++;
             } /* if */
          } 
 
@@ -844,7 +845,7 @@
 			 if ( TST_CompararInt( pLista->numElem , 0 ,
                  "Lista vazia com numero de elementos diferente de zero" ) != TST_CondRetOK )
             {
-               return LIS_CondRetErroEstrutural ;
+               numFalhas++;
             } /* if */
 		 }
 		 else
@@ -862,7 +863,7 @@
 			 if ( TST_CompararInt( pLista->numElem , contador ,
                  "Numero de elementos errado" ) != TST_CondRetOK )
             {
-               return LIS_CondRetErroEstrutural ;
+               numFalhas++;
             } /* if */
 		 }
 
@@ -882,13 +883,12 @@
 			 if ( TST_CompararPonteiro( pLista->pElemCorr , pElem ,
                  "Elemento corrente nao pertence a lista" ) != TST_CondRetOK )
 			 {
-				 return LIS_CondRetErroEstrutural ;
+				 numFalhas++;
 			 } /* if */
 
 		 }
 
-
-      return LIS_CondRetOK ;
+		 return numFalhas ;
 
    } /* Fim função: LIS  &Verificar cabeça */
 
