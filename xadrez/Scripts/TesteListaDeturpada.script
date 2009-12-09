@@ -132,13 +132,27 @@
 =inselemapos     lista2   str9   OK
 
 == Deturpar a lista
-=deturparlista	lista2	0	ParametroInvalido
+=deturparlista	lista2	0	0	ParametroInvalido
 =irinicio	lista2
 =avancarelem    lista2  1	OK
-=deturparlista	lista2	2	OK
-=avancarelem	lista2	1	FimLista
-=deturparlista	lista2	3	OK
-=avancarelem	lista2	-1	FimLista
+//=deturparlista	lista2	3	0	OK
+=deturparlista	lista2	11	10	OK
+=verificarlista	lista2
+=avancarelem    lista2  1	OK
+//=deturparlista	lista2	10	0	OK
+=verificarlista	lista2
+=deturparlista	lista2	6	0	OK
+=verificarlista	lista2
+=avancarelem    lista2  1	OK
+=deturparlista	lista2	2	0	OK
+=deturparlista	lista2	11	10	OK
+=verificarlista	lista2
+=irfinal	lista2
+=avancarelem	lista2	-1	OK
+
+== Verificar função verificadora
+//=verificarcabeca	lista2
+//=verificarlista	lista2	
 
 
 == Destruir a lista
