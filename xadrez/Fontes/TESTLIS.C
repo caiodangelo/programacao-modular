@@ -45,7 +45,7 @@ static const char IR_INICIO_CMD           [ ] = "=irinicio"       ;
 static const char IR_FIM_CMD              [ ] = "=irfinal"        ;
 static const char AVANCAR_ELEM_CMD        [ ] = "=avancarelem"    ;
 static const char DETURPAR_LISTA		  [ ] = "=deturparlista"  ;
-static const char DETURPAR_LISTA		  [ ] = "=deturparlista"  ;
+
 
 
 #define TRUE  1
@@ -58,6 +58,7 @@ static const char DETURPAR_LISTA		  [ ] = "=deturparlista"  ;
 #define DIM_VALOR     100
 
 LIS_tppLista   vtListas[ DIM_VT_LISTA ] ;
+char * ultimaStringInserida;
 
 /***** Protótipos das funções encapuladas no módulo *****/
 
@@ -222,6 +223,8 @@ LIS_tppLista   vtListas[ DIM_VT_LISTA ] ;
                free( pDado ) ;
             } /* if */
 
+			ultimaStringInserida = pDado;
+
             return TST_CompararInt( CondRetEsp , CondRet ,
                      "Condicao de retorno errada ao inserir antes."                   ) ;
 
@@ -256,6 +259,8 @@ LIS_tppLista   vtListas[ DIM_VT_LISTA ] ;
             {
                free( pDado ) ;
             } /* if */
+
+			ultimaStringInserida = pDado;
 
             return TST_CompararInt( CondRetEsp , CondRet ,
                      "Condicao de retorno errada ao inserir apos."                   ) ;
@@ -317,22 +322,25 @@ LIS_tppLista   vtListas[ DIM_VT_LISTA ] ;
 
 	/* Testar procurar valor */
 
+		 /* Ao contrário da função LIS_ProcurarValor, que procura qualquer valor, aqui no teste só foi possível procurar
+		    a última string inserida, que é o único endereço que temos acesso neste módulo de teste */
+
          else if ( strcmp( ComandoTeste , PROCURAR_VALOR_CMD ) == 0 )
          {
 
             numLidos = LER_LerParametros( "isi" ,
-                       &inxLista , StringDado , &ValEsp ) ;
+                       &inxLista , &ValEsp ) ;
 
             numLidos = LER_LerParametros( "isi" ,
-                       &inxLista , StringDado , &CondRetEsp ) ;
+                       &inxLista , &CondRetEsp ) ;
 
-            if ( ( numLidos != 3 )
+            if ( ( numLidos != 2 )
               || ( ! ValidarInxLista( inxLista , NAO_VAZIO )) )
             {
                return TST_CondRetParm ;
             } /* if */
 
-            CondRet = LIS_ProcurarValor( vtListas[ inxLista ] , StringDado ) ;
+            CondRet = LIS_ProcurarValor( vtListas[ inxLista ] , ultimaStringInserida ) ;
 
             return TST_CompararInt( CondRetEsp , CondRet ,
                      "Condicao de retorno errada ao inserir apos."                   ) ;
