@@ -135,20 +135,24 @@
 =deturparlista	lista2	0	0	ParametroInvalido
 =irinicio	lista2
 =avancarelem    lista2  1	OK
+=verificarcabeca	lista2	0
 //=deturparlista	lista2	3	0	OK
-=deturparlista	lista2	11	10	OK
-=verificarlista	lista2
+//=deturparlista	lista2	11	10	OK
+=deturparlista	lista2	12	0	OK
 =avancarelem    lista2  1	OK
+=deturparlista	lista2	13	0	OK
+=verificarcabeca	lista2	2
+//=avancarelem    lista2  1	OK
 //=deturparlista	lista2	10	0	OK
-=verificarlista	lista2
-=deturparlista	lista2	6	0	OK
-=verificarlista	lista2
-=avancarelem    lista2  1	OK
-=deturparlista	lista2	2	0	OK
-=deturparlista	lista2	11	10	OK
-=verificarlista	lista2
-=irfinal	lista2
-=avancarelem	lista2	-1	OK
+//=verificarlista	lista2
+//=deturparlista	lista2	6	0	OK
+//=verificarlista	lista2
+//=avancarelem    lista2  1	OK
+//=deturparlista	lista2	2	0	OK
+//=deturparlista	lista2	11	10	OK
+//=verificarlista	lista2
+//=irfinal	lista2
+//=avancarelem	lista2	-1	OK
 
 == Verificar função verificadora
 //=verificarcabeca	lista2
