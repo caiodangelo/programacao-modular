@@ -145,6 +145,9 @@ typedef struct LIS_tagLista * LIS_tppLista ;
 		DeturpaOrigem				= 12,
 				/* Altera a origem para o elemento corrente */
 
+		DeturpaFim				= 13,
+				/* Altera o fim da lista para o elemento corrente */
+
    } LIS_tpModosDeturpacao ;
 
 

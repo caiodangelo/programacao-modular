@@ -663,6 +663,10 @@
 	   (pLista->pOrigemLista) = (pLista->pElemCorr);
 
 	   }
+   else if( modoDeturp == DeturpaFim ){
+	   (pLista->pFimLista) = (pLista->pElemCorr);
+
+	   }
    else{
 	   return LIS_CondRetParametroInvalido;
 
