@@ -405,12 +405,15 @@ typedef struct LIS_tagLista * LIS_tppLista ;
 *
 *
 *  $EP Parâmetros
-*     pLista  - ponteiro para a lista onde procura
-*     acaoDeturp  - 
+*     pLista  - ponteiro para a lista a ser deturpada
+*     modoDeturp  - tipo de deturpação a ser introduzida
+*	  numElem - parâmetro opicional para deturpar número de elementos
+*				da lista
 *
 *  $FV Valor retornado
-*     LIS_CondRetOK  - 
-*	  LIS_CondRetParametroInvalido - 
+*     LIS_CondRetOK  - deturpação introduzida na estrutura
+*	  LIS_CondRetParametroInvalido - deturpação recebida como parâmetro
+*									 não foi implementada
 *
 ***********************************************************************/
 
