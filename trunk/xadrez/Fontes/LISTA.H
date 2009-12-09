@@ -137,7 +137,10 @@ typedef struct LIS_tagLista * LIS_tppLista ;
                /* Atribui NULL ao ponteiro corrente */
 
          DeturpaNuloPtOrigem         = 10 ,
-               /*  Atribui NULL ao ponteiro de origem */  	   
+               /*  Atribui NULL ao ponteiro de origem */ 
+
+		 DeturpaNumElem				= 11,
+				/* Altera o valor numElem na cabeça da lista */
 
    } LIS_tpModosDeturpacao ;
 
@@ -406,7 +409,8 @@ typedef struct LIS_tagLista * LIS_tppLista ;
 ***********************************************************************/
 
    LIS_tpCondRet LIS_DeturparLista( LIS_tppLista pLista ,
-                                    int acaoDeturp        ) ;
+                                    LIS_tpModosDeturpacao modoDeturp ,
+									int numElem        ) ;
 
 /***********************************************************************
 *

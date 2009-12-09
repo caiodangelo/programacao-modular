@@ -39,13 +39,13 @@ static const char ESVAZIAR_LISTA_CMD      [ ] = "=esvaziarlista"  ;
 static const char INS_ELEM_ANTES_CMD      [ ] = "=inselemantes"   ;
 static const char INS_ELEM_APOS_CMD       [ ] = "=inselemapos"    ;
 static const char OBTER_VALOR_CMD         [ ] = "=obtervalorelem" ;
-static const char PROCURAR_VALOR_CMD      [ ] = "=procurarvalor" ;
 static const char EXC_ELEM_CMD            [ ] = "=excluirelem"    ;
 static const char IR_INICIO_CMD           [ ] = "=irinicio"       ;
 static const char IR_FIM_CMD              [ ] = "=irfinal"        ;
 static const char AVANCAR_ELEM_CMD        [ ] = "=avancarelem"    ;
 static const char DETURPAR_LISTA		  [ ] = "=deturparlista"  ;
-
+static const char VER_CABECA_CMD		  [ ] = "=verificarcabeca";
+static const char VER_LISTA_CMD			  [ ] = "=verificarlista" ;
 
 
 #define TRUE  1
@@ -58,7 +58,6 @@ static const char DETURPAR_LISTA		  [ ] = "=deturparlista"  ;
 #define DIM_VALOR     100
 
 LIS_tppLista   vtListas[ DIM_VT_LISTA ] ;
-char * ultimaStringInserida;
 
 /***** Protótipos das funções encapuladas no módulo *****/
 
@@ -91,6 +90,9 @@ char * ultimaStringInserida;
 *     =irfinal                      inxLista
 *     =avancarelem                  inxLista  numElem CondRetEsp
 *	  =deturparlista				inxLista  LIS_tpModosDeturpacao
+*	  =verificarcabeca				inxLista
+*	  =verificarlista				inxLista
+*
 *
 ***********************************************************************/
 
@@ -99,7 +101,8 @@ char * ultimaStringInserida;
 
       int inxLista  = -1 ,
           numLidos   = -1 ,
-          CondRetEsp = -1  ;
+          CondRetEsp = -1,
+		  numElemCabeca	= -1;
 
       TST_tpCondRet CondRet ;
 
@@ -223,8 +226,6 @@ char * ultimaStringInserida;
                free( pDado ) ;
             } /* if */
 
-			ultimaStringInserida = pDado;
-
             return TST_CompararInt( CondRetEsp , CondRet ,
                      "Condicao de retorno errada ao inserir antes."                   ) ;
 
@@ -259,8 +260,6 @@ char * ultimaStringInserida;
             {
                free( pDado ) ;
             } /* if */
-
-			ultimaStringInserida = pDado;
 
             return TST_CompararInt( CondRetEsp , CondRet ,
                      "Condicao de retorno errada ao inserir apos."                   ) ;
@@ -319,33 +318,6 @@ char * ultimaStringInserida;
                          "Valor do elemento errado." ) ;
 
          } /* fim ativa: Testar obter valor do elemento corrente */
-
-	/* Testar procurar valor */
-
-		 /* Ao contrário da função LIS_ProcurarValor, que procura qualquer valor, aqui no teste só foi possível procurar
-		    a última string inserida, que é o único endereço que temos acesso neste módulo de teste */
-
-         else if ( strcmp( ComandoTeste , PROCURAR_VALOR_CMD ) == 0 )
-         {
-
-            numLidos = LER_LerParametros( "isi" ,
-                       &inxLista , &ValEsp ) ;
-
-            numLidos = LER_LerParametros( "isi" ,
-                       &inxLista , &CondRetEsp ) ;
-
-            if ( ( numLidos != 2 )
-              || ( ! ValidarInxLista( inxLista , NAO_VAZIO )) )
-            {
-               return TST_CondRetParm ;
-            } /* if */
-
-            CondRet = LIS_ProcurarValor( vtListas[ inxLista ] , ultimaStringInserida ) ;
-
-            return TST_CompararInt( CondRetEsp , CondRet ,
-                     "Condicao de retorno errada ao inserir apos."                   ) ;
-
-         } /* fim ativa: Testar procurar valor */
 
       /* Testar ir para o elemento inicial */
 
@@ -410,20 +382,54 @@ char * ultimaStringInserida;
          else if ( strcmp( ComandoTeste , DETURPAR_LISTA ) == 0 )
          {
 
-            numLidos = LER_LerParametros( "iii" , &inxLista , &modoDeturp ,
-                                &CondRetEsp ) ;
+            numLidos = LER_LerParametros( "iiii" , &inxLista , &modoDeturp ,
+                                &numElemCabeca, &CondRetEsp  ) ;
 
-            if ( ( numLidos != 3 )
+            if ( ( numLidos != 4 )
               || ( ! ValidarInxLista( inxLista , NAO_VAZIO )) )
             {
                return TST_CondRetParm ;
             } /* if */
 
             return TST_CompararInt( CondRetEsp ,
-                      LIS_DeturparLista( vtListas[ inxLista ] , modoDeturp ) ,
+                      LIS_DeturparLista( vtListas[ inxLista ] , modoDeturp, numElemCabeca ) ,
                       "Condicao de retorno errada ao deturpar" ) ;
 
          } /* fim ativa: LIS  &Deturpar Lista */
+
+		 /* LIS  &Verificar Cabeça */
+
+         else if ( strcmp( ComandoTeste , VER_CABECA_CMD ) == 0 )
+         {
+
+            numLidos = LER_LerParametros( "i" , &inxLista ) ;
+
+            if ( ( numLidos != 1 )
+              || ( ! ValidarInxLista( inxLista , NAO_VAZIO )) )
+            {
+               return TST_CondRetParm ;
+            } /* if */
+
+            return LIS_VerificarCabeca ( vtListas[ inxLista ] ) ;
+
+         } /* fim ativa: LIS  &Verificar Cabeça */
+
+		 /* LIS  &Verificar Lista */
+
+         else if ( strcmp( ComandoTeste , VER_LISTA_CMD ) == 0 )
+         {
+
+            numLidos = LER_LerParametros( "i" , &inxLista ) ;
+
+            if ( ( numLidos != 1 )
+              || ( ! ValidarInxLista( inxLista , NAO_VAZIO )) )
+            {
+               return TST_CondRetParm ;
+            } /* if */
+
+            return LIS_VerificarLista ( vtListas[ inxLista ] ) ;
+
+         } /* fim ativa: LIS  &Verificar Lista */
 
       return TST_CondRetNaoConhec ;
 

@@ -590,11 +590,16 @@
 *  ****/
 
    LIS_tpCondRet LIS_DeturparLista( LIS_tppLista pLista ,
-                                    LIS_tpModosDeturpacao modoDeturp        )
+                                    LIS_tpModosDeturpacao modoDeturp ,
+									int numElem							)
    {
 
    tpElemLista lixo;
    int outroTipo;
+
+   if( numElem < 0 ){
+			numElem = 0;
+	   }
 
    
    if( modoDeturp == DeturpaElimElemCorr ){
@@ -648,6 +653,11 @@
    else if( modoDeturp == DeturpaNuloPtOrigem ){
 	   /*  Atribui NULL ao ponteiro de origem */
 	   (pLista->pOrigemLista) = NULL;
+	   }
+   else if( modoDeturp == DeturpaNumElem ){
+	   /* Altera o valor numElem na cabeça da lista */
+	   (pLista->numElem) = numElem;
+
 	   }
    else{
 	   return LIS_CondRetParametroInvalido;
