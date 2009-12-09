@@ -39,6 +39,7 @@ static const char ESVAZIAR_LISTA_CMD      [ ] = "=esvaziarlista"  ;
 static const char INS_ELEM_ANTES_CMD      [ ] = "=inselemantes"   ;
 static const char INS_ELEM_APOS_CMD       [ ] = "=inselemapos"    ;
 static const char OBTER_VALOR_CMD         [ ] = "=obtervalorelem" ;
+static const char PROCURAR_VALOR_CMD         [ ] = "=procurarvalor" ;
 static const char EXC_ELEM_CMD            [ ] = "=excluirelem"    ;
 static const char IR_INICIO_CMD           [ ] = "=irinicio"       ;
 static const char IR_FIM_CMD              [ ] = "=irfinal"        ;
@@ -46,6 +47,7 @@ static const char AVANCAR_ELEM_CMD        [ ] = "=avancarelem"    ;
 static const char DETURPAR_LISTA		  [ ] = "=deturparlista"  ;
 static const char VER_CABECA_CMD		  [ ] = "=verificarcabeca";
 static const char VER_LISTA_CMD			  [ ] = "=verificarlista" ;
+
 
 
 #define TRUE  1
@@ -58,6 +60,7 @@ static const char VER_LISTA_CMD			  [ ] = "=verificarlista" ;
 #define DIM_VALOR     100
 
 LIS_tppLista   vtListas[ DIM_VT_LISTA ] ;
+char * ultimaStringInserida = NULL;
 
 /***** Protótipos das funções encapuladas no módulo *****/
 
@@ -92,7 +95,6 @@ LIS_tppLista   vtListas[ DIM_VT_LISTA ] ;
 *	  =deturparlista				inxLista  LIS_tpModosDeturpacao
 *	  =verificarcabeca				inxLista
 *	  =verificarlista				inxLista
-*
 *
 ***********************************************************************/
 
@@ -226,6 +228,8 @@ LIS_tppLista   vtListas[ DIM_VT_LISTA ] ;
                free( pDado ) ;
             } /* if */
 
+			ultimaStringInserida = pDado;
+
             return TST_CompararInt( CondRetEsp , CondRet ,
                      "Condicao de retorno errada ao inserir antes."                   ) ;
 
@@ -260,6 +264,8 @@ LIS_tppLista   vtListas[ DIM_VT_LISTA ] ;
             {
                free( pDado ) ;
             } /* if */
+
+			ultimaStringInserida = pDado;
 
             return TST_CompararInt( CondRetEsp , CondRet ,
                      "Condicao de retorno errada ao inserir apos."                   ) ;
@@ -318,6 +324,30 @@ LIS_tppLista   vtListas[ DIM_VT_LISTA ] ;
                          "Valor do elemento errado." ) ;
 
          } /* fim ativa: Testar obter valor do elemento corrente */
+
+	/* Testar procurar valor */
+
+		 /* Ao contrário da função LIS_ProcurarValor, que procura qualquer valor, aqui no teste só foi possível procurar
+		    a última string inserida, que é o único endereço que temos acesso neste módulo de teste */
+
+         else if ( strcmp( ComandoTeste , PROCURAR_VALOR_CMD ) == 0 )
+         {
+
+            numLidos = LER_LerParametros( "ii" ,
+            &inxLista , &CondRetEsp ) ;
+
+            if ( ( numLidos != 2 )
+              || ( ! ValidarInxLista( inxLista , NAO_VAZIO )) )
+            {
+               return TST_CondRetParm ;
+            } /* if */
+
+            CondRet = LIS_ProcurarValor( vtListas[ inxLista ] , ultimaStringInserida ) ;
+
+            return TST_CompararInt( CondRetEsp , CondRet ,
+                     "Condicao de retorno errada ao inserir apos."                   ) ;
+
+         } /* fim ativa: Testar procurar valor */
 
       /* Testar ir para o elemento inicial */
 
