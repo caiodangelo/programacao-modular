@@ -440,7 +440,7 @@ typedef struct LIS_tagLista * LIS_tppLista ;
 *
 ***********************************************************************/
 
-   LIS_tpCondRet LIS_VerificarCabeca( void * pCabecaParm ) ;
+   int LIS_VerificarCabeca( void * pCabecaParm ) ;
 
 /***********************************************************************
 *
