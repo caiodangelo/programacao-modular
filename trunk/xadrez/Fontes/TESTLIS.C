@@ -39,7 +39,7 @@ static const char ESVAZIAR_LISTA_CMD      [ ] = "=esvaziarlista"  ;
 static const char INS_ELEM_ANTES_CMD      [ ] = "=inselemantes"   ;
 static const char INS_ELEM_APOS_CMD       [ ] = "=inselemapos"    ;
 static const char OBTER_VALOR_CMD         [ ] = "=obtervalorelem" ;
-static const char PROCURAR_VALOR_CMD         [ ] = "=procurarvalor" ;
+static const char PROCURAR_VALOR_CMD      [ ] = "=procurarvalor" ;
 static const char EXC_ELEM_CMD            [ ] = "=excluirelem"    ;
 static const char IR_INICIO_CMD           [ ] = "=irinicio"       ;
 static const char IR_FIM_CMD              [ ] = "=irfinal"        ;
@@ -328,7 +328,7 @@ char * ultimaStringInserida = NULL;
 	/* Testar procurar valor */
 
 		 /* Ao contrário da função LIS_ProcurarValor, que procura qualquer valor, aqui no teste só foi possível procurar
-		    a última string inserida, que é o único endereço que temos acesso neste módulo de teste */
+		    a última string inserida, que é o único endereço a que temos acesso neste módulo de teste */
 
          else if ( strcmp( ComandoTeste , PROCURAR_VALOR_CMD ) == 0 )
          {
