@@ -108,10 +108,10 @@ Estatísticas do construto
       testpar.c
 
    Estatísticas do arquivo: lista.c
-      Total linhas:             995
-      Linhas de código:         581
-      Linhas de comentário:     188
-      Linhas em branco:         249
+      Total linhas:             977
+      Linhas de código:         563
+      Linhas de comentário:     187
+      Linhas em branco:         250
    Arquivos de inclusão de que necessita
       ..\\tabelas\\idtiposespaco.def
       cespdin.h
@@ -256,17 +256,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:      4221
-         Linhas de código:          2356
-         Linhas de comentário:       961
-         Linhas em branco:          1013
+         Total linhas do tipo:      4203
+         Linhas de código:          2338
+         Linhas de comentário:       960
+         Linhas em branco:          1014
          Arquivos deste tipo:          7
 
 Totais para todo o construto TestePartida
 
-   Total linhas:              8535
-   Linhas de código:          2774
-   Linhas de comentário:      4202
-   Linhas em branco:          1668
+   Total linhas:              8517
+   Linhas de código:          2756
+   Linhas de comentário:      4201
+   Linhas em branco:          1669
    Arquivos processados:        19
 

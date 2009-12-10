@@ -103,10 +103,10 @@ Estatísticas do construto
       testger.c
 
    Estatísticas do arquivo: lista.c
-      Total linhas:             995
-      Linhas de código:         581
-      Linhas de comentário:     188
-      Linhas em branco:         249
+      Total linhas:             977
+      Linhas de código:         563
+      Linhas de comentário:     187
+      Linhas em branco:         250
    Arquivos de inclusão de que necessita
       ..\\tabelas\\idtiposespaco.def
       cespdin.h
@@ -210,17 +210,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:      3492
-         Linhas de código:          1920
-         Linhas de comentário:       772
-         Linhas em branco:           905
+         Total linhas do tipo:      3474
+         Linhas de código:          1902
+         Linhas de comentário:       771
+         Linhas em branco:           906
          Arquivos deste tipo:          5
 
 Totais para todo o construto TesteGerenciador
 
-   Total linhas:              7572
-   Linhas de código:          2310
-   Linhas de comentário:      3848
-   Linhas em branco:          1519
+   Total linhas:              7554
+   Linhas de código:          2292
+   Linhas de comentário:      3847
+   Linhas em branco:          1520
    Arquivos processados:        15
 

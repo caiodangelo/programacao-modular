@@ -806,7 +806,7 @@
    {
 
       LIS_tppLista pLista = NULL ;
-	  tpElemLista * pElem = NULL ;
+
 	  int numFalhas = 0;
 
       /* Verifica o tipo do espaço */
@@ -865,26 +865,8 @@
             } /* if */
 		 }
 
-		 /* Verifica se elemento corrente pertence à lista */
 
-		 if ( pLista->pElemCorr != NULL )
-		 {
-			 pElem = pLista->pOrigemLista ;
-			 while ( pElem != NULL )
-			 {
-				 if ( pElem == pLista->pElemCorr )
-				 {
-					 break ;
-				 }
-				 pElem = pElem->pProx ;
-			 }
-			 if ( TST_CompararPonteiro( pLista->pElemCorr , pElem ,
-                 "Elemento corrente nao pertence a lista" ) != TST_CondRetOK )
-			 {
-				 numFalhas++;
-			 } /* if */
 
-		 }
 
 		 return numFalhas ;
 

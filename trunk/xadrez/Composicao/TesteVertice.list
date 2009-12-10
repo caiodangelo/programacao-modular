@@ -65,10 +65,10 @@ Estatísticas do construto
       testver.c
 
    Estatísticas do arquivo: lista.c
-      Total linhas:             995
-      Linhas de código:         581
-      Linhas de comentário:     188
-      Linhas em branco:         249
+      Total linhas:             977
+      Linhas de código:         563
+      Linhas de comentário:     187
+      Linhas em branco:         250
    Arquivos de inclusão de que necessita
       ..\\tabelas\\idtiposespaco.def
       cespdin.h
@@ -170,17 +170,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:      1805
-         Linhas de código:           978
-         Linhas de comentário:       391
-         Linhas em branco:           483
+         Total linhas do tipo:      1787
+         Linhas de código:           960
+         Linhas de comentário:       390
+         Linhas em branco:           484
          Arquivos deste tipo:          3
 
 Totais para todo o construto TesteVertice
 
-   Total linhas:              5008
-   Linhas de código:          1283
-   Linhas de comentário:      2811
-   Linhas em branco:           961
+   Total linhas:              4990
+   Linhas de código:          1265
+   Linhas de comentário:      2810
+   Linhas em branco:           962
    Arquivos processados:        11
 
