@@ -39,9 +39,9 @@
 =criarlista      lista0 
 
 == Verificar contadores, 1 deles já contou
-=verificarcontagens    22
+=verificarcontagens    32
 =contagemcontador   "LIS_CriarLista"  1
-=AceitaFalhasAcumuladas 22
+=AceitaFalhasAcumuladas 32
 
 == Verificar ObterValor relativo a lista vazia
 =obtervalorelem  lista0   "???"     pNULL
@@ -135,28 +135,25 @@
 =deturparlista	lista2	0	0	ParametroInvalido
 =irinicio	lista2
 =avancarelem    lista2  1	OK
-=verificarcabeca	lista2	0
 //=deturparlista	lista2	3	0	OK
-//=deturparlista	lista2	11	10	OK
-=deturparlista	lista2	12	0	OK
+=deturparlista	lista2	11	10	OK
+=verificarlista	lista2 0
 =avancarelem    lista2  1	OK
-=deturparlista	lista2	13	0	OK
-=verificarcabeca	lista2	2
-//=avancarelem    lista2  1	OK
 //=deturparlista	lista2	10	0	OK
-//=verificarlista	lista2
-//=deturparlista	lista2	6	0	OK
-//=verificarlista	lista2
-//=avancarelem    lista2  1	OK
-//=deturparlista	lista2	2	0	OK
-//=deturparlista	lista2	11	10	OK
-//=verificarlista	lista2
-//=irfinal	lista2
-//=avancarelem	lista2	-1	OK
+=verificarlista	lista2 0
+=deturparlista	lista2	6	0	OK
+=verificarlista	lista2 0
+=avancarelem    lista2  1	OK
+=deturparlista	lista2	2	0	OK
+=deturparlista	lista2	11	10	OK
+=verificarlista	lista2 1
+=recuperar
+=irfinal	lista2
+=avancarelem	lista2	-1	OK
 
-== Verificar função verificadora
-//=verificarcabeca	lista2
-//=verificarlista	lista2	
+//== Verificar função verificadora
+//=verificarcabeca	lista2 0
+//=verificarlista	lista2	 0
 
 
 == Destruir a lista
@@ -164,7 +161,6 @@
 
 == Terminar controlar contadores
 =pararcontagem
-=verificarcontagens    0
 
 == Terminar contagem
 =terminarcontadores

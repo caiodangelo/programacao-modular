@@ -1,9 +1,7 @@
 Data		Horas	Tipo de Tarefa				Descrição da Tarefa
-08/11/2009	06:00	Especificar Módulos, Especificar 
-Funções, Codificar Módulos, Redigir Scripts de Teste, 
-Realizar os Testes						Novas funções dos módulos movimentador e gerenciador
-11/11/2009	03:00	Especificar Módulos, Especificar 
-Funções, Codificar Módulos, Redigir Scripts de Teste, 
-Realizar os Testes						Novas funções dos módulos movimentador e gerenciador
-15/11/2009	08:00	Realizar os Testes, Diagnosticar 
-e Corrigir Problemas Encontrados				Módulos Movimentador, partida e gerenciador
+07/12/2009	2:00	Estudar					Estudar módulos CESPDIN e CONTA
+08/12/2009	1:30	Codificar Módulo			Inserir contadores de cobertura de testes no módulo lista
+08/12/2009	2:00	Codificar Módulo			Adaptar o módulo lista para fazer o gerenciamento de espaços de dados dinâmicos com o CESPDIN
+08/12/2009	2:00	Codificar Módulo			Codificar verificadores do módulo lista
+08/12/2009	1:00	Redigir Testes				Adaptar o módulo de teste específico para as funções de verificação
+08/12/2009	0:30	Documentar				Documentar alterações realizadas e redigir timesheet			

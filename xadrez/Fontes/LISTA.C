@@ -770,17 +770,26 @@
    {
 
       LIS_tppLista pLista = NULL ;
+	  tpElemLista * pElemento = NULL ;
+	  int numFalhas = 0 ;
 
-      if ( LIS_VerificarCabeca( pListaParm ) != LIS_CondRetOK )
-      {
-         return LIS_CondRetErroEstrutural ;
-      } /* if */
+      numFalhas = LIS_VerificarCabeca( pListaParm ) ;
 
       CED_MarcarEspacoAtivo( pListaParm ) ;
 
       pLista = ( LIS_tppLista ) ( pListaParm ) ;
 
-      return VerificarElemento( pLista->pOrigemLista ) ;
+	  pElemento = pLista->pOrigemLista ;
+	  while ( pElemento != NULL )
+	  {
+		  CED_MarcarEspacoAtivo( pElemento ) ;
+
+		  numFalhas += LIS_VerificarElemento( pElemento ) ;
+
+		  pElemento = pElemento->pProx ;
+	  }
+
+      return numFalhas ;
 
    } /* Fim função: LIS  &Verificar uma lista */
 
@@ -798,7 +807,6 @@
 
       LIS_tppLista pLista = NULL ;
 	  tpElemLista * pElem = NULL ;
-	  int contador = 0 ;
 	  int numFalhas = 0;
 
       /* Verifica o tipo do espaço */
@@ -856,24 +864,6 @@
                numFalhas++;
             } /* if */
 		 }
-		 else
-		 {
-			 pElem = pLista->pOrigemLista ;
-			 while ( pElem != NULL )
-			 {
-				 contador++ ;
-				 if ( contador > pLista->numElem )
-				 {
-					 break;
-				 }
-				 pElem = pElem->pProx ;
-			 }
-			 if ( TST_CompararInt( pLista->numElem , contador ,
-                 "Numero de elementos errado" ) != TST_CondRetOK )
-            {
-               numFalhas++;
-            } /* if */
-		 }
 
 		 /* Verifica se elemento corrente pertence à lista */
 
@@ -909,29 +899,31 @@
 *  Função: LIS  &Verificar um elemento
 *  ****/
 
-   LIS_tpCondRet LIS_VerificarElemento( void * pElemParm )
+   int LIS_VerificarElemento( void * pElemParm )
    {
 
       tpElemLista * pElemento     = NULL ;
+	  int numFalhas = 0 ;
 
          if ( pElemParm == NULL )
          {
             TST_NotificarFalha( "Tentou verificar elemento inexistente." ) ;
-            return LIS_CondRetErroEstrutural ;
+			numFalhas++;
+            return numFalhas ;
 
          } /* if */
 
          if ( ! CED_VerificarEspaco( pElemParm , NULL ))
          {
             TST_NotificarFalha( "Controle do espaço acusou erro." ) ;
-            return LIS_CondRetErroEstrutural ;
+            numFalhas++;
          } /* if */
 
          if ( TST_CompararInt( LIS_TipoEspacoElemento ,
               CED_ObterTipoEspaco( pElemParm ) ,
               "Tipo do espaço de dados não é elemento de lista." ) != TST_CondRetOK )
          {
-            return LIS_CondRetErroEstrutural ;
+            numFalhas++ ;
          } /* if */
 
          pElemento     = ( tpElemLista * )( pElemParm ) ;
@@ -943,7 +935,7 @@
             if ( TST_CompararPonteiro( pElemento , pElemento->pProx->pAnt ,
                  "Anterior do próximo não é o próprio." ) != TST_CondRetOK )
             {
-               return LIS_CondRetErroEstrutural ;
+               numFalhas++ ;
             } /* if */
          }
 
@@ -954,11 +946,11 @@
             if ( TST_CompararPonteiro( pElemento , pElemento->pAnt->pProx ,
                  "Próximo do anterior não é o próprio." ) != TST_CondRetOK )
             {
-               return LIS_CondRetErroEstrutural ;
+               numFalhas++ ;
             } /* if */
          } /* if */
 
-      return LIS_CondRetOK ;
+      return numFalhas ;
 
    } /* Fim função: LIS  &Verificar um elemento da lista */
 

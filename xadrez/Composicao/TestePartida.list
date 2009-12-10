@@ -108,10 +108,10 @@ Estatísticas do construto
       testpar.c
 
    Estatísticas do arquivo: lista.c
-      Total linhas:             981
-      Linhas de código:         574
-      Linhas de comentário:     187
-      Linhas em branco:         243
+      Total linhas:             995
+      Linhas de código:         581
+      Linhas de comentário:     188
+      Linhas em branco:         249
    Arquivos de inclusão de que necessita
       ..\\tabelas\\idtiposespaco.def
       cespdin.h
@@ -121,10 +121,10 @@ Estatísticas do construto
       tst_espc.h
 
    Estatísticas do arquivo: lista.h
-      Total linhas:             461
-      Linhas de código:          54
-      Linhas de comentário:     332
-      Linhas em branco:          75
+      Total linhas:             474
+      Linhas de código:          58
+      Linhas de comentário:     338
+      Linhas em branco:          78
    Arquivos em que é incluído
       grafo.c
       lista.c
@@ -214,10 +214,10 @@ Estatísticas do construto
 Totais por tipo de arquivo
 
   Tipo: h        Path: ..\Fontes
-         Total linhas do tipo:      4265
-         Linhas de código:           404
-         Linhas de comentário:      3214
-         Linhas em branco:           647
+         Total linhas do tipo:      4278
+         Linhas de código:           408
+         Linhas de comentário:      3220
+         Linhas em branco:           650
          Arquivos deste tipo:         11
 
   Tipo: obj      Path: ..\Objetos
@@ -256,17 +256,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:      4207
-         Linhas de código:          2349
-         Linhas de comentário:       960
-         Linhas em branco:          1007
+         Total linhas do tipo:      4221
+         Linhas de código:          2356
+         Linhas de comentário:       961
+         Linhas em branco:          1013
          Arquivos deste tipo:          7
 
 Totais para todo o construto TestePartida
 
-   Total linhas:              8508
-   Linhas de código:          2763
-   Linhas de comentário:      4195
-   Linhas em branco:          1659
+   Total linhas:              8535
+   Linhas de código:          2774
+   Linhas de comentário:      4202
+   Linhas em branco:          1668
    Arquivos processados:        19
 
