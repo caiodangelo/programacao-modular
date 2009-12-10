@@ -196,7 +196,7 @@
 =destruirlista   lista2
 
 == Controlar vazamento de memória
-=obternumeroespacosalocados  0
+=obternumeroespacosalocados  1
 =verificartodosespacos       CriterioExibir
 
 == Terminar controlar contadores

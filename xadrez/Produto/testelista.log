@@ -61,33 +61,33 @@ cc>   32  Linha:    37   Contagem em "LIS_ProcurarValor - Valor Encontrado" é ze
    93  ==Verificar InserirApos elemento no meio da lista
    98  == Controlar vazamento de memória
 
-!!!  Espaco de dados, id:     5  pValor: 002D0B1A  hexa: 1A 0B 2D 00  E' origem lista  Id suc:     3
+!!!  Espaco de dados, id:     5  pValor: 00150B1A  hexa: 1A 0B 15 00  E' origem lista  Id suc:     3
      Id tipo valor: 2  Tamanho: 12  Ativo  Linha onde alocou: 722  Arquivo: ..\Fontes\lista.c
      Controle antes OK  Controle apos OK
           0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
-    000  D8 1F 2D 00 DA 08 2D 00 FA 09 2D 00               Ø.-.Ú.-.ú.-.
+    000  D8 1F 15 00 DA 08 15 00 FA 09 15 00               Ø...Ú...ú...
 
 
-!!!  Espaco de dados, id:     3  pValor: 002D09FA  hexa: FA 09 2D 00  Id ant:     5  Id suc:     1
+!!!  Espaco de dados, id:     3  pValor: 001509FA  hexa: FA 09 15 00  Id ant:     5  Id suc:     1
      Id tipo valor: 2  Tamanho: 12  Ativo  Linha onde alocou: 722  Arquivo: ..\Fontes\lista.c
      Controle antes OK  Controle apos OK
           0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
-    000  C8 1F 2D 00 1A 0B 2D 00 00 00 00 00               È.-...-.....
+    000  C8 1F 15 00 1A 0B 15 00 00 00 00 00               È...........
 
 
-!!!  Espaco de dados, id:     1  pValor: 002D08DA  hexa: DA 08 2D 00  Id ant:     3  Id suc:     0
+!!!  Espaco de dados, id:     1  pValor: 001508DA  hexa: DA 08 15 00  Id ant:     3  Id suc:     0
      Id tipo valor: 2  Tamanho: 12  Ativo  Linha onde alocou: 722  Arquivo: ..\Fontes\lista.c
      Controle antes OK  Controle apos OK
           0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
-    000  B8 1F 2D 00 00 00 00 00 1A 0B 2D 00               ¸.-.......-.
+    000  B8 1F 15 00 00 00 00 00 1A 0B 15 00               ¸...........
 
 
-!!!  Espaco de dados, id:     0  pValor: 002D0812  hexa: 12 08 2D 00  Id ant:     1  E' final lista
+!!!  Espaco de dados, id:     0  pValor: 00150812  hexa: 12 08 15 00  Id ant:     1  E' final lista
      Id tipo valor: 1  Tamanho: 20  Ativo  Linha onde alocou: 121  Arquivo: ..\Fontes\lista.c
      Controle antes OK  Controle apos OK
           0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
-    000  DA 08 2D 00 FA 09 2D 00 DA 08 2D 00 03 00 00 00   Ú.-.ú.-.Ú.-.....
-    010  50 1A 40 00                                       P.@.
+    000  DA 08 15 00 FA 09 15 00 DA 08 15 00 03 00 00 00   Ú...ú...Ú.......
+    010  20 1A 40 00                                        .@.
 
   103  == Excluir elemento do meio
   108  == Excluir elemento do início

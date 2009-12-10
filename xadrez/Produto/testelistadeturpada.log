@@ -3,85 +3,120 @@
 !!!      Construto sob teste: ..\produto\testelista
 !!!      Script de teste:     ..\scripts\testelistadeturpada.script
 
-!!!    0  Linha:     1  // Script:    TesteLista.script 
+!!!    0  Linha:     1  // Script:    TesteListaDeturpada.script 
 !!!    0  Linha:     2  // Autor:     Arndt von Staa 
-!!!    0  Linha:     3  // Data:      02/abr/2008 
-!!!    0  Linha:     4  // Propósito: Testar superficialmente o módulo lista genérica duplamente encadeada 
+!!!    0  Linha:     3  // Data:      08/dez/2009 
+!!!    0  Linha:     4  // Propósito: Inserir deturpações para testar a instrumentação do módulo lista genérica duplamente encadeada 
 !!!    0  Linha:     5  // 
     7  == Inicializar valores
-   33  == Iniciar contagem
-   38  == Criar a lista 0
-   41  == Verificar contadores, 1 deles já contou
-cc>    1  Linha:    42   Contagem em "LIS_AvancarElementoCorrente" é zero.
-cc>    2  Linha:    42   Contagem em "LIS_AvancarElementoCorrente - Chegou ao final da Lista, numElem < 0" é zero.
-cc>    3  Linha:    42   Contagem em "LIS_AvancarElementoCorrente - Chegou ao final da Lista, numElem > 0" é zero.
-cc>    4  Linha:    42   Contagem em "LIS_AvancarElementoCorrente - Esta no meio da Lista, numElem < 0" é zero.
-cc>    5  Linha:    42   Contagem em "LIS_AvancarElementoCorrente - Esta no meio da Lista, numElem > 0" é zero.
-cc>    6  Linha:    42   Contagem em "LIS_AvancarElementoCorrente - Lista Vazia" é zero.
-cc>    7  Linha:    42   Contagem em "LIS_AvancarElementoCorrente - numElem Maior Que Zero" é zero.
-cc>    8  Linha:    42   Contagem em "LIS_AvancarElementoCorrente - numElem é Menor Que Zero" é zero.
-cc>    9  Linha:    42   Contagem em "LIS_DestruirLista" é zero.
-cc>   10  Linha:    42   Contagem em "LIS_EsvaziarLista" é zero.
-cc>   11  Linha:    42   Contagem em "LIS_ExcluirElemento" é zero.
-cc>   12  Linha:    42   Contagem em "LIS_ExcluirElemento - Elemento nao tem antecessores" é zero.
-cc>   13  Linha:    42   Contagem em "LIS_ExcluirElemento - Elemento nao tem sucessores" é zero.
-cc>   14  Linha:    42   Contagem em "LIS_ExcluirElemento - Elemento tem antecessores" é zero.
-cc>   15  Linha:    42   Contagem em "LIS_ExcluirElemento - Elemento tem sucessores" é zero.
-cc>   16  Linha:    42   Contagem em "LIS_ExcluirElemento - Lista vazia" é zero.
-cc>   17  Linha:    42   Contagem em "LIS_InserirElementoAntes" é zero.
-cc>   18  Linha:    42   Contagem em "LIS_InserirElementoAntes - Elemento corrente NULL" é zero.
-cc>   19  Linha:    42   Contagem em "LIS_InserirElementoAntes - Elemento na origem" é zero.
-cc>   20  Linha:    42   Contagem em "LIS_InserirElementoAntes - Elemento no meio da lista" é zero.
-cc>   21  Linha:    42   Contagem em "LIS_InserirElementoApos" é zero.
-cc>   22  Linha:    42   Contagem em "LIS_InserirElementoApos - Elemento corrente NULL" é zero.
-cc>   23  Linha:    42   Contagem em "LIS_InserirElementoApos - Elemento no fim" é zero.
-cc>   24  Linha:    42   Contagem em "LIS_InserirElementoApos - Elemento no meio da lista" é zero.
-cc>   25  Linha:    42   Contagem em "LIS_IrFinalLista" é zero.
-cc>   26  Linha:    42   Contagem em "LIS_IrInicioLista" é zero.
-cc>   27  Linha:    42   Contagem em "LIS_ObterValor" é zero.
-cc>   28  Linha:    42   Contagem em "LIS_ObterValor - Lista Vazia" é zero.
-cc>   29  Linha:    42   Contagem em "LIS_ProcurarValor" é zero.
-cc>   30  Linha:    42   Contagem em "LIS_ProcurarValor - Lista vazia" é zero.
-cc>   31  Linha:    42   Contagem em "LIS_ProcurarValor - Nao achou" é zero.
-cc>   32  Linha:    42   Contagem em "LIS_ProcurarValor - Valor Encontrado" é zero.
-<<<    0  Linha:    44  Falhas registradas eram esperadas e foram recuperadas. 
-   46  == Verificar ObterValor relativo a lista vazia
-   49  == Inserir elemento em lista vazia
-   53  == Inserir elemento após primeiro
-   57  == Inserir elemento antes do último
-   61  == Excluir elemento do meio
-   65  == Excluir elemento do início
-   69  == Excluir elemento final, único
-   73  == Ver se a lista ficou vazia
-   76  == Destruir a lista
-   79  == Criar uma lista com dois elementos
-   84  == Esvaziar a lista e ver se ficou vazia
-   88  == Destruir a lista
-   91  == Criar uma lista com quatro elementos
-   98  == Verificar a lista de trás para diante
-  108  == Verificar a lista de frente para trás
-  118  == Verificar a lista andando demais de trás para diante
-  122  == Verificar a lista andando demais de frente para trás
-  126  == Adicionar mais elementos à lista
-  134  == Deturpar a lista
-!!!    0  Linha:   138  //=deturparlista	lista2	3	0	OK 
-!!!    0  Linha:   142  //=deturparlista	lista2	10	0	OK 
->>>    1  Linha:   149  Retorno errado ao obter numero de falhas na lista Deveria ser: 1  É: 0
-<<<    0  Linha:   150  Falha esperada foi recuperada. 
-!!!    0  Linha:   154  //== Verificar função verificadora 
-!!!    0  Linha:   155  //=verificarcabeca	lista2 0 
-!!!    0  Linha:   156  //=verificarlista	lista2	 0 
-  159  == Destruir a lista
-  162  == Terminar controlar contadores
-  165  == Terminar contagem
-!!!    0  Linha:   168  // fim 
+   35  == Iniciar contagem
+   40  == Criar a lista 0
+   43  == Verificar contadores, 1 deles já contou
+cc>    1  Linha:    44   Contagem em "LIS_AvancarElementoCorrente" é zero.
+cc>    2  Linha:    44   Contagem em "LIS_AvancarElementoCorrente - Chegou ao final da Lista, numElem < 0" é zero.
+cc>    3  Linha:    44   Contagem em "LIS_AvancarElementoCorrente - Chegou ao final da Lista, numElem > 0" é zero.
+cc>    4  Linha:    44   Contagem em "LIS_AvancarElementoCorrente - Esta no meio da Lista, numElem < 0" é zero.
+cc>    5  Linha:    44   Contagem em "LIS_AvancarElementoCorrente - Esta no meio da Lista, numElem > 0" é zero.
+cc>    6  Linha:    44   Contagem em "LIS_AvancarElementoCorrente - Lista Vazia" é zero.
+cc>    7  Linha:    44   Contagem em "LIS_AvancarElementoCorrente - numElem Maior Que Zero" é zero.
+cc>    8  Linha:    44   Contagem em "LIS_AvancarElementoCorrente - numElem é Menor Que Zero" é zero.
+cc>    9  Linha:    44   Contagem em "LIS_DestruirLista" é zero.
+cc>   10  Linha:    44   Contagem em "LIS_EsvaziarLista" é zero.
+cc>   11  Linha:    44   Contagem em "LIS_ExcluirElemento" é zero.
+cc>   12  Linha:    44   Contagem em "LIS_ExcluirElemento - Elemento nao tem antecessores" é zero.
+cc>   13  Linha:    44   Contagem em "LIS_ExcluirElemento - Elemento nao tem sucessores" é zero.
+cc>   14  Linha:    44   Contagem em "LIS_ExcluirElemento - Elemento tem antecessores" é zero.
+cc>   15  Linha:    44   Contagem em "LIS_ExcluirElemento - Elemento tem sucessores" é zero.
+cc>   16  Linha:    44   Contagem em "LIS_ExcluirElemento - Lista vazia" é zero.
+cc>   17  Linha:    44   Contagem em "LIS_InserirElementoAntes" é zero.
+cc>   18  Linha:    44   Contagem em "LIS_InserirElementoAntes - Elemento corrente NULL" é zero.
+cc>   19  Linha:    44   Contagem em "LIS_InserirElementoAntes - Elemento na origem" é zero.
+cc>   20  Linha:    44   Contagem em "LIS_InserirElementoAntes - Elemento no meio da lista" é zero.
+cc>   21  Linha:    44   Contagem em "LIS_InserirElementoApos" é zero.
+cc>   22  Linha:    44   Contagem em "LIS_InserirElementoApos - Elemento corrente NULL" é zero.
+cc>   23  Linha:    44   Contagem em "LIS_InserirElementoApos - Elemento no fim" é zero.
+cc>   24  Linha:    44   Contagem em "LIS_InserirElementoApos - Elemento no meio da lista" é zero.
+cc>   25  Linha:    44   Contagem em "LIS_IrFinalLista" é zero.
+cc>   26  Linha:    44   Contagem em "LIS_IrInicioLista" é zero.
+cc>   27  Linha:    44   Contagem em "LIS_ObterValor" é zero.
+cc>   28  Linha:    44   Contagem em "LIS_ObterValor - Lista Vazia" é zero.
+cc>   29  Linha:    44   Contagem em "LIS_ProcurarValor" é zero.
+cc>   30  Linha:    44   Contagem em "LIS_ProcurarValor - Lista vazia" é zero.
+cc>   31  Linha:    44   Contagem em "LIS_ProcurarValor - Nao achou" é zero.
+cc>   32  Linha:    44   Contagem em "LIS_ProcurarValor - Valor Encontrado" é zero.
+<<<    0  Linha:    46  Falhas registradas eram esperadas e foram recuperadas. 
+   48  == Verificar espaços alocados
+   52  == Verificar ObterValor relativo a lista vazia
+   55  == Verificar AvancarElementoCorrente relativo a lista vazia
+   58  == Verificar Excluir elemento em lista vazia
+   61  ==Verificar ProcurarValor em lista vazia
+   64  == Inserir elemento em lista vazia
+   68  == Inserir elemento antes do primeiro
+   72  == Excluir elemento inserido
+   76  == Inserir elemento após primeiro
+   80  ==Verificar Procurar Ultimo Valor
+   84  == Verificar Procurar Valor Inexistente
+   90  ==Verificar percorrimento
+   96  == Inserir elemento antes do último
+  100  ==Verificar InserirApos elemento no meio da lista
+  105  == Controlar vazamento de memória
 
-!!! Número de linhas lidas:         168
-!!! Número de casos de teste:        26
-!!! Número comandos corretos:        97
+!!!  Espaco de dados, id:     5  pValor: 003013B2  hexa: B2 13 30 00  E' origem lista  Id suc:     3
+     Id tipo valor: 2  Tamanho: 12  Ativo  Linha onde alocou: 722  Arquivo: ..\Fontes\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  98 12 30 00 52 11 30 00 82 12 30 00               ˜.0.R.0.‚.0.
+
+
+!!!  Espaco de dados, id:     3  pValor: 00301282  hexa: 82 12 30 00  Id ant:     5  Id suc:     1
+     Id tipo valor: 2  Tamanho: 12  Ativo  Linha onde alocou: 722  Arquivo: ..\Fontes\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  68 11 30 00 B2 13 30 00 00 00 00 00               h.0.².0.....
+
+
+!!!  Espaco de dados, id:     1  pValor: 00301152  hexa: 52 11 30 00  Id ant:     3  Id suc:     0
+     Id tipo valor: 2  Tamanho: 12  Ativo  Linha onde alocou: 722  Arquivo: ..\Fontes\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  98 10 30 00 00 00 00 00 B2 13 30 00               ˜.0.....².0.
+
+
+!!!  Espaco de dados, id:     0  pValor: 0030107A  hexa: 7A 10 30 00  Id ant:     1  E' final lista
+     Id tipo valor: 1  Tamanho: 20  Ativo  Linha onde alocou: 121  Arquivo: ..\Fontes\lista.c
+     Controle antes OK  Controle apos OK
+          0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F   0123456789ABCDEF
+    000  52 11 30 00 82 12 30 00 52 11 30 00 03 00 00 00   R.0.‚.0.R.0.....
+    010  20 1A 40 00                                        .@.
+
+  110  == Excluir elemento do meio
+  115  == Excluir elemento do início
+  119  == Excluir elemento final, único
+  123  == Ver se a lista ficou vazia
+  126  == Destruir a lista
+  129  == Criar uma lista com dois elementos
+  134  == Esvaziar a lista e ver se ficou vazia
+  138  == Destruir a lista
+  141  == Criar uma lista com quatro elementos
+  148  == Verificar a lista de trás para diante
+  158  == Verificar a lista de frente para trás
+  168  == Verificar a lista andando demais de trás para diante
+  172  == Verificar a lista andando demais de frente para trás
+  176  == Adicionar mais elementos à lista
+  184  == Deturpar a lista
+!!!    0  Linha:   192  //=verificarcabeca	lista2	0 
+  195  == Destruir a lista
+  198  == Controlar vazamento de memória
+  202  == Terminar controlar contadores
+  207  == Terminar contagem
+!!!    0  Linha:   210  // fim 
+
+!!! Número de linhas lidas:         210
+!!! Número de casos de teste:        38
+!!! Número comandos corretos:       121
 !!! Número de falhas encontradas:     0
 
 !!! Não foram encontrados problemas
 
 
-!!! Numero de espacos ainda alocados: 6
+!!! Numero de espacos ainda alocados: 1
