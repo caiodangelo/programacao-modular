@@ -442,7 +442,7 @@ char * ultimaStringInserida = NULL;
             } /* if */
 
             return TST_CompararInt( ValEsp , LIS_VerificarCabeca ( vtListas[ inxLista ] ),
-                     "Retorno errado ao obter numero de falhas"                   ) ;
+                     "Retorno errado ao obter numero de falhas na cabeca"                   ) ;
 
          } /* fim ativa: LIS  &Verificar Cabeça */
 
@@ -451,16 +451,17 @@ char * ultimaStringInserida = NULL;
          else if ( strcmp( ComandoTeste , VER_LISTA_CMD ) == 0 )
          {
 
-            numLidos = LER_LerParametros( "i" , &inxLista ) ;
+            numLidos = LER_LerParametros( "ii" , 
+				&inxLista, &ValEsp ) ;
 
-            if ( ( numLidos != 1 )
+            if ( ( numLidos != 2 )
               || ( ! ValidarInxLista( inxLista , NAO_VAZIO )) )
             {
                return TST_CondRetParm ;
             } /* if */
 
-            return LIS_VerificarLista ( vtListas[ inxLista ] ) ;
-
+            return TST_CompararInt( ValEsp ,LIS_VerificarLista ( vtListas[ inxLista ] ),
+                     "Retorno errado ao obter numero de falhas na lista"                   ) ;
          } /* fim ativa: LIS  &Verificar Lista */
 
       return TST_CondRetNaoConhec ;

@@ -65,10 +65,10 @@ Estatísticas do construto
       testver.c
 
    Estatísticas do arquivo: lista.c
-      Total linhas:             981
-      Linhas de código:         574
-      Linhas de comentário:     187
-      Linhas em branco:         243
+      Total linhas:             995
+      Linhas de código:         581
+      Linhas de comentário:     188
+      Linhas em branco:         249
    Arquivos de inclusão de que necessita
       ..\\tabelas\\idtiposespaco.def
       cespdin.h
@@ -78,10 +78,10 @@ Estatísticas do construto
       tst_espc.h
 
    Estatísticas do arquivo: lista.h
-      Total linhas:             461
-      Linhas de código:          54
-      Linhas de comentário:     332
-      Linhas em branco:          75
+      Total linhas:             474
+      Linhas de código:          58
+      Linhas de comentário:     338
+      Linhas em branco:          78
    Arquivos em que é incluído
       lista.c
       vertice.c
@@ -128,10 +128,10 @@ Estatísticas do construto
 Totais por tipo de arquivo
 
   Tipo: h        Path: ..\Fontes
-         Total linhas do tipo:      3154
-         Linhas de código:           291
-         Linhas de comentário:      2393
-         Linhas em branco:           470
+         Total linhas do tipo:      3167
+         Linhas de código:           295
+         Linhas de comentário:      2399
+         Linhas em branco:           473
          Arquivos deste tipo:          7
 
   Tipo: obj      Path: ..\Objetos
@@ -170,17 +170,17 @@ Totais por tipo de arquivo
          Arquivos deste tipo:          0
 
   Tipo: c        Path: ..\Fontes
-         Total linhas do tipo:      1791
-         Linhas de código:           971
-         Linhas de comentário:       390
-         Linhas em branco:           477
+         Total linhas do tipo:      1805
+         Linhas de código:           978
+         Linhas de comentário:       391
+         Linhas em branco:           483
          Arquivos deste tipo:          3
 
 Totais para todo o construto TesteVertice
 
-   Total linhas:              4981
-   Linhas de código:          1272
-   Linhas de comentário:      2804
-   Linhas em branco:           952
+   Total linhas:              5008
+   Linhas de código:          1283
+   Linhas de comentário:      2811
+   Linhas em branco:           961
    Arquivos processados:        11
 

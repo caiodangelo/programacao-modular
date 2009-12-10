@@ -1,0 +1,135 @@
+------------------------------------------------------------------
+    Arquivo LEIAME do Grupo CEV
+------------------------------------------------------------------
+
+Este documento fornece informações complementares ou posteriores para 
+o trabalho 3 de INF1301 - Programação Modular e sua instalação.
+
+
+-------------------------
+COMO USAR ESTE DOCUMENTO
+-------------------------
+
+Para ver o arquivo Leiame.txt na tela no Bloco de Notas, maximize a 
+janela do Bloco de Notas. No menu Formatar, clique em Quebra automática 
+de linha. Para imprimir o Leiame.txt, abra-o no Bloco de Notas ou em 
+outro processador de texto e, em seguida, utilize o comando Imprimir no 
+menu Arquivo.
+
+
+--------
+SUMÁRIO
+--------
+
+REQUISITOS DO SISTEMA
+REQUISITOS ADICIONAIS
+INSTALAÇÃO
+COMPILAÇÃO
+TESTES
+ESTRUTURA DE DIRETÓRIOS
+COMO OBTER AJUDA
+REPOSITÓRIO
+REGRAS DE SINTAXE DOS ARQUIVOS DE DISPOSIÇÃO DE PEÇAS NO TABULEIRO
+REGRAS DE SINTAXE DOS ARQUIVOS DE REGRAS DE MOVIMENTAÇÃO DISCRETA
+REGRAS DE SINTAXE DOS ARQUIVOS DE REGRAS DE MOVIMENTAÇÃO CONTÍNUA
+COMO JOGAR
+
+----------------------
+REQUISITOS DO SISTEMA
+----------------------
+
+  - Arcabouço de Testes devidamente instalado
+  - Visual Studio 2005 ou 2008
+
+
+----------------------
+REQUISITOS ADICIONAIS
+----------------------
+
+Para suportar a correto funcionamento do programa execute o batch
+vsvar32s.bat.  Execute-o sempre que uma nova janela de linha de 
+comando for aberta
+
+-----------
+INSTALAÇÃO
+-----------
+
+O trabalho se encontra no arquivo INF1301-Trab04-CEV.zip . Para instalar
+os módulos, é necessário extrair toda a pasta xadrez para o diretório on-
+de o arqcabouço está instalado. Sendo assim, a pasta xadrez ficará loca-
+lizada no mesmo diretório que as pastas arcabouc, documentos, ferramnt,ins-
+trum, etc.
+
+--------------------
+COMPILAÇÃO
+--------------------
+
+Para gerar as bibliotecas, compilar os fontes e executar os testes, basta
+executar o batch Tudo.bat encontrado no diretório "Batches". Este batch
+limpa os arquivos gerados por execuções anteriores, cria a biblioteca, com-
+pila os códigos-fonte e executa os testes.
+
+
+--------------------
+TESTES
+--------------------
+
+Foram implementados 5 módulos específicos de teste (um para cada módulo desenvolvido).
+Tais módulos testam todas as funções exportadas dos módulos e com condições de retorno
+bem especificadas. Algumas funções com retorno void não foram diretamente testadas mas
+por serem invocadas por outras funções foi possível detectar e corrigir os problemas
+nelas à partir do teste das funções que as invocaram.
+
+Foram criados e fornecidos 5 scripts específicos de testes (um para cada módulo desenvolvido).
+Tais scripts executam todas as funções de teste implementadas, buscando ainda gerar
+casos que testem as mais variadas condições de retorno especificadas nas interfaces 
+dos módulos. Para alterar os scripts de teste basta acessar o script específico dentro 
+da pasta "Scripts". Após realizar as alterações que achar necessárias basta executar o
+batch Tudo.bat que encontra-se no diretório "Batches".
+
+Vale ressaltar ainda que uma breve explicação de cada comando de script de testes se 
+encontra no respectivo módulo de teste. Tais arquivos se encontram no diretório Fontes 
+sob a alcunha TESTxxx onde xxx corresponde ao prefixo do módulo implementado (VER-vértice, 
+GRA-grafo, REC-movimentador, GER-gerenciador, PAR-partida).
+
+É importante observar também que, para melhor testar o módulo movimentador é interessante
+manipular os arquivos de disposição de peças no tabuleiro e de regras de definição.
+Há tópicos abaixo que esclarecem como manipular esses arquivos de forma correta. Por essa
+razão o script de testes do movimentador parece bem simples à primeira vista, mas a complexidade
+dos testes evolui à medida que alteramos os arquivos de definição.
+
+Os arquivos fornecidos já estão configurados de modo a testar os módulos gerenciador, partida e
+movimentador e consequentemente realizar a disputa de uma partida. Para
+testar outros módulos basta tirar o trecho REM das linhas to batch TestaTudo.bat .
+
+-----------------------
+ESTRUTURA DE DIRETÓRIOS
+-----------------------
+
+A seguir, encontra-se uma descrição dos diretórios do trabalho
+-Batches - contém procedimentos para geração de bibliotecas, compilação e teste.
+-Composição - contém os arquivos com as diretivas de geração de scripts de make
+-Definicao - contém os arquivos de disposição de peças no tabuleiro e de regras
+	de movimentação das peças
+-Fontes - código dos módulos e interfaces
+-Objetos - arquivos *.obj, *.lib e *.build
+-Produto - arquivos executáveis, de log de teste e de log de compilação
+-Scripts - scripts de teste
+
+
+-----------
+REPOSITÓRIO
+-----------
+
+Neste trabalho, utilizamos um serviço de repositório online. O projeto pode ser
+visitado na URL: http://code.google.com/p/programacao-modular/
+
+-----------------
+COMO OBTER AJUDA
+-----------------
+
+Se tiver qualquer problema com este produto, entre em contato por email:
+Eduardo Velloso	- eduardo.velloso@gmail.com
+Caio D'Angelo	- caioluizdangelo@gmail.com
+Vitor Barbarisi	- vitorbarbarisi@yahoo.com
+
