@@ -1,7 +1,7 @@
-// Script:    TesteLista.script
+// Script:    TesteListaDeturpada.script
 // Autor:     Arndt von Staa
-// Data:      02/abr/2008
-// Propósito: Testar superficialmente o módulo lista genérica duplamente encadeada
+// Data:      08/dez/2009
+// Propósito: Inserir deturpações para testar a instrumentação do módulo lista genérica duplamente encadeada
 //
 
 == Inicializar valores
@@ -20,15 +20,17 @@
 =declararparm   str8    string  "muro"
 =declararparm   str9    string  "pato"
 
-=declararparm   OK             		int  0
-=declararparm   ListaVazia     		int  1
-=declararparm   FimLista       		int  2
-=declararparm   NaoAchou       		int  3
-=declararparm   FaltouMemoria  		int  4
+=declararparm   OK             int  0
+=declararparm   ListaVazia     int  1
+=declararparm   FimLista       int  2
+=declararparm   NaoAchou       int  3
+=declararparm   FaltouMemoria  int  4
 =declararparm	ParametroInvalido	int  6
 
 =declararparm   pNULL          int  0
 =declararparm   pNaoNULL       int  1
+
+=declararparm    CriterioExibir int   1
 
 == Iniciar contagem
 =inicializarcontadores  ""
@@ -43,22 +45,70 @@
 =contagemcontador   "LIS_CriarLista"  1
 =AceitaFalhasAcumuladas 32
 
+== Verificar espaços alocados
+=verificartodosespacos       1
+=obternumeroespacosalocados  1
+
 == Verificar ObterValor relativo a lista vazia
 =obtervalorelem  lista0   "???"     pNULL
+
+== Verificar AvancarElementoCorrente relativo a lista vazia
+=avancarelem     lista0   1     ListaVazia
+
+== Verificar Excluir elemento em lista vazia
+=excluirelem     lista0   ListaVazia
+
+==Verificar ProcurarValor em lista vazia
+=procurarvalor	lista0	ListaVazia
 
 == Inserir elemento em lista vazia
 =inselemantes    lista0   str0   OK
 =obtervalorelem  lista0   str0   pNaoNULL
 
+== Inserir elemento antes do primeiro
+=inselemantes    lista0   str1   OK
+=obtervalorelem  lista0   str1   pNaoNULL
+
+== Excluir elemento inserido
+=obtervalorelem  lista0   str1   pNaoNULL
+=excluirelem     lista0             OK
+
 == Inserir elemento após primeiro
 =inselemapos     lista0   str1   OK
 =obtervalorelem  lista0   str1   pNaoNULL
+
+==Verificar Procurar Ultimo Valor
+=procurarvalor		lista0				OK
+=obtervalorelem		lista0   str1   pNaoNULL
+
+== Verificar Procurar Valor Inexistente
+=inselemantes		lista0	str1	OK
+=obtervalorelem		lista0	str1	pNaoNULL
+=excluirelem		lista0			OK
+=procurarvalor		lista0			NaoAchou 
+
+==Verificar percorrimento
+=irinicio		lista0		OK
+=avancarelem	lista0	-1	FimLista
+=irfinal		lista0		OK
+=avancarelem	lista0	 1	FimLista
 
 == Inserir elemento antes do último
 =inselemantes    lista0   str2   OK
 =obtervalorelem  lista0   str2   pNaoNULL
 
+==Verificar InserirApos elemento no meio da lista
+=avancarelem	 lista0		-1		OK
+=inselemapos     lista0   str1		OK
+=excluirelem     lista0             OK
+
+== Controlar vazamento de memória
+=exibirtodosespacos            CriterioExibir
+=verificartodosespacos         CriterioExibir
+=obternumeroespacosalocados    4     // cabeça + 3 elementos
+
 == Excluir elemento do meio
+=avancarelem	lista0		1		OK
 =obtervalorelem  lista0   str2   pNaoNULL
 =excluirelem     lista0             OK
 
@@ -135,32 +185,24 @@
 =deturparlista	lista2	0	0	ParametroInvalido
 =irinicio	lista2
 =avancarelem    lista2  1	OK
-//=deturparlista	lista2	3	0	OK
-=deturparlista	lista2	11	10	OK
-=verificarlista	lista2 0
+=verificarcabeca	lista2	0
 =avancarelem    lista2  1	OK
-//=deturparlista	lista2	10	0	OK
-=verificarlista	lista2 0
-=deturparlista	lista2	6	0	OK
-=verificarlista	lista2 0
 =avancarelem    lista2  1	OK
-=deturparlista	lista2	2	0	OK
-=deturparlista	lista2	11	10	OK
-=verificarlista	lista2 1
-=recuperar
-=irfinal	lista2
-=avancarelem	lista2	-1	OK
-
-//== Verificar função verificadora
-//=verificarcabeca	lista2 0
-//=verificarlista	lista2	 0
-
+=deturparlista	lista2	8	0	OK
+//=verificarcabeca	lista2	0
+=verificarlista	lista2	0
 
 == Destruir a lista
 =destruirlista   lista2
 
+== Controlar vazamento de memória
+=obternumeroespacosalocados  0
+=verificartodosespacos       CriterioExibir
+
 == Terminar controlar contadores
 =pararcontagem
+
+=verificarcontagens 0
 
 == Terminar contagem
 =terminarcontadores
