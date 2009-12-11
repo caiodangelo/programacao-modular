@@ -181,7 +181,7 @@
 =inselemapos     lista2   str8   OK
 =inselemapos     lista2   str9   OK
 
-== Deturpar a lista
+== Deturpar a lista desencadeando nó sem liberar o espaço
 =deturparlista	lista2	0	0	ParametroInvalido
 =irinicio	lista2
 =avancarelem    lista2  1	OK
@@ -189,7 +189,7 @@
 =avancarelem    lista2  1	OK
 =avancarelem    lista2  1	OK
 =deturparlista	lista2	8	0	OK
-//=verificarcabeca	lista2	0
+=verificarcabeca	lista2	0
 =verificarlista	lista2	0
 
 == Destruir a lista
