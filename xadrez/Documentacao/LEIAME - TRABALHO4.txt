@@ -5,6 +5,8 @@
 Este documento fornece informações complementares ou posteriores para 
 o trabalho 3 de INF1301 - Programação Modular e sua instalação.
 
+Obs: Para efeitos práticos mantivemos a estrutura de nomes e diretórios dos trabalhos anteriores, 
+mas os arquivos enviados são apenas os referentes a esse trabalho 4.
 
 -------------------------
 COMO USAR ESTE DOCUMENTO
@@ -29,10 +31,6 @@ TESTES
 ESTRUTURA DE DIRETÓRIOS
 COMO OBTER AJUDA
 REPOSITÓRIO
-REGRAS DE SINTAXE DOS ARQUIVOS DE DISPOSIÇÃO DE PEÇAS NO TABULEIRO
-REGRAS DE SINTAXE DOS ARQUIVOS DE REGRAS DE MOVIMENTAÇÃO DISCRETA
-REGRAS DE SINTAXE DOS ARQUIVOS DE REGRAS DE MOVIMENTAÇÃO CONTÍNUA
-COMO JOGAR
 
 ----------------------
 REQUISITOS DO SISTEMA
@@ -74,33 +72,10 @@ pila os códigos-fonte e executa os testes.
 TESTES
 --------------------
 
-Foram implementados 5 módulos específicos de teste (um para cada módulo desenvolvido).
-Tais módulos testam todas as funções exportadas dos módulos e com condições de retorno
-bem especificadas. Algumas funções com retorno void não foram diretamente testadas mas
-por serem invocadas por outras funções foi possível detectar e corrigir os problemas
-nelas à partir do teste das funções que as invocaram.
-
-Foram criados e fornecidos 5 scripts específicos de testes (um para cada módulo desenvolvido).
-Tais scripts executam todas as funções de teste implementadas, buscando ainda gerar
-casos que testem as mais variadas condições de retorno especificadas nas interfaces 
-dos módulos. Para alterar os scripts de teste basta acessar o script específico dentro 
-da pasta "Scripts". Após realizar as alterações que achar necessárias basta executar o
-batch Tudo.bat que encontra-se no diretório "Batches".
-
-Vale ressaltar ainda que uma breve explicação de cada comando de script de testes se 
-encontra no respectivo módulo de teste. Tais arquivos se encontram no diretório Fontes 
-sob a alcunha TESTxxx onde xxx corresponde ao prefixo do módulo implementado (VER-vértice, 
-GRA-grafo, REC-movimentador, GER-gerenciador, PAR-partida).
-
-É importante observar também que, para melhor testar o módulo movimentador é interessante
-manipular os arquivos de disposição de peças no tabuleiro e de regras de definição.
-Há tópicos abaixo que esclarecem como manipular esses arquivos de forma correta. Por essa
-razão o script de testes do movimentador parece bem simples à primeira vista, mas a complexidade
-dos testes evolui à medida que alteramos os arquivos de definição.
-
-Os arquivos fornecidos já estão configurados de modo a testar os módulos gerenciador, partida e
-movimentador e consequentemente realizar a disputa de uma partida. Para
-testar outros módulos basta tirar o trecho REM das linhas to batch TestaTudo.bat .
+Foram implementados 5 scripts de testes. Um script simples que testa a cobertura de arestas
+e 4 scripts feitos com base nesse script simples que introduzem deturpações distintas para 
+testar a tolerância do módulo às falhas. Os comandos de deturpação encontram-se na interface 
+do módulo lista. 
 
 -----------------------
 ESTRUTURA DE DIRETÓRIOS
