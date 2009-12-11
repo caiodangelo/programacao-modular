@@ -1,11 +1,17 @@
-REM executa os testes relativos aos módulos vértice, grafo, gerenciador e reconhecedor
+REM executa os testes relativos aos módulos lista, vértice, grafo, gerenciador e reconhecedor
 
 if exist ..\scripts\estatisticas.estat  del ..\scripts\estatisticas.estat
 
 
 ..\produto\testelista		/s..\scripts\testelista		/l..\produto\testelista	/a..\scripts\estatisticas
 
-..\produto\testelista		/s..\scripts\testelistadeturpada	/l..\produto\testelistadeturpada	/a..\scripts\estatisticas
+..\produto\testelista	/s..\scripts\testelistadeturpada	/l..\produto\testelistadeturpada	/a..\scripts\estatisticas
+
+..\produto\testelista		/s..\scripts\testelistadeturpada1	/l..\produto\testelistadeturpada1	/a..\scripts\estatisticas
+
+..\produto\testelista	/s..\scripts\testelistadeturpada2	/l..\produto\testelistadeturpada2	/a..\scripts\estatisticas
+
+..\produto\testelista	/s..\scripts\testelistadeturpada3	/l..\produto\testelistadeturpada3	/a..\scripts\estatisticas
 
 REM..\produto\testevertice		/s..\scripts\testevertice	/l..\produto\testevertice	/a..\scripts\estatisticas	
 
