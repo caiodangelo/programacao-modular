@@ -605,6 +605,8 @@
    
    if( modoDeturp == DeturpaElimElemCorr ){
 	   /* Elimina o elemento corrente da lista */
+	   (((pLista->pElemCorr)->pAnt)->pProx) = ((pLista->pElemCorr)->pProx);
+	   (((pLista->pElemCorr)->pProx)->pAnt) = ((pLista->pElemCorr)->pAnt);
 	   free(pLista->pElemCorr);
 
 	   }
@@ -770,7 +772,7 @@
 *  Função: ARV  &Verificar uma Lista
 *  ****/
 
-   LIS_tpCondRet LIS_VerificarLista( void * pListaParm )
+   int LIS_VerificarLista( void * pListaParm )
    {
 
       LIS_tppLista pLista = NULL ;

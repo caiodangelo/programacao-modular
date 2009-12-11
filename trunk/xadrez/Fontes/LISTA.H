@@ -402,6 +402,8 @@ typedef struct LIS_tagLista * LIS_tppLista ;
 *  $FC Função: LIS  &Deturpar Lista
 *
 *  $ED Descrição da função
+*		Insere deturpações na lista de acordo com o parâmetro passado.
+*		As opções estão enumeradas no enum LIS_tpModosDeturpacao
 *
 *
 *  $EP Parâmetros
@@ -426,26 +428,32 @@ typedef struct LIS_tagLista * LIS_tppLista ;
 *  $FC Função: LIS  &Verificar Lista
 *
 *  $ED Descrição da função
+*	Verifica a integridade da lista passada como parâmetro
 *
 *
 *  $EP Parâmetros
+*	pListaParm - ponteiro para a lista a ser verificada
 *
 *  $FV Valor retornado
+*	A função retorna o número de falhas encontradas
 *
 ***********************************************************************/  
 
-   LIS_tpCondRet LIS_VerificarLista( void * pListaParm ) ;
+   int LIS_VerificarLista( void * pListaParm ) ;
 
 /***********************************************************************
 *
 *  $FC Função: LIS  &Verificar Cabeça
 *
 *  $ED Descrição da função
+*	Verifica a integridade da cabeça da lista passada como parâmetro
 *
 *
 *  $EP Parâmetros
+*	pCabecaParm - ponteiro para a lista a ser verificada
 *
 *  $FV Valor retornado
+*	A função retorna o número de falhas encontradas
 *
 ***********************************************************************/
 
@@ -456,15 +464,19 @@ typedef struct LIS_tagLista * LIS_tppLista ;
 *  $FC Função: LIS  &Verificar Elemento
 *
 *  $ED Descrição da função
+*	Verifica a integridade do elemento corrente da lista passada como 
+*	parâmetro
 *
 *
 *  $EP Parâmetros
+*	pElemParm - - ponteiro para a lista a ser verificada
 *
 *  $FV Valor retornado
+*	A função retorna o número de falhas encontradas
 *
 ***********************************************************************/
 
-   LIS_tpCondRet LIS_VerificarElemento( void * pElemParm ) ;
+   int LIS_VerificarElemento( void * pElemParm ) ;
 
 #undef LISTA_EXT
 
