@@ -594,8 +594,9 @@
 									int numElem							)
    {
 
-   tpElemLista lixo;
+   tpElemLista lixo, *temp;
    int outroTipo;
+   temp = pLista->pElemCorr;
 
    if( numElem < 0 ){
 			numElem = 0;
@@ -623,7 +624,7 @@
 
 	   }
    else if( modoDeturp == DeturpaLixoPtAnterior ){
-	   /* Atribui lixo ao ponteiro o nó anterior */
+	   /* Atribui lixo ao ponteiro do nó anterior */
 	   ((pLista->pElemCorr)->pAnt) = &lixo;
 
 	   }
@@ -634,7 +635,7 @@
 	   }
    else if( modoDeturp == DeturpaTipoPtEstrutura ){
 	   /* Altera o tipo de estrutura apontado no nó */
-	   (pLista->pElemCorr) = &outroTipo;
+	   (pLista->pElemCorr) = (tpElemLista *) &outroTipo;
 
 	   }
    else if( modoDeturp == DeturpaDesencadeia ){
@@ -644,6 +645,7 @@
 	   (((pLista->pElemCorr)->pProx)->pAnt) = ((pLista->pElemCorr)->pAnt);
 	   ((pLista->pElemCorr)->pProx) = NULL;
 	   ((pLista->pElemCorr)->pAnt) = NULL;
+	   (pLista->pElemCorr) = temp;
 
 	   }
    else if( modoDeturp == DeturpaNuloPtCorrente ){
@@ -660,10 +662,12 @@
 
 	   }
    else if( modoDeturp == DeturpaOrigem ){
+	   /* Altera a origem da lista na cabeça */
 	   (pLista->pOrigemLista) = (pLista->pElemCorr);
 
 	   }
    else if( modoDeturp == DeturpaFim ){
+	   /* Altera o fim da lista na cabeça */
 	   (pLista->pFimLista) = (pLista->pElemCorr);
 
 	   }
