@@ -1,13 +1,11 @@
-Data		Horas	Tipo de Tarefa				Descrição da Tarefa
-08/11/2009	06:00	Especificar e Codificar Módulos		Especificação do módulo Movimentador e Codificação de novas funções
-11/11/2009	03:00	Codificar Módulo, Redigir Script 
-de Teste, Realizar os Testes, Diagnosticar e Corrigir 
-Problemas Encontrados						Módulos Movimentador, Grafo e Vértice
-13/11/2009	03:00	Codificar Módulo, Redigir Script 
-de Teste, Realizar os Testes, Diagnosticar e Corrigir 
-Problemas Encontrados						Módulos Movimentador, Grafo e Vértice
-15/11/2009	08:00	Codificar Módulo, Redigir Script
-de Teste, Realizar os Testes, Diagnosticar e Corrigir
-Problemas Encontrados						Módulos Movimentador e Partida
-18/11/2009	01:00	 Diagnosticar e Corrigir Problemas 
-Encontrados							Módulos Movimentador e Partida
+Data		Horas	Tipo de Tarefa			Descrição da Tarefa
+08/12/2009	01:00	Estudar				Estudar especificações do projeto
+08/12/2009	02:00	Codificar Módulo		Inclusão de função de deturpação no módulo lista
+08/12/2009	01:00	Redigir Scripts de Teste	Criação de script de teste do módulo lista com deturpações
+08/12/2009	01:00	Realizar Testes			Teste da função de deturpação
+08/12/2009	01:00	Codificar Módulo		Inclusão de novas deturpações na função de deturpação
+08/12/2009	01:00	Redigir Scripts de Teste	Criação de script de teste do módulo lista com deturpações
+08/12/2009	01:00	Realizar Testes			Teste da função de deturpação			
+10/12/2009	01:00	Revisar Documentação		Revisar documentação do módulo lista
+10/12/2009	00:30	Redigir scripts de teste	Adequação do script de teste de cobertura para incluir deturpações
+10/12/2009	00:30	Realizar Testes			Realização dos testes completos
