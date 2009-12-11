@@ -1,8 +1,11 @@
-Data		Horas	Tipo de Tarefa				Descrição da Tarefa
-08/11/2009	06:00	Especificar e Codificar Módulos		Especificação do módulo Movimentador e Codificação de novas funções
-11/11/2009	03:00	Codificar Módulo, Redigir Script 
-de Teste, Realizar os Testes, Diagnosticar e Corrigir 
-Problemas Encontrados						Módulos Movimentador, Grafo e Vértice
-15/11/2009	08:00	Codificar Módulo, Redigir Script
-de Teste, Realizar os Testes, Diagnosticar e Corrigir
-Problemas Encontrados						Módulos Movimentador e Partida
+Data	Horas	Tipo de Tarefa	Descrição da Tarefa
+28/11/2009	00:30	Estudar	Estudar a especificação do trabalho
+28/11/2009	01:00	Estudar	Estudar módulos CESPEDIN e CONTA
+08/12/2009	01:30	Codificar Módulo	Cobertura de Arestas usando módulo CONTA
+08/12/2009	00:30	Revisar código	Análise estática do módulo LISTA instrumentado
+08/12/2009	01:00	Codificar Módulo	Alteração pequena no módulo de teste TESTLIS
+08/12/2009	02:00	Redigir scripts	Alteração e redação do scripts TesteLista?
+08/12/2009	01:00	Revisar scripts de teste	Correção de alguns problemas encontrados
+08/12/2009	02:00	Estudar	Entender VERIFICADOR e DETURPADOR feito pelos colegas
+10/12/2009	01:00	Diagnosticar e corrigir	Cobertura arestas ficou completa
+10/12/2009	01:00	Documentar	Revisar documentação e relatório
