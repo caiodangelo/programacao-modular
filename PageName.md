@@ -1,0 +1,14 @@
+# Dúvidas #
+
+  * Modulo LISTA: permanece genérica armazenando ponteiro pra void ou específica armazenando vertices?
+  * InserirVertice: recebe o vertice pronto ou o valor para criar o vertice? R: vertice pronto
+  * Como lidar com origens?
+
+
+# Conclusões #
+
+  * GRA\_ExcluirVertice : remove o vertice corrente do grafo recebido. Colocar isso na documentação.
+  * Atribuições das tarefas:
+  * Eduardo -> implementar TESTVER
+  * Caio -> implementar GRAFO
+  * Vitor -> implementar VERTICE

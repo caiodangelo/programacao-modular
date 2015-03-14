@@ -1,0 +1,59 @@
+Possíveis tarefas:
+  * estudar
+  * especificar os módulos
+  * especificar as funções
+  * revisar especificações
+  * projetar
+  * revisar projetos
+  * codificar módulo
+  * revisar código do módulo
+  * redigir script de teste
+  * revisar script de teste
+  * realizar os testes
+  * diagnosticar e corrigir os problemas encontrados
+
+
+
+|27/08/2009|01:00|Codificar Módulo|Exibir Árvore|
+|:---------|:----|:----------------|:-------------|
+|31/08/2009|01:00|Revisar Módulo|Reunião onde revisamos a codificação de todos| |
+|31/08/2009|01:00|Codificar Módulo|Reunião onde prosseguimos a codificação das alterações necessárias|
+|06/09/2009|01:00|Estudar|Aprender a usar o repositório criado pelo Eduardo|
+|12/09/2009|01:00|Revisar código|Revisão da função Criar Arvore |
+|12/09/2009|01:00|Revisar código|Revisão do módulo de teste específico|
+|12/09/2009|02:00|Redigir scripts|Alteração e redação de scripts de teste|
+|12/09/2009|01:00|Realizar testes|Realização dos testes elaborados|
+|12/09/2009|02:00|Diagnosticar e corrigir|Correção dos problemas encontrados|
+
+
+
+# Trabalho 02 #
+
+| **Data** | **Horas** | **Tipo de Tarefa** | **Descrição da Tarefa** |
+|:---------|:----------|:-------------------|:--------------------------|
+|18/09/2009|01:00|Estudar|Reunião com o grupo todo para estudar o projeto|
+|18/09/2009|01:00|Especificar Módulos|Reunião com o grupo todo para especificação e separação das tarefas |
+|22/09/2009|01:00|Codificar módulo|Codificação do Módulo Vértice|
+|23/09/2009|02:00|Codificar módulo|Codificação do Módulo Vértice|
+|12/10/2009|12:00|Revisar Especificações, Codificar Módulo, Redigir Script de Teste, Realizar os Testes, Diagnosticar e Corrigir Problemas Encontrados|Módulo Grafo e seu módulo de teste específico|
+|15/10/2009|06:00|Codificar Módulo, Redigir Script de Teste, Realizar os Testes, Diagnosticar e Corrigir Problemas Encontrados|Módulo Vértice, Módulo Grafo e seus módulos de teste específicos|
+|16/10/2009|04:00|Codificar Módulo, Redigir Script de Teste, Realizar os Testes, Diagnosticar e Corrigir Problemas Encontrados|Módulo Grafo e seu módulo de teste específico|
+|18/10/2009|05:00|Redigir Script de Teste, Realizar os Testes, Diagnosticar e Corrigir Problemas Encontrados|Módulo Vértice e Grafo|
+|19/10/2009|01:00|Diagnosticar e Corrigir Erros|Módulo Grafo|
+|19/10/2009|01:00|Documentar|Revisar documentação e relatório|
+
+
+# Trabalho 04 #
+
+| **Data** | **Horas** | **Tipo de Tarefa** | **Descrição da Tarefa** |
+|:---------|:----------|:-------------------|:--------------------------|
+|28/11/2009|00:30|Estudar |Estudar a especificação do trabalho|
+|28/11/2009|01:00|Estudar |Estudar módulos CESPEDIN e CONTA|
+|08/12/2009|01:30|Codificar Módulo|Cobertura de Arestas usando módulo CONTA|
+|08/12/2009|00:30|Revisar código|Análise estática do módulo LISTA instrumentado| |
+|08/12/2009|01:00|Codificar Módulo|Alteração pequena no módulo de teste TESTLIS|
+|08/12/2009|02:00|Redigir scripts|Alteração e redação do scripts TesteLista|
+|08/12/2009|01:00|Revisar scripts de teste|Correção de alguns problemas encontrados|
+|08/12/2009|02:00|Estudar|Entender VERIFICADOR e DETURPADOR feito pelos colegas| |
+|10/12/2009|01:00|Diagnosticar e corrigir|Cobertura arestas ficou completa|
+|10/12/2009|01:00|Documentar|Revisar documentação e relatório|

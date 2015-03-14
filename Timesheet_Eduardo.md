@@ -1,0 +1,48 @@
+Possíveis tarefas:
+  * estudar
+  * especificar os módulos
+  * especificar as funções
+  * revisar especificações
+  * projetar
+  * revisar projetos
+  * codificar módulo
+  * revisar código do módulo
+  * redigir script de teste
+  * revisar script de teste
+  * realizar os testes
+  * diagnosticar e corrigir os problemas encontrados
+
+# Trabalho 01 #
+
+| **Data** | **Horas** | **Tipo de Tarefa** | **Descrição da Tarefa** |
+|:---------|:----------|:-------------------|:--------------------------|
+|24/08/2009|01:00|Estudar|Analisar a especificação do trabalho e gerar um relatório de possíveis soluções|
+|26/08/2009|02:00|Especificar Módulo|Reunião com o grupo todo para separação das tarefas|
+|28/08/2009|02:00|Codificar Módulo|Várias árvores e marcar visitado|
+|31/08/2009|02:00|Revisar Módulo|Revisão de codificação do fim de semana|
+|03/09/2009|02:00|Estudar|Criação da página do projeto|
+|12/09/2009|02:00|Revisar código|Revisão do módulo de teste específico|
+|12/09/2009|02:00|Redigir scripts|Alteração e redação de scripts de teste|
+
+
+# Trabalho 02 #
+
+| **Data** | **Horas** | **Tipo de Tarefa** | **Descrição da Tarefa** |
+|:---------|:----------|:-------------------|:--------------------------|
+|18/09/2009|01:00|Especificar os módulos|Analisamos a especificação do trabalho, dividimos tarefas e definimos as interfaces iniciais dos módulos|
+|23/09/2009|03:00|Codificar os módulos|Inicio da codificação do módulo gerenciador|
+|23/09/2009|02:00|Codificar os módulos|Inicio da codificação do módulo reconhecedor|
+|12/10/2009|12:00|Revisar Especificações, Codificar Módulo, Redigir Script de Teste, Realizar os Testes, Diagnosticar e Corrigir Problemas Encontrados|Módulos Vértice, Grafo e seus módulos de teste específicos|
+|13/10/2009|02:00|Revisar Código do Módulo|Tentar corrigir os problemas no teste do módulo de teste de vértices|
+|15/10/2009|12:00|Revisar Especificações, Codificar Módulo, Redigir Script de Teste, Realizar os Testes, Diagnosticar e Corrigir Problemas Encontrados|Módulos Gerenciador,  Reconhecedor e seus módulos de teste específicos|
+|16/10/2009|10:00|Redigir Script de Teste, Realizar os Testes, Diagnosticar e Corrigir Problemas Encontrados|Módulos Gerenciador,  Reconhecedor e seus módulos de teste específicos|
+|18/10/2009|05:00|Redigir Script de Teste, Realizar os Testes, Diagnosticar e Corrigir Problemas Encontrados|Módulos Gerenciador,  Reconhecedor e seus módulos de teste específicos|
+|19/10/2009|04:00|Documentar|Revisar documentação e redigir relatório|
+
+
+# Trabalho 03 #
+
+| **Data** | **Horas** | **Tipo de Tarefa** | **Descrição da Tarefa** |
+|:---------|:----------|:-------------------|:--------------------------|
+|08/11/2009|06:00|Especificar Módulos, Especificar Funções, Codificar Módulos, Redigir Scripts de Teste, Realizar os Testes|Novas funções dos módulos movimentador e gerenciador |
+|11/11/2009|03:00|Especificar Módulos, Especificar Funções, Codificar Módulos, Redigir Scripts de Teste, Realizar os Testes|Novas funções dos módulos movimentador e gerenciador |

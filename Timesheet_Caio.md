@@ -1,0 +1,52 @@
+Possíveis tarefas:
+  * estudar
+  * especificar os módulos
+  * especificar as funções
+  * revisar especificações
+  * projetar
+  * revisar projetos
+  * codificar módulo
+  * revisar código do módulo
+  * redigir script de teste
+  * revisar script de teste
+  * realizar os testes
+  * diagnosticar e corrigir os problemas encontrados
+
+## Trabalho 1 ##
+
+| **Data** | **Horas** | **Tipo de Tarefa** | **Descrição da Tarefa** |
+|:---------|:----------|:-------------------|:--------------------------|
+|26/08/2009|02:00|Especificar Módulo|Reunião com o grupo todo para separação das tarefas|
+|29/08/2009|01:00|Projetar|Extensão para várias árvores|
+|30/08/2009|02:00|Revisar Projetos|Extensão para várias árvores|
+|31/08/2009|02:00|Codificar Módulo|Reunião onde prosseguimos a codificação das alterações necessárias|
+|03/09/2009|02:00|Revisar Código do Módulo|Detecção e correção de erros no código|
+|04/09/2009|03:00|Revisar Código do Módulo|Detecção e correção de erros no código e início dos testes|
+|08/09/2009|02:00|Revisar Código do Módulo|Detecção e correção de erros no código e início dos testes|
+|12/09/2009|02:00|Revisar código|Revisão do módulo de teste específico|
+|12/09/2009|02:00|Redigir scripts|Alteração e redação de scripts de teste|
+|12/09/2009|02:00|Realizar testes|Realização dos testes elaborados|
+
+## Trabalho 2 ##
+
+| **Data** | **Horas** | **Tipo de Tarefa** | **Descrição da Tarefa** |
+|:---------|:----------|:-------------------|:--------------------------|
+|18/09/2009|01:00|Estudar|Reunião com o grupo todo para estudar o projeto|
+|18/09/2009|01:00|Especificar Módulos|Reunião com o grupo todo para especificação e separação das tarefas |
+|20/09/2009|01:00|Codificar módulo|Início da codificação do Módulo Grafo|
+|22/09/2009|01:00|Codificar módulo|Codificação do Módulo grafo|
+|23/09/2009|02:00|Codificar módulo|Codificação do Módulo grafo|
+|12/10/2009|12:00|Revisar Especificações, Codificar Módulo, Redigir Script de Teste, Realizar os Testes, Diagnosticar e Corrigir Problemas Encontrados|Módulo Vértice e seu módulo de teste específico|
+|15/10/2009|11:00|Codificar Módulo, Redigir Script de Teste, Realizar os Testes, Diagnosticar e Corrigir Problemas Encontrados|Módulo Vértice, Módulo Grafo e seus módulos de teste específicos|
+|16/10/2009|10:00|Codificar Módulo, Redigir Script de Teste, Realizar os Testes, Diagnosticar e Corrigir Problemas Encontrados|Módulo Grafo e seu módulo de teste específico|
+|18/10/2009|05:00|Redigir Script de Teste, Realizar os Testes, Diagnosticar e Corrigir Problemas Encontrados|Módulo Gerenciador e Módulo Reconhecedor|
+
+## Trabalho 3 ##
+
+| **Data** | **Horas** | **Tipo de Tarefa** | **Descrição da Tarefa** |
+|:---------|:----------|:-------------------|:--------------------------|
+|08/11/2009|06:00|Especificar e Codificar Módulos|Especificação do módulo Movimentador e Codificação de novas funções|
+|11/11/2009|03:00|Codificar Módulo, Redigir Script de Teste, Realizar os Testes, Diagnosticar e Corrigir Problemas Encontrados|Módulos Movimentador, Grafo e Vértice |
+|13/11/2009|03:00|Codificar Módulo, Redigir Script de Teste, Realizar os Testes, Diagnosticar e Corrigir Problemas Encontrados|Módulos Movimentador, Grafo e Vértice |
+|15/11/2009|08:00|Codificar Módulo, Redigir Script de Teste, Realizar os Testes, Diagnosticar e Corrigir Problemas Encontrados|Módulos Movimentador e Partida |
+|18/11/2009|01:00| Diagnosticar e Corrigir Problemas Encontrados|Módulos Movimentador e Partida |

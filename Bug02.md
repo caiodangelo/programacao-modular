@@ -1,0 +1,23 @@
+# Descrição do Problema #
+
+Ao tentar compilar o código:
+```
+tppPeca matpPeca[N_LINHAS][N_COLUNAS];
+```
+o copilador exibia o seguinte erro:
+```
+.\Gerenciador.c(60) : error C2143: syntax error : missing ']' before ';'
+.\Gerenciador.c(60) : error C2143: syntax error : missing ';' before ']'
+.\Gerenciador.c(60) : error C2143: syntax error : missing ';' before ']'
+```
+
+# Motivo do Problema #
+
+O motivo do problema foi que após a declaração de cada constante, havia um ponto e virgula.
+```
+#define N_LINHAS 8;
+#define N_COLUNAS 8;
+```
+# Possível Solução #
+
+Retirar os ponto e virgulas.
